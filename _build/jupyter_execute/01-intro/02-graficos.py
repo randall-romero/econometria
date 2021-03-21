@@ -17,10 +17,6 @@ pd.options.plotting.backend = "plotly"
 
 Antes de modelar una serie de tiempo, es útil representarla con un gráfico para detectar algunas de sus propiedades.
 
-```{margin} Otras implementaciones
-![](../figures/R-logo.jpeg)Las operaciones acá descritas las podemos hacer también con {ref}`<Rcode-transform>`
-```
-
 En este caso: el PIB
 - muestra una tendencia positiva
 - tiene variaciones estacionarias
