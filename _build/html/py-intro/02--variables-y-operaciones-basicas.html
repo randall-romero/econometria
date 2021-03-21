@@ -1,0 +1,1600 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variables y operaciones básicas &#8212; Apuntes de Macroeconometría</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mi-estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Colecciones" href="03--colecciones.html" />
+    <link rel="prev" title="Introducción a Python" href="01--para-que-aprender-python.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Apuntes de Macroeconometría</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-acerca.html">
+   Acerca de este libro
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Acerca de este libro
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-interactuando.html">
+   Cómo interactuar con este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-contenido.html">
+   Tipo de contenido
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modelos de series de tiempo univariadas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01-intro/chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/01-historia.html">
+     1.1. Una breve historia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/02-graficos.html">
+     1.2. Representación gráfica de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/03-rezagos.html">
+     1.3. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/04-procesos-estocasticos.html">
+     1.4. Procesos estocásticos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/05-series-tiempo.html">
+     1.5. Series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/06-pruebas.html">
+     1.6. Pruebas de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/07-refs.html">
+     1.7. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02-eqdiff/chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/01-intro.html">
+     2.1. Acerca de este capítulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/02-sustitucion.html">
+     2.2. Solución por sustituciones recursivas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/03-combinacion.html">
+     2.3. Solución por combinación de soluciones homogéneas y particulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/04-operador.html">
+     2.4. Solución por medio del operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/05-refs.html">
+     2.5. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03-arma/chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/01-intro.html">
+     Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/02-MA.html">
+     Proceso de media móvil MA(q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/03-AR.html">
+     Proceso autorregresivo AR(p)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/04-ARMA.html">
+     Proceso autorregresivo de media móvil ARMA(p,q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/05-estimacion.html">
+     Estimación de modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/06-pronosticos.html">
+     Pronósticos con modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/07-refs.html">
+     Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04-arima/chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/01-modelos-tendencia.html">
+     Modelos de series con tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/02-removiendo.html">
+     Removiendo una tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/03-raices-unitarias.html">
+     Series con raíz unitaria y procesos ARIMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/04-pruebas.html">
+     Detectando raíces unitarias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/05-hp.html">
+     El filtro de Hodrick y Prescott
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05-cambioestructural/chapter05.html">
+   5. Cambio estructural
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/01-chow.html">
+     5.1. La prueba de Chow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/02-conocido.html">
+     5.2. Cambio estructural y raíces unitarias: fecha conocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/03-desconocido.html">
+     5.3. Cambio estructural y raíces unitarias: fecha desconocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/04-refs.html">
+     5.4. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Apéndices
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="py-chapter.html">
+   Python
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01--para-que-aprender-python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Variables y operaciones básicas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03--colecciones.html">
+     Colecciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04--control-ejecucion.html">
+     Control de ejecución
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05--funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06--modulos.html">
+     Módulos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="07--clases.html">
+     Clases y objetos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../labs/labs-chapter.html">
+   Laboratorios
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/ADF-simulaciones.html">
+     La prueba de Dickey-Fuller
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../r-code/chapter-r.html">
+   Código en R
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r-code/R-transform.html">
+     Transformaciones con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r-code/R-lags.html">
+     Rezagos con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r-code/R-correlogram.html">
+     Correlogramas con R
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../matematica/matematica.html">
+   Matemática
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matematica/01-algebra-lineal.html">
+     Álgebra lineal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matematica/02-numeros-complejos.html">
+     Números complejos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../estadistica/01-estadistica.html">
+   Estadística
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/py-intro/02--variables-y-operaciones-basicas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/py-intro/02--variables-y-operaciones-basicas.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/py-intro/02--variables-y-operaciones-basicas.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utilizando-variables">
+   Utilizando variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-datos-basicos">
+   Tipos de datos básicos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-colecciones">
+   Tipos de colecciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definiendo-multiples-variables">
+   Definiendo múltiples variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cambiando-tipos-de-datos-casting">
+   Cambiando tipos de datos:
+   <em>
+    casting
+   </em>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#int-x-convierte-x-a-un-numero-entero">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       int(x)
+      </span>
+     </code>
+     Convierte
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       x
+      </span>
+     </code>
+     a un número entero
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#float-x-convierte-x-a-un-numero-de-punto-flotante">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       float(x)
+      </span>
+     </code>
+     Convierte
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       x
+      </span>
+     </code>
+     a un número de punto flotante
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#str-x-convierte-x-a-una-representacion-de-texto">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       str(x)
+      </span>
+     </code>
+     Convierte
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       x
+      </span>
+     </code>
+     a una representación de texto
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-aritmeticos">
+   Operaciones aritméticos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#suma">
+     Suma:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resta">
+     Resta:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicacion">
+     Multiplicación:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       *
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#division">
+     División:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulo">
+     Módulo:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#division-entera">
+     División entera:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       //
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponente">
+     Exponente:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       **
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asignando-valores-por-medio-de-operadores">
+   Asignando valores por medio de operadores
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-b-qquad-rightarrow-qquad-a-b">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       =
+      </span>
+     </code>
+     b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = b
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-b-qquad-rightarrow-qquad-a-a-b">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +=
+      </span>
+     </code>
+     b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = a + b
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -=
+      </span>
+     </code>
+     b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = a - b
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       *=
+      </span>
+     </code>
+     b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = a * b
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /=
+      </span>
+     </code>
+     b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = a / b
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %=
+      </span>
+     </code>
+     b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = a % b
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       //=
+      </span>
+     </code>
+     b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = a // b
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       **
+      </span>
+     </code>
+     = b
+     <span class="math notranslate nohighlight">
+      \(\qquad\Rightarrow\qquad\)
+     </span>
+     a = a ** b
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparando-valores">
+   Comparando valores
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#igualdad">
+     Igualdad
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ==
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#desigualdad">
+     Desigualdad
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       !=
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mayor-que">
+     Mayor que
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       &gt;
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menor-que">
+     Menor que
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       &lt;
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mayor-o-igual-que">
+     Mayor o igual que
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       &gt;=
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#menor-o-igual-que">
+     Menor o igual que
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       &lt;=
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-logicas">
+   Operaciones lógicas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and-logico-and">
+     AND lógico:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       and
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#or-logico-or">
+     OR lógico:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       or
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-logico-not">
+     NOT lógico
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       not
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="variables-y-operaciones-basicas">
+<h1>Variables y operaciones básicas<a class="headerlink" href="#variables-y-operaciones-basicas" title="Permalink to this headline">¶</a></h1>
+<p>En este cuaderno hacemos una pequeña introducción al lenguage de programación Python.</p>
+<div class="section" id="utilizando-variables">
+<h2>Utilizando variables<a class="headerlink" href="#utilizando-variables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Una variable es un contenedor en el cual un dato puede almacenarse en la memoria de la computadora.</p></li>
+<li><p>El valor almacenado puede luego ser referido usando el nombre de la variable.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mosqueteros</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">nombres</span> <span class="o">=</span> <span class="s2">&quot;Fulano y Mengano&quot;</span>
+<span class="n">hoyLlueve</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mosqueteros</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">nombres</span><span class="p">,</span> <span class="n">hoyLlueve</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+3.14
+Fulano y Mengano
+True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-de-datos-basicos">
+<h2>Tipos de datos básicos<a class="headerlink" href="#tipos-de-datos-basicos" title="Permalink to this headline">¶</a></h2>
+<p>Hay cuatro tipos básicos de datos</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span></code> enteros</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> punto flotantes (números decimales)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code> boolean (True o False)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code> texto</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">mosqueteros</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">nombres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">hoyLlueve</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cuidado con float:
+Los floats en general representan <strong>aproximaciones</strong> de los números reales. No siempre son los números exactos porque hay errores de redondeo al almacenar un número en binario con un tamaño finito.</p>
+</div>
+<p>Por ejemplo,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mf">1e-18</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1e-18</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1e-18
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A 24 decimales, z = 0.1 queda almacenado como </span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s2">.24f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A 24 decimales, z = 0.1 queda almacenado como 0.100000000000000005551115
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-de-colecciones">
+<h2>Tipos de colecciones<a class="headerlink" href="#tipos-de-colecciones" title="Permalink to this headline">¶</a></h2>
+<p>Los tipos de colecciones más utilizados son</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> una lista ordenada y mutable de valores</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tuple</span></code> una lista ordenada e inmutable de valores</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code> una lista mutable pero no ordenada de valores</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dict</span></code> un diccionario no ordenado</p></li>
+</ul>
+<p>Aquí vemos cómo se crean, <a class="reference internal" href="03--colecciones.html#py-sec-colecciones"><span class="std std-ref">más adelante</span></a> estudiaremos su utilidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;azul&#39;</span><span class="p">,</span> <span class="s1">&#39;rojo&#39;</span><span class="p">,</span> <span class="s1">&#39;verde&#39;</span><span class="p">]</span>   <span class="c1"># list</span>
+<span class="n">primos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>  <span class="c1"># tuple</span>
+<span class="n">inflacion</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CRI&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;SLV&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span> <span class="s1">&#39;GTM&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span>
+             <span class="s1">&#39;HND&#39;</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="s1">&#39;NIC&#39;</span><span class="p">:</span> <span class="mf">5.2</span><span class="p">,</span> <span class="s1">&#39;DOM&#39;</span><span class="p">:</span> <span class="mf">4.5</span><span class="p">}</span>  <span class="c1"># dict</span>
+<span class="n">cuadrados</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">}</span>  <span class="c1"># set</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="definiendo-multiples-variables">
+<h2>Definiendo múltiples variables<a class="headerlink" href="#definiendo-multiples-variables" title="Permalink to this headline">¶</a></h2>
+<p>En Python es posible definir varias variables en una sola instrucción:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cambiando-tipos-de-datos-casting">
+<h2>Cambiando tipos de datos: <em>casting</em><a class="headerlink" href="#cambiando-tipos-de-datos-casting" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;8&#39;</span> <span class="o">+</span> <span class="s1">&#39;4&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;84&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;8&#39;</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;8888&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="int-x-convierte-x-a-un-numero-entero">
+<h3><code class="docutils literal notranslate"><span class="pre">int(x)</span></code> Convierte <code class="docutils literal notranslate"><span class="pre">x</span></code> a un número entero<a class="headerlink" href="#int-x-convierte-x-a-un-numero-entero" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="float-x-convierte-x-a-un-numero-de-punto-flotante">
+<h3><code class="docutils literal notranslate"><span class="pre">float(x)</span></code> Convierte <code class="docutils literal notranslate"><span class="pre">x</span></code> a un número de punto flotante<a class="headerlink" href="#float-x-convierte-x-a-un-numero-de-punto-flotante" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="str-x-convierte-x-a-una-representacion-de-texto">
+<h3><code class="docutils literal notranslate"><span class="pre">str(x)</span></code> Convierte <code class="docutils literal notranslate"><span class="pre">x</span></code> a una representación de texto<a class="headerlink" href="#str-x-convierte-x-a-una-representacion-de-texto" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;84&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operaciones-aritmeticos">
+<h2>Operaciones aritméticos<a class="headerlink" href="#operaciones-aritmeticos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="suma">
+<h3>Suma:  <code class="docutils literal notranslate"><span class="pre">+</span></code><a class="headerlink" href="#suma" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="resta">
+<h3>Resta:  <code class="docutils literal notranslate"><span class="pre">-</span></code><a class="headerlink" href="#resta" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">-</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiplicacion">
+<h3>Multiplicación:  <code class="docutils literal notranslate"><span class="pre">*</span></code><a class="headerlink" href="#multiplicacion" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="division">
+<h3>División:   <code class="docutils literal notranslate"><span class="pre">/</span></code><a class="headerlink" href="#division" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="o">/</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modulo">
+<h3>Módulo:  <code class="docutils literal notranslate"><span class="pre">%</span></code><a class="headerlink" href="#modulo" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="division-entera">
+<h3>División entera:  <code class="docutils literal notranslate"><span class="pre">//</span></code><a class="headerlink" href="#division-entera" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">//</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exponente">
+<h3>Exponente:  <code class="docutils literal notranslate"><span class="pre">**</span></code><a class="headerlink" href="#exponente" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="asignando-valores-por-medio-de-operadores">
+<h2>Asignando valores por medio de operadores<a class="headerlink" href="#asignando-valores-por-medio-de-operadores" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-b-qquad-rightarrow-qquad-a-b">
+<h3>a <code class="docutils literal notranslate"><span class="pre">=</span></code> b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = b<a class="headerlink" href="#a-b-qquad-rightarrow-qquad-a-b" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-b-qquad-rightarrow-qquad-a-a-b">
+<h3>a <code class="docutils literal notranslate"><span class="pre">+=</span></code> b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = a + b<a class="headerlink" href="#a-b-qquad-rightarrow-qquad-a-a-b" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>a <code class="docutils literal notranslate"><span class="pre">-=</span></code> b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = a - b<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">-=</span> <span class="mi">2</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>a <code class="docutils literal notranslate"><span class="pre">*=</span></code> b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = a * b<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">*=</span> <span class="mi">3</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>a <code class="docutils literal notranslate"><span class="pre">/=</span></code> b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = a / b<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">/=</span> <span class="mf">0.25</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>a <code class="docutils literal notranslate"><span class="pre">%=</span></code> b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = a % b<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">%=</span>  <span class="mi">5</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>a <code class="docutils literal notranslate"><span class="pre">//=</span></code> b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = a // b<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">//=</span> <span class="mf">1.25</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>a <code class="docutils literal notranslate"><span class="pre">**</span></code>= b    <span class="math notranslate nohighlight">\(\qquad\Rightarrow\qquad\)</span> a = a ** b<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">**=</span> <span class="mi">2</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comparando-valores">
+<h2>Comparando valores<a class="headerlink" href="#comparando-valores" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="igualdad">
+<h3>Igualdad    <code class="docutils literal notranslate"><span class="pre">==</span></code><a class="headerlink" href="#igualdad" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">==</span> <span class="mf">5.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="desigualdad">
+<h3>Desigualdad  <code class="docutils literal notranslate"><span class="pre">!=</span></code><a class="headerlink" href="#desigualdad" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">!=</span> <span class="mf">4.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mayor-que">
+<h3>Mayor que <code class="docutils literal notranslate"><span class="pre">&gt;</span> </code><a class="headerlink" href="#mayor-que" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="menor-que">
+<h3>Menor que <code class="docutils literal notranslate"><span class="pre">&lt;</span></code><a class="headerlink" href="#menor-que" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mayor-o-igual-que">
+<h3>Mayor o igual que <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code><a class="headerlink" href="#mayor-o-igual-que" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">&gt;=</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="menor-o-igual-que">
+<h3>Menor o igual que <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code><a class="headerlink" href="#menor-o-igual-que" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">&lt;=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operaciones-logicas">
+<h2>Operaciones lógicas<a class="headerlink" href="#operaciones-logicas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="and-logico-and">
+<h3>AND lógico:  <code class="docutils literal notranslate"><span class="pre">and</span></code><a class="headerlink" href="#and-logico-and" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="or-logico-or">
+<h3>OR lógico:  <code class="docutils literal notranslate"><span class="pre">or</span></code><a class="headerlink" href="#or-logico-or" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="not-logico-not">
+<h3>NOT lógico   <code class="docutils literal notranslate"><span class="pre">not</span></code><a class="headerlink" href="#not-logico-not" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./py-intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01--para-que-aprender-python.html" title="previous page">Introducción a Python</a>
+    <a class='right-next' id="next-link" href="03--colecciones.html" title="next page">Colecciones</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Randall Romero Aguilar<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

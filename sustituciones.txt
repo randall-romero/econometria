@@ -1,0 +1,44 @@
+Este bloque es necesario en los cuadernos que tengan
+- ejemplos
+- Pruebas
+
+porque si lo agrego en _config.yml altera muchas cosas (ecuaciones, deflists)
+
+---
+substitutions:
+  empieza_ejemplo: |
+    <div class="ejemplo">
+    <div class="ejemplo-titulo"><b>Ejemplo: &nbsp;
+  fin_titulo_ejemplo: "</b></div>"
+  termina_ejemplo: "</div>"
+  empieza_test: |
+    <div class="test">
+    <div class="test-titulo">
+  fin_titulo_test: "</div>"
+  termina_test: "</div>"
+  test_inquietud: |
+    <i class="fas fa-question test-simbolo"></i>
+  test_hipotesis: |
+    <br><hr><i class="fas fa-heading test-simbolo"></i>
+  test_estadistico: |
+    <br><hr><i class="fas fa-calculator test-simbolo"></i>
+  test_interpretacion: |
+    <br><hr><i class="far fa-lightbulb test-simbolo"></i>
+---
+
+
+Para usar ejemplo>>
+
+{{ empieza_ejemplo }} TITULO DEL EJEMPLO {{ fin_titulo_ejemplo }}
+
+{{ termina_ejemplo }}
+
+
+Para usar test>>
+
+{{ empieza_test }} NOMBRE DE LA PRUEBA/TEST {{ fin_titulo_test }}
+{{ test_inquietud }}
+{{ test_hipotesis }}
+{{ test_estadistico }}
+{{ test_interpretacion }}
+{{ termina_test }}
