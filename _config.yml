@@ -8,7 +8,7 @@
 title                       : Apuntes de Macroeconometría  # The title of the book. Will be placed in the left navbar.
 author                      : Randall Romero Aguilar  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : logo.png  # A path to the book logo
+logo                        : figures/r2-logo.png  # A path to the book logo
 
 only_build_toc_files: true
 
