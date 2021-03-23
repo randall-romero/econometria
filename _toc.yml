@@ -16,14 +16,14 @@
       - file: 01-intro/04-procesos-estocasticos
       - file: 01-intro/05-series-tiempo
       - file: 01-intro/06-pruebas
-      - file: 01-intro/07-refs
+      - file: 01-intro/refs
   - file: 02-eqdiff/chapter02
     sections:
       - file: 02-eqdiff/01-intro
       - file: 02-eqdiff/02-sustitucion
       - file: 02-eqdiff/03-combinacion
       - file: 02-eqdiff/04-operador
-      - file: 02-eqdiff/05-refs
+      - file: 02-eqdiff/refs
   - file: 03-arma/chapter03
     sections:
       - file: 03-arma/01-intro
@@ -32,7 +32,7 @@
       - file: 03-arma/04-ARMA
       - file: 03-arma/05-estimacion
       - file: 03-arma/06-pronosticos
-      - file: 03-arma/07-refs
+      - file: 03-arma/refs
   - file: 04-arima/chapter04
     sections:
       - file: 04-arima/01-modelos-tendencia
@@ -40,12 +40,13 @@
       - file: 04-arima/03-raices-unitarias
       - file: 04-arima/04-pruebas
       - file: 04-arima/05-hp
+      - file: 04-arima/refs
   - file: 05-cambioestructural/chapter05
     sections:
       - file: 05-cambioestructural/01-chow
       - file: 05-cambioestructural/02-conocido
       - file: 05-cambioestructural/03-desconocido
-      - file: 05-cambioestructural/04-refs
+      - file: 05-cambioestructural/refs
   - file: 06-estacional/chapter06
     sections:
       - file: 06-estacional/01-intro

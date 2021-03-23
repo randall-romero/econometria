@@ -1,1 +1,1 @@
-# Modelos de estacionlidad
+# Modelos de estacionalidad

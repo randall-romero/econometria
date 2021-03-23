@@ -51,5 +51,5 @@ fig.update_layout(showlegend=False, title_text="Ejemplos de cambio estructural e
 01-chow
 02-conocido
 03-desconocido
-04-refs
+refs
 ```
