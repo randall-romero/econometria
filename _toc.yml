@@ -46,6 +46,13 @@
       - file: 05-cambioestructural/02-conocido
       - file: 05-cambioestructural/03-desconocido
       - file: 05-cambioestructural/04-refs
+  - file: 06-estacional/chapter06
+    sections:
+      - file: 06-estacional/01-intro
+      - file: 06-estacional/02-sarima
+      - file: 06-estacional/03-x13arima
+      - file: 06-estacional/04-raices-unitarias
+      - file: 06-estacional/refs
 - part: Apéndices
   chapters:
   - file: py-intro/py-chapter

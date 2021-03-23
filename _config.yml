@@ -64,11 +64,11 @@ html:
   use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
   use_repository_button     : false  # Whether to add a link to your repository button
   use_issues_button         : false  # Whether to add an "open an issue" button
-  extra_navbar              : <a href="https//randall-romero.com">randall-romero.com</a>  # Will be displayed underneath the left navbar.
+  extra_navbar              : <a href="http//randall-romero.com">randall-romero.com</a>  # Will be displayed underneath the left navbar.
   extra_footer              : ""  # Will be displayed underneath the footer.
   google_analytics_id       : "UA-57200532-1"  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  baseurl                   : "https://randall-romero.github.io/econometria/"  # The base URL where your book will be hosted. Used for creating image previews and social links. 
+  baseurl                   : "https://randall-romero.github.io/econometria/"  # The base URL where your book will be hosted. Used for creating image previews and social links.
   comments:
     hypothesis              : false
     utterances              : false

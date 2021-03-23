@@ -30,27 +30,6 @@ plt.style.use('seaborn-talk')
 
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-
-# clean data as in previous example
-
-meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-         'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre']
-mesescorto = [x[:3] for x in meses]
-meses2 = {mes: i for i, mes in enumerate(meses, start=1)}
-
-# Leer y limpiar datos
-FILENAME = "datos/Datos-ARESEP-Pasajeros-por-aeropuerto.csv"
-SJO = pd.read_csv(FILENAME)
-SJO.query('Aeropuerto =="Aeropuerto Internacional Juan Santamaría"', inplace=True)
-SJO.replace(meses2, None,inplace=True)
-SJO.sort_values(['Año','Mes'], inplace=True)
-SJO.index = pd.period_range(start=f"{SJO['Año'].iloc[0]}-{SJO['Mes'].iloc[0]}", periods=SJO.shape[0], freq='M')
-SJO.drop(['Aeropuerto', 'Mes', 'Año', 'Cantidad En Tránsito', 'Cantidad Exentos','Total Pasajeros'], axis=1,inplace=True)
-SJO.rename(columns={'Cantidad Nacionales':'nacionales', 'Cantidad Extrajeros':'extranjeros'}, inplace=True)
-
-sjodatos = SJO/1000
-sjodatos.index = pd.MultiIndex.from_arrays([sjodatos.index.year, sjodatos.index.month])
-sjodatoscuadro = sjodatos.unstack()
 ```
 
 
@@ -69,6 +48,10 @@ Por ejemplo, si quisiéramos pronosticar el número de pasajeros extranjeros que
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
+# read data from previous example
+
+sjodatos =pd.read_pickle("datos/SJO-pasajeros.pickle")
+sjodatoscuadro = sjodatos.unstack()
 sjodatoscuadro['extranjeros'].round(1)
 ```
 

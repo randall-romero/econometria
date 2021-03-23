@@ -87,6 +87,11 @@ Es especialmente útil para identificar años en que cambian los patrones.
 sjodatos.index = pd.MultiIndex.from_arrays([sjodatos.index.year, sjodatos.index.month])
 sjodatoscuadro = sjodatos.unstack()
 
+
+# Guardar datos filtrados para próximos cuadernos
+sjodatos.to_pickle("datos/SJO-pasajeros.pickle")
+
+
 fig, axs= plt.subplots(1,2, figsize=[12,5], sharex=True)
 
 sjodatoscuadro['nacionales'].T.plot(ax=axs[0], cmap = 'Blues', marker='o', legend=False);

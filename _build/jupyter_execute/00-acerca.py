@@ -47,6 +47,7 @@ En estos apuntes se presenta además varios ejemplos numéricos, bien sea con St
 03-arma/chapter03
 04-arima/chapter04
 05-cambioestructural/chapter05
+06-estacional/chapter06
 ```
 
 
