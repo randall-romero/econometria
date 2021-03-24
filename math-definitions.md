@@ -15,4 +15,16 @@
 \newcommand{\marginal}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\MAT}[1]{\begin{bmatrix} #1 \end{bmatrix}}
 \newcommand{\mat}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}
+
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\X}{\mathbf{x}}
+\DeclareMathOperator{\y}{\mathbf{y}}
+\DeclareMathOperator{\h}{\mathbf{h}}
+\newcommand{\stackEq}[1]{\MAT{#1_1 \\ #1_2 \\ \vdots \\ #1_M}}
+\newcommand{\e}{\mathbf{\epsilon}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\estimator}[2]{{\hat{#1}^{\text{#2}}}}
+\newcommand{\estimate}[2]{\underset{(#2)}{#1}}
+\DeclareMathOperator{\plim}{plim}
+\newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}
 ```

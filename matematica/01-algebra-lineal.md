@@ -35,3 +35,20 @@ ya que
 \begin{equation*}
 \Lambda^t = \MAT{\lambda^t_1 & 0 & \dots & 0\\ 0 &\lambda^t_2 & \dots & 0\\ & & \ddots & \\ 0 & 0 & \dots &\lambda^t_n}
 \end{equation*}
+
+
+
+(appendix:kronecker)=
+## El producto Kronecker
+
+Si $A=\MAT{a & b \\ c & d}$ y $B$ son matrices, el producto Kronecker se define por
+\begin{equation*}
+A \otimes B = \MAT{aB & bB \\ cB & dB}
+\end{equation*}
+
+Algunas propiedades importantes:
+\begin{align*}
+(A \otimes B)' &= A' \otimes B' \\
+(A \otimes B)^{-1} &= A^{-1} \otimes B^{-1} \\
+(A \otimes B)(C \otimes D) &= (AC) \otimes (BD)
+\end{align*}
