@@ -1,4 +1,4 @@
-# Estadística
+# Resultados de teoría estadística
 
 ```{include} ../math-definitions.md
 ```
