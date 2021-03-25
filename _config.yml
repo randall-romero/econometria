@@ -30,7 +30,7 @@ parse:
   myst_enable_extensions:
     - deflist
     - amsmath
-    # - colon_fence
+    #- colon_fence
     - dollarmath
     - substitution
 
