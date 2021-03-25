@@ -1,0 +1,1779 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estimación &#8212; Apuntes de Macroeconometría</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mi-estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://randall-romero.github.io/econometria/08-sem/05-estimacion.html" />
+    <link rel="shortcut icon" href="../_static/r2-logo-icon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Referencias" href="refs.html" />
+    <link rel="prev" title="El término de error" href="04-error.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://randall-romero.github.io/econometria/08-sem/05-estimacion.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Estimación" />
+<meta property="og:description" content="Estimación  Métodos de estimación  Se clasifican en métodos indirectos y métodos directos.  Los directos se clasifican en dos grupos:  Métodos de información li" />
+<meta property="og:image"       content="https://randall-romero.github.io/econometria/_static/r2-logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/r2-logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Apuntes de Macroeconometría</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-acerca.html">
+   Acerca de este libro
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Acerca de este libro
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-interactuando.html">
+   Cómo interactuar con este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-contenido.html">
+   Tipo de contenido
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modelos de series de tiempo univariadas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01-intro/chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/01-historia.html">
+     1.1. Una breve historia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/02-graficos.html">
+     1.2. Representación gráfica de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/03-rezagos.html">
+     1.3. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/04-procesos-estocasticos.html">
+     1.4. Procesos estocásticos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/05-series-tiempo.html">
+     1.5. Series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/06-pruebas.html">
+     1.6. Pruebas de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/refs.html">
+     1.7. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02-eqdiff/chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/01-intro.html">
+     2.1. Acerca de este capítulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/02-sustitucion.html">
+     2.2. Solución por sustituciones recursivas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/03-combinacion.html">
+     2.3. Solución por combinación de soluciones homogéneas y particulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/04-operador.html">
+     2.4. Solución por medio del operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/refs.html">
+     2.5. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03-arma/chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/01-intro.html">
+     Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/02-MA.html">
+     Proceso de media móvil MA(q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/03-AR.html">
+     Proceso autorregresivo AR(p)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/04-ARMA.html">
+     Proceso autorregresivo de media móvil ARMA(p,q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/05-estimacion.html">
+     Estimación de modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/06-pronosticos.html">
+     Pronósticos con modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/refs.html">
+     Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04-arima/chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/01-modelos-tendencia.html">
+     Modelos de series con tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/02-removiendo.html">
+     Removiendo una tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/03-raices-unitarias.html">
+     Series con raíz unitaria y procesos ARIMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/04-pruebas.html">
+     Detectando raíces unitarias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/05-hp.html">
+     El filtro de Hodrick y Prescott
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/refs.html">
+     Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05-cambioestructural/chapter05.html">
+   5. Cambio estructural
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/01-chow.html">
+     5.1. La prueba de Chow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/02-conocido.html">
+     5.2. Cambio estructural y raíces unitarias: fecha conocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/03-desconocido.html">
+     5.3. Cambio estructural y raíces unitarias: fecha desconocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/refs.html">
+     5.4. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../06-estacional/chapter06.html">
+   6. Modelos de estacionalidad
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/01-intro.html">
+     6.1. Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/02-sarima.html">
+     6.2. Modelo ARIMA estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/03-x13arima.html">
+     6.3. Ajuste estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/04-raices-unitarias.html">
+     6.4. Raíces unitarias estacionales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/refs.html">
+     6.5. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Modelos de series de tiempo multivariadas
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../07-sur/chapter07.html">
+   1. Introducción a sistemas de ecuaciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/01-motivacion.html">
+     1.1. Motivación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/02-sur.html">
+     1.2. El modelo SUR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/refs.html">
+     1.3. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="chapter08.html">
+   2. Sistemas de ecuaciones simultáneas
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-representacion.html">
+     Representación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-identificacion.html">
+     Identificación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-recursivo.html">
+     El modelo recursivo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-error.html">
+     El término de error
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="refs.html">
+     Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Apéndices
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../py-intro/py-chapter.html">
+   Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../py-intro/01--para-que-aprender-python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../py-intro/02--variables-y-operaciones-basicas.html">
+     Variables y operaciones básicas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../py-intro/03--colecciones.html">
+     Colecciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../py-intro/04--control-ejecucion.html">
+     Control de ejecución
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../py-intro/05--funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../py-intro/06--modulos.html">
+     Módulos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../py-intro/07--clases.html">
+     Clases y objetos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../labs/labs-chapter.html">
+   Laboratorios
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../labs/ADF-simulaciones.html">
+     La prueba de Dickey-Fuller
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../r-code/chapter-r.html">
+   Código en R
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r-code/R-transform.html">
+     Transformaciones con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r-code/R-lags.html">
+     Rezagos con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r-code/R-correlogram.html">
+     Correlogramas con R
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../matematica/matematica.html">
+   Matemática
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matematica/01-algebra-lineal.html">
+     Álgebra lineal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../matematica/02-numeros-complejos.html">
+     Números complejos
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../estadistica/estadistica.html">
+   Estadística y econometría
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../estadistica/01-estadistica.html">
+     Resultados de teoría estadística
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../estadistica/02-econometria.html">
+     Resultados de econometría
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="http//randall-romero.com">randall-romero.com</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/08-sem/05-estimacion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/08-sem/05-estimacion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./08-sem/05-estimacion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos-de-estimacion">
+   Métodos de estimación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#consistencia-de-ols-de-la-forma-reducida">
+   Consistencia de OLS de la forma reducida
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimos-cuadrados-indirectos-ils">
+   Mínimos cuadrados indirectos (ILS)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimos-cuadrados-ordinarios-ols">
+   Mínimos cuadrados ordinarios (OLS)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimador-ols">
+     Estimador OLS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caso-particular-modelo-recursivo">
+   Caso particular: Modelo recursivo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-instrumentales-iv">
+   Variables instrumentales (IV)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimador-iv">
+     Estimador IV
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimos-cuadrados-en-dos-etapas-2sls">
+   Mínimos cuadrados en dos etapas (2SLS)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#estimador-2sls">
+     Estimador 2SLS
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\require{color}
+\newcommand{\alert}[1]{{\color{RedOrange} #1}}
+\newcommand{\notation}[2]{\underset{\color{MidnightBlue}\text{#2}}{#1}}
+\newcommand{\simbolo}[2]{\underset{\color{MidnightBlue}#2}{#1}}
+\newcommand{\notationbrace}[2]{{\underbrace{#1}_{\color{MidnightBlue}\text{#2}}}}
+\DeclareMathOperator{\dd}{\,d\!}
+\DeclareMathOperator{\E}{\mathbb{E}{}}
+\DeclareMathOperator{\Var}{Var{}}
+\DeclareMathOperator{\Cov}{Cov{}}
+\DeclareMathOperator{\Lag}{L{}}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\Prob}{\mathbb{P}}
+\newcommand{\marginal}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\MAT}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\mat}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}\\\begin{split}\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\X}{\mathbf{x}}
+\DeclareMathOperator{\y}{\mathbf{y}}
+\DeclareMathOperator{\h}{\mathbf{h}}
+\newcommand{\stackEq}[1]{\MAT{#1_1 \\ #1_2 \\ \vdots \\ #1_M}}
+\newcommand{\e}{\mathbf{\epsilon}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\estimator}[2]{{\hat{#1}^{\text{#2}}}}
+\newcommand{\estimate}[2]{\underset{(#2)}{#1}}
+\DeclareMathOperator{\plim}{plim}
+\newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}\end{split}\end{aligned}\end{align} \]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
+<span class="kn">from</span> <span class="nn">statsmodels.sandbox.regression.gmm</span> <span class="kn">import</span> <span class="n">IV2SLS</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="estimacion">
+<h1>Estimación<a class="headerlink" href="#estimacion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="metodos-de-estimacion">
+<h2>Métodos de estimación<a class="headerlink" href="#metodos-de-estimacion" title="Permalink to this headline">¶</a></h2>
+<p>Se clasifican en métodos indirectos y métodos directos.</p>
+<p>Los directos se clasifican en dos grupos:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Métodos de información limitada</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">OLS</p></li>
+<li><p class="card-text">IV</p></li>
+<li><p class="card-text">2SLS</p></li>
+<li><p class="card-text">GMM</p></li>
+<li><p class="card-text">LIML</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Métodos de información completa</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">3SLS</p></li>
+<li><p class="card-text">FIML</p></li>
+<li><p class="card-text">GMM</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="consistencia-de-ols-de-la-forma-reducida">
+<h2>Consistencia de OLS de la forma reducida<a class="headerlink" href="#consistencia-de-ols-de-la-forma-reducida" title="Permalink to this headline">¶</a></h2>
+<p>El estimador OLS de las pendientes <span class="math notranslate nohighlight">\(\Pi\)</span> es <strong>consistente</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\plim\hat{\Pi} &amp;= \plim\left[\left(X'X\right)^{-1}X'Y\right]\\
+&amp;= \plim\left[\left(\tfrac{1}{T}X'X\right)^{-1}\tfrac{1}{T}X'Y\right]\\
+&amp;= \left(\plim\tfrac{1}{T}X'X\right)^{-1} \plim\left(\tfrac{1}{T}X'Y\right)\\
+&amp;= Q^{-1} \left(Q\Pi\right) \\
+&amp;= \Pi
+\end{align*}\]</div>
+<p>El estimador MCO de la varianza <span class="math notranslate nohighlight">\(\Omega\)</span> también es <strong>consistente</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\plim\hat{\Omega} &amp;= \plim\left[\tfrac{1}{T}\hat{V}'\hat{V}\right] \\
+&amp;= \plim\left[\tfrac{1}{T}\left(Y-X\hat{\Pi}\right)'\left(Y-X\hat{\Pi}\right)\right] \\
+&amp;= \plim\left(\tfrac{1}{T}Y'Y\right) - \plim\left(\tfrac{1}{T}Y'X\hat{\Pi}\right) - \plim\left(\hat{\Pi}'\tfrac{1}{T}X'Y\right) +  \plim\left(\hat{\Pi}'\tfrac{1}{T}X'X\hat{\Pi}\right) \\
+&amp;= \Pi'Q\Pi + \Omega - \left(\Pi'Q\right)\Pi - \Pi'\left(Q\Pi\right) + \Pi'\left(Q\right)\Pi \\
+&amp;= \Omega
+\end{align*}\]</div>
+</div>
+<div class="section" id="minimos-cuadrados-indirectos-ils">
+<h2>Mínimos cuadrados indirectos (ILS)<a class="headerlink" href="#minimos-cuadrados-indirectos-ils" title="Permalink to this headline">¶</a></h2>
+<p>Es posible estimar <span class="math notranslate nohighlight">\(\Pi\)</span> y <span class="math notranslate nohighlight">\(\Omega\)</span> consistentemente con OLS, pero estos parámetros no son de interés (excepto para proyectar <span class="math notranslate nohighlight">\(Y|X\)</span>).</p>
+<p>No obstante, si el sistema está identificado, se puede usar Mínimos Cuadrados Indirectos (ILS), que consiste en estimar <span class="math notranslate nohighlight">\(\estimator{\Gamma}{ILS}\)</span>, <span class="math notranslate nohighlight">\(\estimator{B}{ILS}\)</span> y <span class="math notranslate nohighlight">\(\estimator{\Sigma}{ILS}\)</span> en función de <span class="math notranslate nohighlight">\(\estimator{\Pi}{OLS}\)</span> y <span class="math notranslate nohighlight">\(\estimator{\Omega}{OLS}\)</span>.</p>
+<p>Propiedades:</p>
+<ul class="simple">
+<li><p>factible pero ineficiente</p></li>
+<li><p>puede haber más de una solución (si está sobre- identificado).</p></li>
+</ul>
+</div>
+<div class="section" id="minimos-cuadrados-ordinarios-ols">
+<h2>Mínimos cuadrados ordinarios (OLS)<a class="headerlink" href="#minimos-cuadrados-ordinarios-ols" title="Permalink to this headline">¶</a></h2>
+<p>Escribimos la ecuación <span class="math notranslate nohighlight">\(j\)</span> como</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_j = Y_j\gamma_j + X_j\beta_j + \epsilon_j
+= \notation{\MAT{Y_j &amp; X_j}}{$Z_j$}\notation{\MAT{\gamma_j\\ \beta_j}}{$\delta_j$} + \epsilon_j =Z_j\delta_j + \epsilon_j
+\end{equation*}\]</div>
+<div class="section" id="estimador-ols">
+<h3>Estimador OLS<a class="headerlink" href="#estimador-ols" title="Permalink to this headline">¶</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\estimator{\delta_j}{OLS} &amp;= \left(Z'_jZ_j\right)^{-1} Z'_jy_j \\
+&amp;= \left(Z'_jZ_j\right)^{-1} Z'_j(Z_j\delta_j + \epsilon_j)\\
+&amp;= \delta_j + \left(Z'_jZ_j\right)^{-1} Z'_j\epsilon_j\\
+&amp;= \delta_j + \MAT{Y'_jY_j &amp; Y'_jX_j \\ X'_jY_j &amp; X'_jX_j}^{-1}\MAT{Y'_j\epsilon_j\\ X'_j\epsilon_j}
+\end{align*}\]</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>OLS es inconsistente</strong> porque <span class="math notranslate nohighlight">\( \plim\left[\tfrac{1}{T}Y'_j\epsilon_j\right] \neq 0 \)</span> (sesgo de simultaneidad)</p>
+</div>
+</div>
+</div>
+<div class="section" id="caso-particular-modelo-recursivo">
+<h2>Caso particular: Modelo recursivo<a class="headerlink" href="#caso-particular-modelo-recursivo" title="Permalink to this headline">¶</a></h2>
+<p>En el modelo recursivo donde <span class="math notranslate nohighlight">\(\Gamma\)</span> es triangular y <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal,</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_1 &amp;=x'\beta_1 + \epsilon_1\\
+y_2 &amp;=x'\beta_2 + \gamma_{12}y_1  + \epsilon_2\\
+&amp;\vdots \\
+y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
+\end{align*}\]</div>
+<p>OLS es consistente y eficiente, porque no hay sesgo de simultaneidad:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\Cov\left[y_1,\epsilon_2\right] &amp;= \Cov\left[x'\beta_1+\epsilon_1,\epsilon_2\right] = 0 \\
+\Cov\left[y_1,\epsilon_3\right] &amp;= \Cov\left[x'\beta_1+\epsilon_1,\epsilon_3\right] = 0 \\
+\Cov\left[y_2,\epsilon_3\right] &amp;= \Cov\left[x'\beta_2 + \gamma_{12}y_1  + \epsilon_2,\epsilon_3\right] = 0
+\end{align*}\]</div>
+<p>y así sucesivamente.</p>
+</div>
+<div class="section" id="variables-instrumentales-iv">
+<h2>Variables instrumentales (IV)<a class="headerlink" href="#variables-instrumentales-iv" title="Permalink to this headline">¶</a></h2>
+<p>Muchos estimadores son casos particulares de IV</p>
+<p>Para la ecuación <span class="math notranslate nohighlight">\( y_j = Y_j\gamma_j + X_j\beta_j + \epsilon_j = Z_j\delta_j + \epsilon_j\)</span> suponemos que existe matriz <span class="math notranslate nohighlight">\(\simbolo{W_j}{T\times(M_j+K_j)}\)</span>  tal que:</p>
+<dl class="simple myst">
+<dt>instrumento correlacionado con regresores</dt><dd><p><span class="math notranslate nohighlight">\(\plim\left(\tfrac{1}{T}W'_jZ_j\right) = \Sigma_{WZ}\)</span></p>
+</dd>
+<dt>instrumento tiene varianza finita</dt><dd><p><span class="math notranslate nohighlight">\(\plim\left(\tfrac{1}{T}W'_jW_j\right) = \Sigma_{WW}\)</span></p>
+</dd>
+<dt>instrumento NO correlacionado con errores</dt><dd><p><span class="math notranslate nohighlight">\(\plim\left(\tfrac{1}{T}W'_j\epsilon_j\right) = 0\)</span></p>
+</dd>
+</dl>
+<div class="section" id="estimador-iv">
+<h3>Estimador IV<a class="headerlink" href="#estimador-iv" title="Permalink to this headline">¶</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\estimator{\delta_j}{IV} &amp;= \left(W'_jZ_j\right)^{-1} W'_jy_j \\
+&amp;= \delta_j + \left(\tfrac{1}{T}W'_jZ_j\right)^{-1} \left(\tfrac{1}{T}W'_j\epsilon_j\right)
+\end{align*}\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>IV es consistente</strong> porque <span class="math notranslate nohighlight">\( \plim\left[\tfrac{1}{T}W'_j\epsilon_j\right] = 0 \)</span>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="minimos-cuadrados-en-dos-etapas-2sls">
+<h2>Mínimos cuadrados en dos etapas (2SLS)<a class="headerlink" href="#minimos-cuadrados-en-dos-etapas-2sls" title="Permalink to this headline">¶</a></h2>
+<p>Consiste en usar como intrumentos para <span class="math notranslate nohighlight">\(Y_j\)</span> los valores ajustados por la regresión de <span class="math notranslate nohighlight">\(Y_j\)</span> en \alert{todas} las <span class="math notranslate nohighlight">\(X\)</span>’s del sistema.</p>
+<dl class="simple myst">
+<dt>Etapa 1</dt><dd><p>Ajustar <span class="math notranslate nohighlight">\(Y_j\)</span> por OLS usando todas las <span class="math notranslate nohighlight">\(X\)</span></p>
+</dd>
+</dl>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\estimator{Y_j}{OLS} = X\estimator{\Pi_j}{OLS} = X\left(X'X\right)^{-1} X'Y_j
+\end{equation*}\]</div>
+<dl class="simple myst">
+<dt>Etapa 2</dt><dd><p>Usar IV con <span class="math notranslate nohighlight">\(W = \MAT{\estimator{Y_j}{OLS} &amp; X}\)</span>.</p>
+</dd>
+</dl>
+<div class="section" id="estimador-2sls">
+<h3>Estimador 2SLS<a class="headerlink" href="#estimador-2sls" title="Permalink to this headline">¶</a></h3>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\estimator{\delta_j}{2SLS} = \MAT{\estimator{Y'_j}{OLS}Y_j &amp; \estimator{Y'_j}{OLS}X_j \\ X'_jY_j &amp; X'_jX_j}^{-1}\MAT{\estimator{Y'_j}{OLS}y_j\\ X'_jy_j}
+\end{equation*}\]</div>
+<p>Si no hay autocorrelación ni heteroscedasticidad entonces 2SLS es el estimador IV más eficiente usando sólo la información de <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ El Modelo Klein I </b></div></p>
+<p>En 1950 Klein estimó este modelo (conocido ahora como el modelo I de Klein) con datos anuales de 1921 a 1941\footnote{\scriptsize Basado en \textcite[pp332-333]{Greene:2012}}:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\notation{C_t}{consumo}	&amp;= \alpha_0 + \alpha_1 P_t + \alpha_2 P_{t-1} + \alpha_3(Wp_t + Wg_t) + \epsilon_{1t}  \\
+\notation{I_t}{inversión} &amp;= \beta_0 + \beta_1 P_t + \beta_2 P_{t-1} + \beta_3 K_{t-1} + \epsilon_{2t}  \\
+\notation{Wp_t}{$\substack{\text{salarios}\\\text{privados}}$} &amp;= \gamma_0  + \gamma_1 X_t + \gamma_2 X_{t-1} + \gamma_3 A_t + \epsilon_{3t} \\
+\notation{X_t}{producto} &amp;= C_t + I_t + G_t \\
+\notation{P_t}{utilidades} &amp;= X_t -  T_t - Wp_t \\
+\notation{K_t}{capital} &amp;= K_{t-1} + I_{t-1}
+\end{align*}\]</div>
+<p>Las variables exógenas son:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(G_t  =\)</span> gasto (no salarial) del gobierno</p></li>
+<li><p><span class="math notranslate nohighlight">\(T_t  =\)</span> impuestos indirectos a las empresas + exportaciones netas</p></li>
+<li><p><span class="math notranslate nohighlight">\(Wg_t =\)</span> gastos salarial del gobierno</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_t  =\)</span> tendecia, años desde 1931</p></li>
+</ul>
+<p>Hay tres variables predeterminadas: los rezagos del stock de capital, utilidades privadas, y demanda total.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">klein</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s2">&quot;http://people.stern.nyu.edu/wgreene/Text/Edition7/TableF10-3.txt&quot;</span><span class="p">)</span>
+<span class="n">klein</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">klein</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="n">klein</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span>
+
+<span class="n">datanames</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+  <span class="n">C</span><span class="o">=</span><span class="s2">&quot;consumo&quot;</span><span class="p">,</span>
+  <span class="n">P</span><span class="o">=</span><span class="s2">&quot;utilidades corporativas&quot;</span><span class="p">,</span>
+  <span class="n">Wp</span><span class="o">=</span><span class="s2">&quot;salarios sector privado&quot;</span><span class="p">,</span>
+  <span class="n">I</span><span class="o">=</span><span class="s2">&quot;inversión&quot;</span><span class="p">,</span>
+  <span class="n">K1</span><span class="o">=</span><span class="s2">&quot;stock de capital del año anterior&quot;</span><span class="p">,</span>
+  <span class="n">X</span><span class="o">=</span><span class="s2">&quot;producto nacional bruto&quot;</span><span class="p">,</span>
+  <span class="n">Wg</span><span class="o">=</span><span class="s2">&quot;salarios sector público&quot;</span><span class="p">,</span>
+  <span class="n">G</span><span class="o">=</span><span class="s2">&quot;gasto del gobierno&quot;</span><span class="p">,</span>
+  <span class="n">T</span><span class="o">=</span><span class="s2">&quot;impuestos&quot;</span><span class="p">)</span>
+
+<span class="n">klein</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">datanames</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+  <span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05-estimacion_3_0.png" src="../_images/05-estimacion_3_0.png" />
+</div>
+</div>
+<p>El modelo contiene 3 ecuaciones de comportamiento, una condición de equilibrio, y dos identidades contables.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># La variable `K1` en la base de datos corresponde al *rezago* del capital, por lo que generamos `K`. Además, generamos la tendencia y el intercepto.</span>
+
+<span class="n">klein</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">klein</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">11</span>
+<span class="n">klein</span><span class="p">[</span><span class="s1">&#39;interc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Generamos las variables predeterminadas y la suma de salarios</span>
+<span class="n">klein</span><span class="p">[</span><span class="s1">&#39;P1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">klein</span><span class="p">[</span><span class="s1">&#39;X1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">klein</span><span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Wp&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Wg&#39;</span><span class="p">]</span>
+
+<span class="n">klein</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="sphinx-bs badge badge-success">Etapa 1</span> regresión de las endógenas contra todas las exógenas del sistema</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clasificamos las variables en tres grupos: endógenas, exogenas, y predeterminadas</span>
+
+<span class="n">endogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;Wp&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">]</span>
+<span class="n">exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;interc&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;Wg&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
+<span class="n">predeterminadas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">]</span>
+
+<span class="n">regresores_eqs</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="s1">&#39;interc&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">&#39;interc&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;P1&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">&#39;interc&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]]</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="n">endogenas</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="n">exogenas</span><span class="o">+</span><span class="n">predeterminadas</span><span class="p">]</span>
+
+<span class="n">beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@X</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="nd">@Y</span><span class="p">)</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">endogenas</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">exogenas</span><span class="o">+</span><span class="n">predeterminadas</span><span class="p">)</span>
+
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">X</span><span class="nd">@beta</span>
+<span class="n">beta</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_c0029_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >C</th>        <th class="col_heading level0 col1" >I</th>        <th class="col_heading level0 col2" >Wp</th>        <th class="col_heading level0 col3" >X</th>        <th class="col_heading level0 col4" >P</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_c0029_level0_row0" class="row_heading level0 row0" >interc</th>
+                        <td id="T_c0029_row0_col0" class="data row0 col0" >58.30</td>
+                        <td id="T_c0029_row0_col1" class="data row0 col1" >35.52</td>
+                        <td id="T_c0029_row0_col2" class="data row0 col2" >43.44</td>
+                        <td id="T_c0029_row0_col3" class="data row0 col3" >93.82</td>
+                        <td id="T_c0029_row0_col4" class="data row0 col4" >50.38</td>
+            </tr>
+            <tr>
+                        <th id="T_c0029_level0_row1" class="row_heading level0 row1" >G</th>
+                        <td id="T_c0029_row1_col0" class="data row1 col0" >0.21</td>
+                        <td id="T_c0029_row1_col1" class="data row1 col1" >0.10</td>
+                        <td id="T_c0029_row1_col2" class="data row1 col2" >0.87</td>
+                        <td id="T_c0029_row1_col3" class="data row1 col3" >1.31</td>
+                        <td id="T_c0029_row1_col4" class="data row1 col4" >0.44</td>
+            </tr>
+            <tr>
+                        <th id="T_c0029_level0_row2" class="row_heading level0 row2" >T</th>
+                        <td id="T_c0029_row2_col0" class="data row2 col0" >-0.37</td>
+                        <td id="T_c0029_row2_col1" class="data row2 col1" >-0.16</td>
+                        <td id="T_c0029_row2_col2" class="data row2 col2" >-0.60</td>
+                        <td id="T_c0029_row2_col3" class="data row2 col3" >-0.53</td>
+                        <td id="T_c0029_row2_col4" class="data row2 col4" >-0.92</td>
+            </tr>
+            <tr>
+                        <th id="T_c0029_level0_row3" class="row_heading level0 row3" >Wg</th>
+                        <td id="T_c0029_row3_col0" class="data row3 col0" >0.19</td>
+                        <td id="T_c0029_row3_col1" class="data row3 col1" >-0.72</td>
+                        <td id="T_c0029_row3_col2" class="data row3 col2" >-0.44</td>
+                        <td id="T_c0029_row3_col3" class="data row3 col3" >-0.52</td>
+                        <td id="T_c0029_row3_col4" class="data row3 col4" >-0.08</td>
+            </tr>
+            <tr>
+                        <th id="T_c0029_level0_row4" class="row_heading level0 row4" >A</th>
+                        <td id="T_c0029_row4_col0" class="data row4 col0" >0.70</td>
+                        <td id="T_c0029_row4_col1" class="data row4 col1" >0.33</td>
+                        <td id="T_c0029_row4_col2" class="data row4 col2" >0.71</td>
+                        <td id="T_c0029_row4_col3" class="data row4 col3" >1.03</td>
+                        <td id="T_c0029_row4_col4" class="data row4 col4" >0.32</td>
+            </tr>
+            <tr>
+                        <th id="T_c0029_level0_row5" class="row_heading level0 row5" >K1</th>
+                        <td id="T_c0029_row5_col0" class="data row5 col0" >-0.15</td>
+                        <td id="T_c0029_row5_col1" class="data row5 col1" >-0.19</td>
+                        <td id="T_c0029_row5_col2" class="data row5 col2" >-0.12</td>
+                        <td id="T_c0029_row5_col3" class="data row5 col3" >-0.34</td>
+                        <td id="T_c0029_row5_col4" class="data row5 col4" >-0.22</td>
+            </tr>
+            <tr>
+                        <th id="T_c0029_level0_row6" class="row_heading level0 row6" >P1</th>
+                        <td id="T_c0029_row6_col0" class="data row6 col0" >0.75</td>
+                        <td id="T_c0029_row6_col1" class="data row6 col1" >0.93</td>
+                        <td id="T_c0029_row6_col2" class="data row6 col2" >0.87</td>
+                        <td id="T_c0029_row6_col3" class="data row6 col3" >1.67</td>
+                        <td id="T_c0029_row6_col4" class="data row6 col4" >0.80</td>
+            </tr>
+            <tr>
+                        <th id="T_c0029_level0_row7" class="row_heading level0 row7" >X1</th>
+                        <td id="T_c0029_row7_col0" class="data row7 col0" >0.23</td>
+                        <td id="T_c0029_row7_col1" class="data row7 col1" >-0.11</td>
+                        <td id="T_c0029_row7_col2" class="data row7 col2" >0.10</td>
+                        <td id="T_c0029_row7_col3" class="data row7 col3" >0.12</td>
+                        <td id="T_c0029_row7_col4" class="data row7 col4" >0.02</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p><span class="sphinx-bs badge badge-success">Etapa 2</span> se sustituyen endógenas por su valor ajustado de la etapa 1</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar datos para la segunda etapa</span>
+
+<span class="c1"># Definir lista de instrumentos para cada ecuación: esta lista es igual a la lista de regresores original, pero sustituyendo las endógenas por su valor ajustado de la etapa 1</span>
+
+<span class="n">klein_ols</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">yhat</span><span class="p">,</span> <span class="n">klein</span><span class="p">[</span><span class="n">exogenas</span><span class="o">+</span><span class="n">predeterminadas</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">klein_ols</span><span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">klein_ols</span><span class="p">[</span><span class="s1">&#39;Wp&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">klein_ols</span><span class="p">[</span><span class="s1">&#39;Wg&#39;</span><span class="p">]</span>
+
+<span class="c1"># Etapa 2</span>
+<span class="n">coef2sls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">regresores_eqs</span><span class="p">,</span> <span class="n">endogenas</span><span class="p">[:</span><span class="mi">3</span><span class="p">]):</span>
+    <span class="n">X1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">klein_ols</span><span class="p">[</span><span class="n">xx</span><span class="p">],</span> <span class="n">klein_ols</span><span class="p">[</span><span class="n">yy</span><span class="p">]</span>
+    <span class="n">beta1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">X1</span><span class="o">.</span><span class="n">T</span><span class="nd">@X1</span><span class="p">,</span> <span class="n">X1</span><span class="o">.</span><span class="n">T</span><span class="nd">@y1</span><span class="p">)</span>
+    <span class="n">coef2sls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">beta1</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">index</span><span class="o">=</span><span class="n">xx</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">yy</span><span class="p">))</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">coef2sls</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_c809f_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >C</th>        <th class="col_heading level0 col1" >I</th>        <th class="col_heading level0 col2" >Wp</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_c809f_level0_row0" class="row_heading level0 row0" >interc</th>
+                        <td id="T_c809f_row0_col0" class="data row0 col0" >16.55</td>
+                        <td id="T_c809f_row0_col1" class="data row0 col1" >20.28</td>
+                        <td id="T_c809f_row0_col2" class="data row0 col2" >1.50</td>
+            </tr>
+            <tr>
+                        <th id="T_c809f_level0_row1" class="row_heading level0 row1" >P</th>
+                        <td id="T_c809f_row1_col0" class="data row1 col0" >0.02</td>
+                        <td id="T_c809f_row1_col1" class="data row1 col1" >0.15</td>
+                        <td id="T_c809f_row1_col2" class="data row1 col2" > </td>
+            </tr>
+            <tr>
+                        <th id="T_c809f_level0_row2" class="row_heading level0 row2" >P1</th>
+                        <td id="T_c809f_row2_col0" class="data row2 col0" >0.22</td>
+                        <td id="T_c809f_row2_col1" class="data row2 col1" >0.62</td>
+                        <td id="T_c809f_row2_col2" class="data row2 col2" > </td>
+            </tr>
+            <tr>
+                        <th id="T_c809f_level0_row3" class="row_heading level0 row3" >W</th>
+                        <td id="T_c809f_row3_col0" class="data row3 col0" >0.81</td>
+                        <td id="T_c809f_row3_col1" class="data row3 col1" > </td>
+                        <td id="T_c809f_row3_col2" class="data row3 col2" > </td>
+            </tr>
+            <tr>
+                        <th id="T_c809f_level0_row4" class="row_heading level0 row4" >K1</th>
+                        <td id="T_c809f_row4_col0" class="data row4 col0" > </td>
+                        <td id="T_c809f_row4_col1" class="data row4 col1" >-0.16</td>
+                        <td id="T_c809f_row4_col2" class="data row4 col2" > </td>
+            </tr>
+            <tr>
+                        <th id="T_c809f_level0_row5" class="row_heading level0 row5" >X</th>
+                        <td id="T_c809f_row5_col0" class="data row5 col0" > </td>
+                        <td id="T_c809f_row5_col1" class="data row5 col1" > </td>
+                        <td id="T_c809f_row5_col2" class="data row5 col2" >0.44</td>
+            </tr>
+            <tr>
+                        <th id="T_c809f_level0_row6" class="row_heading level0 row6" >X1</th>
+                        <td id="T_c809f_row6_col0" class="data row6 col0" > </td>
+                        <td id="T_c809f_row6_col1" class="data row6 col1" > </td>
+                        <td id="T_c809f_row6_col2" class="data row6 col2" >0.15</td>
+            </tr>
+            <tr>
+                        <th id="T_c809f_level0_row7" class="row_heading level0 row7" >A</th>
+                        <td id="T_c809f_row7_col0" class="data row7 col0" > </td>
+                        <td id="T_c809f_row7_col1" class="data row7 col1" > </td>
+                        <td id="T_c809f_row7_col2" class="data row7 col2" >0.13</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+<p>El estimador 2SLS del sistema es (estadístico <span class="math notranslate nohighlight">\(p\)</span> en paréntesis):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+C_t	 &amp;= \estimate{16.55}{0.00} + \estimate{0.02}{0.88} P_t + \estimate{0.22}{0.04} P_{t-1} + \estimate{0.81}{0.00}(Wp_t + Wg_t) + \epsilon_{1t}  \\
+I_t  &amp;= \estimate{20.28}{0.01} + \estimate{0.15}{0.39} P_t + \estimate{0.62}{0.00} P_{t-1} - \estimate{0.16}{0.00} K_{t-1} + \epsilon_{2t}  \\
+Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}{0.00} X_{t-1} + \estimate{0.13}{0.00} A_t + \epsilon_{3t}
+\end{align*}\]</div>
+<p>Este modelo también lo podemos estimar directamente con <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">regresores_eqs</span><span class="p">,</span> <span class="n">endogenas</span><span class="p">[:</span><span class="mi">3</span><span class="p">]):</span>
+    <span class="n">fit</span> <span class="o">=</span> <span class="n">IV2SLS</span><span class="p">(</span><span class="n">klein</span><span class="p">[</span><span class="n">yy</span><span class="p">],</span> <span class="n">klein</span><span class="p">[</span><span class="n">xx</span><span class="p">],</span> <span class="n">instrument</span><span class="o">=</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimación de la ecuación de </span><span class="si">{</span><span class="n">datanames</span><span class="p">[</span><span class="n">yy</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimación de la ecuación de consumo
+                          IV2SLS Regression Results                           
+==============================================================================
+Dep. Variable:                      C   R-squared:                       0.977
+Model:                         IV2SLS   Adj. R-squared:                  0.973
+Method:                     Two Stage   F-statistic:                     225.9
+                        Least Squares   Prob (F-statistic):           6.82e-14
+Date:                Wed, 24 Mar 2021                                         
+Time:                        22:08:04                                         
+No. Observations:                  21                                         
+Df Residuals:                      17                                         
+Df Model:                           3                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+interc        16.5548      1.468     11.277      0.000      13.458      19.652
+P              0.0173      0.131      0.132      0.897      -0.260       0.294
+P1             0.2162      0.119      1.814      0.087      -0.035       0.468
+W              0.8102      0.045     18.111      0.000       0.716       0.905
+==============================================================================
+Omnibus:                        0.768   Durbin-Watson:                   1.485
+Prob(Omnibus):                  0.681   Jarque-Bera (JB):                0.741
+Skew:                           0.209   Prob(JB):                        0.691
+Kurtosis:                       2.180   Cond. No.                         282.
+==============================================================================
+Estimación de la ecuación de inversión
+                          IV2SLS Regression Results                           
+==============================================================================
+Dep. Variable:                      I   R-squared:                       0.885
+Model:                         IV2SLS   Adj. R-squared:                  0.865
+Method:                     Two Stage   F-statistic:                     41.20
+                        Least Squares   Prob (F-statistic):           5.15e-08
+Date:                Wed, 24 Mar 2021                                         
+Time:                        22:08:04                                         
+No. Observations:                  21                                         
+Df Residuals:                      17                                         
+Df Model:                           3                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+interc        20.2782      8.383      2.419      0.027       2.591      37.965
+P              0.1502      0.193      0.780      0.446      -0.256       0.556
+P1             0.6159      0.181      3.404      0.003       0.234       0.998
+K1            -0.1578      0.040     -3.930      0.001      -0.243      -0.073
+==============================================================================
+Omnibus:                        5.033   Durbin-Watson:                   2.085
+Prob(Omnibus):                  0.081   Jarque-Bera (JB):                2.880
+Skew:                          -0.800   Prob(JB):                        0.237
+Kurtosis:                       3.856   Cond. No.                     5.01e+03
+==============================================================================
+Estimación de la ecuación de salarios sector privado
+                          IV2SLS Regression Results                           
+==============================================================================
+Dep. Variable:                     Wp   R-squared:                       0.987
+Model:                         IV2SLS   Adj. R-squared:                  0.985
+Method:                     Two Stage   F-statistic:                     424.2
+                        Least Squares   Prob (F-statistic):           3.57e-16
+Date:                Wed, 24 Mar 2021                                         
+Time:                        22:08:04                                         
+No. Observations:                  21                                         
+Df Residuals:                      17                                         
+Df Model:                           3                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+interc         1.5003      1.276      1.176      0.256      -1.191       4.192
+X              0.4389      0.040     11.082      0.000       0.355       0.522
+X1             0.1467      0.043      3.398      0.003       0.056       0.238
+A              0.1304      0.032      4.026      0.001       0.062       0.199
+==============================================================================
+Omnibus:                        0.449   Durbin-Watson:                   1.963
+Prob(Omnibus):                  0.799   Jarque-Bera (JB):                0.545
+Skew:                           0.022   Prob(JB):                        0.761
+Kurtosis:                       2.212   Cond. No.                         641.
+==============================================================================
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ El modelo de la telaraña </b></div></p>
+<p>En el modelo de la telaraña para los mercados de maíz y de trigo</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	q^s_{mt} &amp; = 200 &amp;+&amp; 0.5p_{m,t-1} &amp;-&amp; 0.2p_{w,t-1} &amp;+&amp; \epsilon^s_{mt}  \tag{oferta de maíz}  \\
+	q^s_{wt} &amp; = 80  &amp;-&amp; 0.2p_{m,t-1} &amp;+&amp; 0.4p_{w,t-1} &amp;+&amp; \epsilon^s_{wt}  \tag{oferta de trigo} \\
+	q^d_{mt} &amp; = 100 &amp;-&amp; 0.2p_{mt}    &amp;+&amp; 1.2p_{wt}    &amp;+&amp; \epsilon^d_{mt} \tag{demanda de maíz}       \\
+	q^d_{wt} &amp; = 50  &amp;+&amp; 1.1p_{mt}    &amp;-&amp; 0.4p_{wt}    &amp;+&amp; \epsilon^d_{wt} \tag{demanda de trigo}
+\end{align*}\]</div>
+<p>Los agricultores pueden sembrar maíz o trigo, pero tardan un período en producirlo.</p>
+<p>Los consumidores están dispuestos a sustituir el consumo de maíz y trigo en respuesta a los precios que encuentran.</p>
+<p>Este modelo puede escribirse</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\notation{\MAT{1 &amp; 0  &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 1 &amp; 0 &amp; 0.2 &amp; -1.2 \\ 0 &amp; 1 &amp; -1.1 &amp; 0.4}}{$\Gamma$}
+\notation{\MAT{q_{mt} \\ q_{wt} \\ p_{mt} \\ p_{wt}}}{$Y_t$} =
+\notation{\MAT{200 &amp; 0.5 &amp; -0.2 \\ 80 &amp; -0.2 &amp; 0.4 \\  100 &amp; 0 &amp; 0 \\ 50 &amp; 0 &amp; 0}}{$B$}
+\notation{\MAT{1 \\ p_{m,t-1} \\ p_{w,t-1}}}{$Y_{t-1}$}  +
+\notation{\MAT{\epsilon^s_{mt} \\ \epsilon^s_{wt} \\ \epsilon^d_{mt} \\ \epsilon^d_{wt}}}{$\epsilon_t$}
+\end{equation*}\]</div>
+<p>Vemos que las ecuaciones de oferta no son simultáneas, pero las de demanda sí lo son.</p>
+<p>Para ilustrar el sesgo de simultaneidad del estimador OLS, y que el estimador 2SLS sí es insesgado, realizamos experimentos de Monte Carlo.</p>
+<p>Para ilustrar el procedimiento, simulamos una muestra de 100 observaciones:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos los parámetros del modelo</span>
+<span class="n">endogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Q_maiz&#39;</span><span class="p">,</span><span class="s1">&#39;Q_trigo&#39;</span><span class="p">,</span><span class="s1">&#39;P_maiz&#39;</span><span class="p">,</span><span class="s1">&#39;P_trigo&#39;</span><span class="p">]</span>
+
+<span class="n">Gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>      <span class="c1"># RELACIÓN SIMULTANEA</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">],</span>  <span class="c1"># oferta maiz</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">],</span>  <span class="c1"># oferta trigo</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">],</span>  <span class="c1"># demanda maiz</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]])</span>  <span class="c1"># demanda trigo</span>
+
+<span class="n">cstr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">200</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>  <span class="c1"># interceptos forma estructural</span>
+
+<span class="n">Beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>  <span class="c1"># PENDIENTES ESTRUCTURALES</span>
+    <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span>  <span class="c1"># oferta maiz</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">],</span>  <span class="c1"># oferta trigo</span>
+    <span class="p">[</span>   <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">],</span>  <span class="c1"># demanda maiz</span>
+    <span class="p">[</span>   <span class="mi">0</span><span class="p">,</span>    <span class="mi">0</span><span class="p">]])</span> <span class="c1"># demanda trigo</span>
+
+
+<span class="c1"># A partir de la inversa de Γ, obtenemos los parámetros de la forma reducida</span>
+<span class="n">Gammainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Gamma</span><span class="p">)</span>
+
+<span class="n">cred</span> <span class="o">=</span> <span class="n">Gammainv</span> <span class="o">@</span> <span class="n">cstr</span> <span class="c1"># interceptos forma reducida</span>
+<span class="n">Pi</span> <span class="o">=</span> <span class="n">Gammainv</span> <span class="o">@</span> <span class="n">Beta</span>   <span class="c1"># pendientes forma reducida</span>
+
+<span class="c1"># Definimos la función *telaraña*, la cual simula $T$ observaciones de los precios y cantidades de trigo, luego de desechar las primeras *drop* observaciones. El resultado se retorna como una tabla de *Pandas*, la cual facilita la creación de gráficos y la estimación econométrica posterior.</span>
+
+<span class="k">def</span> <span class="nf">telaraña</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">estocastico</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">estocastico</span><span class="p">:</span>
+        <span class="n">e_struc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="n">drop</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">e_reduc</span> <span class="o">=</span> <span class="n">e_struc</span> <span class="o">@</span> <span class="n">Gammainv</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">e_reduc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">T</span><span class="o">+</span><span class="n">drop</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">T</span><span class="o">+</span><span class="n">drop</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="n">drop</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cred</span> <span class="o">+</span> <span class="n">Pi</span> <span class="o">@</span> <span class="n">y</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">e_reduc</span><span class="p">[</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">drop</span><span class="p">:],</span> <span class="n">columns</span><span class="o">=</span><span class="n">endogenas</span><span class="p">)</span>
+
+
+<span class="n">telaraña</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">subplots</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/05-estimacion_13_0.png" src="../_images/05-estimacion_13_0.png" />
+</div>
+</div>
+<p>En particular estimamos 1000 veces este modelo a partir de series simuladas de 24 observaciones.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NSIMUL</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="k">def</span> <span class="nf">telaraña_con_precios_rezagos</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
+    <span class="n">datos</span> <span class="o">=</span> <span class="n">telaraña</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;LP_maiz&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;P_maiz&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>   <span class="c1"># precio maiz rezagado</span>
+    <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;LP_trigo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datos</span><span class="p">[</span><span class="s1">&#39;P_trigo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span> <span class="c1"># precio trigo rezagado</span>
+    <span class="k">return</span> <span class="n">datos</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">DATOS_SIMULADOS</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+  <span class="p">[</span><span class="n">telaraña_con_precios_rezagos</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NSIMUL</span><span class="p">)],</span>
+  <span class="n">keys</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">NSIMUL</span><span class="p">)</span>
+  <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ols_params</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+      <span class="p">[</span><span class="n">ols</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">_</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span>
+         <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">DATOS_SIMULADOS</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
+       <span class="p">)</span>
+
+<span class="n">PARAMETROS_SIMULADOS</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="s1">&#39;ms_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_maiz ~ 1 + LP_maiz + LP_trigo&#39;</span><span class="p">),</span>
+ <span class="s1">&#39;ws_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo ~ 1 + LP_maiz + LP_trigo&#39;</span><span class="p">),</span>
+ <span class="s1">&#39;md_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_maiz ~ 1 + P_maiz + P_trigo&#39;</span><span class="p">),</span>
+ <span class="s1">&#39;wd_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo ~ 1 + P_maiz + P_trigo&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;P_maiz&#39;</span><span class="p">,</span> <span class="s1">&#39;P_trigo&#39;</span><span class="p">]</span>
+<span class="n">instrum</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;LP_maiz&#39;</span><span class="p">,</span> <span class="s1">&#39;LP_trigo&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">tsls_params</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">IV2SLS</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">modelo</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">exogenas</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">instrum</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span>
+         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">DATOS_SIMULADOS</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)])</span>
+
+<span class="n">DATOS_SIMULADOS</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">DATOS_SIMULADOS</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">PARAMETROS_SIMULADOS</span><span class="p">[</span><span class="s1">&#39;md_2sls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsls_params</span><span class="p">(</span><span class="s1">&#39;Q_maiz&#39;</span><span class="p">)</span>
+<span class="n">PARAMETROS_SIMULADOS</span><span class="p">[</span><span class="s1">&#39;wd_2sls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsls_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo&#39;</span><span class="p">)</span>
+
+
+
+<span class="n">true_params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ms&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">cstr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+    <span class="s1">&#39;ws&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">cstr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">Beta</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+    <span class="s1">&#39;md&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">cstr</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="n">Gamma</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">:]],</span>
+    <span class="s1">&#39;wd&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">cstr</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="o">-</span><span class="n">Gamma</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">:]]}</span>
+
+<span class="n">description</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ms&#39;</span><span class="p">:</span> <span class="s1">&#39;Oferta de maíz&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ws&#39;</span><span class="p">:</span> <span class="s1">&#39;Oferta de trigo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;md&#39;</span><span class="p">:</span> <span class="s1">&#39;Demanda de maíz&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;wd&#39;</span><span class="p">:</span> <span class="s1">&#39;Demanda de trigo&#39;</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">plot_result</span><span class="p">(</span><span class="n">caso</span><span class="p">,</span> <span class="n">remove_outlier</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">simul</span> <span class="o">=</span> <span class="n">PARAMETROS_SIMULADOS</span><span class="p">[</span><span class="n">caso</span><span class="p">]</span>
+
+    <span class="c1"># remove outliers</span>
+    <span class="k">if</span> <span class="n">remove_outlier</span><span class="p">:</span>
+        <span class="n">not_outlier</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">zscore</span><span class="p">(</span><span class="n">simul</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Se detectaron </span><span class="si">{</span><span class="p">(</span><span class="o">~</span><span class="n">not_outlier</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1"> outliers&#39;</span><span class="p">)</span>
+        <span class="n">simul</span> <span class="o">=</span> <span class="n">simul</span><span class="p">[</span><span class="n">not_outlier</span><span class="p">]</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">true_values</span> <span class="o">=</span> <span class="n">true_params</span><span class="p">[</span><span class="n">caso</span><span class="p">[:</span><span class="mi">2</span><span class="p">]]</span>
+    <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">serie</span><span class="p">,</span> <span class="n">xv</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">simul</span><span class="p">,</span> <span class="n">true_values</span><span class="p">):</span>
+        <span class="n">simul</span><span class="p">[</span><span class="n">serie</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xv</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">serie</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">description</span><span class="p">[</span><span class="n">caso</span><span class="p">[:</span><span class="mi">2</span><span class="p">]],</span> <span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;promedio&#39;</span><span class="p">:</span> <span class="n">simul</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span>
+                         <span class="s1">&#39;verdadero&#39;</span><span class="p">:</span> <span class="n">true_values</span><span class="p">})</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En las figuras que siguen vemos la distribución obtenida para cada parámetro y lo comparamos con el verdadero valor poblacional.</p>
+<p>Las ecuaciones de oferta no son simultáneas, por lo que pueden ser estimadas por OLS.</p>
+<p><span class="sphinx-bs badge badge-primary">oferta de maiz</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;ms_ols&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intercept</th>
+      <th>LP_maiz</th>
+      <th>LP_trigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>promedio</th>
+      <td>203.245</td>
+      <td>0.491</td>
+      <td>-0.22</td>
+    </tr>
+    <tr>
+      <th>verdadero</th>
+      <td>200.000</td>
+      <td>0.500</td>
+      <td>-0.20</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/05-estimacion_17_1.png" src="../_images/05-estimacion_17_1.png" />
+</div>
+</div>
+<p><span class="sphinx-bs badge badge-primary">oferta de trigo</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;ws_ols&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intercept</th>
+      <th>LP_maiz</th>
+      <th>LP_trigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>promedio</th>
+      <td>82.529</td>
+      <td>-0.219</td>
+      <td>0.394</td>
+    </tr>
+    <tr>
+      <th>verdadero</th>
+      <td>80.000</td>
+      <td>-0.200</td>
+      <td>0.400</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/05-estimacion_19_1.png" src="../_images/05-estimacion_19_1.png" />
+</div>
+</div>
+<p>Las ecuaciones de demanda sí son simultáneas, por lo que la estimación OLS estaría sesgada.</p>
+<p><span class="sphinx-bs badge badge-danger">demanda de maiz</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;md_ols&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intercept</th>
+      <th>P_maiz</th>
+      <th>P_trigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>promedio</th>
+      <td>153.18</td>
+      <td>-0.158</td>
+      <td>0.722</td>
+    </tr>
+    <tr>
+      <th>verdadero</th>
+      <td>100.00</td>
+      <td>-0.200</td>
+      <td>1.200</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/05-estimacion_21_1.png" src="../_images/05-estimacion_21_1.png" />
+</div>
+</div>
+<p><span class="sphinx-bs badge badge-danger">demanda de trigo</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;wd_ols&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intercept</th>
+      <th>P_maiz</th>
+      <th>P_trigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>promedio</th>
+      <td>80.788</td>
+      <td>0.608</td>
+      <td>-0.259</td>
+    </tr>
+    <tr>
+      <th>verdadero</th>
+      <td>50.000</td>
+      <td>1.100</td>
+      <td>-0.400</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/05-estimacion_23_1.png" src="../_images/05-estimacion_23_1.png" />
+</div>
+</div>
+<p>Por ello, estimamos el sistema por 2SLS:</p>
+<p><span class="sphinx-bs badge badge-primary">demanda de maiz</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;md_2sls&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Se detectaron 9 outliers
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>P_maiz</th>
+      <th>P_trigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>promedio</th>
+      <td>94.624</td>
+      <td>-0.344</td>
+      <td>1.361</td>
+    </tr>
+    <tr>
+      <th>verdadero</th>
+      <td>100.000</td>
+      <td>-0.200</td>
+      <td>1.200</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/05-estimacion_25_2.png" src="../_images/05-estimacion_25_2.png" />
+</div>
+</div>
+<p><span class="sphinx-bs badge badge-primary">demanda de trigo</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;wd_2sls&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Se detectaron 18 outliers
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>P_maiz</th>
+      <th>P_trigo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>promedio</th>
+      <td>58.321</td>
+      <td>0.977</td>
+      <td>-0.37</td>
+    </tr>
+    <tr>
+      <th>verdadero</th>
+      <td>50.000</td>
+      <td>1.100</td>
+      <td>-0.40</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/05-estimacion_27_2.png" src="../_images/05-estimacion_27_2.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./08-sem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="04-error.html" title="previous page">El término de error</a>
+    <a class='right-next' id="next-link" href="refs.html" title="next page">Referencias</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Randall Romero Aguilar<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-57200532-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

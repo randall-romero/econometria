@@ -54,11 +54,22 @@ En estos apuntes se presenta además varios ejemplos numéricos, bien sea con St
 ```{toctree}
 :hidden:
 :titlesonly:
+:numbered: 2
+:caption: Modelos de series de tiempo multivariadas
+
+07-sur/chapter07
+08-sem/chapter08
+```
+
+
+```{toctree}
+:hidden:
+:titlesonly:
 :caption: Apéndices
 
 py-intro/py-chapter
 labs/labs-chapter
 r-code/chapter-r
 matematica/matematica
-estadistica/01-estadistica
+estadistica/estadistica
 ```

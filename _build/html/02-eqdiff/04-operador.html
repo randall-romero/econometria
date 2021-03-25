@@ -357,6 +357,76 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Modelos de series de tiempo multivariadas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../07-sur/chapter07.html">
+   1. Introducción a sistemas de ecuaciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/01-motivacion.html">
+     1.1. Motivación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/02-sur.html">
+     1.2. El modelo SUR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/refs.html">
+     1.3. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../08-sem/chapter08.html">
+   2. Sistemas de ecuaciones simultáneas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/01-representacion.html">
+     Representación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/02-identificacion.html">
+     Identificación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/03-recursivo.html">
+     El modelo recursivo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/04-error.html">
+     El término de error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/05-estimacion.html">
+     Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/refs.html">
+     Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Apéndices
  </span>
 </p>
@@ -462,10 +532,24 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../estadistica/01-estadistica.html">
-   Estadística
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../estadistica/estadistica.html">
+   Estadística y econometría
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../estadistica/01-estadistica.html">
+     Resultados de teoría estadística
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../estadistica/02-econometria.html">
+     Resultados de econometría
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -579,7 +663,7 @@
               <div>
                 
   <div class="math notranslate nohighlight">
-\[\require{color}
+\[ \begin{align}\begin{aligned}\require{color}
 \newcommand{\alert}[1]{{\color{RedOrange} #1}}
 \newcommand{\notation}[2]{\underset{\color{MidnightBlue}\text{#2}}{#1}}
 \newcommand{\simbolo}[2]{\underset{\color{MidnightBlue}#2}{#1}}
@@ -594,7 +678,17 @@
 \DeclareMathOperator{\Prob}{\mathbb{P}}
 \newcommand{\marginal}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\MAT}[1]{\begin{bmatrix} #1 \end{bmatrix}}
-\newcommand{\mat}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}\]</div>
+\newcommand{\mat}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}\\\begin{split}\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\X}{\mathbf{x}}
+\DeclareMathOperator{\y}{\mathbf{y}}
+\DeclareMathOperator{\h}{\mathbf{h}}
+\newcommand{\stackEq}[1]{\MAT{#1_1 \\ #1_2 \\ \vdots \\ #1_M}}
+\newcommand{\e}{\mathbf{\epsilon}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\estimator}[2]{{\hat{#1}^{\text{#2}}}}
+\newcommand{\estimate}[2]{\underset{(#2)}{#1}}
+\DeclareMathOperator{\plim}{plim}
+\newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}\end{split}\end{aligned}\end{align} \]</div>
 <div class="section" id="solucion-por-medio-del-operador-de-rezagos">
 <h1><span class="section-number">2.4. </span>Solución por medio del operador de rezagos<a class="headerlink" href="#solucion-por-medio-del-operador-de-rezagos" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduccion">
