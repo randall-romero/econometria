@@ -52,3 +52,19 @@ Algunas propiedades importantes:
 (A \otimes B)^{-1} &= A^{-1} \otimes B^{-1} \\
 (A \otimes B)(C \otimes D) &= (AC) \otimes (BD)
 \end{align*}
+
+
+
+
+(appendix:rango-matriz)=
+## El rango de una matriz
+
+El **rango de una matriz** $A$ de tamaño $M \times N$ se denota por $\text{rango}[A]$ y se define como el número de filas (o columnas) que son linealmente independientes.
+
+Necesariamente, se cumple que
+\begin{equation*}
+\text{rango}[A] \leq \min\left\{M,N\right\}
+\end{equation*}
+
+- Si $\text{rango}[A] = M$, decimos que $A$ tiene **rango fila** completo.
+- Si $\text{rango}[A] = N$, decimos que $A$ tiene **rango columna** completo.

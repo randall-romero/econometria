@@ -54,6 +54,22 @@
       - file: 06-estacional/03-x13arima
       - file: 06-estacional/04-raices-unitarias
       - file: 06-estacional/refs
+- part: Modelos de series de tiempo multivariadas
+  numbered: 2
+  chapters:
+  - file: 07-sur/chapter07
+    sections:
+      - file: 07-sur/01-motivacion
+      - file: 07-sur/02-sur
+      - file: 07-sur/refs
+  - file: 08-sem/chapter08
+    sections:
+      - file: 08-sem/01-representacion
+      - file: 08-sem/02-identificacion
+      - file: 08-sem/03-recursivo
+      - file: 08-sem/04-error
+      - file: 08-sem/05-estimacion
+      - file: 08-sem/refs
 - part: Apéndices
   chapters:
   - file: py-intro/py-chapter
@@ -77,4 +93,7 @@
     sections:
       - file: matematica/01-algebra-lineal
       - file: matematica/02-numeros-complejos
-  - file: estadistica/01-estadistica
+  - file: estadistica/estadistica
+    sections:
+      - file: estadistica/01-estadistica
+      - file: estadistica/02-econometria

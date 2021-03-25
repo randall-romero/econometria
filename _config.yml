@@ -16,8 +16,8 @@ only_build_toc_files:    true
 # Execution settings
 execute:
   execute_notebooks           : cache
-
-
+  timeout                     : 600
+  stderr_output               : remove-warn
 
 sphinx:
   config:
