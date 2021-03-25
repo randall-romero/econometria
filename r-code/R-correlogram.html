@@ -355,6 +355,76 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
+  Modelos de series de tiempo multivariadas
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../07-sur/chapter07.html">
+   1. Introducción a sistemas de ecuaciones
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/01-motivacion.html">
+     1.1. Motivación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/02-sur.html">
+     1.2. El modelo SUR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sur/refs.html">
+     1.3. Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../08-sem/chapter08.html">
+   2. Sistemas de ecuaciones simultáneas
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/01-representacion.html">
+     Representación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/02-identificacion.html">
+     Identificación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/03-recursivo.html">
+     El modelo recursivo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/04-error.html">
+     El término de error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/05-estimacion.html">
+     Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-sem/refs.html">
+     Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
   Apéndices
  </span>
 </p>
@@ -460,10 +530,24 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../estadistica/01-estadistica.html">
-   Estadística
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../estadistica/estadistica.html">
+   Estadística y econometría
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../estadistica/01-estadistica.html">
+     Resultados de teoría estadística
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../estadistica/02-econometria.html">
+     Resultados de econometría
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -596,26 +680,6 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── fpp3 0.4.0 ──
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble     </span> 3.1.0      <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tsibble    </span> 1.0.0 
-<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr      </span> 1.0.5      <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tsibbledata</span> 0.3.0 
-<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr      </span> 1.1.3      <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">feasts     </span> 0.1.7 
-<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">lubridate  </span> 1.7.10     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">fable      </span> 0.3.0 
-<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2    </span> 3.3.3      
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── fpp3_conflicts ──
-<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">lubridate</span>::<span class=" -Color -Color-Green">date()</span>    masks <span class=" -Color -Color-Blue">base</span>::date()
-<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span>      masks <span class=" -Color -Color-Blue">stats</span>::filter()
-<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">intersect()</span> masks <span class=" -Color -Color-Blue">base</span>::intersect()
-<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">interval()</span>  masks <span class=" -Color -Color-Blue">lubridate</span>::interval()
-<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>         masks <span class=" -Color -Color-Blue">stats</span>::lag()
-<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">setdiff()</span>   masks <span class=" -Color -Color-Blue">base</span>::setdiff()
-<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">tsibble</span>::<span class=" -Color -Color-Green">union()</span>     masks <span class=" -Color -Color-Blue">base</span>::union()
-</pre></div>
-</div>
 </div>
 </div>
 <p>Leemos datos del IMAE de Costa Rica (original y tendencia-ciclo), indexamos datos como series de tiempo</p>
@@ -644,9 +708,6 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Plot variable not specified, automatically selected `.vars = value`
-</pre></div>
-</div>
 <img alt="../_images/R-correlogram_5_1.png" src="../_images/R-correlogram_5_1.png" />
 </div>
 </div>
