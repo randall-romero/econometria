@@ -70,6 +70,11 @@
       - file: 08-sem/04-error
       - file: 08-sem/05-estimacion
       - file: 08-sem/refs
+  - file: 09-var/chapter09
+    sections:
+      - file: 09-var/01-representaciones
+      - file: 09-var/02-irf
+      - file: 09-var/03-estacionariedad
 - part: Apéndices
   chapters:
   - file: py-intro/py-chapter
