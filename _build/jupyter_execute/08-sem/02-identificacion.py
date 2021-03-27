@@ -307,5 +307,4 @@ Ecuación de inversión
 Ecuación de ingreso
 :  Es una identidad $\Rightarrow$ no hay nada que estimar.
 
-\end{description}
 {{ termina_ejemplo }}

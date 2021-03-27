@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
-from statsmodels.sandbox.regression.gmm import IV2SLS
+from linearmodels.iv import IV2SLS
+from scipy.stats import zscore
 
 # Estimación
 
@@ -113,7 +114,7 @@ y así sucesivamente.
 
 Muchos estimadores son casos particulares de IV
 
-Para la ecuación $ y_j = Y_j\gamma_j + X_j\beta_j + \epsilon_j = Z_j\delta_j + \epsilon_j$ suponemos que existe matriz $\notation{W_j}{$T\times(M_j+K_j)}$  tal que:
+Para la ecuación $ y_j = Y_j\gamma_j + X_j\beta_j + \epsilon_j = Z_j\delta_j + \epsilon_j$ suponemos que existe matriz $\simbolo{W_j}{T\times(M_j+K_j)}$  tal que:
 
 instrumento correlacionado con regresores
 : $\plim\left(\tfrac{1}{T}W'_jZ_j\right) = \Sigma_{WZ}$
@@ -263,12 +264,19 @@ Wp_t &= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}{0.0
 \end{align*}
 
 
-Este modelo también lo podemos estimar directamente con `statsmodels`:
+Este modelo también lo podemos estimar directamente con `linearmodels`:
 
-for xx, yy in zip(regresores_eqs, endogenas[:3]):
-    fit = IV2SLS(klein[yy], klein[xx], instrument=X).fit()
-    print(f'Estimación de la ecuación de {datanames[yy]}')
-    print(fit.summary())
+{badge}`Ecuación de consumo,badge-primary`
+
+IV2SLS.from_formula('C ~ 1 + [P + W ~ G + T + Wg + A + K1 + X1] + P1', klein).fit().summary
+
+{badge}`Ecuación de inversión,badge-primary`
+
+IV2SLS.from_formula('I ~ 1 + [P ~ G + T + Wg + A + X1] + P1 + K1', klein).fit().summary
+
+{badge}`Ecuación de salarios del sector privado,badge-primary`
+
+IV2SLS.from_formula('Wp ~ 1 + [X ~ G + T + Wg + K1 + P1] + X1 + A', klein).fit().summary
 
 {{ termina_ejemplo }}
 
@@ -359,7 +367,7 @@ def telaraña_con_precios_rezagos(T=24):
     datos['LP_trigo'] = datos['P_trigo'].shift() # precio trigo rezagado
     return datos
 
-np.random.seed(123)¶
+np.random.seed(123)
 DATOS_SIMULADOS = pd.concat(
   [telaraña_con_precios_rezagos() for n in range(NSIMUL)],
   keys = range(NSIMUL)
@@ -406,8 +414,14 @@ description = {
     'md': 'Demanda de maíz',
     'wd': 'Demanda de trigo'}
 
-def plot_result(caso):
+def plot_result(caso, remove_outlier=False):
     simul = PARAMETROS_SIMULADOS[caso]
+
+    # remove outliers
+    if remove_outlier:
+        not_outlier = (np.abs(zscore(simul)) < 3).all(axis=1)
+        print(f'Se detectaron {(~not_outlier).sum()} outliers')
+        simul = simul[not_outlier]
 
     fig, axs = plt.subplots(1,3,figsize=[12,3])
     true_values = true_params[caso[:2]]
@@ -450,10 +464,10 @@ Por ello, estimamos el sistema por 2SLS:
 
 {badge}`demanda de maiz,badge-primary`
 
-plot_result('md_2sls')
+plot_result('md_2sls', True)
 
 {badge}`demanda de trigo, badge-primary`
 
-plot_result('wd_2sls')
+plot_result('wd_2sls', True)
 
 {{ termina_ejemplo }}

@@ -73,8 +73,10 @@
   - file: 09-var/chapter09
     sections:
       - file: 09-var/01-representaciones
-      - file: 09-var/02-irf
-      - file: 09-var/03-estacionariedad
+      - file: 09-var/02-dinamica
+      - file: 09-var/03-estimacion
+      - file: 09-var/04-pronostico
+      - file: 09-var/refs
 - part: Apéndices
   chapters:
   - file: py-intro/py-chapter

@@ -68,7 +68,7 @@ y_t - y_0 &= at
 Vemos que si $\Delta y_t = a$, es decir, la serie \textbf{cambia una cantidad fija} $a$ cada período, entonces  $y_t = y_0 + at $ tiene una **tendencia determinística**.
 
 
-Supongamos en contraposición que el \textbf{valor esperado del cambio} es constante, en particular
+Supongamos en contraposición que el **valor esperado del cambio** es constante, en particular
 \begin{equation*}
 \Delta y_\tau = a + \epsilon_{\tau}
 \end{equation*}
@@ -188,6 +188,50 @@ Consideremos $y_0$ como dado, y calculemos los momentos condicionales de la cami
 \end{align*}
 
 
+{{ empieza_ejemplo }} Simulaciones de caminatas aleatorias {{ fin_titulo_ejemplo }}
+En esta figura se presentan 100 simulaciones de caminatas aleatorias
+\begin{align*}
+y_t &=y_{t-1} + \epsilon_{t}
+\end{align*}
+
+partiendo de $y_{-1}=0$ y asuminedo $\epsilon \sim N(0,1)$.
+
+plt.style.use('seaborn-dark')
+pd.options.plotting.backend = "matplotlib"
+
+np.random.seed(2021)
+
+T = 60 # horizonte
+n = 100 # cantidad de simulaciones
+
+𝜖 = pd.DataFrame(np.random.randn(T+1, n)) # ruido blanco
+y = 𝜖.cumsum(axis=0)  # caminatas aleatorias
+
+
+fig = plt.figure(figsize=(14, 8))
+gs = fig.add_gridspec(5, 2,  width_ratios=(6, 2),
+                      left=0.1, right=0.9, bottom=0.1, top=0.9,
+                      wspace=0.05, hspace=0.05)
+
+# -----------Graficar las simulaciones
+ax = fig.add_subplot(gs[:, 0])
+y.plot(color='RoyalBlue', alpha=0.1, legend=False, ax=ax)
+ax.axhline(0, color='white');
+ax.set(title=f'{n} caminatas aleatorias',ylim=[-25,25])
+
+# -----------Histogramas
+ax_last = None
+for i in range(5):
+    ax_last = fig.add_subplot(gs[i, 1], sharex= ax_last)
+    y.loc[15*i].hist(ax=ax_last, color='RoyalBlue', alpha=0.8)
+    if i==0:
+        ax_last.set(title='Histogramas',xlim=[-25,25])
+
+    ax_last.set_yticks([])
+    ax_last.annotate(f't ={15*i}', (0.1, 0.8), xycoords='axes fraction')
+
+{{ termina_ejemplo }}
+
 ## Caminata aleatoria con deriva
 
 El proceso de caminata aleatoria con deriva es similar a la caminata aleatoria: \vspace{0.5em}
@@ -216,6 +260,7 @@ Sabemos que añadir un componente determinístico a una variable aleatoria cambi
 \rho_{t,s} &= \sqrt{1-\frac{s}{t}}
 \end{align*}
 
+pd.options.plotting.backend = "plotly"
 def rw_rho(t, smax=20):
     """
     Calcula las primera autocorrelaciones de una serie con raiz unitaria
@@ -229,6 +274,43 @@ rw_rho_data.plot().update_layout(
     xaxis_title="Rezagos",
     yaxis_title=r"$\rho$",
 )
+
+
+{{ empieza_ejemplo }} Simulaciones de caminatas aleatorias con deriva {{ fin_titulo_ejemplo }}
+En esta figura se presentan 100 simulaciones de caminatas aleatorias
+\begin{align*}
+y_t &= 0.5 + y_{t-1} + \epsilon_{t}
+\end{align*}
+
+partiendo de $y_{-1}=0$ y asuminedo $\epsilon \sim N(0,1)$.
+
+pd.options.plotting.backend = "matplotlib"
+a = 0.5 # deriva
+y = (𝜖+a).cumsum(axis=0)  # caminatas aleatorias con deriva
+
+
+fig = plt.figure(figsize=(14, 8))
+gs = fig.add_gridspec(5, 2,  width_ratios=(6, 2),
+                      left=0.1, right=0.9, bottom=0.1, top=0.9,
+                      wspace=0.05, hspace=0.05)
+
+ax = fig.add_subplot(gs[:, 0])
+y.plot(color='RoyalBlue', alpha=0.1, legend=False, ax=ax)
+ax.plot(a*np.arange(T), color='white');
+ax.set(title=f'{n} caminatas aleatorias con deriva',ylim=[-10,50])
+
+ax_last = None
+for i in range(5):
+    ax_last = fig.add_subplot(gs[i, 1], sharex= ax_last)
+    y.loc[15*i].hist(ax=ax_last, color='RoyalBlue', alpha=0.8)
+    if i==0:
+        ax_last.set(title='Histogramas',xlim=[-10,50])
+
+    ax_last.set_yticks([])
+    ax_last.annotate(f't ={15*i}', (0.05, 0.8), xycoords='axes fraction')
+
+{{ termina_ejemplo }}
+
 
 
 ## Pronosticando una caminata aleatoria
@@ -258,7 +340,7 @@ Esto quiere decir que si tomamos su primera diferencia, el resultado es una seri
 
 Por ello, decimos que la serie $y_t$ es **integrada de orden 1.
 
-En general, si una serie $z_t$ debe ser diferenciada $d$ veces para obtener una serie estacionaria, entonces decimos que $z_t$ es **integrada de orde $d$**, escrito $I(d)$.
+En general, si una serie $z_t$ debe ser diferenciada $d$ veces para obtener una serie estacionaria, entonces decimos que $z_t$ es **integrada de orden $d$**, escrito $I(d)$.
 
 
 
@@ -266,10 +348,11 @@ En general, si una serie $z_t$ debe ser diferenciada $d$ veces para obtener una 
 
 {{ empieza_ejemplo }} Correlación del PIB {{ fin_titulo_ejemplo }}
 
+pd.options.plotting.backend = "plotly"
 pib = bccr.SW({'33783':'PIB'})
 pib['lPIB'] = np.log(pib['PIB'])
 
-fig,axs = plt.subplots(2,1, sharex=True)
+fig,axs = plt.subplots(2,1, sharex=True, figsize=[12,6])
 sm.graphics.tsa.plot_acf(pib['lPIB'],ax=axs[0]);
 axs[0].set(ylim=[-0.1,1.1], title='$\log(PIB_t)$')
 

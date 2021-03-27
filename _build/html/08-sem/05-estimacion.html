@@ -424,6 +424,40 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../09-var/chapter09.html">
+   3. Vectores Auto-Regresivos (VAR)
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09-var/01-representaciones.html">
+     Representaciones alternativas de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09-var/02-dinamica.html">
+     Dinámica de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09-var/03-estimacion.html">
+     Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09-var/04-pronostico.html">
+     Pronósticos con VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09-var/refs.html">
+     Referencias
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -556,7 +590,7 @@
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  <a href="http//randall-romero.com">randall-romero.com</a>
+  <a href="http://randall-romero.com">randall-romero.com</a>
 </div>
 
 </div>
@@ -745,7 +779,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
-<span class="kn">from</span> <span class="nn">statsmodels.sandbox.regression.gmm</span> <span class="kn">import</span> <span class="n">IV2SLS</span>
+<span class="kn">from</span> <span class="nn">linearmodels.iv</span> <span class="kn">import</span> <span class="n">IV2SLS</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span>
 </pre></div>
 </div>
@@ -958,7 +992,7 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-estimacion_3_0.png" src="../_images/05-estimacion_3_0.png" />
+<img alt="../_images/05-estimacion_3_01.png" src="../_images/05-estimacion_3_01.png" />
 </div>
 </div>
 <p>El modelo contiene 3 ecuaciones de comportamiento, una condición de equilibrio, y dos identidades contables.</p>
@@ -1006,70 +1040,70 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_c0029_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >C</th>        <th class="col_heading level0 col1" >I</th>        <th class="col_heading level0 col2" >Wp</th>        <th class="col_heading level0 col3" >X</th>        <th class="col_heading level0 col4" >P</th>    </tr></thead><tbody>
+</style><table id="T_aafbb_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >C</th>        <th class="col_heading level0 col1" >I</th>        <th class="col_heading level0 col2" >Wp</th>        <th class="col_heading level0 col3" >X</th>        <th class="col_heading level0 col4" >P</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_c0029_level0_row0" class="row_heading level0 row0" >interc</th>
-                        <td id="T_c0029_row0_col0" class="data row0 col0" >58.30</td>
-                        <td id="T_c0029_row0_col1" class="data row0 col1" >35.52</td>
-                        <td id="T_c0029_row0_col2" class="data row0 col2" >43.44</td>
-                        <td id="T_c0029_row0_col3" class="data row0 col3" >93.82</td>
-                        <td id="T_c0029_row0_col4" class="data row0 col4" >50.38</td>
+                        <th id="T_aafbb_level0_row0" class="row_heading level0 row0" >interc</th>
+                        <td id="T_aafbb_row0_col0" class="data row0 col0" >58.30</td>
+                        <td id="T_aafbb_row0_col1" class="data row0 col1" >35.52</td>
+                        <td id="T_aafbb_row0_col2" class="data row0 col2" >43.44</td>
+                        <td id="T_aafbb_row0_col3" class="data row0 col3" >93.82</td>
+                        <td id="T_aafbb_row0_col4" class="data row0 col4" >50.38</td>
             </tr>
             <tr>
-                        <th id="T_c0029_level0_row1" class="row_heading level0 row1" >G</th>
-                        <td id="T_c0029_row1_col0" class="data row1 col0" >0.21</td>
-                        <td id="T_c0029_row1_col1" class="data row1 col1" >0.10</td>
-                        <td id="T_c0029_row1_col2" class="data row1 col2" >0.87</td>
-                        <td id="T_c0029_row1_col3" class="data row1 col3" >1.31</td>
-                        <td id="T_c0029_row1_col4" class="data row1 col4" >0.44</td>
+                        <th id="T_aafbb_level0_row1" class="row_heading level0 row1" >G</th>
+                        <td id="T_aafbb_row1_col0" class="data row1 col0" >0.21</td>
+                        <td id="T_aafbb_row1_col1" class="data row1 col1" >0.10</td>
+                        <td id="T_aafbb_row1_col2" class="data row1 col2" >0.87</td>
+                        <td id="T_aafbb_row1_col3" class="data row1 col3" >1.31</td>
+                        <td id="T_aafbb_row1_col4" class="data row1 col4" >0.44</td>
             </tr>
             <tr>
-                        <th id="T_c0029_level0_row2" class="row_heading level0 row2" >T</th>
-                        <td id="T_c0029_row2_col0" class="data row2 col0" >-0.37</td>
-                        <td id="T_c0029_row2_col1" class="data row2 col1" >-0.16</td>
-                        <td id="T_c0029_row2_col2" class="data row2 col2" >-0.60</td>
-                        <td id="T_c0029_row2_col3" class="data row2 col3" >-0.53</td>
-                        <td id="T_c0029_row2_col4" class="data row2 col4" >-0.92</td>
+                        <th id="T_aafbb_level0_row2" class="row_heading level0 row2" >T</th>
+                        <td id="T_aafbb_row2_col0" class="data row2 col0" >-0.37</td>
+                        <td id="T_aafbb_row2_col1" class="data row2 col1" >-0.16</td>
+                        <td id="T_aafbb_row2_col2" class="data row2 col2" >-0.60</td>
+                        <td id="T_aafbb_row2_col3" class="data row2 col3" >-0.53</td>
+                        <td id="T_aafbb_row2_col4" class="data row2 col4" >-0.92</td>
             </tr>
             <tr>
-                        <th id="T_c0029_level0_row3" class="row_heading level0 row3" >Wg</th>
-                        <td id="T_c0029_row3_col0" class="data row3 col0" >0.19</td>
-                        <td id="T_c0029_row3_col1" class="data row3 col1" >-0.72</td>
-                        <td id="T_c0029_row3_col2" class="data row3 col2" >-0.44</td>
-                        <td id="T_c0029_row3_col3" class="data row3 col3" >-0.52</td>
-                        <td id="T_c0029_row3_col4" class="data row3 col4" >-0.08</td>
+                        <th id="T_aafbb_level0_row3" class="row_heading level0 row3" >Wg</th>
+                        <td id="T_aafbb_row3_col0" class="data row3 col0" >0.19</td>
+                        <td id="T_aafbb_row3_col1" class="data row3 col1" >-0.72</td>
+                        <td id="T_aafbb_row3_col2" class="data row3 col2" >-0.44</td>
+                        <td id="T_aafbb_row3_col3" class="data row3 col3" >-0.52</td>
+                        <td id="T_aafbb_row3_col4" class="data row3 col4" >-0.08</td>
             </tr>
             <tr>
-                        <th id="T_c0029_level0_row4" class="row_heading level0 row4" >A</th>
-                        <td id="T_c0029_row4_col0" class="data row4 col0" >0.70</td>
-                        <td id="T_c0029_row4_col1" class="data row4 col1" >0.33</td>
-                        <td id="T_c0029_row4_col2" class="data row4 col2" >0.71</td>
-                        <td id="T_c0029_row4_col3" class="data row4 col3" >1.03</td>
-                        <td id="T_c0029_row4_col4" class="data row4 col4" >0.32</td>
+                        <th id="T_aafbb_level0_row4" class="row_heading level0 row4" >A</th>
+                        <td id="T_aafbb_row4_col0" class="data row4 col0" >0.70</td>
+                        <td id="T_aafbb_row4_col1" class="data row4 col1" >0.33</td>
+                        <td id="T_aafbb_row4_col2" class="data row4 col2" >0.71</td>
+                        <td id="T_aafbb_row4_col3" class="data row4 col3" >1.03</td>
+                        <td id="T_aafbb_row4_col4" class="data row4 col4" >0.32</td>
             </tr>
             <tr>
-                        <th id="T_c0029_level0_row5" class="row_heading level0 row5" >K1</th>
-                        <td id="T_c0029_row5_col0" class="data row5 col0" >-0.15</td>
-                        <td id="T_c0029_row5_col1" class="data row5 col1" >-0.19</td>
-                        <td id="T_c0029_row5_col2" class="data row5 col2" >-0.12</td>
-                        <td id="T_c0029_row5_col3" class="data row5 col3" >-0.34</td>
-                        <td id="T_c0029_row5_col4" class="data row5 col4" >-0.22</td>
+                        <th id="T_aafbb_level0_row5" class="row_heading level0 row5" >K1</th>
+                        <td id="T_aafbb_row5_col0" class="data row5 col0" >-0.15</td>
+                        <td id="T_aafbb_row5_col1" class="data row5 col1" >-0.19</td>
+                        <td id="T_aafbb_row5_col2" class="data row5 col2" >-0.12</td>
+                        <td id="T_aafbb_row5_col3" class="data row5 col3" >-0.34</td>
+                        <td id="T_aafbb_row5_col4" class="data row5 col4" >-0.22</td>
             </tr>
             <tr>
-                        <th id="T_c0029_level0_row6" class="row_heading level0 row6" >P1</th>
-                        <td id="T_c0029_row6_col0" class="data row6 col0" >0.75</td>
-                        <td id="T_c0029_row6_col1" class="data row6 col1" >0.93</td>
-                        <td id="T_c0029_row6_col2" class="data row6 col2" >0.87</td>
-                        <td id="T_c0029_row6_col3" class="data row6 col3" >1.67</td>
-                        <td id="T_c0029_row6_col4" class="data row6 col4" >0.80</td>
+                        <th id="T_aafbb_level0_row6" class="row_heading level0 row6" >P1</th>
+                        <td id="T_aafbb_row6_col0" class="data row6 col0" >0.75</td>
+                        <td id="T_aafbb_row6_col1" class="data row6 col1" >0.93</td>
+                        <td id="T_aafbb_row6_col2" class="data row6 col2" >0.87</td>
+                        <td id="T_aafbb_row6_col3" class="data row6 col3" >1.67</td>
+                        <td id="T_aafbb_row6_col4" class="data row6 col4" >0.80</td>
             </tr>
             <tr>
-                        <th id="T_c0029_level0_row7" class="row_heading level0 row7" >X1</th>
-                        <td id="T_c0029_row7_col0" class="data row7 col0" >0.23</td>
-                        <td id="T_c0029_row7_col1" class="data row7 col1" >-0.11</td>
-                        <td id="T_c0029_row7_col2" class="data row7 col2" >0.10</td>
-                        <td id="T_c0029_row7_col3" class="data row7 col3" >0.12</td>
-                        <td id="T_c0029_row7_col4" class="data row7 col4" >0.02</td>
+                        <th id="T_aafbb_level0_row7" class="row_heading level0 row7" >X1</th>
+                        <td id="T_aafbb_row7_col0" class="data row7 col0" >0.23</td>
+                        <td id="T_aafbb_row7_col1" class="data row7 col1" >-0.11</td>
+                        <td id="T_aafbb_row7_col2" class="data row7 col2" >0.10</td>
+                        <td id="T_aafbb_row7_col3" class="data row7 col3" >0.12</td>
+                        <td id="T_aafbb_row7_col4" class="data row7 col4" >0.02</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1095,54 +1129,54 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_c809f_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >C</th>        <th class="col_heading level0 col1" >I</th>        <th class="col_heading level0 col2" >Wp</th>    </tr></thead><tbody>
+</style><table id="T_80872_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >C</th>        <th class="col_heading level0 col1" >I</th>        <th class="col_heading level0 col2" >Wp</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_c809f_level0_row0" class="row_heading level0 row0" >interc</th>
-                        <td id="T_c809f_row0_col0" class="data row0 col0" >16.55</td>
-                        <td id="T_c809f_row0_col1" class="data row0 col1" >20.28</td>
-                        <td id="T_c809f_row0_col2" class="data row0 col2" >1.50</td>
+                        <th id="T_80872_level0_row0" class="row_heading level0 row0" >interc</th>
+                        <td id="T_80872_row0_col0" class="data row0 col0" >16.55</td>
+                        <td id="T_80872_row0_col1" class="data row0 col1" >20.28</td>
+                        <td id="T_80872_row0_col2" class="data row0 col2" >1.50</td>
             </tr>
             <tr>
-                        <th id="T_c809f_level0_row1" class="row_heading level0 row1" >P</th>
-                        <td id="T_c809f_row1_col0" class="data row1 col0" >0.02</td>
-                        <td id="T_c809f_row1_col1" class="data row1 col1" >0.15</td>
-                        <td id="T_c809f_row1_col2" class="data row1 col2" > </td>
+                        <th id="T_80872_level0_row1" class="row_heading level0 row1" >P</th>
+                        <td id="T_80872_row1_col0" class="data row1 col0" >0.02</td>
+                        <td id="T_80872_row1_col1" class="data row1 col1" >0.15</td>
+                        <td id="T_80872_row1_col2" class="data row1 col2" > </td>
             </tr>
             <tr>
-                        <th id="T_c809f_level0_row2" class="row_heading level0 row2" >P1</th>
-                        <td id="T_c809f_row2_col0" class="data row2 col0" >0.22</td>
-                        <td id="T_c809f_row2_col1" class="data row2 col1" >0.62</td>
-                        <td id="T_c809f_row2_col2" class="data row2 col2" > </td>
+                        <th id="T_80872_level0_row2" class="row_heading level0 row2" >P1</th>
+                        <td id="T_80872_row2_col0" class="data row2 col0" >0.22</td>
+                        <td id="T_80872_row2_col1" class="data row2 col1" >0.62</td>
+                        <td id="T_80872_row2_col2" class="data row2 col2" > </td>
             </tr>
             <tr>
-                        <th id="T_c809f_level0_row3" class="row_heading level0 row3" >W</th>
-                        <td id="T_c809f_row3_col0" class="data row3 col0" >0.81</td>
-                        <td id="T_c809f_row3_col1" class="data row3 col1" > </td>
-                        <td id="T_c809f_row3_col2" class="data row3 col2" > </td>
+                        <th id="T_80872_level0_row3" class="row_heading level0 row3" >W</th>
+                        <td id="T_80872_row3_col0" class="data row3 col0" >0.81</td>
+                        <td id="T_80872_row3_col1" class="data row3 col1" > </td>
+                        <td id="T_80872_row3_col2" class="data row3 col2" > </td>
             </tr>
             <tr>
-                        <th id="T_c809f_level0_row4" class="row_heading level0 row4" >K1</th>
-                        <td id="T_c809f_row4_col0" class="data row4 col0" > </td>
-                        <td id="T_c809f_row4_col1" class="data row4 col1" >-0.16</td>
-                        <td id="T_c809f_row4_col2" class="data row4 col2" > </td>
+                        <th id="T_80872_level0_row4" class="row_heading level0 row4" >K1</th>
+                        <td id="T_80872_row4_col0" class="data row4 col0" > </td>
+                        <td id="T_80872_row4_col1" class="data row4 col1" >-0.16</td>
+                        <td id="T_80872_row4_col2" class="data row4 col2" > </td>
             </tr>
             <tr>
-                        <th id="T_c809f_level0_row5" class="row_heading level0 row5" >X</th>
-                        <td id="T_c809f_row5_col0" class="data row5 col0" > </td>
-                        <td id="T_c809f_row5_col1" class="data row5 col1" > </td>
-                        <td id="T_c809f_row5_col2" class="data row5 col2" >0.44</td>
+                        <th id="T_80872_level0_row5" class="row_heading level0 row5" >X</th>
+                        <td id="T_80872_row5_col0" class="data row5 col0" > </td>
+                        <td id="T_80872_row5_col1" class="data row5 col1" > </td>
+                        <td id="T_80872_row5_col2" class="data row5 col2" >0.44</td>
             </tr>
             <tr>
-                        <th id="T_c809f_level0_row6" class="row_heading level0 row6" >X1</th>
-                        <td id="T_c809f_row6_col0" class="data row6 col0" > </td>
-                        <td id="T_c809f_row6_col1" class="data row6 col1" > </td>
-                        <td id="T_c809f_row6_col2" class="data row6 col2" >0.15</td>
+                        <th id="T_80872_level0_row6" class="row_heading level0 row6" >X1</th>
+                        <td id="T_80872_row6_col0" class="data row6 col0" > </td>
+                        <td id="T_80872_row6_col1" class="data row6 col1" > </td>
+                        <td id="T_80872_row6_col2" class="data row6 col2" >0.15</td>
             </tr>
             <tr>
-                        <th id="T_c809f_level0_row7" class="row_heading level0 row7" >A</th>
-                        <td id="T_c809f_row7_col0" class="data row7 col0" > </td>
-                        <td id="T_c809f_row7_col1" class="data row7 col1" > </td>
-                        <td id="T_c809f_row7_col2" class="data row7 col2" >0.13</td>
+                        <th id="T_80872_level0_row7" class="row_heading level0 row7" >A</th>
+                        <td id="T_80872_row7_col0" class="data row7 col0" > </td>
+                        <td id="T_80872_row7_col1" class="data row7 col1" > </td>
+                        <td id="T_80872_row7_col2" class="data row7 col2" >0.13</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1153,95 +1187,159 @@ C_t	 &amp;= \estimate{16.55}{0.00} + \estimate{0.02}{0.88} P_t + \estimate{0.22}
 I_t  &amp;= \estimate{20.28}{0.01} + \estimate{0.15}{0.39} P_t + \estimate{0.62}{0.00} P_{t-1} - \estimate{0.16}{0.00} K_{t-1} + \epsilon_{2t}  \\
 Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}{0.00} X_{t-1} + \estimate{0.13}{0.00} A_t + \epsilon_{3t}
 \end{align*}\]</div>
-<p>Este modelo también lo podemos estimar directamente con <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>:</p>
+<p>Este modelo también lo podemos estimar directamente con <code class="docutils literal notranslate"><span class="pre">linearmodels</span></code>:</p>
+<p><span class="sphinx-bs badge badge-primary">Ecuación de consumo</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">regresores_eqs</span><span class="p">,</span> <span class="n">endogenas</span><span class="p">[:</span><span class="mi">3</span><span class="p">]):</span>
-    <span class="n">fit</span> <span class="o">=</span> <span class="n">IV2SLS</span><span class="p">(</span><span class="n">klein</span><span class="p">[</span><span class="n">yy</span><span class="p">],</span> <span class="n">klein</span><span class="p">[</span><span class="n">xx</span><span class="p">],</span> <span class="n">instrument</span><span class="o">=</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimación de la ecuación de </span><span class="si">{</span><span class="n">datanames</span><span class="p">[</span><span class="n">yy</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;C ~ 1 + [P + W ~ G + T + Wg + A + K1 + X1] + P1&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimación de la ecuación de consumo
-                          IV2SLS Regression Results                           
-==============================================================================
-Dep. Variable:                      C   R-squared:                       0.977
-Model:                         IV2SLS   Adj. R-squared:                  0.973
-Method:                     Two Stage   F-statistic:                     225.9
-                        Least Squares   Prob (F-statistic):           6.82e-14
-Date:                Wed, 24 Mar 2021                                         
-Time:                        22:08:04                                         
-No. Observations:                  21                                         
-Df Residuals:                      17                                         
-Df Model:                           3                                         
-==============================================================================
-                 coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-interc        16.5548      1.468     11.277      0.000      13.458      19.652
-P              0.0173      0.131      0.132      0.897      -0.260       0.294
-P1             0.2162      0.119      1.814      0.087      -0.035       0.468
-W              0.8102      0.045     18.111      0.000       0.716       0.905
-==============================================================================
-Omnibus:                        0.768   Durbin-Watson:                   1.485
-Prob(Omnibus):                  0.681   Jarque-Bera (JB):                0.741
-Skew:                           0.209   Prob(JB):                        0.691
-Kurtosis:                       2.180   Cond. No.                         282.
-==============================================================================
-Estimación de la ecuación de inversión
-                          IV2SLS Regression Results                           
-==============================================================================
-Dep. Variable:                      I   R-squared:                       0.885
-Model:                         IV2SLS   Adj. R-squared:                  0.865
-Method:                     Two Stage   F-statistic:                     41.20
-                        Least Squares   Prob (F-statistic):           5.15e-08
-Date:                Wed, 24 Mar 2021                                         
-Time:                        22:08:04                                         
-No. Observations:                  21                                         
-Df Residuals:                      17                                         
-Df Model:                           3                                         
-==============================================================================
-                 coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-interc        20.2782      8.383      2.419      0.027       2.591      37.965
-P              0.1502      0.193      0.780      0.446      -0.256       0.556
-P1             0.6159      0.181      3.404      0.003       0.234       0.998
-K1            -0.1578      0.040     -3.930      0.001      -0.243      -0.073
-==============================================================================
-Omnibus:                        5.033   Durbin-Watson:                   2.085
-Prob(Omnibus):                  0.081   Jarque-Bera (JB):                2.880
-Skew:                          -0.800   Prob(JB):                        0.237
-Kurtosis:                       3.856   Cond. No.                     5.01e+03
-==============================================================================
-Estimación de la ecuación de salarios sector privado
-                          IV2SLS Regression Results                           
-==============================================================================
-Dep. Variable:                     Wp   R-squared:                       0.987
-Model:                         IV2SLS   Adj. R-squared:                  0.985
-Method:                     Two Stage   F-statistic:                     424.2
-                        Least Squares   Prob (F-statistic):           3.57e-16
-Date:                Wed, 24 Mar 2021                                         
-Time:                        22:08:04                                         
-No. Observations:                  21                                         
-Df Residuals:                      17                                         
-Df Model:                           3                                         
-==============================================================================
-                 coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------
-interc         1.5003      1.276      1.176      0.256      -1.191       4.192
-X              0.4389      0.040     11.082      0.000       0.355       0.522
-X1             0.1467      0.043      3.398      0.003       0.056       0.238
-A              0.1304      0.032      4.026      0.001       0.062       0.199
-==============================================================================
-Omnibus:                        0.449   Durbin-Watson:                   1.963
-Prob(Omnibus):                  0.799   Jarque-Bera (JB):                0.545
-Skew:                           0.022   Prob(JB):                        0.761
-Kurtosis:                       2.212   Cond. No.                         641.
-==============================================================================
+<div class="output text_html"><table class="simpletable">
+<caption>IV-2SLS Estimation Summary</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>C</td>        <th>  R-squared:         </th> <td>0.9767</td> 
+</tr>
+<tr>
+  <th>Estimator:</th>             <td>IV-2SLS</td>     <th>  Adj. R-squared:    </th> <td>0.9726</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>        <td>21</td>        <th>  F-statistic:       </th> <td>638.00</td> 
+</tr>
+<tr>
+  <th>Date:</th>             <td>Fri, Mar 26 2021</td> <th>  P-value (F-stat)   </th> <td>0.0000</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>00:57:29</td>     <th>  Distribution:      </th> <td>chi2(3)</td>
+</tr>
+<tr>
+  <th>Cov. Estimator:</th>        <td>robust</td>      <th>                     </th>    <td></td>    
+</tr>
+<tr>
+  <th></th>                          <td></td>         <th>                     </th>    <td></td>    
+</tr>
+</table>
+<table class="simpletable">
+<caption>Parameter Estimates</caption>
+<tr>
+      <td></td>      <th>Parameter</th> <th>Std. Err.</th> <th>T-stat</th> <th>P-value</th> <th>Lower CI</th> <th>Upper CI</th>
+</tr>
+<tr>
+  <th>Intercept</th>  <td>16.555</td>    <td>1.5498</td>   <td>10.682</td> <td>0.0000</td>   <td>13.517</td>   <td>19.592</td> 
+</tr>
+<tr>
+  <th>P1</th>         <td>0.2162</td>    <td>0.0925</td>   <td>2.3379</td> <td>0.0194</td>   <td>0.0350</td>   <td>0.3975</td> 
+</tr>
+<tr>
+  <th>P</th>          <td>0.0173</td>    <td>0.1110</td>   <td>0.1559</td> <td>0.8761</td>   <td>-0.2002</td>  <td>0.2348</td> 
+</tr>
+<tr>
+  <th>W</th>          <td>0.8102</td>    <td>0.0480</td>   <td>16.863</td> <td>0.0000</td>   <td>0.7160</td>   <td>0.9043</td> 
+</tr>
+</table><br/><br/>Endogenous: P, W<br/>Instruments: G, T, Wg, A, K1, X1<br/>Robust Covariance (Heteroskedastic)<br/>Debiased: False</div></div>
+</div>
+<p><span class="sphinx-bs badge badge-primary">Ecuación de inversión</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;I ~ 1 + [P ~ G + T + Wg + A + X1] + P1 + K1&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>IV-2SLS Estimation Summary</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>I</td>        <th>  R-squared:         </th> <td>0.8849</td> 
+</tr>
+<tr>
+  <th>Estimator:</th>             <td>IV-2SLS</td>     <th>  Adj. R-squared:    </th> <td>0.8646</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>        <td>21</td>        <th>  F-statistic:       </th> <td>195.17</td> 
+</tr>
+<tr>
+  <th>Date:</th>             <td>Fri, Mar 26 2021</td> <th>  P-value (F-stat)   </th> <td>0.0000</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>00:57:29</td>     <th>  Distribution:      </th> <td>chi2(3)</td>
+</tr>
+<tr>
+  <th>Cov. Estimator:</th>        <td>robust</td>      <th>                     </th>    <td></td>    
+</tr>
+<tr>
+  <th></th>                          <td></td>         <th>                     </th>    <td></td>    
+</tr>
+</table>
+<table class="simpletable">
+<caption>Parameter Estimates</caption>
+<tr>
+      <td></td>      <th>Parameter</th> <th>Std. Err.</th> <th>T-stat</th>  <th>P-value</th> <th>Lower CI</th> <th>Upper CI</th>
+</tr>
+<tr>
+  <th>Intercept</th>  <td>20.278</td>    <td>8.0414</td>   <td>2.5217</td>  <td>0.0117</td>   <td>4.5174</td>   <td>36.039</td> 
+</tr>
+<tr>
+  <th>P1</th>         <td>0.6159</td>    <td>0.1644</td>   <td>3.7471</td>  <td>0.0002</td>   <td>0.2938</td>   <td>0.9381</td> 
+</tr>
+<tr>
+  <th>K1</th>         <td>-0.1578</td>   <td>0.0380</td>   <td>-4.1552</td> <td>0.0000</td>   <td>-0.2322</td>  <td>-0.0834</td>
+</tr>
+<tr>
+  <th>P</th>          <td>0.1502</td>    <td>0.1849</td>   <td>0.8126</td>  <td>0.4165</td>   <td>-0.2121</td>  <td>0.5126</td> 
+</tr>
+</table><br/><br/>Endogenous: P<br/>Instruments: G, T, Wg, A, X1<br/>Robust Covariance (Heteroskedastic)<br/>Debiased: False</div></div>
+</div>
+<p><span class="sphinx-bs badge badge-primary">Ecuación de salarios del sector privado</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;Wp ~ 1 + [X ~ G + T + Wg + K1 + P1] + X1 + A&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>IV-2SLS Estimation Summary</caption>
+<tr>
+  <th>Dep. Variable:</th>           <td>Wp</td>        <th>  R-squared:         </th> <td>0.9874</td> 
+</tr>
+<tr>
+  <th>Estimator:</th>             <td>IV-2SLS</td>     <th>  Adj. R-squared:    </th> <td>0.9852</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>        <td>21</td>        <th>  F-statistic:       </th> <td>1692.8</td> 
+</tr>
+<tr>
+  <th>Date:</th>             <td>Fri, Mar 26 2021</td> <th>  P-value (F-stat)   </th> <td>0.0000</td> 
+</tr>
+<tr>
+  <th>Time:</th>                 <td>00:57:29</td>     <th>  Distribution:      </th> <td>chi2(3)</td>
+</tr>
+<tr>
+  <th>Cov. Estimator:</th>        <td>robust</td>      <th>                     </th>    <td></td>    
+</tr>
+<tr>
+  <th></th>                          <td></td>         <th>                     </th>    <td></td>    
+</tr>
+</table>
+<table class="simpletable">
+<caption>Parameter Estimates</caption>
+<tr>
+      <td></td>      <th>Parameter</th> <th>Std. Err.</th> <th>T-stat</th> <th>P-value</th> <th>Lower CI</th> <th>Upper CI</th>
+</tr>
+<tr>
+  <th>Intercept</th>  <td>1.5003</td>    <td>0.9157</td>   <td>1.6385</td> <td>0.1013</td>   <td>-0.2944</td>  <td>3.2950</td> 
+</tr>
+<tr>
+  <th>X1</th>         <td>0.1467</td>    <td>0.0357</td>   <td>4.1040</td> <td>0.0000</td>   <td>0.0766</td>   <td>0.2167</td> 
+</tr>
+<tr>
+  <th>A</th>          <td>0.1304</td>    <td>0.0292</td>   <td>4.4650</td> <td>0.0000</td>   <td>0.0732</td>   <td>0.1876</td> 
+</tr>
+<tr>
+  <th>X</th>          <td>0.4389</td>    <td>0.0314</td>   <td>13.957</td> <td>0.0000</td>   <td>0.3772</td>   <td>0.5005</td> 
+</tr>
+</table><br/><br/>Endogenous: X<br/>Instruments: G, T, Wg, K1, P1<br/>Robust Covariance (Heteroskedastic)<br/>Debiased: False</div></div>
 </div>
 </div>
 <p><div class="ejemplo">
@@ -1316,7 +1414,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-estimacion_13_0.png" src="../_images/05-estimacion_13_0.png" />
+<img alt="../_images/05-estimacion_17_0.png" src="../_images/05-estimacion_17_0.png" />
 </div>
 </div>
 <p>En particular estimamos 1000 veces este modelo a partir de series simuladas de 24 observaciones.</p>
@@ -1342,28 +1440,20 @@ Kurtosis:                       2.212   Cond. No.                         641.
          <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">DATOS_SIMULADOS</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)]</span>
        <span class="p">)</span>
 
+<span class="k">def</span> <span class="nf">tsls_params</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span>
+         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">DATOS_SIMULADOS</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)])</span>
+
+
 <span class="n">PARAMETROS_SIMULADOS</span> <span class="o">=</span> <span class="p">{</span>
  <span class="s1">&#39;ms_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_maiz ~ 1 + LP_maiz + LP_trigo&#39;</span><span class="p">),</span>
  <span class="s1">&#39;ws_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo ~ 1 + LP_maiz + LP_trigo&#39;</span><span class="p">),</span>
  <span class="s1">&#39;md_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_maiz ~ 1 + P_maiz + P_trigo&#39;</span><span class="p">),</span>
- <span class="s1">&#39;wd_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo ~ 1 + P_maiz + P_trigo&#39;</span><span class="p">)</span>
+ <span class="s1">&#39;wd_ols&#39;</span><span class="p">:</span> <span class="n">ols_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo ~ 1 + P_maiz + P_trigo&#39;</span><span class="p">),</span>
+ <span class="s1">&#39;md_2sls&#39;</span><span class="p">:</span> <span class="n">tsls_params</span><span class="p">(</span><span class="s1">&#39;Q_maiz ~ 1 + [P_maiz + P_trigo ~ LP_maiz + LP_trigo]&#39;</span><span class="p">),</span>
+ <span class="s1">&#39;wd_2sls&#39;</span><span class="p">:</span> <span class="n">tsls_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo ~ 1 + [P_maiz + P_trigo ~ LP_maiz + LP_trigo]&#39;</span><span class="p">)</span>
 <span class="p">}</span>
-
-<span class="n">exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;P_maiz&#39;</span><span class="p">,</span> <span class="s1">&#39;P_trigo&#39;</span><span class="p">]</span>
-<span class="n">instrum</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;LP_maiz&#39;</span><span class="p">,</span> <span class="s1">&#39;LP_trigo&#39;</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">tsls_params</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">IV2SLS</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">modelo</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">exogenas</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">instrum</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span>
-         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">DATOS_SIMULADOS</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)])</span>
-
-<span class="n">DATOS_SIMULADOS</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">DATOS_SIMULADOS</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
-
-<span class="n">PARAMETROS_SIMULADOS</span><span class="p">[</span><span class="s1">&#39;md_2sls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsls_params</span><span class="p">(</span><span class="s1">&#39;Q_maiz&#39;</span><span class="p">)</span>
-<span class="n">PARAMETROS_SIMULADOS</span><span class="p">[</span><span class="s1">&#39;wd_2sls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsls_params</span><span class="p">(</span><span class="s1">&#39;Q_trigo&#39;</span><span class="p">)</span>
-
-
 
 <span class="n">true_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;ms&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="n">cstr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Beta</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
@@ -1451,7 +1541,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/05-estimacion_17_1.png" src="../_images/05-estimacion_17_1.png" />
+</div></div><img alt="../_images/05-estimacion_21_1.png" src="../_images/05-estimacion_21_1.png" />
 </div>
 </div>
 <p><span class="sphinx-bs badge badge-primary">oferta de trigo</span></p>
@@ -1500,7 +1590,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/05-estimacion_19_1.png" src="../_images/05-estimacion_19_1.png" />
+</div></div><img alt="../_images/05-estimacion_23_1.png" src="../_images/05-estimacion_23_1.png" />
 </div>
 </div>
 <p>Las ecuaciones de demanda sí son simultáneas, por lo que la estimación OLS estaría sesgada.</p>
@@ -1550,7 +1640,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/05-estimacion_21_1.png" src="../_images/05-estimacion_21_1.png" />
+</div></div><img alt="../_images/05-estimacion_25_1.png" src="../_images/05-estimacion_25_1.png" />
 </div>
 </div>
 <p><span class="sphinx-bs badge badge-danger">demanda de trigo</span></p>
@@ -1599,7 +1689,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/05-estimacion_23_1.png" src="../_images/05-estimacion_23_1.png" />
+</div></div><img alt="../_images/05-estimacion_27_1.png" src="../_images/05-estimacion_27_1.png" />
 </div>
 </div>
 <p>Por ello, estimamos el sistema por 2SLS:</p>
@@ -1632,7 +1722,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>1</th>
+      <th>Intercept</th>
       <th>P_maiz</th>
       <th>P_trigo</th>
     </tr>
@@ -1652,7 +1742,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/05-estimacion_25_2.png" src="../_images/05-estimacion_25_2.png" />
+</div></div><img alt="../_images/05-estimacion_29_2.png" src="../_images/05-estimacion_29_2.png" />
 </div>
 </div>
 <p><span class="sphinx-bs badge badge-primary">demanda de trigo</span></p>
@@ -1684,7 +1774,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>1</th>
+      <th>Intercept</th>
       <th>P_maiz</th>
       <th>P_trigo</th>
     </tr>
@@ -1704,7 +1794,7 @@ Kurtosis:                       2.212   Cond. No.                         641.
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/05-estimacion_27_2.png" src="../_images/05-estimacion_27_2.png" />
+</div></div><img alt="../_images/05-estimacion_31_2.png" src="../_images/05-estimacion_31_2.png" />
 </div>
 </div>
 </div>
