@@ -17,20 +17,40 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import matplotlib as plt
+xlag = np.zeros([2,1])
+XpX = np.zeros([2,2])
+XpY = np.zeros([2,2])
 
-print("Este es un resultado obtenido con Python! Clic en 'Click to Show' para ver el código que lo generó!")
+T = 4000
+minT = 5
+Xest = np.zeros([T+1, 4])
 
-plt.plot([1,9,2,8,3,7,4,6,5,5,5])
+for t in range(T+1):
+    x = Φ @ xlag + sigma * np.random.randn(2,1)
+    XpX += np.outer(xlag, xlag)
+    XpY += np.outer(xlag, x)
+    xlag = x.copy()
+
+    if t>minT:
+        Xest[t] = np.linalg.solve(XpX/t, XpY/t).flatten()
+
+
+estimates2 = pd.DataFrame(Xest[minT:], columns=param_names)
+
+ax = estimates2.plot(color='b',figsize=[15,8],subplots=True, layout=[2,2])
+
+for i in range(2):
+    for j in range(2):
+        ax[i,j].axhline(y=A[j,i],linewidth=1, color='r')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m<ipython-input-1-c94173c792df>[0m in [0;36m<module>[0;34m[0m
-[1;32m      3[0m [0mprint[0m[0;34m([0m[0;34m"Este es un resultado obtenido con Python! Clic en 'Click to Show' para ver el código que lo generó!"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m [0;34m[0m[0m
-[0;32m----> 5[0;31m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m[[0m[0;36m1[0m[0;34m,[0m[0;36m9[0m[0;34m,[0m[0;36m2[0m[0;34m,[0m[0;36m8[0m[0;34m,[0m[0;36m3[0m[0;34m,[0m[0;36m7[0m[0;34m,[0m[0;36m4[0m[0;34m,[0m[0;36m6[0m[0;34m,[0m[0;36m5[0m[0;34m,[0m[0;36m5[0m[0;34m,[0m[0;36m5[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-5-1ab3c15c1520>[0m in [0;36m<module>[0;34m[0m
+[1;32m     23[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     24[0m     [0;32mfor[0m [0mj[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 25[0;31m         [0max[0m[0;34m[[0m[0mi[0m[0;34m,[0m[0mj[0m[0;34m][0m[0;34m.[0m[0maxhline[0m[0;34m([0m[0my[0m[0;34m=[0m[0mA[0m[0;34m[[0m[0mj[0m[0;34m,[0m[0mi[0m[0;34m][0m[0;34m,[0m[0mlinewidth[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
-[0;31mAttributeError[0m: module 'matplotlib' has no attribute 'plot'
-AttributeError: module 'matplotlib' has no attribute 'plot'
+[0;31mNameError[0m: name 'A' is not defined
+NameError: name 'A' is not defined
 

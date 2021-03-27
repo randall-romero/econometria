@@ -41,7 +41,7 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
-from statsmodels.sandbox.regression.gmm import IV2SLS
+from linearmodels.iv import IV2SLS
 from scipy.stats import zscore
 ```
 
@@ -315,17 +315,25 @@ Wp_t &= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}{0.0
 \end{align*}
 
 
-Este modelo también lo podemos estimar directamente con `statsmodels`:
+Este modelo también lo podemos estimar directamente con `linearmodels`:
+
+{badge}`Ecuación de consumo,badge-primary`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-for xx, yy in zip(regresores_eqs, endogenas[:3]):
-    fit = IV2SLS(klein[yy], klein[xx], instrument=X).fit()
-    print(f'Estimación de la ecuación de {datanames[yy]}')
-    print(fit.summary())
-
+IV2SLS.from_formula('C ~ 1 + [P + W ~ G + T + Wg + A + K1 + X1] + P1', klein).fit().summary
 ```
 
+{badge}`Ecuación de inversión,badge-primary`
+```{code-cell} ipython3
+:tags: ["hide-input",]
+IV2SLS.from_formula('I ~ 1 + [P ~ G + T + Wg + A + X1] + P1 + K1', klein).fit().summary
+```
 
+{badge}`Ecuación de salarios del sector privado,badge-primary`
+```{code-cell} ipython3
+:tags: ["hide-input",]
+IV2SLS.from_formula('Wp ~ 1 + [X ~ G + T + Wg + K1 + P1] + X1 + A', klein).fit().summary
+```
 {{ termina_ejemplo }}
 
 
@@ -433,28 +441,20 @@ def ols_params(modelo):
          for _, df in DATOS_SIMULADOS.groupby(level=0)]
        )
 
+def tsls_params(modelo):
+    return pd.DataFrame(
+        [IV2SLS.from_formula(modelo,df.dropna()).fit().params
+         for i, df in DATOS_SIMULADOS.groupby(level=0)])
+
+
 PARAMETROS_SIMULADOS = {
  'ms_ols': ols_params('Q_maiz ~ 1 + LP_maiz + LP_trigo'),
  'ws_ols': ols_params('Q_trigo ~ 1 + LP_maiz + LP_trigo'),
  'md_ols': ols_params('Q_maiz ~ 1 + P_maiz + P_trigo'),
- 'wd_ols': ols_params('Q_trigo ~ 1 + P_maiz + P_trigo')
+ 'wd_ols': ols_params('Q_trigo ~ 1 + P_maiz + P_trigo'),
+ 'md_2sls': tsls_params('Q_maiz ~ 1 + [P_maiz + P_trigo ~ LP_maiz + LP_trigo]'),
+ 'wd_2sls': tsls_params('Q_trigo ~ 1 + [P_maiz + P_trigo ~ LP_maiz + LP_trigo]')
 }
-
-exogenas = ['1', 'P_maiz', 'P_trigo']
-instrum = ['1', 'LP_maiz', 'LP_trigo']
-
-def tsls_params(modelo):
-    return pd.DataFrame(
-        [IV2SLS(df.loc[i,modelo], df.loc[i,exogenas], df.loc[i,instrum]).fit().params
-         for i, df in DATOS_SIMULADOS.groupby(level=0)])
-
-DATOS_SIMULADOS.dropna(inplace=True)
-DATOS_SIMULADOS['1'] = 1.0
-
-PARAMETROS_SIMULADOS['md_2sls'] = tsls_params('Q_maiz')
-PARAMETROS_SIMULADOS['wd_2sls'] = tsls_params('Q_trigo')
-
-
 
 true_params = {
     'ms': np.r_[cstr[0],Beta[0]],

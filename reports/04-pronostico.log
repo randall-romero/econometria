@@ -17,31 +17,21 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-datos <- read_csv("../data/LandD.csv") %>%
-  mutate(trimestre = yearquarter(trimestre)) %>%
-  as_tsibble(index=trimestre) %>%
-  select(trimestre, y)
+granger = pd.DataFrame(np.zeros([3,3]), index = datos.columns.values, columns=datos.columns.values)
+granger.index.name = 'Explicativa'
+granger.columns.name = 'Dependiente'
 
-datos
+for i in datos.columns:
+    for j in datos.columns:
+        temp =
+        granger.loc[j, i] = res.test_causality(i, j).pvalue
+granger.round(3)
 ------------------
 
-Error: '../data/LandD.csv' does not exist in current working directory ('/home/randall/Documents/ec4301/ec4301/r-code').
-Traceback:
+[0;36m  File [0;32m"<ipython-input-5-5855f7e9d3a2>"[0;36m, line [0;32m7[0m
+[0;31m    temp =[0m
+[0m          ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-1. read_csv("../data/LandD.csv") %>% mutate(trimestre = yearquarter(trimestre)) %>% 
- .     as_tsibble(index = trimestre) %>% select(trimestre, y)
-2. select(., trimestre, y)
-3. as_tsibble(., index = trimestre)
-4. mutate(., trimestre = yearquarter(trimestre))
-5. read_csv("../data/LandD.csv")
-6. read_delimited(file, tokenizer, col_names = col_names, col_types = col_types, 
- .     locale = locale, skip = skip, skip_empty_rows = skip_empty_rows, 
- .     comment = comment, n_max = n_max, guess_max = guess_max, 
- .     progress = progress)
-7. standardise_path(file)
-8. check_path(path)
-9. stop("'", path, "' does not exist", if (!is_absolute_path(path)) paste0(" in current working directory ('", 
- .     getwd(), "')"), ".", call. = FALSE)
-ERROR: Error: '../data/LandD.csv' does not exist in current working directory ('/home/randall/Documents/ec4301/ec4301/r-code').
-
+SyntaxError: invalid syntax (<ipython-input-5-5855f7e9d3a2>, line 7)
 

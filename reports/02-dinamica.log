@@ -1,0 +1,104 @@
+Traceback (most recent call last):
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+"""
+Una clase para representar un VAR(1)
+
+El trabajo se simplifica enormemente si creamos una clase para representar el VAR(1). En su implementación, definimos métodos para simularlo, determinar si es estable, y calcular la función de impulso respuesta. Para crear un objeto VAR(1), basta con pasarle a esta clase tres matrices: los interceptos, los coeficientes del rezago, y la varianza de los errores.
+"""
+
+class VAR1:
+    def __init__(self,c,A,omega):
+        self.c = np.asarray(c)
+        self.A = np.asarray(A)
+        self.omega = np.asarray(omega)
+        self.n = self.c.size
+        self.names = [name for name in 'xyzuvw'[:self.n]]
+        self.shock = lambda : mvn(np.zeros(self.n), self.omega)
+
+    def simulate(self, T=101):
+        ''' Simula el VAR(1) T períodos'''
+        X = np.zeros((T,self.n))
+        try:
+            X[0] = (np.linalg.inv(np.eye(2) - A) @ c).T
+        except:
+            pass
+
+        for t in range(1, T):
+            X[t] = self.c.T + X[t-1] @ self.A.T + self.shock()
+        return pd.DataFrame(X, columns=self.names)
+
+    def stability(self):
+        ''' Determina la estabilidad del VAR a partir de los eigenvalores'''
+        eigenvalues = np.linalg.eigvals(self.A)
+
+        fig = plt.figure(figsize=[12,6])
+        ax1 = fig.add_subplot(1, 2, 1, polar=True)
+        ax1.plot(np.angle(eigenvalues), abs(eigenvalues),marker='o',linewidth=0)
+        ax1.set(ylim=[0,1], yticks=[1], yticklabels=[''], xticks=np.arange(4)*np.pi/2)
+
+        df = pd.DataFrame({'eigenvalor': [f'{𝜆:.3g} for 𝜆 in eigenvalues],
+                           'módulo': [f'{a:.3g}' for a in abs(eigenvalues)]})  
+        print(df.dtypes)                           
+        ax2 = fig.add_subplot(1, 2, 2)
+        ax2.axis('off')
+        tbl = ax2.table(cellText = df.values,
+                        colLabels = df.columns,
+                        colColours = ['RoyalBlue']*2,
+                        bbox=[0, 0.1, 1, 0.9])
+        tbl.auto_set_font_size(False)
+        tbl.set_fontsize(16)
+
+    def irf(self, h=40, unit=True, plot=True, figsize=[12,6],**kwargs):
+        ''' Calcula la función de impulso respuesta'''
+        n = self.n
+
+        impulse = np.eye(n) if unit else np.linalg.cholesky(self.omega)
+
+        print('Los impulsos son ')
+        for k in range(n):
+            print(self.names[k],":  " ,impulse[:,k])
+
+        X = np.zeros((h+1, n, n))
+        X[0] = impulse
+        for t in range(h):
+            X[t+1] = self.A @ X[t]
+
+        cols = [f'{y} --> {x}' for x in self.names for y in self.names]
+        data = pd.DataFrame(X.reshape(h+1,n*n), columns=cols)
+        if plot:
+            data.plot(subplots=True, layout=(n,n), figsize=figsize,
+                      title='Impulse-response function',**kwargs)
+        else:
+             return data   
+
+    def analysis(self, T=101, h=40, unit=True, plot=True, **kwargs):
+        ''' Analiza el VAR: estabilidad, simulación, impulso-respuesta'''
+        self.stability()
+        self.simulate(T).plot(title="Simulated VAR(1) process", figsize=[12,5])
+        self.irf(h=h,unit=unit,plot=plot,**kwargs)
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-9cf44d92c11a>"[0;36m, line [0;32m37[0m
+[0;31m    df = pd.DataFrame({'eigenvalor': [f'{𝜆:.3g} for 𝜆 in eigenvalues],[0m
+[0m                                                                      ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+
+SyntaxError: EOL while scanning string literal (<ipython-input-2-9cf44d92c11a>, line 37)
+
