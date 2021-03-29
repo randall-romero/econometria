@@ -190,7 +190,7 @@ encontramos
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-pib = bccr.SW({'33783':'PIB'})
+pib = bccr.SW(PIB=33783)
 pib['lPIB'] = np.log(pib['PIB'])
 pib['ΔlPIB'] = pib['lPIB'].diff()
 pib['LlPIB'] = pib['lPIB'].shift()

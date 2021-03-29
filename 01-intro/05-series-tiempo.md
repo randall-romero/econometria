@@ -250,7 +250,7 @@ Si los datos están generados por un proceso AR(p), entonces el estimador $\hat{
 Obtenemos y graficamos los datos
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-imae = SW({'35449':'Original','35553':'Tendencia-ciclo'})
+imae = SW(Original=35449, Tendencia_ciclo=35553)
 imae.index = imae.index.to_timestamp() # para poder graficar con plotly
 imae.plot()
 

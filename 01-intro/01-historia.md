@@ -84,7 +84,7 @@ imaes[imaes.descripcion.str.contains('IMAE')]
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-imae = SW({35449: 'IMAE'})  # descargar el imae
+imae = SW(IMAE=35449)  # descargar el imae
 imae.index = imae.index.to_timestamp() # para poder graficar con plotly
 
 fig = imae.plot()

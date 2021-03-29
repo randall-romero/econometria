@@ -65,7 +65,7 @@ def figura(datos, titulo, y):
 
     return fig
 
-pib = SW({33438:'PIB'})
+pib = SW(PIB=33438)
 pib /=1e6
 pib.index = pib.index.to_timestamp()
 

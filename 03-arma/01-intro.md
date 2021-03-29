@@ -146,11 +146,7 @@ import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
 
-indicadores = {'35449':'IMAE',
-               '25482':'IPC',
-               '1445':'M1',
-               '423':'Tbasica'}
-datos = bccr.SW(indicadores, func=np.mean).dropna()
+datos = bccr.SW(IMAE=35449, IPC=25482, M1=1445, Tbasica=423, func=np.mean, fillna='ffill').dropna()
 datos.tail()
 ```
 
