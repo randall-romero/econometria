@@ -17,40 +17,18 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-xlag = np.zeros([2,1])
-XpX = np.zeros([2,2])
-XpY = np.zeros([2,2])
-
-T = 4000
-minT = 5
-Xest = np.zeros([T+1, 4])
-
-for t in range(T+1):
-    x = Φ @ xlag + sigma * np.random.randn(2,1)
-    XpX += np.outer(xlag, xlag)
-    XpY += np.outer(xlag, x)
-    xlag = x.copy()
-
-    if t>minT:
-        Xest[t] = np.linalg.solve(XpX/t, XpY/t).flatten()
-
-
-estimates2 = pd.DataFrame(Xest[minT:], columns=param_names)
-
-ax = estimates2.plot(color='b',figsize=[15,8],subplots=True, layout=[2,2])
-
-for i in range(2):
-    for j in range(2):
-        ax[i,j].axhline(y=A[j,i],linewidth=1, color='r')
+imae = SW(Original=35449, Tendencia_ciclo=35553)
+imae.index = imae.index.to_timestamp() # para poder graficar con plotly
+imae.plot()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-[0;32m<ipython-input-5-1ab3c15c1520>[0m in [0;36m<module>[0;34m[0m
-[1;32m     23[0m [0;32mfor[0m [0mi[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     24[0m     [0;32mfor[0m [0mj[0m [0;32min[0m [0mrange[0m[0;34m([0m[0;36m2[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 25[0;31m         [0max[0m[0;34m[[0m[0mi[0m[0;34m,[0m[0mj[0m[0;34m][0m[0;34m.[0m[0maxhline[0m[0;34m([0m[0my[0m[0;34m=[0m[0mA[0m[0;34m[[0m[0mj[0m[0;34m,[0m[0mi[0m[0;34m][0m[0;34m,[0m[0mlinewidth[0m[0;34m=[0m[0;36m1[0m[0;34m,[0m [0mcolor[0m[0;34m=[0m[0;34m'r'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mNameError[0m: name 'A' is not defined
-NameError: name 'A' is not defined
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-2-6f2f423b5f21>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mimae[0m [0;34m=[0m [0mSW[0m[0;34m([0m[0mOriginal[0m[0;34m=[0m[0;36m35449[0m[0;34m,[0m [0mTendencia_ciclo[0m[0;34m=[0m[0;36m35553[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mimae[0m[0;34m.[0m[0mindex[0m [0;34m=[0m [0mimae[0m[0;34m.[0m[0mindex[0m[0;34m.[0m[0mto_timestamp[0m[0;34m([0m[0;34m)[0m [0;31m# para poder graficar con plotly[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mimae[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: 'DatetimeIndex' object has no attribute 'to_timestamp'
+AttributeError: 'DatetimeIndex' object has no attribute 'to_timestamp'
 

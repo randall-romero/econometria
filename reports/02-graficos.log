@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/home/randall/anaconda3/envs/libro-ec4301/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def figura(datos, titulo, y):
+    fig = datos.plot(title=titulo)
+    fig.update_layout(
+        title=titulo,
+        xaxis_title=" ",
+        yaxis_title=y,
+        showlegend=False
+    )
+
+    return fig
+
+pib = SW(PIB=33438)
+pib /=1e6
+pib.index = pib.index.to_timestamp()
+
+figura(pib,
+       'Producto Interno Bruto de Costa Rica',
+       'billones de colones constantes')
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-2-dc5f752bb2af>[0m in [0;36m<module>[0;34m[0m
+[1;32m     12[0m [0mpib[0m [0;34m=[0m [0mSW[0m[0;34m([0m[0mPIB[0m[0;34m=[0m[0;36m33438[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     13[0m [0mpib[0m [0;34m/=[0m[0;36m1e6[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 14[0;31m [0mpib[0m[0;34m.[0m[0mindex[0m [0;34m=[0m [0mpib[0m[0;34m.[0m[0mindex[0m[0;34m.[0m[0mto_timestamp[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     15[0m [0;34m[0m[0m
+[1;32m     16[0m figura(pib,
+
+[0;31mAttributeError[0m: 'DatetimeIndex' object has no attribute 'to_timestamp'
+AttributeError: 'DatetimeIndex' object has no attribute 'to_timestamp'
+

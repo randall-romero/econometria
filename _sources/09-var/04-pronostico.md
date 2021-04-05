@@ -162,9 +162,8 @@ Para ello estimaremos un VAR:
 Contamos con una muestra de 39 observaciones trimestrales, de 2010-III a 2020-I.
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-variables = {'22796':'Desempleo', '25485':'Inflación', '3541':'TPM'}
 
-datos = SW(variables, freq='Q', func=np.mean)['2010Q3':'2020Q1']
+datos = SW(Desempleo=22796, Inflación=25485, TPM=3541, freq='Q', func=np.mean, fillna='ffill')['2010Q3':'2020Q1']
 nombres = datos.columns
 
 fig, ax = plt.subplots(figsize=[12, 6])

@@ -20,11 +20,11 @@ kernelspec:
 from bccr import SW
 import numpy as np
 import pandas as pd
-pd.options.plotting.backend = "plotly"
+import matplotlib.pyplot as plt
+plt.style.use('seaborn')
+import seaborn as sns
 from statsmodels.tsa.seasonal import seasonal_decompose
 from statsmodels.tsa.filters.hp_filter import hpfilter
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
 ```
 
 
@@ -78,17 +78,14 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.
 
 ```{code-cell} ipython3
 :tags: ["hide-cell",]
-imaes = SW.buscar(todos='IMAE serie original', frecuencia='M', Unidad='Nivel')
+imaes = SW.buscar('IMAE serie original', frecuencia='M', Unidad='Nivel')
 imaes[imaes.descripcion.str.contains('IMAE')]
 ```
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-imae = SW({35449: 'IMAE'})  # descargar el imae
-imae.index = imae.index.to_timestamp() # para poder graficar con plotly
-
-fig = imae.plot()
-fig
+imae = SW(IMAE=35449)  # descargar el imae
+imae.plot(figsize=[12,5]);
 ```
 
 Descomposición aditiva y multiplicativa del IMAE de Costa Rica
@@ -111,20 +108,9 @@ descomp.columns = componentes
 descomp = descomp.stack().reset_index()
 descomp.columns = ['Descomposición','Mes','Componente', 'Valor']
 
-import plotly.express as px
-fig = px.line(descomp,
-              x="Mes",
-              y="Valor",
-              facet_col="Descomposición",
-              facet_row='Componente',
-              labels={
-                     "Mes": "",
-                     "Valor": ""}
-      )
-fig.update_yaxes(matches=None)
-fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
-
-fig.show()
+g = sns.FacetGrid(descomp, row="Componente", col="Descomposición",
+                  sharey=False, height=3.0, aspect=2.0)
+g.map_dataframe(plt.plot, "Mes", "Valor");
 ```
 
 

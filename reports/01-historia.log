@@ -17,21 +17,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-granger = pd.DataFrame(np.zeros([3,3]), index = datos.columns.values, columns=datos.columns.values)
-granger.index.name = 'Explicativa'
-granger.columns.name = 'Dependiente'
+imae = SW(IMAE=35449)  # descargar el imae
+imae.index = imae.index.to_timestamp() # para poder graficar con plotly
 
-for i in datos.columns:
-    for j in datos.columns:
-        temp =
-        granger.loc[j, i] = res.test_causality(i, j).pvalue
-granger.round(3)
+fig = imae.plot()
+fig
 ------------------
 
-[0;36m  File [0;32m"<ipython-input-5-5855f7e9d3a2>"[0;36m, line [0;32m7[0m
-[0;31m    temp =[0m
-[0m          ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-3-1cd3e7a7cee0>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mimae[0m [0;34m=[0m [0mSW[0m[0;34m([0m[0mIMAE[0m[0;34m=[0m[0;36m35449[0m[0;34m)[0m  [0;31m# descargar el imae[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mimae[0m[0;34m.[0m[0mindex[0m [0;34m=[0m [0mimae[0m[0;34m.[0m[0mindex[0m[0;34m.[0m[0mto_timestamp[0m[0;34m([0m[0;34m)[0m [0;31m# para poder graficar con plotly[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mfig[0m [0;34m=[0m [0mimae[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mfig[0m[0;34m[0m[0;34m[0m[0m
 
-SyntaxError: invalid syntax (<ipython-input-5-5855f7e9d3a2>, line 7)
+[0;31mAttributeError[0m: 'DatetimeIndex' object has no attribute 'to_timestamp'
+AttributeError: 'DatetimeIndex' object has no attribute 'to_timestamp'
 

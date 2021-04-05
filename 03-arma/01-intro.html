@@ -848,11 +848,7 @@ y_t = x'_t\beta + \epsilon_t
 <span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
 
 
-<span class="n">indicadores</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;35449&#39;</span><span class="p">:</span><span class="s1">&#39;IMAE&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;25482&#39;</span><span class="p">:</span><span class="s1">&#39;IPC&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;1445&#39;</span><span class="p">:</span><span class="s1">&#39;M1&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;423&#39;</span><span class="p">:</span><span class="s1">&#39;Tbasica&#39;</span><span class="p">}</span>
-<span class="n">datos</span> <span class="o">=</span> <span class="n">bccr</span><span class="o">.</span><span class="n">SW</span><span class="p">(</span><span class="n">indicadores</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="n">bccr</span><span class="o">.</span><span class="n">SW</span><span class="p">(</span><span class="n">IMAE</span><span class="o">=</span><span class="mi">35449</span><span class="p">,</span> <span class="n">IPC</span><span class="o">=</span><span class="mi">25482</span><span class="p">,</span> <span class="n">M1</span><span class="o">=</span><span class="mi">1445</span><span class="p">,</span> <span class="n">Tbasica</span><span class="o">=</span><span class="mi">423</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">fillna</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">datos</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -875,44 +871,51 @@ y_t = x'_t\beta + \epsilon_t
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>variable</th>
+      <th></th>
       <th>IMAE</th>
       <th>IPC</th>
       <th>M1</th>
       <th>Tbasica</th>
     </tr>
+    <tr>
+      <th>fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2020-07</th>
+      <th>2020-07-31</th>
       <td>110.987099</td>
       <td>106.127077</td>
       <td>5.166828e+06</td>
       <td>3.708065</td>
     </tr>
     <tr>
-      <th>2020-08</th>
+      <th>2020-08-31</th>
       <td>110.584336</td>
       <td>106.122788</td>
       <td>5.206881e+06</td>
       <td>3.635484</td>
     </tr>
     <tr>
-      <th>2020-09</th>
+      <th>2020-09-30</th>
       <td>113.705524</td>
       <td>106.411930</td>
       <td>5.206211e+06</td>
       <td>3.498333</td>
     </tr>
     <tr>
-      <th>2020-10</th>
+      <th>2020-10-31</th>
       <td>118.613059</td>
       <td>106.496597</td>
       <td>5.061595e+06</td>
       <td>3.293548</td>
     </tr>
     <tr>
-      <th>2020-11</th>
+      <th>2020-11-30</th>
       <td>120.969090</td>
       <td>106.498184</td>
       <td>4.913216e+06</td>
@@ -942,10 +945,10 @@ y_t = x'_t\beta + \epsilon_t
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>1.944e+04</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sun, 21 Mar 2021</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
+  <th>Date:</th>             <td>Sun, 04 Apr 2021</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
 </tr>
 <tr>
-  <th>Time:</th>                 <td>11:10:22</td>     <th>  Log-Likelihood:    </th> <td>  335.36</td> 
+  <th>Time:</th>                 <td>22:17:32</td>     <th>  Log-Likelihood:    </th> <td>  335.36</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   359</td>      <th>  AIC:               </th> <td>  -662.7</td> 

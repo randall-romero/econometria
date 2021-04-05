@@ -27,7 +27,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 import pandas as pd
-pd.options.plotting.backend = "plotly"
 ```
 
 
@@ -55,23 +54,17 @@ En lo que sigue, nos referimos a esta serie en nivel como $y_t$.
 :tags: ["hide-input",]
 
 def figura(datos, titulo, y):
-    fig = datos.plot(title=titulo)
-    fig.update_layout(
-        title=titulo,
-        xaxis_title=" ",
-        yaxis_title=y,
-        showlegend=False
-    )
-
+    fig, ax = plt.subplots(figsize=(12,5))
+    ax = datos.plot(ax=ax, legend=None)
+    ax.set(title=titulo, xlabel=" ", ylabel=y)
     return fig
 
-pib = SW({33438:'PIB'})
+pib = SW(PIB=33438)
 pib /=1e6
-pib.index = pib.index.to_timestamp()
 
 figura(pib,
        'Producto Interno Bruto de Costa Rica',
-       'billones de colones constantes')
+       'billones de colones constantes');
 ```
 
 
@@ -89,7 +82,7 @@ Esta transformación
 :tags: ["hide-input",]
 figura(pib.diff(1),
        'Cambio trimestral en el PIB de Costa Rica',
-       'billones de colones constantes')
+       'billones de colones constantes');
 ```
 
 
@@ -105,7 +98,7 @@ figura(pib.diff(1),
 :tags: ["hide-input",]
 figura(100*pib.pct_change(1),
        'Tasa de crecimiento trimestral del PIB de Costa Rica',
-       'por ciento')
+       'por ciento');
 ```
 
 
@@ -121,7 +114,7 @@ figura(100*pib.pct_change(1),
 :tags: ["hide-input",]
 figura(100*np.log(pib).diff(),
        'Tasa de crecimiento trimestral del PIB de Costa Rica',
-       'por ciento')
+       'por ciento');
 ```
 
 
@@ -137,7 +130,7 @@ figura(100*np.log(pib).diff(),
 :tags: ["hide-input",]
 figura(pib.diff(4),
        'Cambio interanual en el PIB de Costa Rica',
-       'billones de colones constantes')
+       'billones de colones constantes');
 ```
 
 
@@ -161,7 +154,7 @@ figura(pib.diff(4),
 :tags: ["hide-input",]
 figura(100*np.log(pib).diff(4),
        'Tasa de crecimiento interanual del PIB de Costa Rica',
-       'por ciento')
+       'por ciento');
 ```
 
 
@@ -180,7 +173,7 @@ pib2.columns = ['Serie original', 'Serie suavizada']
 
 figura(pib2,
     'Producto Interno Bruto de Costa Rica',
-    'billones de colones constantes')
+    'billones de colones constantes');
 ```
 
 {{ empieza_ejemplo }} Transformación de datos{{ fin_titulo_ejemplo }}

@@ -852,9 +852,7 @@ Supongamos que queremos ver el papel que juega la tasa de política monetaria <s
 <p>Contamos con una muestra de 39 observaciones trimestrales, de 2010-III a 2020-I.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;22796&#39;</span><span class="p">:</span><span class="s1">&#39;Desempleo&#39;</span><span class="p">,</span> <span class="s1">&#39;25485&#39;</span><span class="p">:</span><span class="s1">&#39;Inflación&#39;</span><span class="p">,</span> <span class="s1">&#39;3541&#39;</span><span class="p">:</span><span class="s1">&#39;TPM&#39;</span><span class="p">}</span>
-
-<span class="n">datos</span> <span class="o">=</span> <span class="n">SW</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)[</span><span class="s1">&#39;2010Q3&#39;</span><span class="p">:</span><span class="s1">&#39;2020Q1&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">SW</span><span class="p">(</span><span class="n">Desempleo</span><span class="o">=</span><span class="mi">22796</span><span class="p">,</span> <span class="n">Inflación</span><span class="o">=</span><span class="mi">25485</span><span class="p">,</span> <span class="n">TPM</span><span class="o">=</span><span class="mi">3541</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">fillna</span><span class="o">=</span><span class="s1">&#39;ffill&#39;</span><span class="p">)[</span><span class="s1">&#39;2010Q3&#39;</span><span class="p">:</span><span class="s1">&#39;2020Q1&#39;</span><span class="p">]</span>
 <span class="n">nombres</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">columns</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
@@ -865,7 +863,7 @@ Supongamos que queremos ver el papel que juega la tasa de política monetaria <s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/04-pronostico_3_0.png" src="../_images/04-pronostico_3_0.png" />
+<img alt="../_images/04-pronostico_3_1.png" src="../_images/04-pronostico_3_1.png" />
 </div>
 </div>
 <p><span class="sphinx-bs badge badge-primary">Escogiendo número de rezagos</span></p>
@@ -884,19 +882,19 @@ Supongamos que queremos ver el papel que juega la tasa de política monetaria <s
   <td></td>      <th>AIC</th>         <th>BIC</th>         <th>FPE</th>        <th>HQIC</th>    
 </tr>
 <tr>
-  <th>0</th> <td>     1.778</td>  <td>     1.912</td>  <td>     5.920</td>  <td>     1.824</td> 
+  <th>0</th> <td>     1.227</td>  <td>     1.360</td>  <td>     3.411</td>  <td>     1.273</td> 
 </tr>
 <tr>
-  <th>1</th> <td>    -1.660</td>  <td>    -1.127*</td> <td>    0.1907</td>  <td>    -1.476</td> 
+  <th>1</th> <td>    -1.779</td>  <td>    -1.246*</td> <td>    0.1693</td>  <td>    -1.595</td> 
 </tr>
 <tr>
-  <th>2</th> <td>    -1.832*</td> <td>   -0.8987</td>  <td>    0.1628*</td> <td>    -1.510*</td>
+  <th>2</th> <td>    -2.121*</td> <td>    -1.188</td>  <td>    0.1219*</td> <td>    -1.799*</td>
 </tr>
 <tr>
-  <th>3</th> <td>    -1.649</td>  <td>   -0.3163</td>  <td>    0.2018</td>  <td>    -1.189</td> 
+  <th>3</th> <td>    -2.007</td>  <td>   -0.6741</td>  <td>    0.1411</td>  <td>    -1.547</td> 
 </tr>
 <tr>
-  <th>4</th> <td>    -1.436</td>  <td>    0.2972</td>  <td>    0.2661</td>  <td>   -0.8376</td> 
+  <th>4</th> <td>    -2.002</td>  <td>   -0.2689</td>  <td>    0.1511</td>  <td>    -1.404</td> 
 </tr>
 </table></div></div>
 </div>
@@ -914,49 +912,49 @@ Supongamos que queremos ver el papel que juega la tasa de política monetaria <s
 ==================================
 Model:                         VAR
 Method:                        OLS
-Date:           Sat, 27, Mar, 2021
-Time:                     12:11:49
+Date:           Sun, 04, Apr, 2021
+Time:                     22:18:00
 --------------------------------------------------------------------
-No. of Equations:         3.00000    BIC:                   -1.23433
-Nobs:                     38.0000    HQIC:                  -1.56747
-Log likelihood:          -116.481    FPE:                   0.173929
-AIC:                     -1.75146    Det(Omega_mle):        0.128817
+No. of Equations:         3.00000    BIC:                   -1.30856
+Nobs:                     38.0000    HQIC:                  -1.64170
+Log likelihood:          -115.071    FPE:                   0.161485
+AIC:                     -1.82569    Det(Omega_mle):        0.119601
 --------------------------------------------------------------------
 Results for equation Desempleo
 ===============================================================================
                   coefficient       std. error           t-stat            prob
 -------------------------------------------------------------------------------
-const                2.780812         1.652598            1.683           0.092
-L1.Desempleo         0.731955         0.147283            4.970           0.000
-L1.Inflación         0.004446         0.076407            0.058           0.954
-L1.TPM              -0.009006         0.119293           -0.075           0.940
+const                2.305139         1.265376            1.822           0.069
+L1.Desempleo         0.708084         0.125437            5.645           0.000
+L1.Inflación        -0.127880         0.087455           -1.462           0.144
+L1.TPM               0.243191         0.124252            1.957           0.050
 ===============================================================================
 
 Results for equation Inflación
 ===============================================================================
                   coefficient       std. error           t-stat            prob
 -------------------------------------------------------------------------------
-const               -3.095936         1.759590           -1.759           0.078
-L1.Desempleo         0.225616         0.156819            1.439           0.150
-L1.Inflación         0.741105         0.081354            9.110           0.000
-L1.TPM               0.385991         0.127016            3.039           0.002
+const               -0.062525         1.588872           -0.039           0.969
+L1.Desempleo        -0.003928         0.157505           -0.025           0.980
+L1.Inflación         0.827925         0.109813            7.539           0.000
+L1.TPM               0.119255         0.156017            0.764           0.445
 ===============================================================================
 
 Results for equation TPM
 ===============================================================================
                   coefficient       std. error           t-stat            prob
 -------------------------------------------------------------------------------
-const                2.090910         1.338004            1.563           0.118
-L1.Desempleo        -0.179463         0.119246           -1.505           0.132
-L1.Inflación        -0.036509         0.061862           -0.590           0.555
-L1.TPM               0.912106         0.096584            9.444           0.000
+const                2.282890         0.964744            2.366           0.018
+L1.Desempleo        -0.164187         0.095635           -1.717           0.086
+L1.Inflación         0.091391         0.066677            1.371           0.170
+L1.TPM               0.753419         0.094732            7.953           0.000
 ===============================================================================
 
 Correlation matrix of residuals
              Desempleo  Inflación       TPM
-Desempleo     1.000000   0.020111 -0.354378
-Inflación     0.020111   1.000000  0.028907
-TPM          -0.354378   0.028907  1.000000
+Desempleo     1.000000  -0.031396 -0.003364
+Inflación    -0.031396   1.000000  0.307269
+TPM          -0.003364   0.307269  1.000000
 </pre></div>
 </div>
 </div>
@@ -1011,19 +1009,19 @@ TPM          -0.354378   0.028907  1.000000
     <tr>
       <th>Desempleo</th>
       <td>0.000</td>
-      <td>0.153</td>
-      <td>0.135</td>
+      <td>0.980</td>
+      <td>0.089</td>
     </tr>
     <tr>
       <th>Inflación</th>
-      <td>0.954</td>
+      <td>0.147</td>
       <td>0.000</td>
-      <td>0.556</td>
+      <td>0.173</td>
     </tr>
     <tr>
       <th>TPM</th>
-      <td>0.940</td>
-      <td>0.003</td>
+      <td>0.053</td>
+      <td>0.446</td>
       <td>0.000</td>
     </tr>
   </tbody>
@@ -1152,18 +1150,18 @@ TPM          -0.354378   0.028907  1.000000
   <tbody>
     <tr>
       <th>Desempleo</th>
-      <td>10.303157</td>
+      <td>9.899185</td>
       <td>9.978157</td>
     </tr>
     <tr>
       <th>Inflación</th>
-      <td>0.693666</td>
+      <td>1.693923</td>
       <td>2.983095</td>
     </tr>
     <tr>
       <th>TPM</th>
-      <td>2.463701</td>
-      <td>3.924304</td>
+      <td>3.294578</td>
+      <td>4.365460</td>
     </tr>
   </tbody>
 </table>
