@@ -55,6 +55,8 @@ Una serie no estacionaria
 
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Tendencia
 ^^^
 \begin{equation*}
@@ -101,6 +103,8 @@ En el caso de procesos estacionarios, el supuesto de **ergodicidad** significa q
 
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Ergódico en media
 ^^^
 El proceso es ergódico en media si
@@ -128,6 +132,8 @@ El proceso es ergódico en varianza si
 Si el proceso es ergódico, podemos estimar consistentemente:
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Media
 ^^^
 \begin{equation*}

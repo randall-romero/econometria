@@ -45,6 +45,8 @@ o escrito en términos de matrices:
 ##   Contando parámetros del modelo recursivo
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 parámetros estructurales
 ^^^
 | Matriz    | # de parámetros         |

@@ -44,6 +44,8 @@ Decimos que las estructuras son **observacionalmente equivalentes**.
 ##   Identificación: contando parámetros
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 parámetros estructurales
 ^^^
 | Matriz    | # de parámetros         |
@@ -121,6 +123,8 @@ La más sencilla de las restricciones es la **normalización**: en cada ecuació
 Ejemplos:
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Un modelo de oferta y demanda
 ^^^
 \begin{align*}
@@ -145,6 +149,8 @@ La **exclusión** se refiere a que alguna variable del modelo no aparece en cier
 Ejemplos:
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Un modelo de oferta y demanda
 ^^^
 \begin{align*}
@@ -169,6 +175,8 @@ En este caso, una \alert{combinación lineal de parámetros} es conocida. El cas
 
 Ejemplo:
 ```{panels}
+:header: bg-dark text-center text-white
+
 Un modelo de demanda agregada
 ^^^
 \begin{align*}
@@ -186,6 +194,8 @@ es decir, en la ecuación de inversión la suma de los parámetros de $Y_t$ y de
 Sea $\tilde{A}_j$ la matriz formada por aquellas columnas de $A$ en las que la ecuación $j$ tiene restricciones.
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Condición de rango
 ^^^
 La ecuación $j$ está idenficada si y solo si la matriz $\tilde{A}_j$ tiene {ref}`rango fila completo<appendix:rango-matriz>`; es decir
@@ -201,6 +211,8 @@ Esta condición es necesaria y suficiente.
 Note que para que se cumpla la condición de rango, es necesario que $\tilde{A}_j$ tenga al menos $M$ columnas.
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Condición de orden
 ^^^
 Para que la ecuación $j$ esté identificada, es necesario que el número de restricciones en tal ecuación sea mayor o igual al número de variables endógenas del sistema ($=$ al número de ecuaciones).

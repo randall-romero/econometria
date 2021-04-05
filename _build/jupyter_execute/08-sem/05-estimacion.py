@@ -19,6 +19,8 @@ Se clasifican en métodos indirectos y métodos directos.
 Los directos se clasifican en dos grupos:
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Métodos de información limitada
 ^^^
 - OLS

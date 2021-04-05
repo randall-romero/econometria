@@ -107,6 +107,8 @@ Y  &= X\Pi + V
 donde hemos definido $\Pi\equiv -B\Gamma^{-1}$ como los parámetros reducidos del sistema, y $v'_t \equiv \epsilon'_t\Gamma^{-1}$.
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Forma Estructural
 ^^^
 \begin{equation*}

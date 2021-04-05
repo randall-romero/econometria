@@ -82,11 +82,15 @@ La matriz de covarianza de los errores se estima a partir de los residuos
 Si las series son I(1), ¿hay que diferenciarlas para estimar el VAR? Hay un debate respecto:
 
 ```{panels}
+:header: bg-danger text-center text-white
+
 NO:
 ^^^
 Algunos aconsejan no diferenciar las series, porque se pierde información, alegando que la meta del VAR es determinar relaciones entre variables, no los parámetros mismos.
 
 ---
+:header: bg-success text-center text-white
+
 SÍ:
 ^^^
 Otros advierten que si las series son integradas, el VAR en niveles no es consistente con el proceso generador de datos. En este caso se aconseja estudiar la cointegración de las series $\Rightarrow$ VECM
@@ -204,6 +208,8 @@ for i in range(2):
 La selección del número de rezagos $p$ es crítica.
 
 ```{panels}
+:header: bg-danger text-center text-white
+
 Si $p$ es demasiado pequeño
 ^^^
 el modelo está mal especificado

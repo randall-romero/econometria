@@ -300,6 +300,8 @@ Sean $\mathcal{L}$ el máximo de la función log-verosimilitud, $T$ el número d
 
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Criterio de información de Akaike
 ^^^
 \begin{equation*}

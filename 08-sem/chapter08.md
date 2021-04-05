@@ -8,6 +8,8 @@ En Economía, muchas de las teorías se construyen como modelos de ecuaciones si
 Ejemplos:
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Un modelo de oferta y demanda
 ^^^
 \begin{align*}

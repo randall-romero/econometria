@@ -53,6 +53,8 @@ El proceso  $\tilde{y}_t = \phi_1\tilde{y}_{t-1} + \dots + \phi_p\tilde{y}_{t-p}
 
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Estabilidad
 ^^^
 Si las raíces del polinomio $\Phi(z)$ están todas fuera del círculo unitario, el proceso es **estable**.
