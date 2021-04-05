@@ -9,6 +9,8 @@
 ##   Supuestos acerca del término de error: esperanza
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Forma estructural
 ^^^
 \begin{align*}
@@ -46,6 +48,8 @@ Tenemos que
 Entonces
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Forma estructural
 ^^^
 \begin{align*}

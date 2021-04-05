@@ -57,6 +57,8 @@ En 1919 Persons propuso la descomposición de una serie de tiempo en componentes
 
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Aditiva
 ^^^
 \begin{equation*}
@@ -127,6 +129,8 @@ Como los componentes **no son observables**, es necesario hacer supuestos acerca
 
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Enfoque clásico
 ^^^
 \begin{equation*}

@@ -25,6 +25,8 @@ z_k = \cos\left(\frac{2k\pi}{n}\right) + i\sin\left(\frac{2k\pi}{n}\right)
 Todas estas raíces están equidistanciadas en la circunferencia unitaria.
 
 ```{panels}
+:header: bg-dark text-center text-white
+
 Mensuales
 ^^^
 ![](figures/diff12roots.png)
