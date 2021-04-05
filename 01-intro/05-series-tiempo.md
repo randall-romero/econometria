@@ -28,7 +28,6 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 import pandas as pd
 import statsmodels.api as sm
-pd.options.plotting.backend = "plotly"
 ```
 
 
@@ -251,8 +250,7 @@ Obtenemos y graficamos los datos
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 imae = SW(Original=35449, Tendencia_ciclo=35553)
-imae.index = imae.index.to_timestamp() # para poder graficar con plotly
-imae.plot()
+imae.plot(figsize=[12,5]);
 
 ```
 

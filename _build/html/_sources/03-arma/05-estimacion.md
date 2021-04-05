@@ -162,7 +162,7 @@ Veamos la serie histórica y los autocorrelogramas de la inflación mensual suby
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-isi = bccr.SW({'25725':'isi'})
+isi = bccr.SW(isi=25725)
 
 fig = plt.figure(figsize=[10,5], tight_layout=True)
 gs = plt.GridSpec(2, 2)

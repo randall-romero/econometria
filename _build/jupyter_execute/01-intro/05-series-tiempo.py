@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 plt.style.use('seaborn')
 import pandas as pd
 import statsmodels.api as sm
-pd.options.plotting.backend = "plotly"
 
 # Series de tiempo
 ## Definición de serie de tiempo
@@ -226,9 +225,8 @@ Si los datos están generados por un proceso AR(p), entonces el estimador $\hat{
 ```
 Obtenemos y graficamos los datos
 
-imae = SW({'35449':'Original','35553':'Tendencia-ciclo'})
-imae.index = imae.index.to_timestamp() # para poder graficar con plotly
-imae.plot()
+imae = SW(Original=35449, Tendencia_ciclo=35553)
+imae.plot(figsize=[12,5]);
 
 plot_acf = sm.graphics.tsa.plot_acf
 plot_pacf = sm.graphics.tsa.plot_pacf

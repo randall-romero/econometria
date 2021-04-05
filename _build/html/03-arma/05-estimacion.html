@@ -878,7 +878,7 @@ y_t &amp; = c + \phi_1 y_{t-1} +\dots + \phi_p y_{t-p} +  \epsilon_t &amp; \Var(
 <p>Veamos la serie histórica y los autocorrelogramas de la inflación mensual subyacente de Costa Rica</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">isi</span> <span class="o">=</span> <span class="n">bccr</span><span class="o">.</span><span class="n">SW</span><span class="p">({</span><span class="s1">&#39;25725&#39;</span><span class="p">:</span><span class="s1">&#39;isi&#39;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">isi</span> <span class="o">=</span> <span class="n">bccr</span><span class="o">.</span><span class="n">SW</span><span class="p">(</span><span class="n">isi</span><span class="o">=</span><span class="mi">25725</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">gs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -895,7 +895,7 @@ y_t &amp; = c + \phi_1 y_{t-1} +\dots + \phi_p y_{t-p} +  \epsilon_t &amp; \Var(
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-estimacion_3_0.png" src="../_images/05-estimacion_3_0.png" />
+<img alt="../_images/05-estimacion_3_1.png" src="../_images/05-estimacion_3_1.png" />
 </div>
 </div>
 <p>Consideremos este proceso AR(3) para modelar la inflación mensual subyacente</p>
@@ -915,19 +915,19 @@ y_t  = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \phi_3 y_{t-3} +  \epsilon_t
 <div class="output text_html"><table class="simpletable">
 <caption>SARIMAX Results</caption>
 <tr>
-  <th>Dep. Variable:</th>          <td>isi</td>       <th>  No. Observations:  </th>   <td>173</td> 
+  <th>Dep. Variable:</th>          <td>isi</td>       <th>  No. Observations:  </th>   <td>175</td> 
 </tr>
 <tr>
   <th>Model:</th>            <td>ARIMA(3, 0, 0)</td>  <th>  Log Likelihood     </th> <td>-4.734</td>
 </tr>
 <tr>
-  <th>Date:</th>            <td>Sun, 21 Mar 2021</td> <th>  AIC                </th> <td>19.468</td>
+  <th>Date:</th>            <td>Sun, 04 Apr 2021</td> <th>  AIC                </th> <td>19.468</td>
 </tr>
 <tr>
-  <th>Time:</th>                <td>11:11:50</td>     <th>  BIC                </th> <td>35.234</td>
+  <th>Time:</th>                <td>22:17:36</td>     <th>  BIC                </th> <td>35.292</td>
 </tr>
 <tr>
-  <th>Sample:</th>             <td>08-31-2006</td>    <th>  HQIC               </th> <td>25.864</td>
+  <th>Sample:</th>             <td>06-30-2006</td>    <th>  HQIC               </th> <td>25.886</td>
 </tr>
 <tr>
   <th></th>                   <td>- 12-31-2020</td>   <th>                     </th>    <td> </td>  
@@ -958,16 +958,16 @@ y_t  = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \phi_3 y_{t-3} +  \epsilon_t
 </table>
 <table class="simpletable">
 <tr>
-  <th>Ljung-Box (L1) (Q):</th>     <td>0.01</td> <th>  Jarque-Bera (JB):  </th> <td>96.24</td>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.01</td> <th>  Jarque-Bera (JB):  </th> <td>100.59</td>
 </tr>
 <tr>
-  <th>Prob(Q):</th>                <td>0.94</td> <th>  Prob(JB):          </th> <td>0.00</td> 
+  <th>Prob(Q):</th>                <td>0.94</td> <th>  Prob(JB):          </th>  <td>0.00</td> 
 </tr>
 <tr>
-  <th>Heteroskedasticity (H):</th> <td>0.23</td> <th>  Skew:              </th> <td>1.11</td> 
+  <th>Heteroskedasticity (H):</th> <td>0.23</td> <th>  Skew:              </th>  <td>1.12</td> 
 </tr>
 <tr>
-  <th>Prob(H) (two-sided):</th>    <td>0.00</td> <th>  Kurtosis:          </th> <td>5.90</td> 
+  <th>Prob(H) (two-sided):</th>    <td>0.00</td> <th>  Kurtosis:          </th>  <td>5.97</td> 
 </tr>
 </table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div></div>
 </div>
@@ -1013,7 +1013,7 @@ y_t  = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \phi_3 y_{t-3} +  \epsilon_t
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05-estimacion_9_0.png" src="../_images/05-estimacion_9_0.png" />
+<img alt="../_images/05-estimacion_9_1.png" src="../_images/05-estimacion_9_1.png" />
 </div>
 </div>
 <p>En Stata:</p>
@@ -1154,38 +1154,38 @@ y_t  = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \phi_3 y_{t-3} +  \epsilon_t
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-#T_9ebe2_row3_col0{
+#T_c3297_row3_col0{
             background-color:  yellow;
-        }</style><table id="T_9ebe2_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >q=0</th>        <th class="col_heading level0 col1" >q=1</th>        <th class="col_heading level0 col2" >q=2</th>    </tr></thead><tbody>
+        }</style><table id="T_c3297_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >q=0</th>        <th class="col_heading level0 col1" >q=1</th>        <th class="col_heading level0 col2" >q=2</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_9ebe2_level0_row0" class="row_heading level0 row0" >p=0</th>
-                        <td id="T_9ebe2_row0_col0" class="data row0 col0" >131.620888</td>
-                        <td id="T_9ebe2_row0_col1" class="data row0 col1" >89.023411</td>
-                        <td id="T_9ebe2_row0_col2" class="data row0 col2" >82.401382</td>
+                        <th id="T_c3297_level0_row0" class="row_heading level0 row0" >p=0</th>
+                        <td id="T_c3297_row0_col0" class="data row0 col0" >131.620888</td>
+                        <td id="T_c3297_row0_col1" class="data row0 col1" >89.023411</td>
+                        <td id="T_c3297_row0_col2" class="data row0 col2" >82.401382</td>
             </tr>
             <tr>
-                        <th id="T_9ebe2_level0_row1" class="row_heading level0 row1" >p=1</th>
-                        <td id="T_9ebe2_row1_col0" class="data row1 col0" >60.759065</td>
-                        <td id="T_9ebe2_row1_col1" class="data row1 col1" >25.081481</td>
-                        <td id="T_9ebe2_row1_col2" class="data row1 col2" >26.533141</td>
+                        <th id="T_c3297_level0_row1" class="row_heading level0 row1" >p=1</th>
+                        <td id="T_c3297_row1_col0" class="data row1 col0" >60.759065</td>
+                        <td id="T_c3297_row1_col1" class="data row1 col1" >25.081481</td>
+                        <td id="T_c3297_row1_col2" class="data row1 col2" >26.533141</td>
             </tr>
             <tr>
-                        <th id="T_9ebe2_level0_row2" class="row_heading level0 row2" >p=2</th>
-                        <td id="T_9ebe2_row2_col0" class="data row2 col0" >41.690410</td>
-                        <td id="T_9ebe2_row2_col1" class="data row2 col1" >26.708214</td>
-                        <td id="T_9ebe2_row2_col2" class="data row2 col2" >28.697323</td>
+                        <th id="T_c3297_level0_row2" class="row_heading level0 row2" >p=2</th>
+                        <td id="T_c3297_row2_col0" class="data row2 col0" >41.690410</td>
+                        <td id="T_c3297_row2_col1" class="data row2 col1" >26.708214</td>
+                        <td id="T_c3297_row2_col2" class="data row2 col2" >28.697323</td>
             </tr>
             <tr>
-                        <th id="T_9ebe2_level0_row3" class="row_heading level0 row3" >p=3</th>
-                        <td id="T_9ebe2_row3_col0" class="data row3 col0" >19.467588</td>
-                        <td id="T_9ebe2_row3_col1" class="data row3 col1" >21.346944</td>
-                        <td id="T_9ebe2_row3_col2" class="data row3 col2" >23.220068</td>
+                        <th id="T_c3297_level0_row3" class="row_heading level0 row3" >p=3</th>
+                        <td id="T_c3297_row3_col0" class="data row3 col0" >19.467588</td>
+                        <td id="T_c3297_row3_col1" class="data row3 col1" >21.346944</td>
+                        <td id="T_c3297_row3_col2" class="data row3 col2" >23.220068</td>
             </tr>
             <tr>
-                        <th id="T_9ebe2_level0_row4" class="row_heading level0 row4" >p=4</th>
-                        <td id="T_9ebe2_row4_col0" class="data row4 col0" >21.338571</td>
-                        <td id="T_9ebe2_row4_col1" class="data row4 col1" >23.338547</td>
-                        <td id="T_9ebe2_row4_col2" class="data row4 col2" >19.543282</td>
+                        <th id="T_c3297_level0_row4" class="row_heading level0 row4" >p=4</th>
+                        <td id="T_c3297_row4_col0" class="data row4 col0" >21.338571</td>
+                        <td id="T_c3297_row4_col1" class="data row4 col1" >23.338547</td>
+                        <td id="T_c3297_row4_col2" class="data row4 col2" >19.543282</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -1202,38 +1202,38 @@ y_t  = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \phi_3 y_{t-3} +  \epsilon_t
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-#T_0103c_row3_col0{
+#T_2518a_row3_col0{
             background-color:  yellow;
-        }</style><table id="T_0103c_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >q=0</th>        <th class="col_heading level0 col1" >q=1</th>        <th class="col_heading level0 col2" >q=2</th>    </tr></thead><tbody>
+        }</style><table id="T_2518a_" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >q=0</th>        <th class="col_heading level0 col1" >q=1</th>        <th class="col_heading level0 col2" >q=2</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_0103c_level0_row0" class="row_heading level0 row0" >p=0</th>
-                        <td id="T_0103c_row0_col0" class="data row0 col0" >137.927471</td>
-                        <td id="T_0103c_row0_col1" class="data row0 col1" >98.483286</td>
-                        <td id="T_0103c_row0_col2" class="data row0 col2" >95.014549</td>
+                        <th id="T_2518a_level0_row0" class="row_heading level0 row0" >p=0</th>
+                        <td id="T_2518a_row0_col0" class="data row0 col0" >137.950460</td>
+                        <td id="T_2518a_row0_col1" class="data row0 col1" >98.517769</td>
+                        <td id="T_2518a_row0_col2" class="data row0 col2" >95.060526</td>
             </tr>
             <tr>
-                        <th id="T_0103c_level0_row1" class="row_heading level0 row1" >p=1</th>
-                        <td id="T_0103c_row1_col0" class="data row1 col0" >70.218940</td>
-                        <td id="T_0103c_row1_col1" class="data row1 col1" >37.694647</td>
-                        <td id="T_0103c_row1_col2" class="data row1 col2" >42.299599</td>
+                        <th id="T_2518a_level0_row1" class="row_heading level0 row1" >p=1</th>
+                        <td id="T_2518a_row1_col0" class="data row1 col0" >70.253423</td>
+                        <td id="T_2518a_row1_col1" class="data row1 col1" >37.740625</td>
+                        <td id="T_2518a_row1_col2" class="data row1 col2" >42.357071</td>
             </tr>
             <tr>
-                        <th id="T_0103c_level0_row2" class="row_heading level0 row2" >p=2</th>
-                        <td id="T_0103c_row2_col0" class="data row2 col0" >54.303577</td>
-                        <td id="T_0103c_row2_col1" class="data row2 col1" >42.474672</td>
-                        <td id="T_0103c_row2_col2" class="data row2 col2" >47.617073</td>
+                        <th id="T_2518a_level0_row2" class="row_heading level0 row2" >p=2</th>
+                        <td id="T_2518a_row2_col0" class="data row2 col0" >54.349554</td>
+                        <td id="T_2518a_row2_col1" class="data row2 col1" >42.532144</td>
+                        <td id="T_2518a_row2_col2" class="data row2 col2" >47.686039</td>
             </tr>
             <tr>
-                        <th id="T_0103c_level0_row3" class="row_heading level0 row3" >p=3</th>
-                        <td id="T_0103c_row3_col0" class="data row3 col0" >35.234046</td>
-                        <td id="T_0103c_row3_col1" class="data row3 col1" >40.266694</td>
-                        <td id="T_0103c_row3_col2" class="data row3 col2" >45.293109</td>
+                        <th id="T_2518a_level0_row3" class="row_heading level0 row3" >p=3</th>
+                        <td id="T_2518a_row3_col0" class="data row3 col0" >35.291518</td>
+                        <td id="T_2518a_row3_col1" class="data row3 col1" >40.335660</td>
+                        <td id="T_2518a_row3_col2" class="data row3 col2" >45.373569</td>
             </tr>
             <tr>
-                        <th id="T_0103c_level0_row4" class="row_heading level0 row4" >p=4</th>
-                        <td id="T_0103c_row4_col0" class="data row4 col0" >40.258321</td>
-                        <td id="T_0103c_row4_col1" class="data row4 col1" >45.411589</td>
-                        <td id="T_0103c_row4_col2" class="data row4 col2" >44.769614</td>
+                        <th id="T_2518a_level0_row4" class="row_heading level0 row4" >p=4</th>
+                        <td id="T_2518a_row4_col0" class="data row4 col0" >40.327287</td>
+                        <td id="T_2518a_row4_col1" class="data row4 col1" >45.492049</td>
+                        <td id="T_2518a_row4_col2" class="data row4 col2" >44.861569</td>
             </tr>
     </tbody></table></div></div>
 </div>

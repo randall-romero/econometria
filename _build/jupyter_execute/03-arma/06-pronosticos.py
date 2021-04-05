@@ -11,7 +11,7 @@ from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 
-isi = bccr.SW({'25725':'isi'})
+isi = bccr.SW(isi=25725)
 res = ARIMA(isi, order=[3,0,0]).fit()
 
 # Pronósticos con modelos ARMA

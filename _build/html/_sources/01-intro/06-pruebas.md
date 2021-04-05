@@ -35,7 +35,6 @@ substitutions:
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-from bccr import SW
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')

@@ -385,7 +385,7 @@ En general, si una serie $z_t$ debe ser diferenciada $d$ veces para obtener una 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 pd.options.plotting.backend = "plotly"
-pib = bccr.SW({'33783':'PIB'})
+pib = bccr.SW(PIB=33783)
 pib['lPIB'] = np.log(pib['PIB'])
 
 fig,axs = plt.subplots(2,1, sharex=True, figsize=[12,6])

@@ -1,10 +1,6 @@
 ```{include} ../math-definitions.md
 ```
 
-import bccr
-#import matplotlib.pyplot as plt
-#plt.style.use('seaborn')
-
 import numpy as np
 import pandas as pd
 pd.options.plotting.backend = "plotly"

@@ -137,7 +137,7 @@ es posible estimar los parámetros $c, \phi_1, \dots, \phi_p$ por mínimos cuadr
 ```
 Veamos la serie histórica y los autocorrelogramas de la inflación mensual subyacente de Costa Rica
 
-isi = bccr.SW({'25725':'isi'})
+isi = bccr.SW(isi=25725)
 
 fig = plt.figure(figsize=[10,5], tight_layout=True)
 gs = plt.GridSpec(2, 2)
