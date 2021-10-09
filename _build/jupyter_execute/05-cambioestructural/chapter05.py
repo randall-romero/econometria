@@ -42,14 +42,3 @@ fig.append_trace(go.Scatter(y = data['y3']), row=2, col=1)
 fig.append_trace(go.Scatter(y = data['y4']), row=2, col=2)
 fig.add_vline(x=T/2, line_width=3, line_dash="dash", line_color="green")
 fig.update_layout(showlegend=False, title_text="Ejemplos de cambio estructural en una serie de tiempo")
-
-```{toctree}
-:hidden:
-:titlesonly:
-
-
-01-chow
-02-conocido
-03-desconocido
-refs
-```
