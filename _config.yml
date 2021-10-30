@@ -66,7 +66,7 @@ html:
   use_issues_button         : false  # Whether to add an "open an issue" button
   extra_navbar              : <a href="http://randall-romero.com">randall-romero.com</a>  # Will be displayed underneath the left navbar.
   extra_footer              : ""  # Will be displayed underneath the footer.
-  google_analytics_id       : "288053173"  # A GA id that can be used to track book views.
+  google_analytics_id       : "UA-57200532-3"  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
   baseurl                   : "https://randall-romero.github.io/econometria/"  # The base URL where your book will be hosted. Used for creating image previews and social links.
   comments:

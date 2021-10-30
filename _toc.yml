@@ -57,27 +57,38 @@ parts:
 - caption: Modelos de series de tiempo multivariadas
   numbered: 2
   chapters:
-  - file: 07-sur/chapter07
+  - file: 07-sem/chapter07
     sections:
-    - file: 07-sur/01-motivacion
-    - file: 07-sur/02-sur
-    - file: 07-sur/refs
-  - file: 08-sem/chapter08
+    - file: 07-sem/01-motivacion
+    - file: 07-sem/02-sur
+    - file: 07-sem/03-representacion
+    - file: 07-sem/04-identificacion
+    - file: 07-sem/05-recursivo
+    - file: 07-sem/06-error
+    - file: 07-sem/07-estimacion
+    - file: 07-sem/refs
+  - file: 08-var/chapter08
     sections:
-    - file: 08-sem/01-representacion
-    - file: 08-sem/02-identificacion
-    - file: 08-sem/03-recursivo
-    - file: 08-sem/04-error
-    - file: 08-sem/05-estimacion
-    - file: 08-sem/refs
-  - file: 09-var/chapter09
+    - file: 08-var/01-representaciones
+    - file: 08-var/02-dinamica
+    - file: 08-var/03-estimacion
+    - file: 08-var/04-pronostico
+    - file: 08-var/refs
+- caption: Laboratorios
+  numbered: 2
+  chapters:
+  - file: labs/chapter01
     sections:
-    - file: 09-var/01-representaciones
-    - file: 09-var/02-dinamica
-    - file: 09-var/03-estimacion
-    - file: 09-var/04-pronostico
-    - file: 09-var/refs
-- caption: "Ap\xE9ndices"
+    - file: 01-intro/Componentes IMAE
+    - file: 01-intro/correlogram
+    - file: 01-intro/covariance-stationarity-3d-plots
+    - file: 01-intro/LandD
+    - file: 01-intro/Transforme
+    - file: 01-intro/wntestq
+  - file: labs/chapter04
+    sections:
+    - file: labs/ADF-simulaciones
+- caption: "Apéndices"
   chapters:
   - file: py-intro/py-chapter
     sections:
@@ -88,9 +99,6 @@ parts:
     - file: py-intro/05--funciones
     - file: py-intro/06--modulos
     - file: py-intro/07--clases
-  - file: labs/labs-chapter
-    sections:
-    - file: labs/ADF-simulaciones
   - file: r-code/chapter-r
     sections:
     - file: r-code/R-transform
