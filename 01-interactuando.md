@@ -21,7 +21,7 @@ A continuación se explican las herramientas interactivas de este libro. La mayo
 Usted puede abrir la mayoría de las páginas de este libro en la nube y correr allí el código. Coloque el puntero del *mouse* sobre el icono <i class="fa fa-rocket" aria-hidden="true"></i>  en la parte superior de la página y haga clic en "Binder" para abrir una versión de esta página en la nube.
 
 
-[Binder](https://mybinder.org/) is a service that allows you to run Jupyter notebooks without any prior configuration or installation. It may take a few minutes for the Jupyter notebook to load, so be patient.
+[Binder](https://mybinder.org/) es un servicio que permite ejecutar cuadernos de Jupyter sin necesidad de una instalación o configuración previa. Puede tomar varios minutos abrir un archivo en Binder.
 
 ## <i class="fa fa-download" aria-hidden="true"></i> Descargue el cuaderno de Jupyter
 
@@ -34,6 +34,9 @@ Para trabajar con este archivo .ipynb, usted necesitará tener Jupyter en su com
 Además, para algunos de los ejemplos requerirá haber instalado los paquetes de python `bccr` y `macrodemos`.
 ```
 
+Algunos de los cuadernos de Jupyter desarrollan ejemplos a partir de datos almacenados en este libro. En tales casos, puede descargarlos desde [el repositorio en GitHub de este libro](https://github.com/randall-romero/econometria/tree/master/data). En esta página, seleccione el archivo necesario, y descárguelo presionando el botón "Raw".
+
+
 ## <i class="fa fa-download" aria-hidden="true"></i> Download PDF
 
 Usted puede descargar cualquier página de este libro como un archivo PDF. Coloque el puntero del *mouse* sobre el icono <i class="fa fa-download" aria-hidden="true"></i> y haga clic en ".pdf"
@@ -43,10 +46,11 @@ Usted puede descargar cualquier página de este libro como un archivo PDF. Coloq
 
 Para ver cualquier página de este cuaderno en pantalla completa, haga clic en el icono <i class="fas fa-expand" aria-hidden="true"></i> en la parte superior de la página.
 
+<!--
 ## <i class="fab fa-github" aria-hidden="true"></i> Open Issue on GitHub
 
 Si tuviese algún problema utilizando este libro, o si quisiera hacerme una sugerencia, puede enviarme un correo a randall.romero@ucr.ac.cr .
-
+-->
 
 ## Clic para mostrar el código
 
