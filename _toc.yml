@@ -5,110 +5,142 @@ parts:
   chapters:
   - file: 01-interactuando
   - file: 02-contenido
-- caption: Modelos de series de tiempo univariadas
+- caption: Teoría
   numbered: 2
   chapters:
-  - file: 01-intro/chapter01
+  - file: teoria/01-intro/chapter01
     sections:
-    - file: 01-intro/01-historia
-    - file: 01-intro/02-graficos
-    - file: 01-intro/03-rezagos
-    - file: 01-intro/04-procesos-estocasticos
-    - file: 01-intro/05-series-tiempo
-    - file: 01-intro/06-pruebas
-    - file: 01-intro/refs
-  - file: 02-eqdiff/chapter02
+    - file: teoria/01-intro/01-historia
+    - file: teoria/01-intro/02-graficos
+    - file: teoria/01-intro/03-rezagos
+    - file: teoria/01-intro/04-procesos-estocasticos
+    - file: teoria/01-intro/05-series-tiempo
+    - file: teoria/01-intro/06-pruebas
+    - file: teoria/01-intro/refs
+  - file: teoria/02-eqdiff/chapter02
     sections:
-    - file: 02-eqdiff/01-intro
-    - file: 02-eqdiff/02-sustitucion
-    - file: 02-eqdiff/03-combinacion
-    - file: 02-eqdiff/04-operador
-    - file: 02-eqdiff/refs
-  - file: 03-arma/chapter03
+    - file: teoria/02-eqdiff/01-intro
+    - file: teoria/02-eqdiff/02-sustitucion
+    - file: teoria/02-eqdiff/03-combinacion
+    - file: teoria/02-eqdiff/04-operador
+    - file: teoria/02-eqdiff/refs
+  - file: teoria/03-arma/chapter03
     sections:
-    - file: 03-arma/01-intro
-    - file: 03-arma/02-MA
-    - file: 03-arma/03-AR
-    - file: 03-arma/04-ARMA
-    - file: 03-arma/05-estimacion
-    - file: 03-arma/06-pronosticos
-    - file: 03-arma/refs
-  - file: 04-arima/chapter04
+    - file: teoria/03-arma/01-intro
+    - file: teoria/03-arma/02-MA
+    - file: teoria/03-arma/03-AR
+    - file: teoria/03-arma/04-ARMA
+    - file: teoria/03-arma/05-estimacion
+    - file: teoria/03-arma/06-pronosticos
+    - file: teoria/03-arma/refs
+  - file: teoria/04-arima/chapter04
     sections:
-    - file: 04-arima/01-modelos-tendencia
-    - file: 04-arima/02-removiendo
-    - file: 04-arima/03-raices-unitarias
-    - file: 04-arima/04-pruebas
-    - file: 04-arima/05-hp
-    - file: 04-arima/refs
-  - file: 05-cambioestructural/chapter05
+    - file: teoria/04-arima/01-modelos-tendencia
+    - file: teoria/04-arima/02-removiendo
+    - file: teoria/04-arima/03-raices-unitarias
+    - file: teoria/04-arima/04-pruebas
+    - file: teoria/04-arima/05-hp
+    - file: teoria/04-arima/refs
+  - file: teoria/05-cambioestructural/chapter05
     sections:
-    - file: 05-cambioestructural/01-chow
-    - file: 05-cambioestructural/02-conocido
-    - file: 05-cambioestructural/03-desconocido
-    - file: 05-cambioestructural/refs
-  - file: 06-estacional/chapter06
+    - file: teoria/05-cambioestructural/01-chow
+    - file: teoria/05-cambioestructural/02-conocido
+    - file: teoria/05-cambioestructural/03-desconocido
+    - file: teoria/05-cambioestructural/refs
+  - file: teoria/06-estacional/chapter06
     sections:
-    - file: 06-estacional/01-intro
-    - file: 06-estacional/02-sarima
-    - file: 06-estacional/03-x13arima
-    - file: 06-estacional/04-raices-unitarias
-    - file: 06-estacional/refs
-- caption: Modelos de series de tiempo multivariadas
-  numbered: 2
-  chapters:
-  - file: 07-sem/chapter07
+    - file: teoria/06-estacional/01-intro
+    - file: teoria/06-estacional/02-sarima
+    - file: teoria/06-estacional/03-x13arima
+    - file: teoria/06-estacional/04-raices-unitarias
+    - file: teoria/06-estacional/refs
+  - file: teoria/07-sem/chapter07
     sections:
-    - file: 07-sem/01-motivacion
-    - file: 07-sem/02-sur
-    - file: 07-sem/03-representacion
-    - file: 07-sem/04-identificacion
-    - file: 07-sem/05-recursivo
-    - file: 07-sem/06-error
-    - file: 07-sem/07-estimacion
-    - file: 07-sem/refs
-  - file: 08-var/chapter08
+    - file: teoria/07-sem/01-motivacion
+    - file: teoria/07-sem/02-sur
+    - file: teoria/07-sem/03-representacion
+    - file: teoria/07-sem/04-identificacion
+    - file: teoria/07-sem/05-recursivo
+    - file: teoria/07-sem/06-error
+    - file: teoria/07-sem/07-estimacion
+    - file: teoria/07-sem/refs
+  - file: teoria/08-var/chapter08
     sections:
-    - file: 08-var/01-representaciones
-    - file: 08-var/02-dinamica
-    - file: 08-var/03-estimacion
-    - file: 08-var/04-pronostico
-    - file: 08-var/refs
+    - file: teoria/08-var/01-representaciones
+    - file: teoria/08-var/02-dinamica
+    - file: teoria/08-var/03-estimacion
+    - file: teoria/08-var/04-pronostico
+    - file: teoria/08-var/refs
 - caption: Laboratorios
   numbered: 2
   chapters:
-  - file: labs/chapter01
-    sections:
-    - file: 01-intro/Componentes IMAE
-    - file: 01-intro/correlogram
-    - file: 01-intro/covariance-stationarity-3d-plots
-    - file: 01-intro/LandD
-    - file: 01-intro/Transforme
-    - file: 01-intro/wntestq
-  - file: labs/chapter04
-    sections:
-    - file: labs/ADF-simulaciones
+    - file: labs/chapter01
+      sections:
+        - file: labs/Componentes-IMAE
+        - file: labs/correlogram
+        - file: labs/covariance-stationarity-3d-plots
+        - file: labs/LandD
+        - file: labs/Transforme
+        - file: labs/wntestq
+    - file: labs/chapter02
+      sections:
+        - file: labs/EqDiff2
+    - file: labs/chapter03
+      sections:
+        - file: labs/ISI-AR3
+        - file: labs/demandadinero
+    - file: labs/chapter04
+      sections:
+        - file: labs/DickeyFuller
+        - file: labs/GrangerNewbold
+        - file: labs/KPSS
+        - file: labs/NelsonPlosser
+        - file: labs/tendencias-pib
+        - file: labs/tendencias-simulaciones
+    - file: labs/chapter05
+    - file: labs/chapter06
+      sections:
+        - file: labs/SJO-pasajeros
+    - file: labs/chapter07
+      sections:
+        - file: labs/Klein model
+        - file: labs/telaraña
+    - file: labs/chapter08
+      sections:
+        - file: labs/Simulacion de un VAR
+        - file: labs/VAR insesgado y consistente
+        - file: labs/VAR politica monetaria CR
+        - file: labs/VAR(1) clase
+    - file: labs/chapter09
+      sections:
+        - file: labs/Relación espuria
+        - file: labs/MacKinnon valores críticos para test de cointegración
 - caption: "Apéndices"
   chapters:
-  - file: py-intro/py-chapter
+  - file: apendices/py-intro/py-chapter
     sections:
-    - file: py-intro/01--para-que-aprender-python
-    - file: py-intro/02--variables-y-operaciones-basicas
-    - file: py-intro/03--colecciones
-    - file: py-intro/04--control-ejecucion
-    - file: py-intro/05--funciones
-    - file: py-intro/06--modulos
-    - file: py-intro/07--clases
-  - file: r-code/chapter-r
+    - file: apendices/py-intro/Python-01--Para qué aprender Python.ipynb
+    - file: apendices/py-intro/Python-02--Variables y operaciones básicas.ipynb
+    - file: apendices/py-intro/Python-03--Textos.ipynb
+    - file: apendices/py-intro/Python-04--Colecciones.ipynb
+    - file: apendices/py-intro/Python-05--Control de ejecución.ipynb
+    - file: apendices/py-intro/Python-06--Funciones.ipynb
+    - file: apendices/py-intro/Python-07--Módulos.ipynb
+    - file: apendices/py-intro/Python-08--Clases y objetos.ipynb
+    - file: apendices/py-intro/Python-09--manipulando-datos.ipynb
+    - file: apendices/py-intro/Python-10--Webscraping.ipynb
+    - file: apendices/py-intro/Python-11--Leyendo-archivos-XML.ipynb
+  - file: apendices/r-code/chapter-r
     sections:
-    - file: r-code/R-transform
-    - file: r-code/R-lags
-    - file: r-code/R-correlogram
-  - file: matematica/matematica
+    - file: apendices/r-code/R-transform
+    - file: apendices/r-code/R-lags
+    - file: apendices/r-code/R-correlogram
+  - file: apendices/matematica/matematica
     sections:
-    - file: matematica/01-algebra-lineal
-    - file: matematica/02-numeros-complejos
-  - file: estadistica/estadistica
+    - file: apendices/matematica/01-algebra-lineal
+    - file: apendices/matematica/02-numeros-complejos
+  - file: apendices/estadistica/estadistica
     sections:
-    - file: estadistica/01-estadistica
-    - file: estadistica/02-econometria
+    - file: apendices/estadistica/01-estadistica
+    - file: apendices/estadistica/02-econometria
+    - file: apendices/estadistica/Futbol-Bernoulli-Teorema-Límite-Central.ipynb

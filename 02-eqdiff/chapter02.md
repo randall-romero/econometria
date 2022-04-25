@@ -1,3 +1,0 @@
-# Ecuaciones en diferencia
-
-

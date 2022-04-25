@@ -7,8 +7,8 @@
 # Book settings
 title                       : Apuntes de Macroeconometría  # The title of the book. Will be placed in the left navbar.
 author                      : Randall Romero Aguilar  # The author of the book
-copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : figures/r2-logo.png  # A path to the book logo
+copyright                   : "2021-2022"  # Copyright year to be placed in the footer
+logo                        : imgs/r2-logo.png  # A path to the book logo
 
 only_build_toc_files:    true
 
@@ -16,7 +16,7 @@ only_build_toc_files:    true
 # Execution settings
 execute:
   execute_notebooks           : cache
-  timeout                     : 600
+  timeout                     : 900
   stderr_output               : remove-warn
 
 sphinx:
@@ -60,7 +60,7 @@ repository:
 #######################################################################################
 # HTML-specific settings
 html:
-  favicon                   : "figures/r2-logo-icon.png"  # A path to a favicon image
+  favicon                   : "imgs/r2-logo-icon.png"  # A path to a favicon image
   use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
   use_repository_button     : false  # Whether to add a link to your repository button
   use_issues_button         : false  # Whether to add an "open an issue" button
