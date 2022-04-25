@@ -1,1 +1,4 @@
 # Modelos de tendencia
+
+```{tableofcontents}
+```

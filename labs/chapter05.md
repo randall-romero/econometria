@@ -1,3 +1,5 @@
 # Cambio estructural
 
- 
+
+```{tableofcontents}
+```

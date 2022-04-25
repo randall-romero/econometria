@@ -1,1 +1,4 @@
 # Modelos de estacionalidad
+
+```{tableofcontents}
+```
