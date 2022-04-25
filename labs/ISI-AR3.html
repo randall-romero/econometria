@@ -1,0 +1,1842 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.1. Estimación de un modelo ARMA de inflación para Costa Rica &#8212; Apuntes de Macroeconometría</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mi-estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://randall-romero.github.io/econometria/labs/ISI-AR3.html" />
+    <link rel="shortcut icon" href="../_static/r2-logo-icon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.2. Estimación de la demanda de dinero" href="demandadinero.html" />
+    <link rel="prev" title="3. Modelos AutoRegresivos de Media Móvil (ARMA)" href="chapter03.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-57200532-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/r2-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Apuntes de Macroeconometría</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-acerca.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Acerca de este libro
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-interactuando.html">
+   Cómo interactuar con este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-contenido.html">
+   Tipo de contenido
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/01-intro/chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/01-intro/01-historia.html">
+     1.1. Una breve historia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/01-intro/02-graficos.html">
+     1.2. Representación gráfica de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/01-intro/03-rezagos.html">
+     1.3. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/01-intro/04-procesos-estocasticos.html">
+     1.4. Procesos estocásticos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/01-intro/05-series-tiempo.html">
+     1.5. Series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/01-intro/06-pruebas.html">
+     1.6. Pruebas de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/01-intro/refs.html">
+     1.7. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/02-eqdiff/chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/02-eqdiff/01-intro.html">
+     2.1. Acerca de este capítulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/02-eqdiff/02-sustitucion.html">
+     2.2. Solución por sustituciones recursivas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/02-eqdiff/03-combinacion.html">
+     2.3. Solución por combinación de soluciones homogéneas y particulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/02-eqdiff/04-operador.html">
+     2.4. Solución por medio del operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/02-eqdiff/refs.html">
+     2.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/03-arma/chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/03-arma/01-intro.html">
+     3.1. Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/03-arma/02-MA.html">
+     3.2. Proceso de media móvil MA(q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/03-arma/03-AR.html">
+     3.3. Proceso autorregresivo AR(p)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/03-arma/04-ARMA.html">
+     3.4. Proceso autorregresivo de media móvil ARMA(p,q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/03-arma/05-estimacion.html">
+     3.5. Estimación de modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/03-arma/06-pronosticos.html">
+     3.6. Pronósticos con modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/03-arma/refs.html">
+     3.7. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/04-arima/chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/04-arima/01-modelos-tendencia.html">
+     4.1. Modelos de series con tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/04-arima/02-removiendo.html">
+     4.2. Removiendo una tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/04-arima/03-raices-unitarias.html">
+     4.3. Series con raíz unitaria y procesos ARIMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/04-arima/04-pruebas.html">
+     4.4. Detectando raíces unitarias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/04-arima/05-hp.html">
+     4.5. El filtro de Hodrick y Prescott
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/04-arima/refs.html">
+     4.6. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/05-cambioestructural/chapter05.html">
+   5. Cambio estructural
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/05-cambioestructural/01-chow.html">
+     5.1. La prueba de Chow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/05-cambioestructural/02-conocido.html">
+     5.2. Cambio estructural y raíces unitarias: fecha conocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/05-cambioestructural/03-desconocido.html">
+     5.3. Cambio estructural y raíces unitarias: fecha desconocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/05-cambioestructural/refs.html">
+     5.4. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/06-estacional/chapter06.html">
+   6. Modelos de estacionalidad
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/06-estacional/01-intro.html">
+     6.1. Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/06-estacional/02-sarima.html">
+     6.2. Modelo ARIMA estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/06-estacional/03-x13arima.html">
+     6.3. Ajuste estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/06-estacional/04-raices-unitarias.html">
+     6.4. Raíces unitarias estacionales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/06-estacional/refs.html">
+     6.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/07-sem/chapter07.html">
+   7. Sistemas de ecuaciones simultáneas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/01-motivacion.html">
+     7.1. Motivación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/02-sur.html">
+     7.2. El modelo SUR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/03-representacion.html">
+     7.3. Representación de ecuaciones simultáneas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/04-identificacion.html">
+     7.4. Identificación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/05-recursivo.html">
+     7.5. El modelo recursivo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/06-error.html">
+     7.6. El término de error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/07-estimacion.html">
+     7.7. Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/07-sem/refs.html">
+     7.8. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../teoria/08-var/chapter08.html">
+   8. Vectores Auto-Regresivos (VAR)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/08-var/01-representaciones.html">
+     8.1. Representaciones alternativas de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/08-var/02-dinamica.html">
+     8.2. Dinámica de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/08-var/03-estimacion.html">
+     8.3. Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/08-var/04-pronostico.html">
+     8.4. Pronósticos con VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../teoria/08-var/refs.html">
+     8.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Componentes-IMAE.html">
+     1.1. Descomposición del IMAE por componentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="correlogram.html">
+     1.2. Autocorrelograma y pruebas de ruido blanco para el IMAE de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="covariance-stationarity-3d-plots.html">
+     1.3. Ilustrando la diferencia entre serie de tiempo y proceso estocástico, estacionario y no estacionario
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LandD.html">
+     1.4. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transforme.html">
+     1.5. Cálculo de transformaciones de la serie del PIB de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="wntestq.html">
+     1.6. Las pruebas de Box-Pierce y Ljung-Box.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EqDiff2.html">
+     2.1. Resolviendo una ecuación en diferencia con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.1. Estimación de un modelo ARMA de inflación para Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="demandadinero.html">
+     3.2. Estimación de la demanda de dinero
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DickeyFuller.html">
+     4.1. Replicando el trabajo de Dickey y Fuller
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="GrangerNewbold.html">
+     4.2. Replicando el trabajo de Granger y Newbold 1974
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="KPSS.html">
+     4.3. Replicando el trabajo de KPSS (1992)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="NelsonPlosser.html">
+     4.4. Replicando el trabajo de Nelson y Plosser (1982)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tendencias-pib.html">
+     4.5. Pruebas de raíz unitaria para el PIB en Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tendencias-simulaciones.html">
+     4.6. Series integradas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.html">
+   5. Cambio estructural
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter06.html">
+   6. Modelos de estacionalidad
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SJO-pasajeros.html">
+     6.1. Estacionalidad del número de pasajeros del aeropuerto Juan Santamaría
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter07.html">
+   7. Sistemas de ecuaciones simultáneas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Klein%20model.html">
+     7.1. Estimación del modelo I de Klein por Mínimos Cuadrados en 2 etapas (2SLS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="telara%C3%B1a.html">
+     7.2. El modelo de la telaraña
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter08.html">
+   8. Vectores Auto-Regresivos (VAR)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Simulacion%20de%20un%20VAR.html">
+     8.1. Simulación de un VAR(1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="VAR%20insesgado%20y%20consistente.html">
+     8.2. Estimador OLS del VAR(1) es consistente e insesgado
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="VAR%20politica%20monetaria%20CR.html">
+     8.3. Estimación de un VAR de la política monetaria de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="VAR%281%29%20clase.html">
+     8.4. Una clase para representar un VAR(1)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="chapter09.html">
+   9. Cointegración y VECM
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Relaci%C3%B3n%20espuria.html">
+     9.1. Regresión espuria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="MacKinnon%20valores%20cr%C3%ADticos%20para%20test%20de%20cointegraci%C3%B3n.html">
+     9.2. Valores críticos de MacKinnon para test de cointegración
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Apéndices
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../apendices/py-intro/py-chapter.html">
+   Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-01--Para%20qu%C3%A9%20aprender%20Python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-02--Variables%20y%20operaciones%20b%C3%A1sicas.html">
+     Variables y operaciones básicas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-03--Textos.html">
+     Manipulando Textos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-04--Colecciones.html">
+     Colecciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-05--Control%20de%20ejecuci%C3%B3n.html">
+     Control de ejecución
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-06--Funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-07--M%C3%B3dulos.html">
+     Módulos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-08--Clases%20y%20objetos.html">
+     Clases y objetos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-09--manipulando-datos.html">
+     Importando y manipulando datos con Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-10--Webscraping.html">
+     Web scraping con BeautifulSoup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/py-intro/Python-11--Leyendo-archivos-XML.html">
+     Leyendo archivos XML
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../apendices/r-code/chapter-r.html">
+   Código en R
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/r-code/R-transform.html">
+     Transformaciones con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/r-code/R-lags.html">
+     Rezagos con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/r-code/R-correlogram.html">
+     Correlogramas con R
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../apendices/matematica/matematica.html">
+   Matemática
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/matematica/01-algebra-lineal.html">
+     Álgebra lineal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/matematica/02-numeros-complejos.html">
+     Números complejos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../apendices/estadistica/estadistica.html">
+   Estadística y econometría
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/estadistica/01-estadistica.html">
+     Resultados de teoría estadística
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/estadistica/02-econometria.html">
+     Resultados de econometría
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../apendices/estadistica/Futbol-Bernoulli-Teorema-L%C3%ADmite-Central.html">
+     Ilustración del Teorema del Límite Central
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="http://randall-romero.com">randall-romero.com</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/labs/ISI-AR3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./labs/ISI-AR3.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./labs/ISI-AR3.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descarga-de-datos">
+   Descarga de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficar-la-serie-original-y-estudiar-su-autocorrelograma">
+   Graficar la serie original y estudiar su autocorrelograma
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimar-un-modelo-ar-3">
+   Estimar un modelo AR(3)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exportar-la-tabla-de-coeficientes-a-latex">
+     Exportar la tabla de coeficientes a LaTeX
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analizar-los-residuos">
+     Analizar los residuos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raices-del-polinomio-caracteristico-reciprocos-de-las-raices-del-polinomio-de-rezagos">
+     Raíces del polinomio característico (recíprocos de las raíces del polinomio de rezagos)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usar-criterios-de-seleccion-para-determinar-el-grado-p-q-del-modelo-arma">
+   Usar criterios de selección para determinar el grado p, q del modelo ARMA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#akaike">
+     Akaike
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayesiano">
+     Bayesiano
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pronostico">
+   Pronóstico
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valores-criticos-de-la-distribucion-normal">
+     Valores críticos de la distribución normal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficar-el-pronostico">
+     Graficar el pronóstico
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exportar-datos-a-stata">
+   Exportar datos a STATA
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Estimación de un modelo ARMA de inflación para Costa Rica</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descarga-de-datos">
+   Descarga de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficar-la-serie-original-y-estudiar-su-autocorrelograma">
+   Graficar la serie original y estudiar su autocorrelograma
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimar-un-modelo-ar-3">
+   Estimar un modelo AR(3)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exportar-la-tabla-de-coeficientes-a-latex">
+     Exportar la tabla de coeficientes a LaTeX
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analizar-los-residuos">
+     Analizar los residuos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#raices-del-polinomio-caracteristico-reciprocos-de-las-raices-del-polinomio-de-rezagos">
+     Raíces del polinomio característico (recíprocos de las raíces del polinomio de rezagos)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usar-criterios-de-seleccion-para-determinar-el-grado-p-q-del-modelo-arma">
+   Usar criterios de selección para determinar el grado p, q del modelo ARMA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#akaike">
+     Akaike
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayesiano">
+     Bayesiano
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pronostico">
+   Pronóstico
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#valores-criticos-de-la-distribucion-normal">
+     Valores críticos de la distribución normal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#graficar-el-pronostico">
+     Graficar el pronóstico
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exportar-datos-a-stata">
+   Exportar datos a STATA
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="estimacion-de-un-modelo-arma-de-inflacion-para-costa-rica">
+<h1><span class="section-number">3.1. </span>Estimación de un modelo ARMA de inflación para Costa Rica<a class="headerlink" href="#estimacion-de-un-modelo-arma-de-inflacion-para-costa-rica" title="Permalink to this headline">¶</a></h1>
+<p><strong>Nota</strong> Para ejecutar este cuaderno se requiere el paquete <code class="docutils literal notranslate"><span class="pre">bccr</span></code>. Si no lo tiene, ejecute la siguiente celda</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">bccr</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Module bccr missing. Installing it now&#39;</span><span class="p">)</span>
+    <span class="o">!</span>pip install bccr
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="descarga-de-datos">
+<h2>Descarga de datos<a class="headerlink" href="#descarga-de-datos" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bccr</span> <span class="kn">import</span> <span class="n">SW</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.tsaplots</span> <span class="kn">import</span> <span class="n">plot_acf</span><span class="p">,</span> <span class="n">plot_pacf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SW</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">todos</span><span class="o">=</span><span class="s1">&#39;inflación subyacente&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DESCRIPCION</th>
+      <th>descripcion</th>
+      <th>Unidad</th>
+      <th>Medida</th>
+      <th>periodo</th>
+    </tr>
+    <tr>
+      <th>codigo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1264</th>
+      <td>Node('/BCCR/Índices de Precios/Indice Subyacente de inflación (ISI), (Julio 2006 = 100) [1264]')</td>
+      <td>(ISI) INDICE SUBYACENTE DE INFLACION (BASE JULIO 2006=100)</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>1267</th>
+      <td>Node('/BCCR/Índices de Precios/Indice Subyacente de inflación (ISI), (Julio 2006 = 100) [1267]')</td>
+      <td>INDICE SUBYACENTE DE INFLACION VARIACION INTERANUAL</td>
+      <td>Porcentaje Variación Interanual</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>4160</th>
+      <td>Node('/BCCR/Índices de Precios/Indice Subyacente de inflación (ISI), (Julio 2006 = 100) [1264]/Bienes [4160]')</td>
+      <td>Bienes</td>
+      <td>Nivel</td>
+      <td>Unidades</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>27118</th>
+      <td>Node('/BCCR/Índices de Precios/Indice Subyacente de inflación (ISI), (Julio 2006 = 100) [1267]/Bienes [27118]')</td>
+      <td>Bienes</td>
+      <td>Porcentaje Variación Interanual</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>4181</th>
+      <td>Node('/BCCR/Índices de Precios/Indice Subyacente de inflación (ISI), (Julio 2006 = 100) [1264]/Servicios [4181]')</td>
+      <td>Servicios</td>
+      <td>Nivel</td>
+      <td>Unidades</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>27119</th>
+      <td>Node('/BCCR/Índices de Precios/Indice Subyacente de inflación (ISI), (Julio 2006 = 100) [1267]/Servicios [27119]')</td>
+      <td>Servicios</td>
+      <td>Porcentaje Variación Interanual</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>24171</th>
+      <td>Node('/BCCR/Índices de Precios/Inflación subyacente reponderada por persistencia [24171]')</td>
+      <td>Inflación subyacente reponderada por persistencia</td>
+      <td>Nivel</td>
+      <td>Unidades</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>24172</th>
+      <td>Node('/BCCR/Índices de Precios/Inflación subyacente reponderada por persistencia [24172]')</td>
+      <td>Inflación subyacente reponderada por persistencia</td>
+      <td>Porcentaje Variación Interanual</td>
+      <td>Unidades</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>24174</th>
+      <td>Node('/BCCR/Índices de Precios/Inflación subyacente reponderada por volatilidad [24174]')</td>
+      <td>Inflación subyacente reponderada por volatilidad</td>
+      <td>Nivel</td>
+      <td>Unidades</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>24175</th>
+      <td>Node('/BCCR/Índices de Precios/Inflación subyacente reponderada por volatilidad [24175]')</td>
+      <td>Inflación subyacente reponderada por volatilidad</td>
+      <td>Porcentaje Variación Interanual</td>
+      <td>Unidades</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>25724</th>
+      <td>Node('/BCCR/Índices de Precios/IEV [25724]')</td>
+      <td>Indicadores de Inflación Subyacente, (Junio 2015 = 100)</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>25726</th>
+      <td>Node('/BCCR/Índices de Precios/IEV [25726]')</td>
+      <td>Indicadores de Inflación Subyacente, (Junio 2015 = 100)</td>
+      <td>Porcentaje Variación Interanual</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>25725</th>
+      <td>Node('/BCCR/Índices de Precios/IEV [25725]')</td>
+      <td>Indicadores de Inflación Subyacente, (Junio 2015 = 100)</td>
+      <td>Porcentaje Variación Mensual</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">isi</span> <span class="o">=</span> <span class="n">SW</span><span class="p">(</span><span class="n">isi</span><span class="o">=</span><span class="mi">25725</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">isi</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>isi</th>
+    </tr>
+    <tr>
+      <th>fecha</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2006-08</th>
+      <td>0.895052</td>
+    </tr>
+    <tr>
+      <th>2006-09</th>
+      <td>0.236138</td>
+    </tr>
+    <tr>
+      <th>2006-10</th>
+      <td>0.524076</td>
+    </tr>
+    <tr>
+      <th>2006-11</th>
+      <td>0.601677</td>
+    </tr>
+    <tr>
+      <th>2006-12</th>
+      <td>0.730769</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-08</th>
+      <td>0.266575</td>
+    </tr>
+    <tr>
+      <th>2020-09</th>
+      <td>0.270565</td>
+    </tr>
+    <tr>
+      <th>2020-10</th>
+      <td>0.099647</td>
+    </tr>
+    <tr>
+      <th>2020-11</th>
+      <td>-0.053413</td>
+    </tr>
+    <tr>
+      <th>2020-12</th>
+      <td>0.088659</td>
+    </tr>
+  </tbody>
+</table>
+<p>173 rows × 1 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="graficar-la-serie-original-y-estudiar-su-autocorrelograma">
+<h2>Graficar la serie original y estudiar su autocorrelograma<a class="headerlink" href="#graficar-la-serie-original-y-estudiar-su-autocorrelograma" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot_mosaic</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AA</span>
+<span class="sd">    BC</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="c1">#, sharey=&#39;row&#39;)</span>
+
+<span class="n">isi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Inflación subyacente, mensual&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">isi</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Autocorrelación&#39;</span><span class="p">)</span>
+<span class="n">plot_pacf</span><span class="p">(</span><span class="n">isi</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Autocorrelación parcial&#39;</span><span class="p">);</span>
+<span class="n">axs</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sharey</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;ISI-AR3.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ISI-AR3_8_0.png" src="../_images/ISI-AR3_8_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="estimar-un-modelo-ar-3">
+<h2>Estimar un modelo AR(3)<a class="headerlink" href="#estimar-un-modelo-ar-3" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">isi</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>SARIMAX Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>isi</td>       <th>  No. Observations:  </th>   <td>173</td> 
+</tr>
+<tr>
+  <th>Model:</th>            <td>ARIMA(3, 0, 0)</td>  <th>  Log Likelihood     </th> <td>-4.734</td>
+</tr>
+<tr>
+  <th>Date:</th>            <td>Sun, 24 Apr 2022</td> <th>  AIC                </th> <td>19.468</td>
+</tr>
+<tr>
+  <th>Time:</th>                <td>16:23:33</td>     <th>  BIC                </th> <td>35.234</td>
+</tr>
+<tr>
+  <th>Sample:</th>             <td>08-31-2006</td>    <th>  HQIC               </th> <td>25.864</td>
+</tr>
+<tr>
+  <th></th>                   <td>- 12-31-2020</td>   <th>                     </th>    <td> </td>  
+</tr>
+<tr>
+  <th>Covariance Type:</th>        <td>opg</td>       <th>                     </th>    <td> </td>  
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+     <td></td>       <th>coef</th>     <th>std err</th>      <th>z</th>      <th>P>|z|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>const</th>  <td>    0.3406</td> <td>    0.116</td> <td>    2.939</td> <td> 0.003</td> <td>    0.113</td> <td>    0.568</td>
+</tr>
+<tr>
+  <th>ar.L1</th>  <td>    0.2630</td> <td>    0.069</td> <td>    3.787</td> <td> 0.000</td> <td>    0.127</td> <td>    0.399</td>
+</tr>
+<tr>
+  <th>ar.L2</th>  <td>    0.1983</td> <td>    0.050</td> <td>    3.998</td> <td> 0.000</td> <td>    0.101</td> <td>    0.296</td>
+</tr>
+<tr>
+  <th>ar.L3</th>  <td>    0.3646</td> <td>    0.069</td> <td>    5.270</td> <td> 0.000</td> <td>    0.229</td> <td>    0.500</td>
+</tr>
+<tr>
+  <th>sigma2</th> <td>    0.0615</td> <td>    0.005</td> <td>   12.753</td> <td> 0.000</td> <td>    0.052</td> <td>    0.071</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Ljung-Box (L1) (Q):</th>     <td>0.01</td> <th>  Jarque-Bera (JB):  </th> <td>96.24</td>
+</tr>
+<tr>
+  <th>Prob(Q):</th>                <td>0.94</td> <th>  Prob(JB):          </th> <td>0.00</td> 
+</tr>
+<tr>
+  <th>Heteroskedasticity (H):</th> <td>0.23</td> <th>  Skew:              </th> <td>1.11</td> 
+</tr>
+<tr>
+  <th>Prob(H) (two-sided):</th>    <td>0.00</td> <th>  Kurtosis:          </th> <td>5.90</td> 
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Covariance matrix calculated using the outer product of gradients (complex-step).</div></div>
+</div>
+<div class="section" id="exportar-la-tabla-de-coeficientes-a-latex">
+<h3>Exportar la tabla de coeficientes a LaTeX<a class="headerlink" href="#exportar-la-tabla-de-coeficientes-a-latex" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sss</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;AR3-ISI.tex&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sss</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">as_latex_tabular</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analizar-los-residuos">
+<h3>Analizar los residuos<a class="headerlink" href="#analizar-los-residuos" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot_mosaic</span><span class="p">(</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    AA</span>
+<span class="sd">    BC</span>
+<span class="sd">    &quot;&quot;&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="c1">#, sharey=&#39;row&#39;)</span>
+
+<span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Residuos del modelo AR(3)&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plot_acf</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Autocorrelación&#39;</span><span class="p">)</span>
+<span class="n">plot_pacf</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Autocorrelación parcial&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sharey</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;ISI-AR3resid.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ISI-AR3_14_0.png" src="../_images/ISI-AR3_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="raices-del-polinomio-caracteristico-reciprocos-de-las-raices-del-polinomio-de-rezagos">
+<h3>Raíces del polinomio característico (recíprocos de las raíces del polinomio de rezagos)<a class="headerlink" href="#raices-del-polinomio-caracteristico-reciprocos-de-las-raices-del-polinomio-de-rezagos" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="n">res</span><span class="o">.</span><span class="n">arroots</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.91510159+0.j       , -0.32602757+0.5404744j,
+       -0.32602757-0.5404744j])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arroots</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">res</span><span class="o">.</span><span class="n">arroots</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">arroots</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">arroots</span><span class="p">),</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_rlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Raíces inversas del polinomio autorregresivo&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;ISI-AR3roots.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ISI-AR3_17_0.png" src="../_images/ISI-AR3_17_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="usar-criterios-de-seleccion-para-determinar-el-grado-p-q-del-modelo-arma">
+<h2>Usar criterios de selección para determinar el grado p, q del modelo ARMA<a class="headerlink" href="#usar-criterios-de-seleccion-para-determinar-el-grado-p-q-del-modelo-arma" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmax</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">qmax</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">qmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="akaike">
+<h3>Akaike<a class="headerlink" href="#akaike" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aic</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ARIMA</span><span class="p">(</span><span class="n">isi</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">aic</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">Q</span> <span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span> <span class="p">]</span>
+<span class="n">AIC</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">aic</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;p=</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;q=</span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">Q</span><span class="p">])</span>
+<span class="n">AIC</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_38560_row3_col0, #T_38560_row3_col1, #T_38560_row4_col2 {
+  background-color: yellow;
+}
+</style>
+<table id="T_38560_">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >q=0</th>
+      <th class="col_heading level0 col1" >q=1</th>
+      <th class="col_heading level0 col2" >q=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_38560_level0_row0" class="row_heading level0 row0" >p=0</th>
+      <td id="T_38560_row0_col0" class="data row0 col0" >131.620888</td>
+      <td id="T_38560_row0_col1" class="data row0 col1" >89.023411</td>
+      <td id="T_38560_row0_col2" class="data row0 col2" >82.401382</td>
+    </tr>
+    <tr>
+      <th id="T_38560_level0_row1" class="row_heading level0 row1" >p=1</th>
+      <td id="T_38560_row1_col0" class="data row1 col0" >60.759065</td>
+      <td id="T_38560_row1_col1" class="data row1 col1" >25.081481</td>
+      <td id="T_38560_row1_col2" class="data row1 col2" >26.533141</td>
+    </tr>
+    <tr>
+      <th id="T_38560_level0_row2" class="row_heading level0 row2" >p=2</th>
+      <td id="T_38560_row2_col0" class="data row2 col0" >41.690410</td>
+      <td id="T_38560_row2_col1" class="data row2 col1" >26.708214</td>
+      <td id="T_38560_row2_col2" class="data row2 col2" >28.697323</td>
+    </tr>
+    <tr>
+      <th id="T_38560_level0_row3" class="row_heading level0 row3" >p=3</th>
+      <td id="T_38560_row3_col0" class="data row3 col0" >19.467588</td>
+      <td id="T_38560_row3_col1" class="data row3 col1" >21.346944</td>
+      <td id="T_38560_row3_col2" class="data row3 col2" >23.220068</td>
+    </tr>
+    <tr>
+      <th id="T_38560_level0_row4" class="row_heading level0 row4" >p=4</th>
+      <td id="T_38560_row4_col0" class="data row4 col0" >21.338571</td>
+      <td id="T_38560_row4_col1" class="data row4 col1" >23.338547</td>
+      <td id="T_38560_row4_col2" class="data row4 col2" >19.543282</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Exportar a LATEX</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AIC</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="s1">&#39;ISI-AR3aic.tex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bayesiano">
+<h3>Bayesiano<a class="headerlink" href="#bayesiano" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bic</span> <span class="o">=</span> <span class="p">[[</span><span class="n">ARIMA</span><span class="p">(</span><span class="n">isi</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">q</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">bic</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">Q</span> <span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span> <span class="p">]</span>
+<span class="n">BIC</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">bic</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;p=</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">P</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;q=</span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">Q</span><span class="p">])</span>
+<span class="n">BIC</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">highlight_min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_b8de5_row1_col1, #T_b8de5_row1_col2, #T_b8de5_row3_col0 {
+  background-color: yellow;
+}
+</style>
+<table id="T_b8de5_">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >q=0</th>
+      <th class="col_heading level0 col1" >q=1</th>
+      <th class="col_heading level0 col2" >q=2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_b8de5_level0_row0" class="row_heading level0 row0" >p=0</th>
+      <td id="T_b8de5_row0_col0" class="data row0 col0" >137.927471</td>
+      <td id="T_b8de5_row0_col1" class="data row0 col1" >98.483286</td>
+      <td id="T_b8de5_row0_col2" class="data row0 col2" >95.014549</td>
+    </tr>
+    <tr>
+      <th id="T_b8de5_level0_row1" class="row_heading level0 row1" >p=1</th>
+      <td id="T_b8de5_row1_col0" class="data row1 col0" >70.218940</td>
+      <td id="T_b8de5_row1_col1" class="data row1 col1" >37.694647</td>
+      <td id="T_b8de5_row1_col2" class="data row1 col2" >42.299599</td>
+    </tr>
+    <tr>
+      <th id="T_b8de5_level0_row2" class="row_heading level0 row2" >p=2</th>
+      <td id="T_b8de5_row2_col0" class="data row2 col0" >54.303577</td>
+      <td id="T_b8de5_row2_col1" class="data row2 col1" >42.474672</td>
+      <td id="T_b8de5_row2_col2" class="data row2 col2" >47.617073</td>
+    </tr>
+    <tr>
+      <th id="T_b8de5_level0_row3" class="row_heading level0 row3" >p=3</th>
+      <td id="T_b8de5_row3_col0" class="data row3 col0" >35.234046</td>
+      <td id="T_b8de5_row3_col1" class="data row3 col1" >40.266694</td>
+      <td id="T_b8de5_row3_col2" class="data row3 col2" >45.293109</td>
+    </tr>
+    <tr>
+      <th id="T_b8de5_level0_row4" class="row_heading level0 row4" >p=4</th>
+      <td id="T_b8de5_row4_col0" class="data row4 col0" >40.258321</td>
+      <td id="T_b8de5_row4_col1" class="data row4 col1" >45.411589</td>
+      <td id="T_b8de5_row4_col2" class="data row4 col2" >44.769614</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Exportar a LATEX</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BIC</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="s1">&#39;ISI-AR3bic.tex&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pronostico">
+<h2>Pronóstico<a class="headerlink" href="#pronostico" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">horizon</span> <span class="o">=</span> <span class="mi">36</span>
+
+<span class="n">temp</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">get_prediction</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">isi</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">MonthEnd</span><span class="p">(),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2023-12&#39;</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exog</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extend_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extend_kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">ff</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">conf</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">predicted_mean</span><span class="p">,</span> <span class="n">temp</span><span class="o">.</span><span class="n">se_mean</span><span class="p">,</span> <span class="n">temp</span><span class="o">.</span><span class="n">conf_int</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="c1">#ff, std, conf = res.forecast(steps=horizon, alpha=0.05) # version anterior, no funciona con el nuevo módulo de ARIMA</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="valores-criticos-de-la-distribucion-normal">
+<h3>Valores críticos de la distribución normal<a class="headerlink" href="#valores-criticos-de-la-distribucion-normal" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span>
+<span class="n">zvalues</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="graficar-el-pronostico">
+<h3>Graficar el pronóstico<a class="headerlink" href="#graficar-el-pronostico" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Datos pronosticados</span>
+<span class="n">fcast</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;isi&#39;</span><span class="p">:</span><span class="n">ff</span><span class="p">,</span><span class="s1">&#39;std&#39;</span><span class="p">:</span><span class="n">std</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="n">isi</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">horizon</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">))</span>
+
+<span class="c1"># Concatenar los datos observados con los pronosticados</span>
+<span class="n">fcast2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">isi</span><span class="p">,</span><span class="n">fcast</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fcast2</span><span class="p">[</span><span class="s1">&#39;$\mu$&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">isi</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Graficar la serie y el pronóstico</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">fcast2</span><span class="p">[[</span><span class="s1">&#39;isi&#39;</span><span class="p">,</span><span class="s1">&#39;$\mu$&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+
+
+<span class="k">def</span> <span class="nf">intervalo</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Para calcular los límites superior e inferior del intervalo de confianza,</span>
+<span class="sd">    dado el valor crítico de la distribución normal</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">fcast2</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">z</span><span class="o">*</span><span class="n">fcast2</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">],</span>  <span class="n">fcast2</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">z</span><span class="o">*</span><span class="n">fcast2</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span>
+
+<span class="c1"># fechas para graficar los intervalos</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">fcast2</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Graficar los intervalos de confianza</span>
+<span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">zvalues</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="o">*</span><span class="n">intervalo</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">interpolate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;ISI-AR3forecast.pdf&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ISI-AR3_34_0.png" src="../_images/ISI-AR3_34_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exportar-datos-a-stata">
+<h2>Exportar datos a STATA<a class="headerlink" href="#exportar-datos-a-stata" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">isi</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">isi</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">isi</span><span class="o">.</span><span class="n">to_stata</span><span class="p">(</span><span class="s1">&#39;isi.dta&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="chapter03.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3. </span>Modelos AutoRegresivos de Media Móvil (ARMA)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="demandadinero.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.2. </span>Estimación de la demanda de dinero</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Randall Romero Aguilar<br/>
+    
+        &copy; Copyright 2021-2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
