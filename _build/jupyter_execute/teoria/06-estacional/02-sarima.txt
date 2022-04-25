@@ -1,0 +1,51 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+plt.style.use('seaborn-talk')
+
+
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+# read data from previous example
+
+sjodatos =pd.read_pickle("datos/SJO-pasajeros.pickle")
+sjodatoscuadro = sjodatos.unstack()
+sjodatoscuadro['extranjeros'].round(1)
+
+def correlogramas4(serie, residencia, func):
+    fig, axs= plt.subplots(2,2, figsize=[12,5], sharex=True, sharey=True)
+    opts = dict(lags=24)
+    if func is plot_pacf:
+        opts['method'] = 'ols'
+
+    func(serie, **opts,ax=axs[0,0], title='$y_t$');
+    func(serie.diff(1).dropna(), **opts, ax=axs[0,1],title='$\Delta y_t$');
+    func(serie.diff(12).dropna(), **opts, ax=axs[1,0],title='$\Delta_{12}y_t$');
+    func(serie.diff(1).diff(12).dropna(), **opts, ax=axs[1,1],title='$\Delta\Delta_{12}y_t$');
+
+    for ax in axs.flat:
+        ax.set(xlim=[-0.5,24.5], xticks=np.arange(0,25,6))
+
+    pp = 'parcial' if (func is plot_pacf) else ''
+    fig.suptitle(f'Correlogramas {pp} de cantidad de pasajeros {residencia} en SJO', size=18)
+    return fig
+
+extranjeros = pd.DataFrame(np.log(sjodatos['extranjeros'].values), index=pd.period_range('2011-01', '2019-12', freq='M'))
+correlogramas4(extranjeros, 'extranjeros', plot_acf);
+
+mod_extranjeros = SARIMAX(extranjeros, order=(0,1,1), seasonal_order=(0,1,1,12)).fit()
+mod_extranjeros.summary()
+
+def plot_forecast(modelo, serie, residencia, ax):
+    fcast = modelo.get_forecast('2020-12')
+    ci = np.exp(fcast.conf_int())
+    np.exp(fcast.predicted_mean).plot(ax=ax)
+    ax.fill_between(ci.index,'lower y', 'upper y', data=ci, alpha=0.5)    
+    np.exp(serie).plot(ax=ax, legend=False)
+    ax.set(title=f'Pronóstico de pasajeros {residencia} en aeropuerto SJO')
+    return ax
+
+fig, ax = plt.subplots(1,1, figsize=[9,4])
+plot_forecast(mod_extranjeros, extranjeros['2015':], 'extranjeros', ax)
+ax.set(ylabel='miles de pasajeros');

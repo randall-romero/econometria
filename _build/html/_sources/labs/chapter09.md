@@ -1,0 +1,4 @@
+# Cointegración y VECM
+
+```{tableofcontents}
+```

@@ -1,0 +1,1498 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.3. Proceso autorregresivo AR(p) &#8212; Apuntes de Macroeconometría</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://randall-romero.github.io/econometria/teoria/03-arma/03-AR.html" />
+    <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.4. Proceso autorregresivo de media móvil ARMA(p,q)" href="04-ARMA.html" />
+    <link rel="prev" title="3.2. Proceso de media móvil MA(q)" href="02-MA.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-57200532-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/r2-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Apuntes de Macroeconometría</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-acerca.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Acerca de este libro
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../01-interactuando.html">
+   Cómo interactuar con este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02-contenido.html">
+   Tipo de contenido
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-intro/chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/01-historia.html">
+     1.1. Una breve historia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/02-graficos.html">
+     1.2. Representación gráfica de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/03-rezagos.html">
+     1.3. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/04-procesos-estocasticos.html">
+     1.4. Procesos estocásticos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/05-series-tiempo.html">
+     1.5. Series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/06-pruebas.html">
+     1.6. Pruebas de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/refs.html">
+     1.7. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-eqdiff/chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/01-intro.html">
+     2.1. Acerca de este capítulo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/02-sustitucion.html">
+     2.2. Solución por sustituciones recursivas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/03-combinacion.html">
+     2.3. Solución por combinación de soluciones homogéneas y particulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/04-operador.html">
+     2.4. Solución por medio del operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-eqdiff/refs.html">
+     2.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-intro.html">
+     3.1. Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02-MA.html">
+     3.2. Proceso de media móvil MA(q)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.3. Proceso autorregresivo AR(p)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-ARMA.html">
+     3.4. Proceso autorregresivo de media móvil ARMA(p,q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05-estimacion.html">
+     3.5. Estimación de modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06-pronosticos.html">
+     3.6. Pronósticos con modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="refs.html">
+     3.7. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04-arima/chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/01-modelos-tendencia.html">
+     4.1. Modelos de series con tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/02-removiendo.html">
+     4.2. Removiendo una tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/03-raices-unitarias.html">
+     4.3. Series con raíz unitaria y procesos ARIMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/04-pruebas.html">
+     4.4. Detectando raíces unitarias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/05-hp.html">
+     4.5. El filtro de Hodrick y Prescott
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/refs.html">
+     4.6. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05-cambioestructural/chapter05.html">
+   5. Cambio estructural
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/01-chow.html">
+     5.1. La prueba de Chow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/02-conocido.html">
+     5.2. Cambio estructural y raíces unitarias: fecha conocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/03-desconocido.html">
+     5.3. Cambio estructural y raíces unitarias: fecha desconocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/refs.html">
+     5.4. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-estacional/chapter06.html">
+   6. Modelos de estacionalidad
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/01-intro.html">
+     6.1. Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/02-sarima.html">
+     6.2. Modelo ARIMA estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/03-x13arima.html">
+     6.3. Ajuste estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/04-raices-unitarias.html">
+     6.4. Raíces unitarias estacionales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/refs.html">
+     6.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-sem/chapter07.html">
+   7. Sistemas de ecuaciones simultáneas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/01-motivacion.html">
+     7.1. Motivación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/02-sur.html">
+     7.2. El modelo SUR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/03-representacion.html">
+     7.3. Representación de ecuaciones simultáneas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/04-identificacion.html">
+     7.4. Identificación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/05-recursivo.html">
+     7.5. El modelo recursivo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/06-error.html">
+     7.6. El término de error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/07-estimacion.html">
+     7.7. Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/refs.html">
+     7.8. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08-var/chapter08.html">
+   8. Vectores Auto-Regresivos (VAR)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/01-representaciones.html">
+     8.1. Representaciones alternativas de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/02-dinamica.html">
+     8.2. Dinámica de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/03-estimacion.html">
+     8.3. Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/04-pronostico.html">
+     8.4. Pronósticos con VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/refs.html">
+     8.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Componentes-IMAE.html">
+     1.1. Descomposición del IMAE por componentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/correlogram.html">
+     1.2. Autocorrelograma y pruebas de ruido blanco para el IMAE de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/covariance-stationarity-3d-plots.html">
+     1.3. Ilustrando la diferencia entre serie de tiempo y proceso estocástico, estacionario y no estacionario
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/LandD.html">
+     1.4. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Transforme.html">
+     1.5. Cálculo de transformaciones de la serie del PIB de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/wntestq.html">
+     1.6. Las pruebas de Box-Pierce y Ljung-Box.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/EqDiff2.html">
+     2.1. Resolviendo una ecuación en diferencia con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/ISI-AR3.html">
+     3.1. Estimación de un modelo ARMA de inflación para Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/demandadinero.html">
+     3.2. Estimación de la demanda de dinero
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/DickeyFuller.html">
+     4.1. Replicando el trabajo de Dickey y Fuller
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/GrangerNewbold.html">
+     4.2. Replicando el trabajo de Granger y Newbold 1974
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/KPSS.html">
+     4.3. Replicando el trabajo de KPSS (1992)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/NelsonPlosser.html">
+     4.4. Replicando el trabajo de Nelson y Plosser (1982)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/tendencias-pib.html">
+     4.5. Pruebas de raíz unitaria para el PIB en Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/tendencias-simulaciones.html">
+     4.6. Series integradas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../labs/chapter05.html">
+   5. Cambio estructural
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter06.html">
+   6. Modelos de estacionalidad
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/SJO-pasajeros.html">
+     6.1. Estacionalidad del número de pasajeros del aeropuerto Juan Santamaría
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter07.html">
+   7. Sistemas de ecuaciones simultáneas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Klein%20model.html">
+     7.1. Estimación del modelo I de Klein por Mínimos Cuadrados en 2 etapas (2SLS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/telara%C3%B1a.html">
+     7.2. El modelo de la telaraña
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter08.html">
+   8. Vectores Auto-Regresivos (VAR)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Simulacion%20de%20un%20VAR.html">
+     8.1. Simulación de un VAR(1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/VAR%20insesgado%20y%20consistente.html">
+     8.2. Estimador OLS del VAR(1) es consistente e insesgado
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/VAR%20politica%20monetaria%20CR.html">
+     8.3. Estimación de un VAR de la política monetaria de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/VAR%281%29%20clase.html">
+     8.4. Una clase para representar un VAR(1)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter09.html">
+   9. Cointegración y VECM
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Relaci%C3%B3n%20espuria.html">
+     9.1. Regresión espuria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/MacKinnon%20valores%20cr%C3%ADticos%20para%20test%20de%20cointegraci%C3%B3n.html">
+     9.2. Valores críticos de MacKinnon para test de cointegración
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Apéndices
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/py-intro/py-chapter.html">
+   Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-01--Para%20qu%C3%A9%20aprender%20Python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-02--Variables%20y%20operaciones%20b%C3%A1sicas.html">
+     Variables y operaciones básicas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-03--Textos.html">
+     Manipulando Textos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-04--Colecciones.html">
+     Colecciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-05--Control%20de%20ejecuci%C3%B3n.html">
+     Control de ejecución
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-06--Funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-07--M%C3%B3dulos.html">
+     Módulos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-08--Clases%20y%20objetos.html">
+     Clases y objetos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-09--manipulando-datos.html">
+     Importando y manipulando datos con Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-10--Webscraping.html">
+     Web scraping con BeautifulSoup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-11--Leyendo-archivos-XML.html">
+     Leyendo archivos XML
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/r-code/chapter-r.html">
+   Código en R
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/r-code/R-transform.html">
+     Transformaciones con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/r-code/R-lags.html">
+     Rezagos con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/r-code/R-correlogram.html">
+     Correlogramas con R
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/matematica/matematica.html">
+   Matemática
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/matematica/01-algebra-lineal.html">
+     Álgebra lineal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/matematica/02-numeros-complejos.html">
+     Números complejos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/estadistica/estadistica.html">
+   Estadística y econometría
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/estadistica/01-estadistica.html">
+     Resultados de teoría estadística
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/estadistica/02-econometria.html">
+     Resultados de econometría
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/estadistica/Futbol-Bernoulli-Teorema-L%C3%ADmite-Central.html">
+     Ilustración del Teorema del Límite Central
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="http://randall-romero.com">randall-romero.com</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/teoria/03-arma/03-AR.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/teoria/03-arma/03-AR.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/03-arma/03-AR.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proceso-autorregresivo-de-primer-orden-ar-1">
+   Proceso autorregresivo de primer orden: AR(1)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-proceso-ar-p">
+   El proceso AR(p)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autocorrelacion-parcial">
+   Autocorrelación parcial
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Proceso autorregresivo AR(p)</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proceso-autorregresivo-de-primer-orden-ar-1">
+   Proceso autorregresivo de primer orden: AR(1)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-proceso-ar-p">
+   El proceso AR(p)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autocorrelacion-parcial">
+   Autocorrelación parcial
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\require{color}
+\newcommand{\alert}[1]{{\color{RedOrange} #1}}
+\newcommand{\notation}[2]{\underset{\color{MidnightBlue}\text{#2}}{#1}}
+\newcommand{\simbolo}[2]{\underset{\color{MidnightBlue}#2}{#1}}
+\newcommand{\notationbrace}[2]{{\underbrace{#1}_{\color{MidnightBlue}\text{#2}}}}
+\DeclareMathOperator{\dd}{\,d\!}
+\DeclareMathOperator{\E}{\mathbb{E}{}}
+\DeclareMathOperator{\Var}{Var{}}
+\DeclareMathOperator{\Cov}{Cov{}}
+\DeclareMathOperator{\Lag}{L{}}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\Prob}{\mathbb{P}}
+\newcommand{\marginal}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\MAT}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\mat}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}\\\begin{split}\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\X}{\mathbf{x}}
+\DeclareMathOperator{\y}{\mathbf{y}}
+\DeclareMathOperator{\h}{\mathbf{h}}
+\newcommand{\stackEq}[1]{\MAT{#1_1 \\ #1_2 \\ \vdots \\ #1_M}}
+\newcommand{\e}{\mathbf{\epsilon}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\estimator}[2]{{\hat{#1}^{\text{#2}}}}
+\newcommand{\estimate}[2]{\underset{(#2)}{#1}}
+\DeclareMathOperator{\plim}{plim}
+\newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}\end{split}\end{aligned}\end{align} \]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">macrodemos.demo_ARMA</span> <span class="kn">import</span> <span class="n">ARMA</span>
+<span class="kn">from</span> <span class="nn">macrodemos.common_components</span> <span class="kn">import</span> <span class="n">merge_plots</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="proceso-autorregresivo-ar-p">
+<h1><span class="section-number">3.3. </span>Proceso autorregresivo AR(p)<a class="headerlink" href="#proceso-autorregresivo-ar-p" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="proceso-autorregresivo-de-primer-orden-ar-1">
+<h2>Proceso autorregresivo de primer orden: AR(1)<a class="headerlink" href="#proceso-autorregresivo-de-primer-orden-ar-1" title="Permalink to this headline">¶</a></h2>
+<p>Sea <span class="math notranslate nohighlight">\(\left\{\epsilon_t\right\}_{t=-\infty}^\infty\)</span> un proceso ruido blanco. Se define el proceso AR(1) como:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_t  &amp;= c + \phi y_{t-1} +  \epsilon_t \\
+y_t - \phi y_{t-1} &amp;= c + \epsilon_t \\
+(1 - \phi\Lag)y_t &amp;= c + \epsilon_t
+\end{align*}\]</div>
+<p>Siempre que <span class="math notranslate nohighlight">\(|\phi|&lt;1\)</span> podemos invertir el término <span class="math notranslate nohighlight">\((1 - \phi\Lag)\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_t  &amp;= (1 - \phi\Lag)^{-1}\left(c + \epsilon_t\right) \\
+     &amp;= (1 - \phi\Lag)^{-1}c + (1 - \phi\Lag)^{-1}\epsilon_t \\
+     &amp;= \frac{c}{1-\phi} + \left(1 + \phi\Lag + \phi^2\Lag^2+\dots\right)\epsilon_{t}  \\
+     &amp;= \frac{c}{1-\phi} + \epsilon_{t} + \phi\epsilon_{t-1} + \phi^2\epsilon_{t-2} + \dots
+\end{align*}\]</div>
+<p>Vemos por tanto que si <span class="math notranslate nohighlight">\(|\phi|&lt;1\)</span> el proceso AR(1) puede escribirse como el proceso MA(<span class="math notranslate nohighlight">\(\infty\)</span>)</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_t  = \frac{c}{1-\phi} + \epsilon_{t} + \phi\epsilon_{t-1} + \phi^2\epsilon_{t-2} + \dots
+\end{equation*}\]</div>
+<p>Por lo que su valor esperado es:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\E[y_t]  \equiv \mu = \frac{c}{1-\phi}
+\end{equation*}\]</div>
+<p>y su varianza es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\Var[y_t] \equiv \gamma_0 &amp;= \left(1 + \phi^2 + \phi^4 + \phi^6 + \dots\right)\sigma^2\\
+                          &amp;= \frac{\sigma^2}{1-\phi^2}
+\end{align*}\]</div>
+<p>La representación MA(<span class="math notranslate nohighlight">\(\infty\)</span>) nos muestra que <span class="math notranslate nohighlight">\(y_t\)</span> depende de la perturbación presente <span class="math notranslate nohighlight">\(\epsilon_{t}\)</span> y de <strong>todas las pasadas</strong> <span class="math notranslate nohighlight">\(\epsilon_{t-1}, \epsilon_{t-2}, \dots\)</span>, pero no depende de <strong>ninguna de las perturbaciones futuras</strong> <span class="math notranslate nohighlight">\(\epsilon_{t+1}, \epsilon_{t+2}, \dots\)</span>.</p>
+<p>Por ello, la covarianza de <span class="math notranslate nohighlight">\(y_t\)</span> con cualquier perturbación posterior <span class="math notranslate nohighlight">\(\epsilon_{t+k}\)</span> (con <span class="math notranslate nohighlight">\(k&gt;0\)</span>) es cero.</p>
+<p>Sabiendo que un proceso AR(1) es estacionario si <span class="math notranslate nohighlight">\(|\phi|&lt;1\)</span>, es fácil obtener sus momentos sin necesidad de obtener su representación MA(<span class="math notranslate nohighlight">\(\infty\)</span>).</p>
+<p>En el caso de la media:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	y_t             &amp; = c + \phi y_{t-1} +  \epsilon_t         \\
+	\E[y_t]         &amp; = c + \phi \E[y_{t-1}] +  \E[\epsilon_t] \\
+	\mu             &amp; = c + \phi\mu + 0                        \\
+	\Rightarrow \mu &amp; = \frac{c}{1-\phi}
+\end{align*}\]</div>
+<p>Restando la tercera línea de la primera, vemos que el proceso puede escribirse como un AR(1) para la <strong>desviación respecto a la media</strong> sin la constante:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\notation{y_t - \mu}{$\tilde{y}_t$}  = \phi ( \notation{y_{t-1} - \mu}{$\tilde{y}_{t-1}$} ) +  \epsilon_t
+\end{equation*}\]</div>
+<p>Por ello, en adelante ocasionalmente asumiremos que <span class="math notranslate nohighlight">\(c=0\)</span> para simplificar el álgebra.</p>
+<p>Para obtener su varianza elevamos al cuadrado la expresión anterior y tomamos su valor esperado</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\E\left(\tilde{y}_t^2\right) &amp; = \E\left[\left(\phi \tilde{y}_{t-1} +  \epsilon_t\right)^2\right]                        \\
+\gamma_0                     &amp; = \E\left[\phi^2 \tilde{y}_{t-1}^2 + 2\phi\tilde{y}_{t-1}\epsilon_t + \epsilon_t^2\right] \\
+                             &amp; = \phi^2\gamma_0 + 2\times 0 + \sigma^2                                                   \\
+\Rightarrow \gamma_0         &amp; = \frac{\sigma^2}{1-\phi^2}
+\end{align*}\]</div>
+<p>Para obtener su autocovarianza <span class="math notranslate nohighlight">\(\gamma_j\)</span>, para <span class="math notranslate nohighlight">\(j\geq 1\)</span>, escribimos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\tilde{y}_{t}                               &amp; = \phi\tilde{y}_{t-1} +  \epsilon_t                                              \\
+\end{align*}\]</div>
+<p>multiplicamos ambos lados por <span class="math notranslate nohighlight">\(\tilde{y}_{t-j}\)</span> y tomamos esperanza</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\E\left[\tilde{y}_{t}\tilde{y}_{t-j}\right] &amp; = \E\left[\phi\tilde{y}_{t-1}\tilde{y}_{t-j} +  \tilde{y}_{t-j}\epsilon_t\right] \\
+\gamma_j                                    &amp; =\phi\gamma_{j-1}
+\end{align*}\]</div>
+<p>Vemos que la función de autocorrelación es la solución de una ecuación en diferencia homogénea de primer orden, cuya solución es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\gamma_j =\phi^j\gamma_0
+\end{equation*}\]</div>
+<p>Resumiendo los resultados que hemos obtenido</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\E[y_t]   &amp;= \mu = \frac{c}{1-\phi} \\
+\Var[y_t] &amp;= \gamma_0 = \frac{\sigma^2}{1 - \phi^2} \\
+\Cov[y_t, y_{t-j}] &amp;= \gamma_j = \phi^j \gamma_0 \\
+&amp;\phantom{= } \rho_j = \phi^j
+\end{align*}\]</div>
+<p>vemos que ninguno de estos momentos depende del tiempo <span class="math notranslate nohighlight">\(t\)</span>, por lo que el proceso AR(1) es covarianza-estacionario siempre y cuando <span class="math notranslate nohighlight">\(|\phi|&lt;1\)</span>.</p>
+<p>A partir de la representación MA(<span class="math notranslate nohighlight">\(\infty\)</span>) del proceso AR(1) con <span class="math notranslate nohighlight">\(|\phi|&lt;1\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_t  = \mu + \epsilon_{t} + \phi\epsilon_{t-1} + \phi^2\epsilon_{t-2} + \dots
+\end{equation*}\]</div>
+<p>es fácil observar que su función de impulso respuesta</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\Psi(j) = \marginal{y_{t+j}}{\epsilon_{t}} = \marginal{y_{t}}{\epsilon_{t-j}} = \phi^j
+\end{equation*}\]</div>
+<p>es idéntica a su función de autocorrelaciones.</p>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ AR(1) con <span class="math notranslate nohighlight">\(\phi&gt;0\)</span> </b></div>
+<span class="math notranslate nohighlight">\(y_t  = 0.9y_{t-1} + \epsilon_t \)</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_ar1p</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="n">modelo_ar1p</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">merge_plots</span><span class="p">(</span>
+   <span class="p">[</span><span class="n">modelo_ar1p</span><span class="o">.</span><span class="n">plot_process</span><span class="p">(),</span> <span class="n">modelo_ar1p</span><span class="o">.</span><span class="n">plot_correlogram</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span>
+   <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Realización&#39;</span><span class="p">,</span> <span class="s1">&#39;Autocorrelación&#39;</span><span class="p">]</span> <span class="p">,</span>
+   <span class="n">title_text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">modelo_ar1p</span><span class="p">),</span>
+   <span class="n">shared_yaxes</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ AR(1) con <span class="math notranslate nohighlight">\(\phi&lt;0\)</span> </b></div>
+<span class="math notranslate nohighlight">\(y_t  = -0.9y_{t-1} + \epsilon_t \)</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_ar1n</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="n">modelo_ar1n</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">merge_plots</span><span class="p">(</span>
+   <span class="p">[</span><span class="n">modelo_ar1n</span><span class="o">.</span><span class="n">plot_process</span><span class="p">(),</span> <span class="n">modelo_ar1n</span><span class="o">.</span><span class="n">plot_correlogram</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span>
+   <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Realización&#39;</span><span class="p">,</span> <span class="s1">&#39;Autocorrelación&#39;</span><span class="p">]</span> <span class="p">,</span>
+   <span class="n">title_text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">modelo_ar1n</span><span class="p">),</span>
+   <span class="n">shared_yaxes</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="el-proceso-ar-p">
+<h2>El proceso AR(p)<a class="headerlink" href="#el-proceso-ar-p" title="Permalink to this headline">¶</a></h2>
+<p>Es fácil extender el proceso AR(1) para incluir más rezagos. El proceso AR(p) es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	y_t                                                      &amp; = c + \phi_1 y_{t-1} +\dots + \phi_p y_{t-p} +  \epsilon_t \\
+y_t - \phi_1 y_{t-1} -\dots - \phi_p y_{t-p}             &amp; = c +  \epsilon_t \\
+\left(1 - \phi_1\Lag^1 -\dots - \phi_p\Lag^p\right)y_{t} &amp; = c +  \epsilon_t \\
+\Phi(\Lag)y_{t}                                          &amp; = c +  \epsilon_t
+\end{align*}\]</div>
+<p>El proceso AR(p) es una ecuación en diferencia de orden <span class="math notranslate nohighlight">\(p\)</span>. Esta ecuación es estable si y solo si las raíces del polinomio <span class="math notranslate nohighlight">\(1 - \phi_1z^1 -\dots - \phi_pz^p\)</span> están todas <strong>fuera</strong> del círculo unitario.</p>
+<p>Si el proceso es estable, resolvemos para <span class="math notranslate nohighlight">\(y_t\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_{t} &amp;= \Phi^{-1}(\Lag)\left(c +  \epsilon_t\right) \\
+      &amp;= \Phi^{-1}(1)c  + \Phi^{-1}(\Lag)\epsilon_t \\
+      &amp;= \frac{c}{1 - \phi_1 -\dots - \phi_p}  + \Phi^{-1}(\Lag)\epsilon_t
+\end{align*}\]</div>
+<p>Su valor esperado es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\E\left(y_t\right) = \frac{c}{1 - \phi_1 -\dots - \phi_p} =\mu
+\end{equation*}\]</div>
+<p>Similar a lo que obtuvimos para el proceso AR(1), podemos escribir el proceso AR(p) en términos de desviación de la media <span class="math notranslate nohighlight">\(\tilde{y}\equiv y-\mu\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\tilde{y}_t = \phi_1\tilde{y}_{t-1} +\dots + \phi_p\tilde{y}_{t-p} +  \epsilon_t
+\end{equation*}\]</div>
+<p>Para obtener su varianza y autocovarianzas multiplicamos la expresión anterior por <span class="math notranslate nohighlight">\(\tilde{y}_{t-j}\)</span>, con <span class="math notranslate nohighlight">\(j\geq0\)</span>, y calculamos el valor esperado</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\E\left[\tilde{y}_t\tilde{y}_{t-j}\right] &amp;= \E\left[\phi_1\tilde{y}_{t-1}\tilde{y}_{t-j} +\dots + \phi_p\tilde{y}_{t-p}\tilde{y}_{t-j} +  \epsilon_t\tilde{y}_{t-j}\right] \\
+\gamma_j &amp;=\begin{cases}
+\phi_1\gamma_{1} +\dots + \phi_p\gamma_{p} + \sigma^2 &amp; \text{ si } j=0 \\
+\phi_1\gamma_{j-1} +\dots + \phi_p\gamma_{j-p}        &amp; \text{ si } j&gt;0
+\end{cases}
+\end{align*}\]</div>
+<p>Si dividimos la última línea entre la varianza <span class="math notranslate nohighlight">\(\gamma_0\)</span> obtenemos las</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Ecuaciones Yule-Walker</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\rho_j = \phi_1\rho_{j-1} +\dots + \phi_p\rho_{j-p}, \text{ con } j&gt;0
+\end{equation*}\]</div>
+</div>
+<p>Esta es la misma ecuación en diferencia que el proceso original, por lo que en principio se puede resolver con los métodos convencionales, una vez que tengamos <span class="math notranslate nohighlight">\(p\)</span> valores iniciales <span class="math notranslate nohighlight">\(\rho_0, \rho_1, \dots,\rho_{p-1}\)</span>.</p>
+<p>En general, no es tan sencillo obtener despejar los valores de las autocorrelaciones <span class="math notranslate nohighlight">\(\rho_j\)</span>.</p>
+<p>Para obtener la función de impulso respuesta, podríamos partir de la forma</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_t = \mu + \Phi^{-1}(\Lag)\epsilon
+\end{equation*}\]</div>
+<p>pero esto requiere que obtengamos la forma explícita del polinomio de rezagos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\Phi^{-1}(\Lag) = 1 + \psi_1\Lag + \psi_2\Lag^2+\dots
+\end{equation*}\]</div>
+<p>Ahora bien, reconociendo que un proceso AR(p) es una ecuación en diferencia de orden <span class="math notranslate nohighlight">\(p\)</span>, encontramos que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\marginal{y_{t+j}}{\epsilon_t} = c_1\lambda_1^j + c_2\lambda_2^j +\dots + c_p\lambda_p^j
+\end{equation*}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(\lambda_j\)</span> son las raíces del polinomio característico <span class="math notranslate nohighlight">\(\lambda^p - \phi_1 \lambda^{p-1} -\dots - \phi_p\)</span> <strong><em>(ver tema 2, p.19-20).</em></strong></p>
+<p>Para un proceso AR(p) estacionario, sabemos que todas las raíces <span class="math notranslate nohighlight">\(\lambda_j\)</span> están dentro del círculo unitario.</p>
+<p>Por ello, a partir de</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\marginal{y_{t+j}}{\epsilon_t} = c_1\lambda_1^j + c_2\lambda_2^j +\dots + c_p\lambda_p^j
+\end{equation*}\]</div>
+<p>sabemos que la función de impulso respuesta converge a cero en el largo plazo.</p>
+<p>La forma de la función depende especialmente del valor <span class="math notranslate nohighlight">\(\lambda_j\)</span> más grande:</p>
+<ul class="simple">
+<li><p>Si es positivo, decae geométricamente,</p></li>
+<li><p>Si es negativo, decae alternando de signo,</p></li>
+<li><p>Si es complejo, decae oscilando periódicamente <strong><em>(ver tema 2, p.25).</em></strong></p></li>
+</ul>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ Ejemplo: AR(2) </b></div>
+<span class="math notranslate nohighlight">\(y_t  = 0.9y_{t-1} - 0.625y_{t-2} +  \epsilon_t\)</span></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_ar2</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.625</span><span class="p">])</span>
+<span class="n">modelo_ar2</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+
+<span class="n">merge_plots</span><span class="p">(</span>
+   <span class="p">[</span><span class="n">modelo_ar2</span><span class="o">.</span><span class="n">plot_process</span><span class="p">(),</span> <span class="n">modelo_ar2</span><span class="o">.</span><span class="n">plot_correlogram</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span>
+   <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Realización&#39;</span><span class="p">,</span> <span class="s1">&#39;Autocorrelación&#39;</span><span class="p">]</span> <span class="p">,</span>
+   <span class="n">title_text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">modelo_ar2</span><span class="p">),</span>
+   <span class="n">shared_yaxes</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con las ecuaciones Yule-Walker</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\phi_1 + \phi_2\rho_1 &amp;=\rho_1 \\
+\phi_1\rho_1 + \phi_2 &amp;=\rho_2
+\end{align*}\]</div>
+<p>encontramos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\rho_1 &amp;= \frac{\phi_1}{1-\phi_2} \approx 0.5538\\
+\rho_2 &amp;= \phi_1\rho_1 + \phi_2 \approx -0.1265
+\end{align*}\]</div>
+<p>Las demás autocorrelaciones las encontramos con</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\rho_j = 0.9\rho_{j-1} - 0.625\rho_{j-2}
+\end{equation*}\]</div>
+<p>La ecuación característica es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\lambda^2 - 0.9\lambda + 0.625=0
+\end{equation*}\]</div>
+<p>con raíces</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\lambda &amp;= 0.45 \pm 0.65i\\
+       &amp;\approx 0.79\left(\cos0.97 \pm i\sin0.97 \right)
+\end{align*}\]</div>
+<p>por lo que el proceso es estacionario:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_ar2</span><span class="o">.</span><span class="n">plot_ar_roots</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Usando las <a class="reference internal" href="../02-eqdiff/02-sustitucion.html#sec-dinamica-ajuste"><span class="std std-ref">fórmulas de dinámica del ajuste</span></a>, encontramos su función impulso respuesta</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+0.79^j\left[\cos(0.97j) - \tfrac{9}{13}\sin(0.97j) \right]
+\end{equation*}\]</div>
+<p>la cual converge a cero, oscilando periódicamente conforme <span class="math notranslate nohighlight">\(j\to\infty\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">modelo_ar2</span><span class="o">.</span><span class="n">plot_irf</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ Ejemplo: AR(1) vs AR(2) </b></div>
+Consideremos estos dos procesos autorregresivos:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+
+
+<span class="n">merge_plots</span><span class="p">(</span>
+   <span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">plot_correlogram</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span> <span class="n">z</span><span class="o">.</span><span class="n">plot_correlogram</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span>
+   <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">z</span><span class="p">)],</span>
+   <span class="n">title_text</span><span class="o">=</span><span class="s1">&#39;Autocorrelaciones&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Este caso ilustra que es sumamente difícil identificar el orden <span class="math notranslate nohighlight">\(p\)</span> de un proceso AR(p) a partir de su autocorrelograma.</p>
+<p>Para resolver este problema, a continuación estudiaremos la <strong>autocorrelación parcial</strong>.
+</div></p>
+</div>
+<div class="section" id="autocorrelacion-parcial">
+<h2>Autocorrelación parcial<a class="headerlink" href="#autocorrelacion-parcial" title="Permalink to this headline">¶</a></h2>
+<!-- %Hamilton 1994, p.111-112, KWH 2013, p52-55 -->
+<p>La autocorrelación parcial mide la correlación <strong>restante</strong> entre <span class="math notranslate nohighlight">\(y_t\)</span> y <span class="math notranslate nohighlight">\(y_{t-k}\)</span> una vez que se han eliminado la influencia de <span class="math notranslate nohighlight">\(y_{t-1}, y_{t-2},\dots, y_{t-k+1}\)</span>.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_t = \notationbrace{a_1^{(k)}y_{t-1} + a_2^{(k)}y_{t-2} + \dots + a_{k-1}^{(k)}y_{t-k+1}}{“eliminamos” este efecto} + a_k^{(k)}y_{t-k}
+\end{equation*}\]</div>
+<p>Es decir, las primeros <span class="math notranslate nohighlight">\(m\)</span> autocorrelaciones parciales vienen de</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	y_t &amp; = a_1^{(1)}y_{t-1}                                                                       \\
+	y_t &amp; = a_1^{(2)}y_{t-1} + a_2^{(2)}y_{t-2}                                                    \\
+	    &amp; \vdots                                                                                   \\
+	y_t &amp; = a_1^{(m-1)}y_{t-1} + a_2^{(m-1)}y_{t-2} + \dots + a_{m-1}^{(m-1)}y_{t-m+1}             \\
+	y_t &amp; = a_1^{(m)}y_{t-1} + a_2^{(m)}y_{t-2} + \dots + a_{m-1}^{(m)}y_{t-m+1} + a_m^{(m)}y_{t-m}
+\end{align*}\]</div>
+<p>Para encontrar el valor de <span class="math notranslate nohighlight">\(a^{(k)}_k\)</span> basta con resolver</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\MAT{1          &amp; \rho_1     &amp;\rho_2      &amp; \dots  &amp; \rho_{k-1} \\
+     \rho_1     &amp; 1          &amp; \rho_1     &amp; \dots  &amp; \rho_{k-2} \\
+     \rho_2     &amp; \rho_1     &amp; 1          &amp; \dots  &amp; \rho_{k-3} \\
+     \vdots     &amp; \vdots     &amp; \vdots     &amp; \ddots &amp; \vdots     \\
+     \rho_{k-1} &amp; \rho_{k-2} &amp; \rho_{k-3} &amp;\dots &amp; 1
+}
+\MAT{a_1^{(k)} \\
+a_2^{(k)} \\
+a_3^{(k)} \\
+\vdots \\
+a_{k}^{(k)}
+} =
+\MAT{\rho_1 \\ \rho_2 \\ \rho_3 \\ \vdots \\ \rho_k}
+\end{equation*}\]</div>
+<p>En adelante, denotaremos la <span class="math notranslate nohighlight">\(k\)</span>-ésima correlación parcial por <span class="math notranslate nohighlight">\(\varphi(k) \equiv a_k^{(k)}\)</span></p>
+<p>Comparando las ecuaciones del proceso AR(p) y de la autocorrelación parcial <span class="math notranslate nohighlight">\(k\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  y_t &amp;= \phi_1 y_{t-1} +\phi_2 y_{t-2} +\dots + \phi_p y_{t-p} +  \epsilon_t\\
+      &amp;= a_1^{(k)}y_{t-1} + a_2^{(k)}y_{t-2} + \dots + a_{k-1}^{(k)}y_{t-k+1} + a_k^{(k)}y_{t-k}
+\end{align*}\]</div>
+<p>vemos que</p>
+<ul class="simple">
+<li><p>si <span class="math notranslate nohighlight">\(k=p\)</span>, entonces <span class="math notranslate nohighlight">\(\varphi_k = \phi_p\)</span></p></li>
+<li><p>si <span class="math notranslate nohighlight">\(k&gt;p\)</span>, entonces <span class="math notranslate nohighlight">\(\varphi_k = 0\)</span></p></li>
+<li><p>si <span class="math notranslate nohighlight">\(k=1\)</span>, entonces <span class="math notranslate nohighlight">\(\varphi_1 = \rho_1\)</span></p></li>
+</ul>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ AR(1) vs AR(2), con autocorrelación parcial </b></div></p>
+<p>Consideremos de nuevo estos procesos autorregresivos:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">merge_plots</span><span class="p">(</span>
+   <span class="p">[</span><span class="n">y</span><span class="o">.</span><span class="n">plot_partial_correlogram</span><span class="p">(</span><span class="mi">18</span><span class="p">),</span> <span class="n">z</span><span class="o">.</span><span class="n">plot_partial_correlogram</span><span class="p">(</span><span class="mi">18</span><span class="p">)],</span>
+   <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">z</span><span class="p">)],</span>
+   <span class="n">title_text</span><span class="o">=</span><span class="s1">&#39;Autocorrelación Parcial&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora es muy sencillo identificar el orden <span class="math notranslate nohighlight">\(p\)</span> de los proceso AR.</p>
+<p>Para encontrar la segunda autocorrelación parcial, resolvemos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\MAT{a_1 \\ \varphi_2} = \MAT{1 &amp; \rho_1 \\ \rho_1 &amp; 1}^{-1}\MAT{\rho_1 \\ \rho_2} = \frac{1}{1-\rho_1^2}\MAT{1 &amp; -\rho_1 \\ -\rho_1 &amp; 1}\MAT{\rho_1 \\ \rho_2}
+\end{equation*}\]</div>
+<p>de donde <span class="math notranslate nohighlight">\(\varphi_2 = \frac{\rho_2 - \rho_1^2}{1-\rho_1^2}\)</span>.</p>
+<p>Para el proceso AR(1) sabemos que <span class="math notranslate nohighlight">\(\rho_k = \phi^k\)</span>, con lo que comprobamos que <span class="math notranslate nohighlight">\(\varphi_2 = \frac{\phi^2 - \phi^2}{1-\phi^2} = 0\)</span>.</p>
+<p>En un ejemplo anterior encontramos que para un proceso AR(2) se cumple</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\rho_1 &amp;= \frac{\phi_1}{1-\phi_2} =\frac{5}{6} &amp;
+\rho_2 &amp;= \phi_1\rho_1 + \phi_2 =\frac{49}{60}
+\end{align*}\]</div>
+<p>Al sustituir en la expresión para <span class="math notranslate nohighlight">\(\varphi_2\)</span> comprobamos que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\varphi_2 = \frac{\frac{49}{60} - \frac{25}{36}}{1-\frac{25}{36}} = 0.4 = \phi_2.
+\end{equation*}\]</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./teoria\03-arma"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="02-MA.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3.2. </span>Proceso de media móvil MA(q)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04-ARMA.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Proceso autorregresivo de media móvil ARMA(p,q)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Randall Romero Aguilar<br/>
+    
+        &copy; Copyright 2021-2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

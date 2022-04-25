@@ -1,0 +1,60 @@
+import numpy as np
+import matplotlib.pyplot as plt
+plt.style.use('seaborn')
+from macrodemos.demo_ARMA import ARMA
+from macrodemos.common_components import merge_plots
+
+modelo_ar1p = ARMA(phi=[0.9])
+modelo_ar1p.sample(120)
+
+merge_plots(
+   [modelo_ar1p.plot_process(), modelo_ar1p.plot_correlogram(18)],
+   cols=2,
+   subplot_titles=['Realización', 'Autocorrelación'] ,
+   title_text=str(modelo_ar1p),
+   shared_yaxes=False
+)
+
+modelo_ar1n = ARMA(phi=[-0.9])
+modelo_ar1n.sample(120)
+
+merge_plots(
+   [modelo_ar1n.plot_process(), modelo_ar1n.plot_correlogram(18)],
+   cols=2,
+   subplot_titles=['Realización', 'Autocorrelación'] ,
+   title_text=str(modelo_ar1n),
+   shared_yaxes=False
+)
+
+modelo_ar2 = ARMA(phi=[0.9, -0.625])
+modelo_ar2.sample(120)
+
+merge_plots(
+   [modelo_ar2.plot_process(), modelo_ar2.plot_correlogram(18)],
+   cols=2,
+   subplot_titles=['Realización', 'Autocorrelación'] ,
+   title_text=str(modelo_ar2),
+   shared_yaxes=False
+)
+
+modelo_ar2.plot_ar_roots()
+
+modelo_ar2.plot_irf(24)
+
+y = ARMA(phi=[0.9])
+z = ARMA(phi=[0.5, 0.4])
+
+
+merge_plots(
+   [y.plot_correlogram(18), z.plot_correlogram(18)],
+   cols=2,
+   subplot_titles=[str(y), str(z)],
+   title_text='Autocorrelaciones',
+)
+
+merge_plots(
+   [y.plot_partial_correlogram(18), z.plot_partial_correlogram(18)],
+   cols=2,
+   subplot_titles=[str(y), str(z)],
+   title_text='Autocorrelación Parcial',
+)

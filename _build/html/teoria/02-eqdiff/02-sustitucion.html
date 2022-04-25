@@ -1,0 +1,1576 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.2. Solución por sustituciones recursivas &#8212; Apuntes de Macroeconometría</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://randall-romero.github.io/econometria/teoria/02-eqdiff/02-sustitucion.html" />
+    <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.3. Solución por combinación de soluciones homogéneas y particulares" href="03-combinacion.html" />
+    <link rel="prev" title="2.1. Acerca de este capítulo" href="01-intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-57200532-3', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/r2-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Apuntes de Macroeconometría</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../00-acerca.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Acerca de este libro
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../01-interactuando.html">
+   Cómo interactuar con este libro
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../02-contenido.html">
+   Tipo de contenido
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Teoría
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-intro/chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/01-historia.html">
+     1.1. Una breve historia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/02-graficos.html">
+     1.2. Representación gráfica de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/03-rezagos.html">
+     1.3. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/04-procesos-estocasticos.html">
+     1.4. Procesos estocásticos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/05-series-tiempo.html">
+     1.5. Series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/06-pruebas.html">
+     1.6. Pruebas de series de tiempo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/refs.html">
+     1.7. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01-intro.html">
+     2.1. Acerca de este capítulo
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.2. Solución por sustituciones recursivas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03-combinacion.html">
+     2.3. Solución por combinación de soluciones homogéneas y particulares
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04-operador.html">
+     2.4. Solución por medio del operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="refs.html">
+     2.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-arma/chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/01-intro.html">
+     3.1. Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/02-MA.html">
+     3.2. Proceso de media móvil MA(q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/03-AR.html">
+     3.3. Proceso autorregresivo AR(p)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/04-ARMA.html">
+     3.4. Proceso autorregresivo de media móvil ARMA(p,q)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/05-estimacion.html">
+     3.5. Estimación de modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/06-pronosticos.html">
+     3.6. Pronósticos con modelos ARMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-arma/refs.html">
+     3.7. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04-arima/chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/01-modelos-tendencia.html">
+     4.1. Modelos de series con tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/02-removiendo.html">
+     4.2. Removiendo una tendencia
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/03-raices-unitarias.html">
+     4.3. Series con raíz unitaria y procesos ARIMA
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/04-pruebas.html">
+     4.4. Detectando raíces unitarias
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/05-hp.html">
+     4.5. El filtro de Hodrick y Prescott
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-arima/refs.html">
+     4.6. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05-cambioestructural/chapter05.html">
+   5. Cambio estructural
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/01-chow.html">
+     5.1. La prueba de Chow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/02-conocido.html">
+     5.2. Cambio estructural y raíces unitarias: fecha conocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/03-desconocido.html">
+     5.3. Cambio estructural y raíces unitarias: fecha desconocida
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-cambioestructural/refs.html">
+     5.4. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-estacional/chapter06.html">
+   6. Modelos de estacionalidad
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/01-intro.html">
+     6.1. Introducción
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/02-sarima.html">
+     6.2. Modelo ARIMA estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/03-x13arima.html">
+     6.3. Ajuste estacional
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/04-raices-unitarias.html">
+     6.4. Raíces unitarias estacionales
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-estacional/refs.html">
+     6.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-sem/chapter07.html">
+   7. Sistemas de ecuaciones simultáneas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/01-motivacion.html">
+     7.1. Motivación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/02-sur.html">
+     7.2. El modelo SUR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/03-representacion.html">
+     7.3. Representación de ecuaciones simultáneas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/04-identificacion.html">
+     7.4. Identificación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/05-recursivo.html">
+     7.5. El modelo recursivo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/06-error.html">
+     7.6. El término de error
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/07-estimacion.html">
+     7.7. Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-sem/refs.html">
+     7.8. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08-var/chapter08.html">
+   8. Vectores Auto-Regresivos (VAR)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/01-representaciones.html">
+     8.1. Representaciones alternativas de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/02-dinamica.html">
+     8.2. Dinámica de un VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/03-estimacion.html">
+     8.3. Estimación
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/04-pronostico.html">
+     8.4. Pronósticos con VAR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08-var/refs.html">
+     8.5. Referencias
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Laboratorios
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter01.html">
+   1. Introducción al análisis de series de tiempo
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Componentes-IMAE.html">
+     1.1. Descomposición del IMAE por componentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/correlogram.html">
+     1.2. Autocorrelograma y pruebas de ruido blanco para el IMAE de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/covariance-stationarity-3d-plots.html">
+     1.3. Ilustrando la diferencia entre serie de tiempo y proceso estocástico, estacionario y no estacionario
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/LandD.html">
+     1.4. El operador de rezagos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Transforme.html">
+     1.5. Cálculo de transformaciones de la serie del PIB de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/wntestq.html">
+     1.6. Las pruebas de Box-Pierce y Ljung-Box.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter02.html">
+   2. Ecuaciones en diferencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/EqDiff2.html">
+     2.1. Resolviendo una ecuación en diferencia con
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter03.html">
+   3. Modelos AutoRegresivos de Media Móvil (ARMA)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/ISI-AR3.html">
+     3.1. Estimación de un modelo ARMA de inflación para Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/demandadinero.html">
+     3.2. Estimación de la demanda de dinero
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter04.html">
+   4. Modelos de tendencia
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/DickeyFuller.html">
+     4.1. Replicando el trabajo de Dickey y Fuller
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/GrangerNewbold.html">
+     4.2. Replicando el trabajo de Granger y Newbold 1974
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/KPSS.html">
+     4.3. Replicando el trabajo de KPSS (1992)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/NelsonPlosser.html">
+     4.4. Replicando el trabajo de Nelson y Plosser (1982)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/tendencias-pib.html">
+     4.5. Pruebas de raíz unitaria para el PIB en Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/tendencias-simulaciones.html">
+     4.6. Series integradas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../labs/chapter05.html">
+   5. Cambio estructural
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter06.html">
+   6. Modelos de estacionalidad
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/SJO-pasajeros.html">
+     6.1. Estacionalidad del número de pasajeros del aeropuerto Juan Santamaría
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter07.html">
+   7. Sistemas de ecuaciones simultáneas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Klein%20model.html">
+     7.1. Estimación del modelo I de Klein por Mínimos Cuadrados en 2 etapas (2SLS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/telara%C3%B1a.html">
+     7.2. El modelo de la telaraña
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter08.html">
+   8. Vectores Auto-Regresivos (VAR)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Simulacion%20de%20un%20VAR.html">
+     8.1. Simulación de un VAR(1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/VAR%20insesgado%20y%20consistente.html">
+     8.2. Estimador OLS del VAR(1) es consistente e insesgado
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/VAR%20politica%20monetaria%20CR.html">
+     8.3. Estimación de un VAR de la política monetaria de Costa Rica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/VAR%281%29%20clase.html">
+     8.4. Una clase para representar un VAR(1)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../labs/chapter09.html">
+   9. Cointegración y VECM
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/Relaci%C3%B3n%20espuria.html">
+     9.1. Regresión espuria
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../labs/MacKinnon%20valores%20cr%C3%ADticos%20para%20test%20de%20cointegraci%C3%B3n.html">
+     9.2. Valores críticos de MacKinnon para test de cointegración
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Apéndices
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/py-intro/py-chapter.html">
+   Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-01--Para%20qu%C3%A9%20aprender%20Python.html">
+     Introducción a Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-02--Variables%20y%20operaciones%20b%C3%A1sicas.html">
+     Variables y operaciones básicas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-03--Textos.html">
+     Manipulando Textos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-04--Colecciones.html">
+     Colecciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-05--Control%20de%20ejecuci%C3%B3n.html">
+     Control de ejecución
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-06--Funciones.html">
+     Funciones
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-07--M%C3%B3dulos.html">
+     Módulos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-08--Clases%20y%20objetos.html">
+     Clases y objetos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-09--manipulando-datos.html">
+     Importando y manipulando datos con Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-10--Webscraping.html">
+     Web scraping con BeautifulSoup
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/py-intro/Python-11--Leyendo-archivos-XML.html">
+     Leyendo archivos XML
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/r-code/chapter-r.html">
+   Código en R
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/r-code/R-transform.html">
+     Transformaciones con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/r-code/R-lags.html">
+     Rezagos con R
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/r-code/R-correlogram.html">
+     Correlogramas con R
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/matematica/matematica.html">
+   Matemática
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/matematica/01-algebra-lineal.html">
+     Álgebra lineal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/matematica/02-numeros-complejos.html">
+     Números complejos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../apendices/estadistica/estadistica.html">
+   Estadística y econometría
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/estadistica/01-estadistica.html">
+     Resultados de teoría estadística
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/estadistica/02-econometria.html">
+     Resultados de econometría
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../apendices/estadistica/Futbol-Bernoulli-Teorema-L%C3%ADmite-Central.html">
+     Ilustración del Teorema del Límite Central
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="http://randall-romero.com">randall-romero.com</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/teoria/02-eqdiff/02-sustitucion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/teoria/02-eqdiff/02-sustitucion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/02-eqdiff/02-sustitucion.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-de-la-ecuacion-de-primer-orden">
+   Solución de la ecuación de primer orden
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicador-dinamico-shock-transitorio">
+   Multiplicador dinámico: shock transitorio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valor-presente">
+   Valor presente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-de-un-shock-permanente">
+   Efecto de un shock permanente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-acumulado-de-un-shock-transitorio">
+   Efecto acumulado de un shock transitorio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecuacion-en-diferencia-de-orden-p">
+   Ecuación en diferencia de orden
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-de-la-ecuacion-de-orden-p">
+   Solución de la ecuación de orden
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicador-dinamico-caso-orden-p">
+   Multiplicador dinámico: caso orden
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estabilidad">
+   Estabilidad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#obteniendo-los-eigenvalores-y-los-ponderadores">
+   Obteniendo los eigenvalores y los ponderadores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dinamica-de-ajuste">
+   Dinámica de ajuste
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-se-da-el-ajuste-si-lambda-max-es-complejo">
+   ¿Cómo se da el ajuste si
+   <span class="math notranslate nohighlight">
+    \(\lambda_{max}\)
+   </span>
+   es complejo?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Valor presente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-acumulado-y-multiplicador-de-largo-plazo">
+   Efecto acumulado y multiplicador de largo plazo
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Solución por sustituciones recursivas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-de-la-ecuacion-de-primer-orden">
+   Solución de la ecuación de primer orden
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicador-dinamico-shock-transitorio">
+   Multiplicador dinámico: shock transitorio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#valor-presente">
+   Valor presente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-de-un-shock-permanente">
+   Efecto de un shock permanente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-acumulado-de-un-shock-transitorio">
+   Efecto acumulado de un shock transitorio
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ecuacion-en-diferencia-de-orden-p">
+   Ecuación en diferencia de orden
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solucion-de-la-ecuacion-de-orden-p">
+   Solución de la ecuación de orden
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicador-dinamico-caso-orden-p">
+   Multiplicador dinámico: caso orden
+   <span class="math notranslate nohighlight">
+    \(p\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estabilidad">
+   Estabilidad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#obteniendo-los-eigenvalores-y-los-ponderadores">
+   Obteniendo los eigenvalores y los ponderadores
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dinamica-de-ajuste">
+   Dinámica de ajuste
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-se-da-el-ajuste-si-lambda-max-es-complejo">
+   ¿Cómo se da el ajuste si
+   <span class="math notranslate nohighlight">
+    \(\lambda_{max}\)
+   </span>
+   es complejo?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Valor presente
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efecto-acumulado-y-multiplicador-de-largo-plazo">
+   Efecto acumulado y multiplicador de largo plazo
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}\require{color}
+\newcommand{\alert}[1]{{\color{RedOrange} #1}}
+\newcommand{\notation}[2]{\underset{\color{MidnightBlue}\text{#2}}{#1}}
+\newcommand{\simbolo}[2]{\underset{\color{MidnightBlue}#2}{#1}}
+\newcommand{\notationbrace}[2]{{\underbrace{#1}_{\color{MidnightBlue}\text{#2}}}}
+\DeclareMathOperator{\dd}{\,d\!}
+\DeclareMathOperator{\E}{\mathbb{E}{}}
+\DeclareMathOperator{\Var}{Var{}}
+\DeclareMathOperator{\Cov}{Cov{}}
+\DeclareMathOperator{\Lag}{L{}}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator{\Prob}{\mathbb{P}}
+\newcommand{\marginal}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\MAT}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newcommand{\mat}[1]{\left[\begin{smallmatrix} #1 \end{smallmatrix}\right]}\\\begin{split}\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\X}{\mathbf{x}}
+\DeclareMathOperator{\y}{\mathbf{y}}
+\DeclareMathOperator{\h}{\mathbf{h}}
+\newcommand{\stackEq}[1]{\MAT{#1_1 \\ #1_2 \\ \vdots \\ #1_M}}
+\newcommand{\e}{\mathbf{\epsilon}}
+\newcommand{\Y}{\mathbf{Y}}
+\newcommand{\estimator}[2]{{\hat{#1}^{\text{#2}}}}
+\newcommand{\estimate}[2]{\underset{(#2)}{#1}}
+\DeclareMathOperator{\plim}{plim}
+\newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}\end{split}\end{aligned}\end{align} \]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">macrodemos.demo_ARMA</span> <span class="kn">import</span> <span class="n">ARMA</span>
+<span class="kn">from</span> <span class="nn">macrodemos.common_components</span> <span class="kn">import</span> <span class="n">merge_plots</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="solucion-por-sustituciones-recursivas">
+<h1><span class="section-number">2.2. </span>Solución por sustituciones recursivas<a class="headerlink" href="#solucion-por-sustituciones-recursivas" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="solucion-de-la-ecuacion-de-primer-orden">
+<h2>Solución de la ecuación de primer orden<a class="headerlink" href="#solucion-de-la-ecuacion-de-primer-orden" title="Permalink to this headline">¶</a></h2>
+<p>Dado un valor inicial <span class="math notranslate nohighlight">\(y_{-1}\)</span> y la secuencia</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\left\{w_0, w_1, \dots, w_t\right\}
+\end{equation*}\]</div>
+<p>la ecuación puede resolverse de manera recursiva como:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_t = \phi^{t+1}y_{-1} + \phi^{t}w_{0} + \phi^{t-1}w_{1} + \dots +\phi w_{t-1} + w_{t}
+\end{equation*}\]</div>
+</div>
+<div class="section" id="multiplicador-dinamico-shock-transitorio">
+<h2>Multiplicador dinámico: shock transitorio<a class="headerlink" href="#multiplicador-dinamico-shock-transitorio" title="Permalink to this headline">¶</a></h2>
+<p>La solución es similar si se desea expresar  <span class="math notranslate nohighlight">\(y_{t+j}\)</span> a partir de <span class="math notranslate nohighlight">\(y_t\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_{t+j} = \phi^{j+1}y_{t-1} + \phi^{j}w_{t} + \phi^{j-1}w_{t+1} + \dots +\phi w_{t+j-1} + w_{t+j}
+\end{equation*}\]</div>
+<p>El multiplicador dinámico se obtiene simplemente como:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\marginal{y_{t+j}}{w_t} = \phi^j
+\end{equation*}\]</div>
+<p>El proceso es estable si y sólo si <span class="math notranslate nohighlight">\(|\phi| &lt; 1\)</span>.</p>
+</div>
+<div class="section" id="valor-presente">
+<h2>Valor presente<a class="headerlink" href="#valor-presente" title="Permalink to this headline">¶</a></h2>
+<p>Sea <span class="math notranslate nohighlight">\(\beta\)</span> el factor de descuento. Se define el valor presente:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\text{VP} = \sum_{j=0}^{\infty}\beta^j y_{t+j}
+\end{equation*}\]</div>
+<p>¿Cuál es el efecto de un cambio en <span class="math notranslate nohighlight">\(w_t\)</span> sobre el VP de <span class="math notranslate nohighlight">\(y\)</span>?</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\marginal{\text{VP}}{w_t} = \sum_{j=0}^{\infty}\beta^j \marginal{y_{t+j}}{w_t} = \sum_{j=0}^{\infty}\beta^j \phi^j = \frac{1}{1-\beta\phi}
+\end{equation*}\]</div>
+<p>siempre y cuando <span class="math notranslate nohighlight">\(|\beta\phi| &lt; 1\)</span>.</p>
+</div>
+<div class="section" id="efecto-de-un-shock-permanente">
+<h2>Efecto de un shock permanente<a class="headerlink" href="#efecto-de-un-shock-permanente" title="Permalink to this headline">¶</a></h2>
+<p>Supóngase que el cambio en <span class="math notranslate nohighlight">\(w_t\)</span> es permanente.</p>
+<p>¿Qué efecto tiene sobre <span class="math notranslate nohighlight">\(y\)</span> en el largo plazo?</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\lim\limits_{j\to\infty}\sum_{k=0}^{j} \marginal{y_{t+j}}{w_{t+k}} = \lim\limits_{j\to\infty}\sum_{k=0}^{j}\phi^{j-k} = \frac{1}{1-\phi}
+\end{equation*}\]</div>
+<p>siempre y cuando <span class="math notranslate nohighlight">\(|\phi| &lt; 1\)</span>.</p>
+</div>
+<div class="section" id="efecto-acumulado-de-un-shock-transitorio">
+<h2>Efecto acumulado de un shock transitorio<a class="headerlink" href="#efecto-acumulado-de-un-shock-transitorio" title="Permalink to this headline">¶</a></h2>
+<p>Se desea la suma de los cambios en <span class="math notranslate nohighlight">\(y\)</span> como consecuencia de un único cambio en <span class="math notranslate nohighlight">\(w_t\)</span>. * Esto corresponde al ejemplo del VP cuando <span class="math notranslate nohighlight">\(\beta=1\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\text{EA} = \sum_{j=0}^{\infty}1^j \marginal{y_{t+j}}{w_t} = \sum_{j=0}^{\infty} \phi^j = \frac{1}{1-\phi}, \qquad |\phi|&lt;1.
+\end{equation*}\]</div>
+<p>Nótese que el efecto acumulado de un shock transitorio es igual al efecto de un shock permanente en el largo plazo.</p>
+</div>
+<div class="section" id="ecuacion-en-diferencia-de-orden-p">
+<h2>Ecuación en diferencia de orden <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#ecuacion-en-diferencia-de-orden-p" title="Permalink to this headline">¶</a></h2>
+<p>La variable <span class="math notranslate nohighlight">\(y_t\)</span> evoluciona como un ecuación en diferencia de primer orden cuando depende de sus últimos <span class="math notranslate nohighlight">\(p\)</span> valores</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + \dots + \phi_p y_{t-p} + w_t
+\end{equation*}\]</div>
+<p>Es muy complicado analizar por sustitución recursiva la dinámica de una ecuación de orden <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<p>Afortunadamente es muy simple expresarla como una ecuación vectorial en diferencia de orden 1, que se resuelve de manera similar a la ecuación escalar.</p>
+</div>
+<div class="section" id="solucion-de-la-ecuacion-de-orden-p">
+<h2>Solución de la ecuación de orden <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#solucion-de-la-ecuacion-de-orden-p" title="Permalink to this headline">¶</a></h2>
+<p>Para resolverla se definen:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\xi_t &amp;\equiv \MAT{y_t\\y_{t-1}\\ \vdots \\ y_{t-p+1}}, &amp; F&amp;\equiv \MAT{\phi_1 &amp; \phi_2 &amp; \phi_3 &amp; \dots &amp; \phi_{p-1} &amp; \phi_p \\ 1 &amp; 0 &amp; 0 &amp; \dots &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; \dots &amp; 0 &amp; 0 \\ \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\ 0 &amp; 0 &amp; 0 &amp; \dots &amp; 1 &amp; 0}, &amp; v_t &amp;\equiv \MAT{w_t\\ 0 \\ \vdots \\ 0}.
+\end{align*}\]</div>
+<p>con lo que la ecuación de orden <span class="math notranslate nohighlight">\(p\)</span> que puede escribirse:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\xi_t = F\xi_{t-1}  + v_t
+\end{equation*}\]</div>
+<p>y resolverse como:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\xi_{t+j} = F^{j+1}\xi_{t-1} + F^{j}v_{t} + F^{j-1}v_{t+1} + \dots +F v_{t+j-1} + v_{t+j}
+\end{equation*}\]</div>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ Resolviendo <span class="math notranslate nohighlight">\(y_t = 0.9y_{t-1} - 0.2y_{t-2}+3\)</span> </b></div></p>
+<!-- %Enders, p.16 -->
+<p>La ecuación puede escribirse como</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\notation{\MAT{y_{t}\\y_{t-1}}}{$\xi_t$} =
+\notation{\MAT{0.9 &amp; -0.2\\1 &amp; 0}}{$F$}
+\notation{\MAT{y_{t-1}\\y_{t-2}}}{$\xi_{t-1}$} +
+\notation{\MAT{3\\0}}{$v$}
+\end{equation*}\]</div>
+<p>Por sustitución recursiva encontramos</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\xi_t &amp;= \left(I+F+F^2+\dots+F^{t-2}\right)v + F^{t-1}\xi_1\\
+&amp;=\left(I-F\right)^{-1}\left(I-F\right)\left(I+F+F^2+\dots+F^{t-2}\right)v + F^{t-1}\xi_1\\
+&amp;=\left(I-F\right)^{-1}\left(I-F^{t-1}\right)v + F^{t-1}\xi_1\\
+\end{align*}\]</div>
+<p>Necesitamos una expresión para <span class="math notranslate nohighlight">\(F^{t-1}\)</span>. Para ello, buscamos la <a class="reference internal" href="../../apendices/matematica/01-algebra-lineal.html#appendix-descomp-espectral"><span class="std std-ref">descomposición espectral</span></a> de <span class="math notranslate nohighlight">\(F\)</span>.</p>
+<p>Encontramos los eigenvalores de <span class="math notranslate nohighlight">\(F\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\left|\begin{matrix}
+0.9-\lambda &amp; -0.2\\ 1&amp; -\lambda
+\end{matrix}\right| = \lambda^2-0.9\lambda+0.2 =(\lambda-0.5)(\lambda-0.4)=0
+\end{equation*}\]</div>
+<p>es decir, <span class="math notranslate nohighlight">\(\lambda_1=0.5, \lambda_2=0.4\)</span>.</p>
+<p>Es fácil mostrar que los eigenvectores son <span class="math notranslate nohighlight">\(\MAT{\lambda_1 \\ 1}\)</span> y <span class="math notranslate nohighlight">\(\MAT{\lambda_2 \\ 1}\)</span>.</p>
+<p>Entonces</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+F  &amp;= \MAT{\lambda_1 &amp; \lambda_2\\ 1 &amp; 1}
+\MAT{\lambda_1 &amp; 0 \\ 0 &amp; \lambda_2}
+\MAT{\lambda_1 &amp; \lambda_2\\ 1 &amp; 1}^{-1}  \Rightarrow  \\
+F^{t-1} &amp;= \MAT{\lambda_1 &amp; \lambda_2\\ 1 &amp; 1}
+\MAT{\lambda_1^{t-1} &amp; 0 \\ 0 &amp; \lambda_2^{t-1}}
+\MAT{\lambda_1 &amp; \lambda_2\\ 1 &amp; 1}^{-1} \Rightarrow  \\
+&amp;= \tfrac{1}{\lambda_1-\lambda_2}\MAT{\lambda_1 &amp; \lambda_2\\ 1 &amp; 1}
+\MAT{\lambda_1^{t-1} &amp; 0 \\ 0 &amp; \lambda_2^{t-1}}
+\MAT{1 &amp; -\lambda_2\\ -1 &amp; \lambda_1} \\
+&amp;= \tfrac{1}{\lambda_1-\lambda_2}
+\MAT{\lambda_1^{t} - \lambda_2^{t} &amp; \quad-\lambda_1\lambda_2\left(\lambda_1^{t-1} - \lambda_2^{t-1}\right) \\
+\lambda_1^{t-1} - \lambda_2^{t-1} &amp; \quad-\lambda_1\lambda_2\left(\lambda_1^{t-2} - \lambda_2^{t-2}\right)}
+\end{align*}\]</div>
+<p>Recuerde que es fácil calcular <a class="reference internal" href="../../apendices/matematica/01-algebra-lineal.html#appendix-potencia-matriz"><span class="std std-ref">la potencia de la matriz</span></a>  <span class="math notranslate nohighlight">\(F\)</span> a partir de su descomposición espectral.</p>
+<p>Sustituyendo los valores de <span class="math notranslate nohighlight">\(\lambda_1\)</span> y <span class="math notranslate nohighlight">\(\lambda_2\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+F^{t-1} &amp;=
+\MAT{10\left(0.5^{t} - 0.4^{t}\right) &amp; \quad -2\left(0.5^{t-1} - 0.4^{t-1}\right) \\
+10\left(0.5^{t-1} - 0.4^{t-1}\right) &amp; \quad-2\left(0.5^{t-2} - 0.4^{t-2}\right)}
+\end{align*}\]</div>
+<p>Por otra parte:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\left(I-F\right)^{-1} = \tfrac{10}{3}\mat{1&amp; -0.2\\1 &amp; \phantom{-}0.1} = \tfrac{1}{3}\mat{10&amp; -2\\10 &amp; \phantom{-}1}
+\end{equation*}\]</div>
+<p>Sustituyendo lo anterior en la ecuación vectorial:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+\mat{y_t\\y_{t-1}} = \tfrac{1}{3}
+\mat{10 &amp; -2\\ 10 &amp; \phantom{-}1}
+\mat{1-10\left(0.5^{t} - 0.4^{t}\right) &amp; \quad 2\left(0.5^{t-1} - 0.4^{t-1}\right) \\
+-10\left(0.5^{t-1} - 0.4^{t-1}\right) &amp; \quad1-2\left(0.5^{t-2} - 0.4^{t-2}\right)}
+\mat{3\\ 0} + \\
+\mat{10\left(0.5^{t} - 0.4^{t}\right) &amp; \quad -2\left(0.5^{t-1} - 0.4^{t-1}\right) \\
+10\left(0.5^{t-1} - 0.4^{t-1}\right) &amp; \quad-2\left(0.5^{t-2} - 0.4^{t-2}\right)}
+\mat{y_1\\y_0} = \\
+\mat{10 &amp; -2\\ 10 &amp; \phantom{-}1}
+\mat{1-10\left(0.5^{t} - 0.4^{t}\right) \\ -10\left(0.5^{t-1} - 0.4^{t-1}\right) } +
+\mat{10\left(0.5^{t} - 0.4^{t}\right) &amp; \quad -2\left(0.5^{t-1} - 0.4^{t-1}\right) \\
+10\left(0.5^{t-1} - 0.4^{t-1}\right) &amp; \quad-2\left(0.5^{t-2} - 0.4^{t-2}\right)}
+\mat{y_1\\y_0}
+\end{multline*}\]</div>
+<p>Tomando la primera fila</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+y_t = 10 -100\left(0.5^{t} - 0.4^{t}\right) + 20\left(0.5^{t-1} - 0.4^{t-1}\right) + \\
+10y_1\left(0.5^{t} - 0.4^{t}\right) - 2y_0\left(0.5^{t-1} - 0.4^{t-1}\right) \Rightarrow
+\end{multline*}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+y_t &amp;= 10 + 10\left(y_1-10\right)\left(0.5^{t} - 0.4^{t}\right) - 2\left(y_0 - 10\right)\left(0.5^{t-1} - 0.4^{t-1}\right)\\
+    &amp;= 10 + \left(10y_1-100\right)\left(0.5^{t} - 0.4^{t}\right) + \left(20 -2y_0\right)\left(2\times 0.5^{t} - 2.5\times 0.4^{t}\right)\\
+    &amp;= 10 + \left(10y_1 - 4y_0 - 60\right)0.5^{t} - \left(10y_1-5y_0 -50\right)0.4^{t}
+\end{align*}\]</div>
+<p>Si imponemos las 2 condiciones iniciales: <span class="math notranslate nohighlight">\(y_0=13, y_1=11.3\)</span>, la solución de la ecuación es:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+y_t = 10 + 0.5^{t} +2\times 0.4^{t}
+\end{equation*}\]</div>
+</div>
+</div>
+<div class="section" id="multiplicador-dinamico-caso-orden-p">
+<h2>Multiplicador dinámico: caso orden <span class="math notranslate nohighlight">\(p\)</span><a class="headerlink" href="#multiplicador-dinamico-caso-orden-p" title="Permalink to this headline">¶</a></h2>
+<p>De nuevo el multiplicador dinámico se obtiene por derivación:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\marginal{\xi_{t+j}}{v'_t} = F^j
+\end{equation*}\]</div>
+<p>El primer elemento de <span class="math notranslate nohighlight">\(\xi_{t+j}\)</span> es <span class="math notranslate nohighlight">\(y_{t+j}\)</span> y el primer elemento de <span class="math notranslate nohighlight">\(v_t\)</span> es <span class="math notranslate nohighlight">\(w_t\)</span>, por lo tanto:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\marginal{y_{t+j}}{w_t} = F^j_{(11)}
+\end{equation*}\]</div>
+<p>Ahora la estabilidad depende de <span class="math notranslate nohighlight">\(F^j\)</span>.</p>
+</div>
+<div class="section" id="estabilidad">
+<h2>Estabilidad<a class="headerlink" href="#estabilidad" title="Permalink to this headline">¶</a></h2>
+<p>Que <span class="math notranslate nohighlight">\(F^j\)</span> tienda a 0 cuando <span class="math notranslate nohighlight">\(j\)</span> crece al infinito depende de los eigenvalores de <span class="math notranslate nohighlight">\(F\)</span>.</p>
+<p>Si todos son distintos, entonces <span class="math notranslate nohighlight">\(F^j = T\Lambda^jT^{-1}\)</span>, donde:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+F^j = \MAT{t_{11} &amp; t_{12} &amp; \dots &amp; t_{1p}\\ t_{21} &amp; t_{22} &amp; \dots &amp; t_{2p}\\ \vdots &amp; \vdots &amp; \ddots  &amp; \vdots \\ t_{p1} &amp; t_{p2} &amp; \dots &amp; t_{pp}}
+\MAT{\lambda_1^j &amp; 0 &amp; \dots &amp; 0 \\ 0 &amp; \lambda_2^j &amp; \dots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots  &amp; \vdots \\ 0 &amp; 0 &amp; \dots &amp; \lambda_p^j}
+\MAT{t^{11} &amp; t^{12} &amp; \dots &amp; t^{1p}\\ t^{21} &amp; t^{22} &amp; \dots &amp; t^{2p}\\ \vdots &amp; \vdots &amp; \ddots  &amp; \vdots \\ t^{p1} &amp; t^{p2} &amp; \dots &amp; t^{pp}}
+\end{equation*}\]</div>
+<p>por tanto</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\marginal{y_{t+j}}{w_t} = F^j_{(11)} &amp;= \left(t_{11}t^{11}\right)\lambda_1^j + \left(t_{12}t^{21}\right)\lambda_2^j + \dots +\left(t_{1p}t^{p1}\right)\lambda_p^j \\
+&amp;= c_1\lambda_1^j + c_2\lambda_2^j +\dots + c_p\lambda_p^j
+\end{align*}\]</div>
+</div>
+<div class="section" id="obteniendo-los-eigenvalores-y-los-ponderadores">
+<h2>Obteniendo los eigenvalores y los ponderadores<a class="headerlink" href="#obteniendo-los-eigenvalores-y-los-ponderadores" title="Permalink to this headline">¶</a></h2>
+<p>Los eigenvalores de <span class="math notranslate nohighlight">\(F\)</span> se obtienen de resolver:</p>
+<div class="admonition-ecuacion-caracteristica admonition">
+<p class="admonition-title">Ecuación característica</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+|F - \lambda I_p| = \lambda^p - \phi_1\lambda^{p-1} - \phi_2\lambda^{p-2} - \dots - \phi_{p-1}\lambda - \phi_p = 0
+\end{equation*}\]</div>
+</div>
+<p>Mientras que <span class="math notranslate nohighlight">\(c_i\)</span> se obtiene de:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+c_i = \frac{\lambda_i^{p-1}}{\prod\limits_{\stackrel{k=1}{k\neq i}}^{p}(\lambda_i - \lambda_k)}
+\end{equation*}\]</div>
+<p>Nótese que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+c_1 + c_2 +\dots + c_p = \left(t_{11}t^{11}\right) + \left(t_{12}t^{21}\right) + \dots +\left(t_{1p}t^{p1}\right) = 1
+\end{equation*}\]</div>
+</div>
+<div class="section" id="dinamica-de-ajuste">
+<span id="sec-dinamica-ajuste"></span><h2>Dinámica de ajuste<a class="headerlink" href="#dinamica-de-ajuste" title="Permalink to this headline">¶</a></h2>
+<p>Dado que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\marginal{y_{t+j}}{w_t} &amp;= c_1\lambda_1^j + c_2\lambda_2^j +\dots + c_p\lambda_p^j\\
+1 &amp;= c_1 + c_2 +\dots + c_p
+\end{align*}\]</div>
+<p>el multiplicador dinámico es un promedio ponderado de las potencias de los eigenvalores.</p>
+<p>La forma del ajuste dependerá del eigenvalor de mayor valor absoluto <span class="math notranslate nohighlight">\(\lambda_{max}\)</span></p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(0 &lt; \lambda_{max} &lt; 1\)</span>, el MD decae geométricamente.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(-1&lt; \lambda_{max} &lt; 0\)</span>, el MD decae alternando</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(|\lambda_{max}| &gt; 1\)</span>, la serie explota (no converge)</p></li>
+</ul>
+</div>
+<div class="section" id="como-se-da-el-ajuste-si-lambda-max-es-complejo">
+<h2>¿Cómo se da el ajuste si <span class="math notranslate nohighlight">\(\lambda_{max}\)</span> es complejo?<a class="headerlink" href="#como-se-da-el-ajuste-si-lambda-max-es-complejo" title="Permalink to this headline">¶</a></h2>
+<p>Se sabe que si <span class="math notranslate nohighlight">\(\lambda_1 = a+bi\)</span>, entonces <span class="math notranslate nohighlight">\(\lambda_2 = a - bi\)</span></p>
+<p>Si expresamos <span class="math notranslate nohighlight">\(\lambda_j\)</span> en <span class="xref myst">coordenadas polares</span>:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Cambio de coordenas</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+R &amp;= \sqrt{a^2+b^2} \\
+a &amp;= R\cos\theta \\
+b &amp;= R\sin\theta
+\end{align*}\]</div>
+</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\lambda_1 &amp;= R[\cos\theta + i\sin\theta] = Re^{i\theta} \\
+\lambda_2 &amp;= R[\cos\theta - i\sin\theta] = Re^{-i\theta}
+\end{align*}\]</div>
+<p>Entonces <span class="xref myst">la potencia de los eigenvalores</span> es:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\lambda_1^j &amp;= R^je^{ij\theta} = R^j[\cos j\theta + i\sin j\theta]  \\
+\lambda_2^j &amp;= R^je^{-ij\theta} = R^j[\cos j\theta - i\sin j\theta]
+\end{align*}\]</div>
+<p>El promedio de estos dos eigenvalores es:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+ c_1\lambda_1^j + c_2\lambda_2^j &amp; = c_1R^j[\cos j\theta + i\sin j\theta] + c_2R^j[\cos j\theta - i\sin j\theta] \\
+                                 &amp;=R^j\left[ (c_1+c_2) \cos j\theta + i(c1-c_2) \sin j\theta\right]\\
+\end{align*}\]</div>
+<p>Pero <span class="math notranslate nohighlight">\(c_1\)</span> y <span class="math notranslate nohighlight">\(c_2\)</span> son conjugados: <span class="math notranslate nohighlight">\(c_1, c_2 = \alpha \pm \beta i\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+ c_1\lambda_1^j + c_2\lambda_2^j &amp;=R^j\left[ 2\alpha \cos j\theta - 2\beta \sin j\theta\right]
+\end{align*}\]</div>
+<p>que en función de <span class="math notranslate nohighlight">\(j\)</span> es periódica, con frecuencia <span class="math notranslate nohighlight">\(\theta\)</span> y período <span class="math notranslate nohighlight">\(\frac{2\pi}{\theta}\)</span></p>
+<p><div class="ejemplo">
+<div class="ejemplo-titulo"><b>Ejemplo:  
+ Dinámica de ajuste cuando <span class="math notranslate nohighlight">\(p=2\)</span> </b></div></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">])</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">1.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.64</span><span class="p">])</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">phi</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+
+<span class="n">merge_plots</span><span class="p">(</span>
+   <span class="p">[</span><span class="n">y1</span><span class="o">.</span><span class="n">plot_irf</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">y2</span><span class="o">.</span><span class="n">plot_irf</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">y3</span><span class="o">.</span><span class="n">plot_irf</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">y4</span><span class="o">.</span><span class="n">plot_irf</span><span class="p">(</span><span class="mi">50</span><span class="p">)],</span>
+   <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+   <span class="n">subplot_titles</span><span class="o">=</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">y1</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">y2</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">y3</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">y4</span><span class="p">)]</span> <span class="p">,</span>
+   <span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;Funciones de impulso respuesta&quot;</span><span class="p">,</span>
+   <span class="n">shared_yaxes</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Valor presente<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Recordando que</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \marginal{\xi_{t+j}}{v'_t} = F^j
+\end{equation*}\]</div>
+<p>Se tiene que:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+  \sum_{j=0}^{\infty}\beta^j\marginal{\xi_{t+j}}{v'_t} = \sum_{j=0}^{\infty}\beta^j F^j = \left(I_p - \beta F\right)^{-1}
+\end{equation*}\]</div>
+<p>En este caso su elemento 1,1 es</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+  \frac{1}{1-\phi_1\beta - \phi_2\beta^2 - \dots - \phi_p\beta^p}
+\end{equation*}\]</div>
+</div>
+<div class="section" id="efecto-acumulado-y-multiplicador-de-largo-plazo">
+<h2>Efecto acumulado y multiplicador de largo plazo<a class="headerlink" href="#efecto-acumulado-y-multiplicador-de-largo-plazo" title="Permalink to this headline">¶</a></h2>
+<p>Se obtiene del VP en el caso particular en que <span class="math notranslate nohighlight">\(\beta = 1\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+   \frac{1}{1-\phi_1 - \phi_2 - \dots - \phi_p}
+\end{equation*}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./teoria\02-eqdiff"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01-intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">2.1. </span>Acerca de este capítulo</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03-combinacion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Solución por combinación de soluciones homogéneas y particulares</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Randall Romero Aguilar<br/>
+    
+        &copy; Copyright 2021-2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
