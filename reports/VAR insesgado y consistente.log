@@ -1,0 +1,76 @@
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+A = np.array([[0.8, 0.7], [-0.2, 0.5]])
+sigma = 0.9
+
+def var_sample(T = 100):
+    ''' Simula el VAR(1) T períodos'''
+    X = np.zeros((T,2))
+    for t in range(1, T):
+        X[t] = X[t-1] @ A.T + sigma * np.random.randn(2)
+    
+    trimestres = pd.date_range(start='1992q1',freq='d',periods=T)
+    return pd.DataFrame(X, columns=['precio', 'cantidad'],index=trimestres)
+
+def A_ols(data):
+    '''Estima un VAR(1) a partir de datos, retorna coeficientes como vector'''
+    return VAR(data).fit().coefs[0].flatten()
+
+
+def estimaciones_var(T=100):
+    return A_ols(var_sample(T))
+
+
+from joblib import Parallel, delayed
+
+def Monte_Carlo(funcion, repeticiones, columnas, *args, **kwargs):
+    """
+    Ejecuta simulaciones de Montecarlo en paralelo, aprovechando todos los núcleos del procesador
+
+    Argumentos:
+        funcion: una función que dé por resultado una única realización de las cantidades que se desean simular
+        repeticiones: un entero que indica cuántas muestras se desean simular
+        columnas: una lista (o tupla) de strings, que identifiquen a las cantidades individuales retornadas por funcion
+        *args, **kwargs: otros parámetros requeridos por funcion
+
+    Retorna:
+         Un data frame de pandas, con tantas filas como `repeticiones` y columnas como textos en `columnas`.
+    """
+    datos = Parallel(n_jobs=-1)(delayed(funcion)(*args, **kwargs) for _ in range(repeticiones))
+    return pd.DataFrame(datos, columns=columnas)
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Input [1;32mIn [2][0m, in [0;36m<cell line: 22>[1;34m()[0m
+[0;32m     18[0m [38;5;28;01mdef[39;00m [38;5;21mestimaciones_var[39m(T[38;5;241m=[39m[38;5;241m100[39m):
+[0;32m     19[0m     [38;5;28;01mreturn[39;00m A_ols(var_sample(T))
+[1;32m---> 22[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjoblib[39;00m [38;5;28;01mimport[39;00m Parallel, delayed
+[0;32m     24[0m [38;5;28;01mdef[39;00m [38;5;21mMonte_Carlo[39m(funcion, repeticiones, columnas, [38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[0;32m     25[0m     [38;5;124;03m"""[39;00m
+[0;32m     26[0m [38;5;124;03m    Ejecuta simulaciones de Montecarlo en paralelo, aprovechando todos los núcleos del procesador[39;00m
+[0;32m     27[0m 
+[1;32m   (...)[0m
+[0;32m     35[0m [38;5;124;03m         Un data frame de pandas, con tantas filas como `repeticiones` y columnas como textos en `columnas`.[39;00m
+[0;32m     36[0m [38;5;124;03m    """[39;00m
+
+[1;31mModuleNotFoundError[0m: No module named 'joblib'
+ModuleNotFoundError: No module named 'joblib'
+

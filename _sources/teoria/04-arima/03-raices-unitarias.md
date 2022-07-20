@@ -16,7 +16,6 @@ substitutions:
   termina_ejemplo: "</div>"  
 ---
 
-
 ```{include} ../math-definitions.md
 ```
 
@@ -24,9 +23,13 @@ substitutions:
 :tags: ["hide-input",]
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 import statsmodels.formula.api as smf
-import plotly.express as px
+import seaborn as sns
 from scipy.stats import t as t_Student
+from joblib import Parallel, delayed
+
+plt.style.use('seaborn')
 ```
 
 # Series con raíz unitaria y procesos ARIMA
@@ -145,15 +148,26 @@ df = pd.DataFrame(
     columns=['y', 'x']
     )
 
-px.scatter(
-    df, x='x', y='y', opacity=0.75,
-    trendline='ols',
-)
+res = smf.ols("y ~ x" , df).fit()
+
+fig, ax = plt.subplots(figsize=[8,4])
+sns.regplot(x='x',y='y',data=df, marker='*',ax=ax)
+ax.set(xlabel='x', ylabel='y')
+
+statslabel = f'$R^2={res.rsquared:.2f}$'
+statslabel += f'\n\n$\\hat\\beta_1={res.params[1]:.2f}$'
+statslabel += f'\n\n$t_1={res.tvalues[1]:.2f}$'
+ax.annotate(statslabel, (0.02,0.98), xycoords='axes fraction', size=15, va='top')
+
+modellabel = r'$y_t = 0.25 + y_{t-1} + \epsilon^y_t$'
+modellabel += '\n\n$x_t = 0.25 + x_{t-1} + \\epsilon^x_t$'
+ax.annotate(modellabel, (0.98,0.02), xycoords='axes fraction', size=15, va='bottom',ha='right')
+ax.grid(False);
 ```
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-smf.ols("y~x", data=df).fit().summary()
+res.summary()
 ```
 
 
@@ -163,6 +177,7 @@ smf.ols("y~x", data=df).fit().summary()
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 
+%%time
 def regresion(T=40):
     e = np.random.randn(2, T)
 
@@ -179,33 +194,48 @@ def regresion(T=40):
     t_espurio = smf.ols("y~x", data=df).fit().tvalues[1]
     return t_estacionario, t_espurio
 
-N = 100 #_000
+def Monte_Carlo(funcion, repeticiones, columns, *args, **kwargs):
+    datos = Parallel(n_jobs=-1)(delayed(funcion)(*args, **kwargs) for _ in range(repeticiones))
+    return pd.DataFrame(datos, columns=columns)
+
+
+N = 10_000
 np.random.seed(12345)
-tvalues = pd.DataFrame([regresion() for _ in range(N)],
-        columns=['estacionario', 'espurio'])
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-
-fig = make_subplots(rows=2, cols=1,
-    shared_xaxes=True,
-    subplot_titles=("Regresión estacionaria","Regresión espuria"))
-
-trace0 = go.Histogram(x=tvalues['estacionario'], nbinsx=8, histnorm='probability',name='simulado')
-trace1 = go.Histogram(x=tvalues['espurio'], nbinsx = 8, histnorm='probability', name='simulado')
-
-xvals = np.linspace(-4,4, 200)
-zvals = t_Student.pdf(xvals, df=98)
-
-tracez = go.Scatter(x=xvals, y=zvals, mode='lines')
+tvalues = Monte_Carlo(regresion, N, ['estacionaria', 'espuria'])
 
 
+maxtval = 12
+t5crit = t_Student.isf(0.05/2, 98)
 
-fig.append_trace(trace0, 1, 1)
-fig.append_trace(trace1, 2, 1)
-fig.append_trace(tracez, 1, 1)
-fig.append_trace(tracez, 2, 1)
-fig
+
+fig, (ax0,ax1) = plt.subplots(2,1,figsize=[15, 8], sharex=True)
+
+
+def plot_simulated(caso, ax):
+    ff, edges = np.histogram(tvalues[caso], bins=100, density=True)
+    center = (edges[1:] + edges[:-1])/2
+    w = center[1] - center[0]
+
+    ax.bar(center, ff, width=w, alpha=0.5)
+    xvals = np.linspace(-4,4, 200)
+    ax.plot(xvals, t_Student.pdf(xvals, df=98), '-r')
+    ax.set(xlim=[-maxtval, maxtval], title=f'Regresión {caso}')
+    ax.legend(['t-student', 'simulada'], loc='upper left')
+
+    # valores críticos
+    opciones = dict(ls="--", color='gray')
+    ax.axvline(t5crit, **opciones)
+    ax.axvline(-t5crit, **opciones)
+
+    # error tipo I
+    err1 = (tvalues[caso].abs() > t5crit).mean()*100
+    ax.annotate(f'Prob$\\left(|t| > 1.984\\right)$ = {err1:.3f}%', (-10,0.15), size=20)
+
+    ax.grid(False)
+
+    
+plot_simulated('estacionaria', ax0)
+plot_simulated('espuria', ax1)
 ```
 {{ termina_ejemplo }}
 

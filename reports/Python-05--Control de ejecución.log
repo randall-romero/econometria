@@ -1,19 +1,19 @@
 Traceback (most recent call last):
-  File "C:\ProgramData\Anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
     executenb(
-  File "C:\ProgramData\Anaconda3\lib\site-packages\nbclient\client.py", line 1112, in execute
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "C:\ProgramData\Anaconda3\lib\site-packages\nbclient\util.py", line 74, in wrapped
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "C:\ProgramData\Anaconda3\lib\site-packages\nbclient\util.py", line 53, in just_run
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "C:\ProgramData\Anaconda3\lib\asyncio\base_events.py", line 642, in run_until_complete
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\asyncio\base_events.py", line 647, in run_until_complete
     return future.result()
-  File "C:\ProgramData\Anaconda3\lib\site-packages\nbclient\client.py", line 553, in async_execute
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "C:\ProgramData\Anaconda3\lib\site-packages\nbclient\client.py", line 857, in async_execute_cell
-    self._check_raise_for_error(cell, exec_reply)
-  File "C:\ProgramData\Anaconda3\lib\site-packages\nbclient\client.py", line 760, in _check_raise_for_error
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -24,10 +24,10 @@ with open("../data/HimnoNacional.txt", 'r', encoding='utf-8') as archivo_himno:
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[1;32m~\AppData\Local\Temp/ipykernel_15852/4173093272.py[0m in [0;36m<module>[1;34m[0m
-[1;32m----> 1[1;33m [1;32mwith[0m [0mopen[0m[1;33m([0m[1;34m"../data/HimnoNacional.txt"[0m[1;33m,[0m [1;34m'r'[0m[1;33m,[0m [0mencoding[0m[1;33m=[0m[1;34m'utf-8'[0m[1;33m)[0m [1;32mas[0m [0marchivo_himno[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
-[0m[0;32m      2[0m     [1;32mfor[0m [0mlinea[0m [1;32min[0m [0marchivo_himno[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
-[0;32m      3[0m         [0mprint[0m[1;33m([0m[0mlinea[0m[1;33m,[0m [0msep[0m[1;33m=[0m[1;34m''[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+Input [1;32mIn [17][0m, in [0;36m<cell line: 1>[1;34m()[0m
+[1;32m----> 1[0m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m../data/HimnoNacional.txt[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mr[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mutf-8[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;28;01mas[39;00m archivo_himno:
+[0;32m      2[0m     [38;5;28;01mfor[39;00m linea [38;5;129;01min[39;00m archivo_himno:
+[0;32m      3[0m         [38;5;28mprint[39m(linea, sep[38;5;241m=[39m[38;5;124m'[39m[38;5;124m'[39m)
 
 [1;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../data/HimnoNacional.txt'
 FileNotFoundError: [Errno 2] No such file or directory: '../data/HimnoNacional.txt'

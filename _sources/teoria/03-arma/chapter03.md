@@ -28,46 +28,45 @@
 
 **Modelos que estudiaremos**
 
-```{panels}
-:header: bg-dark text-center text-white
+::::{grid}
+:gutter: 3
 
-Ruido blanco
-^^^
+:::{grid-item-card} Ruido blanco
 Es una secuencia  $\left\{\epsilon_t\right\}$ cuyos elementos satisfacen,
 \begin{align*}
 		\E\left(\epsilon_t\right) &=0\\
 		\E\left(\epsilon^2_t\right) &= \sigma^2 \\
 		\E\left(\epsilon_t\epsilon_\tau\right) &= 0 \quad\text{for }t\neq\tau
 \end{align*}
+:::
 
----
-Proceso media móvil
-^^^
+:::{grid-item-card} Proceso media móvil
 Sea $\left\{\epsilon_t\right\}$ ruido blanco; el proceso estocástico
 \begin{equation*}
 y_t = \epsilon_t + \theta_1\epsilon_{t-1} + \dots + \theta_q\epsilon_{t-q}
 \end{equation*}
 con $\theta_q \neq 0$ es llamado un proceso MA(q).
+:::
 
----
-Proceso autorregresivo
-^^^
+:::{grid-item-card} Proceso autorregresivo
 Sea $\left\{\epsilon_t\right\}$ ruido blanco; el proceso estocástico
 \begin{equation*}
 y_t = \phi_1y_{t-1} + \dots + \phi_py_{t-p} + \epsilon_t
 \end{equation*}
 con $\phi_p \neq 0$ es llamado un proceso AR(p).
+:::
 
----
-Autorregresivo media móvil
-^^^
+:::{grid-item-card} Autorregresivo media móvil
 Sea $\left\{\epsilon_t\right\}$ ruido blanco; el proceso estocástico
 \begin{multline*}
 y_t = \phi_1y_{t-1} + \dots + \phi_py_{t-p} + \dots\\
 +\epsilon_t + \theta_1\epsilon_{t-1} + \dots + \theta_q\epsilon_{t-q}
 \end{multline*}
 es llamado proceso ARMA(p,q).
-```
+:::
+::::
+
+
 
 **La metodología Box-Jenkins**
 

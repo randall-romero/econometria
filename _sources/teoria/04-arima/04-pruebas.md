@@ -45,7 +45,6 @@ pd.options.plotting.backend = "plotly"
 
 import statsmodels.formula.api as smf
 from statsmodels.tsa.stattools import adfuller, kpss
-from macrodemos.common_components import merge_plots
 
 # Funciones para ayudar a hacer varias pruebas de Dickey Fuller de una sola vez
 
@@ -80,7 +79,7 @@ def ADF(datos, spec):
     return resultado
 
 
-all_specs = ['nc', 'c', 'ct']
+all_specs = ['n', 'c', 'ct']
 
 def tabla_dickey_fuller(serie, test, diff=0, specs=all_specs):
     """Tabla resumen de pruebas Dickey-Fuller, para las tres especificaciones"""
@@ -94,7 +93,7 @@ def tabla_dickey_fuller(serie, test, diff=0, specs=all_specs):
 
     resultados = pd.DataFrame([test(datos, ss) for ss in specs], index=specs).round(4)
     resultados.rename(
-        index= dict(nc='sin constante', c='con constante', ct='con constante y tendencia'),
+        index= dict(n='sin constante', c='con constante', ct='con constante y tendencia'),
         inplace=True)
     return resultados.style.apply(signif_una_cola, axis=1)
 
@@ -108,7 +107,6 @@ def tabla_KPSS(diff=0):
     #nombre = '_'.join([test,serie,str(diff)])
     #resultados.to_latex(nombre + '.tex')
     return resultados.T   
-
 
 ```
 
@@ -151,11 +149,21 @@ Para determinar la distribución de este estadístico, de manera que pueda reali
 
 Realizando muchas simulaciones como la anterior es posible aproximar la verdadera distribución del estadístico $z$ **bajo la hipótesis nula $\gamma=0$**.
 
-
-
 {{ empieza_test }} Las pruebas de Dickey-Fuller {{ fin_titulo_test }}
-{{ test_inquietud }} ¿Tiene la serie $y_t$ una raíz unitaria?
-{{ test_hipotesis }}
+::::{grid} 
+:gutter: 1
+
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Tiene la serie $y_t$ una raíz unitaria?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
 \begin{equation*}
 \qquad
 \left.\begin{aligned}
@@ -164,11 +172,23 @@ Realizando muchas simulaciones como la anterior es posible aproximar la verdader
 \Delta y_t &= a_0 + b_0 t + \alert{\gamma} y_{t-1} + \epsilon_t
 \end{aligned}\right\} \alert{\gamma = 0}
 \end{equation*}
+:::
 
-{{ test_estadistico }} Estimar $z = \frac{\hat{\gamma}}{s.e.(\gamma)}$ por mínimos cuadrados.
-{{ test_interpretacion }} Si $z$ es menor que el valor crítico de Dickey Fuller, entonces $\gamma<0$, es decir, no hay raíz unitaria.
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`calculator;test-simbolo`
+Estimar $z = \frac{\hat{\gamma}}{s.e.(\gamma)}$ por mínimos cuadrados.
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`lightbulb;test-simbolo` 
+Si $z$ es menor que el valor crítico de Dickey Fuller, entonces $\gamma<0$, es decir, no hay raíz unitaria.
+:::
+::::
 {{ termina_test }}
-
 
 
 ## La distribución de Dickey-Fuller
@@ -254,11 +274,9 @@ df = pd.concat([pib['lPIB'], res.fittedvalues, res.resid], axis=1)
 df.columns = ["PIB", "Ajuste", "Residuos"]
 df.index = df.index.to_timestamp() # para poder graficar con plotly
 
-merge_plots(
-  [df[["PIB", "Ajuste"]].plot(), df[["Residuos"]].plot()],
-  subplot_titles=["PIB con tendencia lineal ajustada", "Residuos"],
-  title_text=r"$\log\text{PIB}_t = c + at + \epsilon_{t}$",
-)
+df[["PIB", "Ajuste"]].plot(title="PIB con tendencia lineal ajustada")
+
+df[["Residuos"]].plot(title="Residuos")
 ```
 
 
@@ -408,19 +426,41 @@ Así, para hacer una prueba KPSS hay que decidir:
 
 
 {{ empieza_test }} La prueba KPSS {{ fin_titulo_test }}
-{{ test_inquietud }} ¿Es la serie $y_t$ estacionaria?
-{{ test_hipotesis }}
+::::{grid} 
+:gutter: 1
+
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Es la serie $y_t$
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
 \begin{align*}
 y_t &= \xi t + r_t +  \omega_t \\
 r_t &= r_{t-1} + u_t, \qquad u_t\sim N(0, \sigma^2_u) \\
 \alert{\sigma^2_u} &\alert{=0}
 \end{align*}
-{{ test_estadistico }}
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`calculator;test-simbolo`
 \begin{equation*}
 LM = \sum_{t=1}^{T}\frac{S^2_t}{s^2(l)}
 \end{equation*}
+:::
 
-{{ test_interpretacion }} Si $LM$ es mayor que el valor crítico, rechazar la hipótesis nula y concluir que la serie tiene raíz unitaria.
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`lightbulb;test-simbolo` 
+Si $LM$ es mayor que el valor crítico, rechazar la hipótesis nula y concluir que la serie tiene raíz unitaria.
 
 KPSS proporcionan los siguientes valores críticos asintóticos, los cuales obtuvieron por simulación 50~000 iteraciones con muestras de 2000 datos.
 
@@ -435,6 +475,8 @@ critical
 ```
 
 Las pruebas son de una cola: se rechaza la hipótesis nula (de que la serie es estacionaria) cuando el estadístico LM es mayor al valor crítico seleccionado.
+:::
+::::
 {{ termina_test }}
 
 

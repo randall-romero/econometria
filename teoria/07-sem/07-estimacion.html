@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>7.7. Estimación &#8212; Apuntes de Macroeconometría</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +19,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,21 +37,22 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://randall-romero.github.io/econometria/teoria/07-sem/07-estimacion.html" />
     <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -78,7 +76,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,9 +99,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,14 +120,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-acerca.html">
-   Inicio
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../00-acerca.html">
+                    Inicio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acerca de este libro
  </span>
@@ -776,38 +790,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../apendices/r-code/chapter-r.html">
-   Código en R
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-transform.html">
-     Transformaciones con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-lags.html">
-     Rezagos con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-correlogram.html">
-     Correlogramas con R
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../apendices/matematica/matematica.html">
    Matemática
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -828,8 +815,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../apendices/estadistica/estadistica.html">
    Estadística y econometría
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -854,94 +841,199 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="http://randall-romero.com">randall-romero.com</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/teoria/07-sem/07-estimacion.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/teoria/07-sem/07-estimacion.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/07-sem/07-estimacion.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="http://randall-romero.com">randall-romero.com</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/07-sem/07-estimacion.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./teoria/07-sem/07-estimacion.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/teoria/07-sem/07-estimacion.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/teoria/07-sem/07-estimacion.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#metodos-de-estimacion">
    Métodos de estimación
@@ -1000,12 +1092,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Estimación</h1>
@@ -1080,7 +1171,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="math notranslate nohighlight">
@@ -1112,7 +1204,7 @@ const thebe_selector_output = ".output, .cell_output"
 \newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}\end{split}\end{aligned}\end{align} \]</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span>
@@ -1123,50 +1215,29 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 7&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">linearmodels.iv</span> <span class="kn">import</span> <span class="n">IV2SLS</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;linearmodels&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="estimacion">
-<h1><span class="section-number">7.7. </span>Estimación<a class="headerlink" href="#estimacion" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7.7. </span>Estimación<a class="headerlink" href="#estimacion" title="Permalink to this headline">#</a></h1>
 <div class="section" id="metodos-de-estimacion">
-<h2>Métodos de estimación<a class="headerlink" href="#metodos-de-estimacion" title="Permalink to this headline">¶</a></h2>
+<h2>Métodos de estimación<a class="headerlink" href="#metodos-de-estimacion" title="Permalink to this headline">#</a></h2>
 <p>Se clasifican en métodos indirectos y métodos directos.</p>
 <p>Los directos se clasifican en dos grupos:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Métodos de información limitada</p>
-</div>
-<div class="card-body docutils">
-<ul class="simple">
-<li><p class="card-text">OLS</p></li>
-<li><p class="card-text">IV</p></li>
-<li><p class="card-text">2SLS</p></li>
-<li><p class="card-text">GMM</p></li>
-<li><p class="card-text">LIML</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Métodos de información completa</p>
-</div>
-<div class="card-body docutils">
-<ul class="simple">
-<li><p class="card-text">3SLS</p></li>
-<li><p class="card-text">FIML</p></li>
-<li><p class="card-text">GMM</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="consistencia-de-ols-de-la-forma-reducida">
-<h2>Consistencia de OLS de la forma reducida<a class="headerlink" href="#consistencia-de-ols-de-la-forma-reducida" title="Permalink to this headline">¶</a></h2>
+<h2>Consistencia de OLS de la forma reducida<a class="headerlink" href="#consistencia-de-ols-de-la-forma-reducida" title="Permalink to this headline">#</a></h2>
 <p>El estimador OLS de las pendientes <span class="math notranslate nohighlight">\(\Pi\)</span> es <strong>consistente</strong></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1187,7 +1258,7 @@ const thebe_selector_output = ".output, .cell_output"
 \end{align*}\]</div>
 </div>
 <div class="section" id="minimos-cuadrados-indirectos-ils">
-<h2>Mínimos cuadrados indirectos (ILS)<a class="headerlink" href="#minimos-cuadrados-indirectos-ils" title="Permalink to this headline">¶</a></h2>
+<h2>Mínimos cuadrados indirectos (ILS)<a class="headerlink" href="#minimos-cuadrados-indirectos-ils" title="Permalink to this headline">#</a></h2>
 <p>Es posible estimar <span class="math notranslate nohighlight">\(\Pi\)</span> y <span class="math notranslate nohighlight">\(\Omega\)</span> consistentemente con OLS, pero estos parámetros no son de interés (excepto para proyectar <span class="math notranslate nohighlight">\(Y|X\)</span>).</p>
 <p>No obstante, si el sistema está identificado, se puede usar Mínimos Cuadrados Indirectos (ILS), que consiste en estimar <span class="math notranslate nohighlight">\(\estimator{\Gamma}{ILS}\)</span>, <span class="math notranslate nohighlight">\(\estimator{B}{ILS}\)</span> y <span class="math notranslate nohighlight">\(\estimator{\Sigma}{ILS}\)</span> en función de <span class="math notranslate nohighlight">\(\estimator{\Pi}{OLS}\)</span> y <span class="math notranslate nohighlight">\(\estimator{\Omega}{OLS}\)</span>.</p>
 <p>Propiedades:</p>
@@ -1197,7 +1268,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <div class="section" id="minimos-cuadrados-ordinarios-ols">
-<h2>Mínimos cuadrados ordinarios (OLS)<a class="headerlink" href="#minimos-cuadrados-ordinarios-ols" title="Permalink to this headline">¶</a></h2>
+<h2>Mínimos cuadrados ordinarios (OLS)<a class="headerlink" href="#minimos-cuadrados-ordinarios-ols" title="Permalink to this headline">#</a></h2>
 <p>Escribimos la ecuación <span class="math notranslate nohighlight">\(j\)</span> como</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -1205,7 +1276,7 @@ y_j = Y_j\gamma_j + X_j\beta_j + \epsilon_j
 = \notation{\MAT{Y_j &amp; X_j}}{$Z_j$}\notation{\MAT{\gamma_j\\ \beta_j}}{$\delta_j$} + \epsilon_j =Z_j\delta_j + \epsilon_j
 \end{equation*}\]</div>
 <div class="section" id="estimador-ols">
-<h3>Estimador OLS<a class="headerlink" href="#estimador-ols" title="Permalink to this headline">¶</a></h3>
+<h3>Estimador OLS<a class="headerlink" href="#estimador-ols" title="Permalink to this headline">#</a></h3>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \estimator{\delta_j}{OLS} &amp;= \left(Z'_jZ_j\right)^{-1} Z'_jy_j \\
@@ -1220,7 +1291,7 @@ y_j = Y_j\gamma_j + X_j\beta_j + \epsilon_j
 </div>
 </div>
 <div class="section" id="caso-particular-modelo-recursivo">
-<h2>Caso particular: Modelo recursivo<a class="headerlink" href="#caso-particular-modelo-recursivo" title="Permalink to this headline">¶</a></h2>
+<h2>Caso particular: Modelo recursivo<a class="headerlink" href="#caso-particular-modelo-recursivo" title="Permalink to this headline">#</a></h2>
 <p>En el modelo recursivo donde <span class="math notranslate nohighlight">\(\Gamma\)</span> es triangular y <span class="math notranslate nohighlight">\(\Sigma\)</span> es diagonal,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -1239,7 +1310,7 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 <p>y así sucesivamente.</p>
 </div>
 <div class="section" id="variables-instrumentales-iv">
-<h2>Variables instrumentales (IV)<a class="headerlink" href="#variables-instrumentales-iv" title="Permalink to this headline">¶</a></h2>
+<h2>Variables instrumentales (IV)<a class="headerlink" href="#variables-instrumentales-iv" title="Permalink to this headline">#</a></h2>
 <p>Muchos estimadores son casos particulares de IV</p>
 <p>Para la ecuación <span class="math notranslate nohighlight">\( y_j = Y_j\gamma_j + X_j\beta_j + \epsilon_j = Z_j\delta_j + \epsilon_j\)</span> suponemos que existe matriz <span class="math notranslate nohighlight">\(\simbolo{W_j}{T\times(M_j+K_j)}\)</span>  tal que:</p>
 <dl class="simple myst">
@@ -1251,7 +1322,7 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </dd>
 </dl>
 <div class="section" id="estimador-iv">
-<h3>Estimador IV<a class="headerlink" href="#estimador-iv" title="Permalink to this headline">¶</a></h3>
+<h3>Estimador IV<a class="headerlink" href="#estimador-iv" title="Permalink to this headline">#</a></h3>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \estimator{\delta_j}{IV} &amp;= \left(W'_jZ_j\right)^{-1} W'_jy_j \\
@@ -1264,7 +1335,7 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </div>
 </div>
 <div class="section" id="minimos-cuadrados-en-dos-etapas-2sls">
-<h2>Mínimos cuadrados en dos etapas (2SLS)<a class="headerlink" href="#minimos-cuadrados-en-dos-etapas-2sls" title="Permalink to this headline">¶</a></h2>
+<h2>Mínimos cuadrados en dos etapas (2SLS)<a class="headerlink" href="#minimos-cuadrados-en-dos-etapas-2sls" title="Permalink to this headline">#</a></h2>
 <p>Consiste en usar como intrumentos para <span class="math notranslate nohighlight">\(Y_j\)</span> los valores ajustados por la regresión de <span class="math notranslate nohighlight">\(Y_j\)</span> en \alert{todas} las <span class="math notranslate nohighlight">\(X\)</span>’s del sistema.</p>
 <dl class="simple myst">
 <dt>Etapa 1</dt><dd><p>Ajustar <span class="math notranslate nohighlight">\(Y_j\)</span> por OLS usando todas las <span class="math notranslate nohighlight">\(X\)</span></p>
@@ -1279,7 +1350,7 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </dd>
 </dl>
 <div class="section" id="estimador-2sls">
-<h3>Estimador 2SLS<a class="headerlink" href="#estimador-2sls" title="Permalink to this headline">¶</a></h3>
+<h3>Estimador 2SLS<a class="headerlink" href="#estimador-2sls" title="Permalink to this headline">#</a></h3>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 	\estimator{\delta_j}{2SLS} = \MAT{\estimator{Y'_j}{OLS}Y_j &amp; \estimator{Y'_j}{OLS}X_j \\ X'_jY_j &amp; X'_jX_j}^{-1}\MAT{\estimator{Y'_j}{OLS}y_j\\ X'_jy_j}
@@ -1308,7 +1379,7 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 <p>Hay tres variables predeterminadas: los rezagos del stock de capital, utilidades privadas, y demanda total.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">klein</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s2">&quot;http://people.stern.nyu.edu/wgreene/Text/Edition7/TableF10-3.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">klein</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s2">&quot;http://people.stern.nyu.edu/wgreene/Text/Edition7/TableF10-3.txt&quot;</span><span class="p">)</span>
 <span class="n">klein</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">klein</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="n">klein</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
@@ -1334,7 +1405,7 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 <p>El modelo contiene 3 ecuaciones de comportamiento, una condición de equilibrio, y dos identidades contables.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># La variable `K1` en la base de datos corresponde al *rezago* del capital, por lo que generamos `K`. Además, generamos la tendencia y el intercepto.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># La variable `K1` en la base de datos corresponde al *rezago* del capital, por lo que generamos `K`. Además, generamos la tendencia y el intercepto.</span>
 
 <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">klein</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">11</span>
 <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;interc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1349,10 +1420,10 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </div>
 </div>
 </div>
-<p><span class="sphinx-bs badge badge-success">Etapa 1</span> regresión de las endógenas contra todas las exógenas del sistema</p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">Etapa 1</span> regresión de las endógenas contra todas las exógenas del sistema</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clasificamos las variables en tres grupos: endógenas, exogenas, y predeterminadas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clasificamos las variables en tres grupos: endógenas, exogenas, y predeterminadas</span>
 
 <span class="n">endogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">,</span> <span class="s1">&#39;Wp&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;P&#39;</span><span class="p">]</span>
 <span class="n">exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;interc&#39;</span><span class="p">,</span> <span class="s1">&#39;G&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;Wg&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
@@ -1375,10 +1446,10 @@ y_M &amp;=x'\beta_M + \gamma_{1M}y_1+\dots+\gamma_{M-1,M}y_{M-1}+ \epsilon_M
 </div>
 </div>
 </div>
-<p><span class="sphinx-bs badge badge-success">Etapa 2</span> se sustituyen endógenas por su valor ajustado de la etapa 1</p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-success sd-bg-text-success">Etapa 2</span> se sustituyen endógenas por su valor ajustado de la etapa 1</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar datos para la segunda etapa</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preparar datos para la segunda etapa</span>
 
 <span class="c1"># Definir lista de instrumentos para cada ecuación: esta lista es igual a la lista de regresores original, pero sustituyendo las endógenas por su valor ajustado de la etapa 1</span>
 
@@ -1404,26 +1475,26 @@ I_t  &amp;= \estimate{20.28}{0.01} + \estimate{0.15}{0.39} P_t + \estimate{0.62}
 Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}{0.00} X_{t-1} + \estimate{0.13}{0.00} A_t + \epsilon_{3t}
 \end{align*}\]</div>
 <p>Este modelo también lo podemos estimar directamente con <code class="docutils literal notranslate"><span class="pre">linearmodels</span></code>:</p>
-<p><span class="sphinx-bs badge badge-primary">Ecuación de consumo</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Ecuación de consumo</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;C ~ 1 + [P + W ~ G + T + Wg + A + K1 + X1] + P1&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;C ~ 1 + [P + W ~ G + T + Wg + A + K1 + X1] + P1&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><span class="sphinx-bs badge badge-primary">Ecuación de inversión</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Ecuación de inversión</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;I ~ 1 + [P ~ G + T + Wg + A + X1] + P1 + K1&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;I ~ 1 + [P ~ G + T + Wg + A + X1] + P1 + K1&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><span class="sphinx-bs badge badge-primary">Ecuación de salarios del sector privado</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">Ecuación de salarios del sector privado</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;Wp ~ 1 + [X ~ G + T + Wg + K1 + P1] + X1 + A&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IV2SLS</span><span class="o">.</span><span class="n">from_formula</span><span class="p">(</span><span class="s1">&#39;Wp ~ 1 + [X ~ G + T + Wg + K1 + P1] + X1 + A&#39;</span><span class="p">,</span> <span class="n">klein</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span>
 </pre></div>
 </div>
 </div>
@@ -1456,7 +1527,7 @@ Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}
 <p>Para ilustrar el procedimiento, simulamos una muestra de 100 observaciones:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos los parámetros del modelo</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos los parámetros del modelo</span>
 <span class="n">endogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Q_maiz&#39;</span><span class="p">,</span><span class="s1">&#39;Q_trigo&#39;</span><span class="p">,</span><span class="s1">&#39;P_maiz&#39;</span><span class="p">,</span><span class="s1">&#39;P_trigo&#39;</span><span class="p">]</span>
 
 <span class="n">Gamma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>      <span class="c1"># RELACIÓN SIMULTANEA</span>
@@ -1504,7 +1575,7 @@ Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}
 <p>En particular estimamos 1000 veces este modelo a partir de series simuladas de 24 observaciones.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NSIMUL</span> <span class="o">=</span> <span class="mi">1000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NSIMUL</span> <span class="o">=</span> <span class="mi">1000</span>
 
 <span class="k">def</span> <span class="nf">telaraña_con_precios_rezagos</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="mi">24</span><span class="p">):</span>
     <span class="n">datos</span> <span class="o">=</span> <span class="n">telaraña</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
@@ -1579,52 +1650,52 @@ Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}
 </div>
 <p>En las figuras que siguen vemos la distribución obtenida para cada parámetro y lo comparamos con el verdadero valor poblacional.</p>
 <p>Las ecuaciones de oferta no son simultáneas, por lo que pueden ser estimadas por OLS.</p>
-<p><span class="sphinx-bs badge badge-primary">oferta de maiz</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">oferta de maiz</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;ms_ols&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;ms_ols&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><span class="sphinx-bs badge badge-primary">oferta de trigo</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">oferta de trigo</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;ws_ols&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;ws_ols&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Las ecuaciones de demanda sí son simultáneas, por lo que la estimación OLS estaría sesgada.</p>
-<p><span class="sphinx-bs badge badge-danger">demanda de maiz</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-danger sd-bg-text-danger">demanda de maiz</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;md_ols&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;md_ols&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><span class="sphinx-bs badge badge-danger">demanda de trigo</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-danger sd-bg-text-danger">demanda de trigo</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;wd_ols&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;wd_ols&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Por ello, estimamos el sistema por 2SLS:</p>
-<p><span class="sphinx-bs badge badge-primary">demanda de maiz</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">demanda de maiz</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;md_2sls&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;md_2sls&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><span class="sphinx-bs badge badge-primary">demanda de trigo</span></p>
+<p><span class="sd-sphinx-override sd-badge sd-bg-primary sd-bg-text-primary">demanda de trigo</span></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;wd_2sls&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_result</span><span class="p">(</span><span class="s1">&#39;wd_2sls&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1656,9 +1727,11 @@ Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="06-error.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1674,24 +1747,28 @@ Wp_t &amp;= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Randall Romero Aguilar<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Randall Romero Aguilar<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

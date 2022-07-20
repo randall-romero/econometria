@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Importando y manipulando datos con Python &#8212; Apuntes de Macroeconometría</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +19,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,21 +37,22 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://randall-romero.github.io/econometria/apendices/py-intro/Python-09--manipulando-datos.html" />
     <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -78,7 +76,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,9 +99,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,14 +120,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-acerca.html">
-   Inicio
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../00-acerca.html">
+                    Inicio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acerca de este libro
  </span>
@@ -776,38 +790,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../r-code/chapter-r.html">
-   Código en R
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-transform.html">
-     Transformaciones con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-lags.html">
-     Rezagos con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-correlogram.html">
-     Correlogramas con R
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../matematica/matematica.html">
    Matemática
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -828,8 +815,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../estadistica/estadistica.html">
    Estadística y econometría
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -854,96 +841,182 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="http://randall-romero.com">randall-romero.com</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/apendices/py-intro/Python-09--manipulando-datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./apendices/py-intro/Python-09--manipulando-datos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./apendices/py-intro/Python-09--manipulando-datos.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="http://randall-romero.com">randall-romero.com</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./apendices/py-intro/Python-09--manipulando-datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./apendices/py-intro/Python-09--manipulando-datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/apendices/py-intro/Python-09--manipulando-datos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ejemplo-1-importando-datos-de-internet">
    Ejemplo 1: Importando datos de Internet
@@ -961,12 +1034,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Importando y manipulando datos con Python</h1>
@@ -1000,13 +1072,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="importando-y-manipulando-datos-con-python">
-<h1>Importando y manipulando datos con Python<a class="headerlink" href="#importando-y-manipulando-datos-con-python" title="Permalink to this headline">¶</a></h1>
+<h1>Importando y manipulando datos con Python<a class="headerlink" href="#importando-y-manipulando-datos-con-python" title="Permalink to this headline">#</a></h1>
 <div class="section" id="ejemplo-1-importando-datos-de-internet">
-<h2>Ejemplo 1: Importando datos de Internet<a class="headerlink" href="#ejemplo-1-importando-datos-de-internet" title="Permalink to this headline">¶</a></h2>
+<h2>Ejemplo 1: Importando datos de Internet<a class="headerlink" href="#ejemplo-1-importando-datos-de-internet" title="Permalink to this headline">#</a></h2>
 <p>A menudo necesitamos darle seguimiento a algunos indicadores económicos. Este trabajo usualmente requiere:</p>
 <ul class="simple">
 <li><p>visitar el sitio de Internet del proveedor de datos,</p></li>
@@ -1078,7 +1151,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Economy &amp; Growth</td>
     </tr>
     <tr>
-      <th>10411</th>
+      <th>10522</th>
       <td>NY.GDP.PCAP.KD</td>
       <td>GDP per capita (constant 2015 US$)</td>
       <td></td>
@@ -1088,7 +1161,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Economy &amp; Growth</td>
     </tr>
     <tr>
-      <th>10413</th>
+      <th>10524</th>
       <td>NY.GDP.PCAP.KN</td>
       <td>GDP per capita (constant LCU)</td>
       <td></td>
@@ -1098,7 +1171,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Economy &amp; Growth</td>
     </tr>
     <tr>
-      <th>10415</th>
+      <th>10526</th>
       <td>NY.GDP.PCAP.PP.KD</td>
       <td>GDP per capita, PPP (constant 2017 internation...</td>
       <td></td>
@@ -1108,7 +1181,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>Economy &amp; Growth</td>
     </tr>
     <tr>
-      <th>10416</th>
+      <th>10527</th>
       <td>NY.GDP.PCAP.PP.KD.87</td>
       <td>GDP per capita, PPP (constant 1987 internation...</td>
       <td></td>
@@ -1157,22 +1230,22 @@ const thebe_selector_output = ".output, .cell_output"
       <td>GDP per capita, PPP (constant 2011 internation...</td>
     </tr>
     <tr>
-      <th>10411</th>
+      <th>10522</th>
       <td>NY.GDP.PCAP.KD</td>
       <td>GDP per capita (constant 2015 US$)</td>
     </tr>
     <tr>
-      <th>10413</th>
+      <th>10524</th>
       <td>NY.GDP.PCAP.KN</td>
       <td>GDP per capita (constant LCU)</td>
     </tr>
     <tr>
-      <th>10415</th>
+      <th>10526</th>
       <td>NY.GDP.PCAP.PP.KD</td>
       <td>GDP per capita, PPP (constant 2017 internation...</td>
     </tr>
     <tr>
-      <th>10416</th>
+      <th>10527</th>
       <td>NY.GDP.PCAP.PP.KD.87</td>
       <td>GDP per capita, PPP (constant 1987 internation...</td>
     </tr>
@@ -1231,7 +1304,7 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th rowspan="7" valign="top">Costa Rica</th>
       <th>2019</th>
-      <td>12735.09</td>
+      <td>12755.17</td>
     </tr>
     <tr>
       <th>2018</th>
@@ -1299,7 +1372,7 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th rowspan="5" valign="top">Costa Rica</th>
       <th>2019</th>
-      <td>12735.09</td>
+      <td>12755.17</td>
     </tr>
     <tr>
       <th>2018</th>
@@ -1419,8 +1492,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>2774.25</td>
       <td>2409.03</td>
       <td>2758.68</td>
-      <td>1622.32</td>
-      <td>1227.53</td>
+      <td>1633.67</td>
+      <td>1227.51</td>
     </tr>
     <tr>
       <th>1992</th>
@@ -1428,8 +1501,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3028.11</td>
       <td>2542.90</td>
       <td>2817.23</td>
-      <td>1672.92</td>
-      <td>1204.90</td>
+      <td>1684.63</td>
+      <td>1204.88</td>
     </tr>
     <tr>
       <th>1993</th>
@@ -1437,8 +1510,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3191.60</td>
       <td>2654.52</td>
       <td>2854.13</td>
-      <td>1732.13</td>
-      <td>1173.81</td>
+      <td>1744.26</td>
+      <td>1173.79</td>
     </tr>
     <tr>
       <th>1994</th>
@@ -1446,8 +1519,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3216.11</td>
       <td>2743.37</td>
       <td>2896.22</td>
-      <td>1687.46</td>
-      <td>1187.31</td>
+      <td>1699.27</td>
+      <td>1187.29</td>
     </tr>
     <tr>
       <th>1995</th>
@@ -1455,8 +1528,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3340.04</td>
       <td>2839.21</td>
       <td>2965.89</td>
-      <td>1741.67</td>
-      <td>1232.32</td>
+      <td>1753.86</td>
+      <td>1232.30</td>
     </tr>
     <tr>
       <th>1996</th>
@@ -1464,8 +1537,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3480.27</td>
       <td>2831.39</td>
       <td>2981.12</td>
-      <td>1724.17</td>
-      <td>1285.79</td>
+      <td>1736.24</td>
+      <td>1285.78</td>
     </tr>
     <tr>
       <th>1997</th>
@@ -1473,8 +1546,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3727.80</td>
       <td>2891.60</td>
       <td>3038.71</td>
-      <td>1752.48</td>
-      <td>1312.96</td>
+      <td>1764.74</td>
+      <td>1312.94</td>
     </tr>
     <tr>
       <th>1998</th>
@@ -1482,8 +1555,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3915.14</td>
       <td>2941.94</td>
       <td>3115.98</td>
-      <td>1764.41</td>
-      <td>1338.68</td>
+      <td>1776.76</td>
+      <td>1338.66</td>
     </tr>
     <tr>
       <th>1999</th>
@@ -1491,8 +1564,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4083.64</td>
       <td>2981.34</td>
       <td>3160.08</td>
-      <td>1703.04</td>
-      <td>1409.79</td>
+      <td>1714.96</td>
+      <td>1409.77</td>
     </tr>
     <tr>
       <th>2000</th>
@@ -1500,8 +1573,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4209.41</td>
       <td>2992.90</td>
       <td>3195.39</td>
-      <td>1777.92</td>
-      <td>1444.95</td>
+      <td>1790.36</td>
+      <td>1444.93</td>
     </tr>
     <tr>
       <th>2001</th>
@@ -1509,8 +1582,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4249.10</td>
       <td>2999.32</td>
       <td>3192.31</td>
-      <td>1778.35</td>
-      <td>1465.74</td>
+      <td>1790.80</td>
+      <td>1465.72</td>
     </tr>
     <tr>
       <th>2002</th>
@@ -1518,8 +1591,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4375.79</td>
       <td>3028.55</td>
       <td>3239.57</td>
-      <td>1797.89</td>
-      <td>1455.87</td>
+      <td>1810.47</td>
+      <td>1455.85</td>
     </tr>
     <tr>
       <th>2003</th>
@@ -1527,8 +1600,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4255.77</td>
       <td>3059.57</td>
       <td>3250.84</td>
-      <td>1832.81</td>
-      <td>1472.04</td>
+      <td>1845.64</td>
+      <td>1472.02</td>
     </tr>
     <tr>
       <th>2004</th>
@@ -1536,8 +1609,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4304.77</td>
       <td>3071.55</td>
       <td>3282.32</td>
-      <td>1899.81</td>
-      <td>1529.19</td>
+      <td>1913.11</td>
+      <td>1529.17</td>
     </tr>
     <tr>
       <th>2005</th>
@@ -1545,8 +1618,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4647.04</td>
       <td>3140.03</td>
       <td>3320.16</td>
-      <td>1967.22</td>
-      <td>1573.05</td>
+      <td>1980.99</td>
+      <td>1573.03</td>
     </tr>
     <tr>
       <th>2006</th>
@@ -1554,8 +1627,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5006.55</td>
       <td>3261.76</td>
       <td>3427.68</td>
-      <td>2048.27</td>
-      <td>1616.08</td>
+      <td>2062.60</td>
+      <td>1616.06</td>
     </tr>
     <tr>
       <th>2007</th>
@@ -1563,8 +1636,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5308.63</td>
       <td>3308.05</td>
       <td>3573.60</td>
-      <td>2126.49</td>
-      <td>1674.94</td>
+      <td>2141.38</td>
+      <td>1674.92</td>
     </tr>
     <tr>
       <th>2008</th>
@@ -1572,7 +1645,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5409.95</td>
       <td>3364.10</td>
       <td>3620.83</td>
-      <td>2168.59</td>
+      <td>2183.77</td>
       <td>1708.82</td>
     </tr>
     <tr>
@@ -1581,7 +1654,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5393.47</td>
       <td>3280.02</td>
       <td>3570.30</td>
-      <td>2071.77</td>
+      <td>2086.27</td>
       <td>1630.09</td>
     </tr>
     <tr>
@@ -1590,8 +1663,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5771.92</td>
       <td>3334.93</td>
       <td>3606.43</td>
-      <td>2106.00</td>
-      <td>1679.04</td>
+      <td>2120.74</td>
+      <td>1679.03</td>
     </tr>
     <tr>
       <th>2011</th>
@@ -1599,8 +1672,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5881.14</td>
       <td>3447.35</td>
       <td>3688.87</td>
-      <td>2144.70</td>
-      <td>1761.21</td>
+      <td>2159.71</td>
+      <td>1761.22</td>
     </tr>
     <tr>
       <th>2012</th>
@@ -1608,8 +1681,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5969.35</td>
       <td>3528.87</td>
       <td>3731.68</td>
-      <td>2191.89</td>
-      <td>1850.70</td>
+      <td>2207.23</td>
+      <td>1850.69</td>
     </tr>
     <tr>
       <th>2013</th>
@@ -1617,7 +1690,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6187.28</td>
       <td>3591.43</td>
       <td>3802.15</td>
-      <td>2212.66</td>
+      <td>2228.15</td>
       <td>1916.28</td>
     </tr>
     <tr>
@@ -1626,7 +1699,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6547.31</td>
       <td>3636.01</td>
       <td>3903.06</td>
-      <td>2240.33</td>
+      <td>2256.02</td>
       <td>1981.75</td>
     </tr>
     <tr>
@@ -1635,7 +1708,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6921.52</td>
       <td>3705.58</td>
       <td>3994.64</td>
-      <td>2286.20</td>
+      <td>2302.20</td>
       <td>2049.85</td>
     </tr>
     <tr>
@@ -1644,8 +1717,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7300.03</td>
       <td>3781.38</td>
       <td>4034.16</td>
-      <td>2334.75</td>
-      <td>2115.93</td>
+      <td>2351.09</td>
+      <td>2115.95</td>
     </tr>
     <tr>
       <th>2017</th>
@@ -1653,8 +1726,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7556.85</td>
       <td>3846.97</td>
       <td>4091.27</td>
-      <td>2406.75</td>
-      <td>2185.91</td>
+      <td>2423.59</td>
+      <td>2185.89</td>
     </tr>
     <tr>
       <th>2018</th>
@@ -1662,17 +1735,17 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7997.76</td>
       <td>3920.53</td>
       <td>4160.07</td>
-      <td>2457.97</td>
-      <td>2086.03</td>
+      <td>2475.17</td>
+      <td>2086.01</td>
     </tr>
     <tr>
       <th>2019</th>
-      <td>12735.09</td>
+      <td>12755.17</td>
       <td>8314.34</td>
       <td>3993.53</td>
       <td>4254.04</td>
-      <td>2482.12</td>
-      <td>1984.82</td>
+      <td>2499.49</td>
+      <td>1982.63</td>
     </tr>
   </tbody>
 </table>
@@ -1753,8 +1826,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>2774.25</td>
       <td>2409.03</td>
       <td>2758.68</td>
-      <td>1622.32</td>
-      <td>1227.53</td>
+      <td>1633.67</td>
+      <td>1227.51</td>
     </tr>
     <tr>
       <th>1992</th>
@@ -1762,8 +1835,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3028.11</td>
       <td>2542.90</td>
       <td>2817.23</td>
-      <td>1672.92</td>
-      <td>1204.90</td>
+      <td>1684.63</td>
+      <td>1204.88</td>
     </tr>
     <tr>
       <th>1993</th>
@@ -1771,8 +1844,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3191.60</td>
       <td>2654.52</td>
       <td>2854.13</td>
-      <td>1732.13</td>
-      <td>1173.81</td>
+      <td>1744.26</td>
+      <td>1173.79</td>
     </tr>
     <tr>
       <th>1994</th>
@@ -1780,8 +1853,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3216.11</td>
       <td>2743.37</td>
       <td>2896.22</td>
-      <td>1687.46</td>
-      <td>1187.31</td>
+      <td>1699.27</td>
+      <td>1187.29</td>
     </tr>
     <tr>
       <th>1995</th>
@@ -1789,8 +1862,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3340.04</td>
       <td>2839.21</td>
       <td>2965.89</td>
-      <td>1741.67</td>
-      <td>1232.32</td>
+      <td>1753.86</td>
+      <td>1232.30</td>
     </tr>
     <tr>
       <th>1996</th>
@@ -1798,8 +1871,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3480.27</td>
       <td>2831.39</td>
       <td>2981.12</td>
-      <td>1724.17</td>
-      <td>1285.79</td>
+      <td>1736.24</td>
+      <td>1285.78</td>
     </tr>
     <tr>
       <th>1997</th>
@@ -1807,8 +1880,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3727.80</td>
       <td>2891.60</td>
       <td>3038.71</td>
-      <td>1752.48</td>
-      <td>1312.96</td>
+      <td>1764.74</td>
+      <td>1312.94</td>
     </tr>
     <tr>
       <th>1998</th>
@@ -1816,8 +1889,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3915.14</td>
       <td>2941.94</td>
       <td>3115.98</td>
-      <td>1764.41</td>
-      <td>1338.68</td>
+      <td>1776.76</td>
+      <td>1338.66</td>
     </tr>
     <tr>
       <th>1999</th>
@@ -1825,8 +1898,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4083.64</td>
       <td>2981.34</td>
       <td>3160.08</td>
-      <td>1703.04</td>
-      <td>1409.79</td>
+      <td>1714.96</td>
+      <td>1409.77</td>
     </tr>
     <tr>
       <th>2000</th>
@@ -1834,8 +1907,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4209.41</td>
       <td>2992.90</td>
       <td>3195.39</td>
-      <td>1777.92</td>
-      <td>1444.95</td>
+      <td>1790.36</td>
+      <td>1444.93</td>
     </tr>
     <tr>
       <th>2001</th>
@@ -1843,8 +1916,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4249.10</td>
       <td>2999.32</td>
       <td>3192.31</td>
-      <td>1778.35</td>
-      <td>1465.74</td>
+      <td>1790.80</td>
+      <td>1465.72</td>
     </tr>
     <tr>
       <th>2002</th>
@@ -1852,8 +1925,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4375.79</td>
       <td>3028.55</td>
       <td>3239.57</td>
-      <td>1797.89</td>
-      <td>1455.87</td>
+      <td>1810.47</td>
+      <td>1455.85</td>
     </tr>
     <tr>
       <th>2003</th>
@@ -1861,8 +1934,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4255.77</td>
       <td>3059.57</td>
       <td>3250.84</td>
-      <td>1832.81</td>
-      <td>1472.04</td>
+      <td>1845.64</td>
+      <td>1472.02</td>
     </tr>
     <tr>
       <th>2004</th>
@@ -1870,8 +1943,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4304.77</td>
       <td>3071.55</td>
       <td>3282.32</td>
-      <td>1899.81</td>
-      <td>1529.19</td>
+      <td>1913.11</td>
+      <td>1529.17</td>
     </tr>
     <tr>
       <th>2005</th>
@@ -1879,8 +1952,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4647.04</td>
       <td>3140.03</td>
       <td>3320.16</td>
-      <td>1967.22</td>
-      <td>1573.05</td>
+      <td>1980.99</td>
+      <td>1573.03</td>
     </tr>
     <tr>
       <th>2006</th>
@@ -1888,8 +1961,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5006.55</td>
       <td>3261.76</td>
       <td>3427.68</td>
-      <td>2048.27</td>
-      <td>1616.08</td>
+      <td>2062.60</td>
+      <td>1616.06</td>
     </tr>
     <tr>
       <th>2007</th>
@@ -1897,8 +1970,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5308.63</td>
       <td>3308.05</td>
       <td>3573.60</td>
-      <td>2126.49</td>
-      <td>1674.94</td>
+      <td>2141.38</td>
+      <td>1674.92</td>
     </tr>
     <tr>
       <th>2008</th>
@@ -1906,7 +1979,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5409.95</td>
       <td>3364.10</td>
       <td>3620.83</td>
-      <td>2168.59</td>
+      <td>2183.77</td>
       <td>1708.82</td>
     </tr>
     <tr>
@@ -1915,7 +1988,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5393.47</td>
       <td>3280.02</td>
       <td>3570.30</td>
-      <td>2071.77</td>
+      <td>2086.27</td>
       <td>1630.09</td>
     </tr>
     <tr>
@@ -1924,8 +1997,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5771.92</td>
       <td>3334.93</td>
       <td>3606.43</td>
-      <td>2106.00</td>
-      <td>1679.04</td>
+      <td>2120.74</td>
+      <td>1679.03</td>
     </tr>
     <tr>
       <th>2011</th>
@@ -1933,8 +2006,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5881.14</td>
       <td>3447.35</td>
       <td>3688.87</td>
-      <td>2144.70</td>
-      <td>1761.21</td>
+      <td>2159.71</td>
+      <td>1761.22</td>
     </tr>
     <tr>
       <th>2012</th>
@@ -1942,8 +2015,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5969.35</td>
       <td>3528.87</td>
       <td>3731.68</td>
-      <td>2191.89</td>
-      <td>1850.70</td>
+      <td>2207.23</td>
+      <td>1850.69</td>
     </tr>
     <tr>
       <th>2013</th>
@@ -1951,7 +2024,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6187.28</td>
       <td>3591.43</td>
       <td>3802.15</td>
-      <td>2212.66</td>
+      <td>2228.15</td>
       <td>1916.28</td>
     </tr>
     <tr>
@@ -1960,7 +2033,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6547.31</td>
       <td>3636.01</td>
       <td>3903.06</td>
-      <td>2240.33</td>
+      <td>2256.02</td>
       <td>1981.75</td>
     </tr>
     <tr>
@@ -1969,7 +2042,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6921.52</td>
       <td>3705.58</td>
       <td>3994.64</td>
-      <td>2286.20</td>
+      <td>2302.20</td>
       <td>2049.85</td>
     </tr>
     <tr>
@@ -1978,8 +2051,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7300.03</td>
       <td>3781.38</td>
       <td>4034.16</td>
-      <td>2334.75</td>
-      <td>2115.93</td>
+      <td>2351.09</td>
+      <td>2115.95</td>
     </tr>
     <tr>
       <th>2017</th>
@@ -1987,8 +2060,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7556.85</td>
       <td>3846.97</td>
       <td>4091.27</td>
-      <td>2406.75</td>
-      <td>2185.91</td>
+      <td>2423.59</td>
+      <td>2185.89</td>
     </tr>
     <tr>
       <th>2018</th>
@@ -1996,17 +2069,17 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7997.76</td>
       <td>3920.53</td>
       <td>4160.07</td>
-      <td>2457.97</td>
-      <td>2086.03</td>
+      <td>2475.17</td>
+      <td>2086.01</td>
     </tr>
     <tr>
       <th>2019</th>
-      <td>12735.09</td>
+      <td>12755.17</td>
       <td>8314.34</td>
       <td>3993.53</td>
       <td>4254.04</td>
-      <td>2482.12</td>
-      <td>1984.82</td>
+      <td>2499.49</td>
+      <td>1982.63</td>
     </tr>
   </tbody>
 </table>
@@ -2062,8 +2135,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>2774.25</td>
       <td>2409.03</td>
       <td>2758.68</td>
-      <td>1622.32</td>
-      <td>1227.53</td>
+      <td>1633.67</td>
+      <td>1227.51</td>
     </tr>
     <tr>
       <th>1992</th>
@@ -2071,8 +2144,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3028.11</td>
       <td>2542.90</td>
       <td>2817.23</td>
-      <td>1672.92</td>
-      <td>1204.90</td>
+      <td>1684.63</td>
+      <td>1204.88</td>
     </tr>
     <tr>
       <th>1993</th>
@@ -2080,8 +2153,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3191.60</td>
       <td>2654.52</td>
       <td>2854.13</td>
-      <td>1732.13</td>
-      <td>1173.81</td>
+      <td>1744.26</td>
+      <td>1173.79</td>
     </tr>
     <tr>
       <th>1994</th>
@@ -2089,8 +2162,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3216.11</td>
       <td>2743.37</td>
       <td>2896.22</td>
-      <td>1687.46</td>
-      <td>1187.31</td>
+      <td>1699.27</td>
+      <td>1187.29</td>
     </tr>
     <tr>
       <th>1995</th>
@@ -2098,8 +2171,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3340.04</td>
       <td>2839.21</td>
       <td>2965.89</td>
-      <td>1741.67</td>
-      <td>1232.32</td>
+      <td>1753.86</td>
+      <td>1232.30</td>
     </tr>
     <tr>
       <th>1996</th>
@@ -2107,8 +2180,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3480.27</td>
       <td>2831.39</td>
       <td>2981.12</td>
-      <td>1724.17</td>
-      <td>1285.79</td>
+      <td>1736.24</td>
+      <td>1285.78</td>
     </tr>
     <tr>
       <th>1997</th>
@@ -2116,8 +2189,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3727.80</td>
       <td>2891.60</td>
       <td>3038.71</td>
-      <td>1752.48</td>
-      <td>1312.96</td>
+      <td>1764.74</td>
+      <td>1312.94</td>
     </tr>
     <tr>
       <th>1998</th>
@@ -2125,8 +2198,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3915.14</td>
       <td>2941.94</td>
       <td>3115.98</td>
-      <td>1764.41</td>
-      <td>1338.68</td>
+      <td>1776.76</td>
+      <td>1338.66</td>
     </tr>
     <tr>
       <th>1999</th>
@@ -2134,8 +2207,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4083.64</td>
       <td>2981.34</td>
       <td>3160.08</td>
-      <td>1703.04</td>
-      <td>1409.79</td>
+      <td>1714.96</td>
+      <td>1409.77</td>
     </tr>
     <tr>
       <th>2000</th>
@@ -2143,8 +2216,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4209.41</td>
       <td>2992.90</td>
       <td>3195.39</td>
-      <td>1777.92</td>
-      <td>1444.95</td>
+      <td>1790.36</td>
+      <td>1444.93</td>
     </tr>
     <tr>
       <th>2001</th>
@@ -2152,8 +2225,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4249.10</td>
       <td>2999.32</td>
       <td>3192.31</td>
-      <td>1778.35</td>
-      <td>1465.74</td>
+      <td>1790.80</td>
+      <td>1465.72</td>
     </tr>
     <tr>
       <th>2002</th>
@@ -2161,8 +2234,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4375.79</td>
       <td>3028.55</td>
       <td>3239.57</td>
-      <td>1797.89</td>
-      <td>1455.87</td>
+      <td>1810.47</td>
+      <td>1455.85</td>
     </tr>
     <tr>
       <th>2003</th>
@@ -2170,8 +2243,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4255.77</td>
       <td>3059.57</td>
       <td>3250.84</td>
-      <td>1832.81</td>
-      <td>1472.04</td>
+      <td>1845.64</td>
+      <td>1472.02</td>
     </tr>
     <tr>
       <th>2004</th>
@@ -2179,8 +2252,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4304.77</td>
       <td>3071.55</td>
       <td>3282.32</td>
-      <td>1899.81</td>
-      <td>1529.19</td>
+      <td>1913.11</td>
+      <td>1529.17</td>
     </tr>
     <tr>
       <th>2005</th>
@@ -2188,8 +2261,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4647.04</td>
       <td>3140.03</td>
       <td>3320.16</td>
-      <td>1967.22</td>
-      <td>1573.05</td>
+      <td>1980.99</td>
+      <td>1573.03</td>
     </tr>
     <tr>
       <th>2006</th>
@@ -2197,8 +2270,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5006.55</td>
       <td>3261.76</td>
       <td>3427.68</td>
-      <td>2048.27</td>
-      <td>1616.08</td>
+      <td>2062.60</td>
+      <td>1616.06</td>
     </tr>
     <tr>
       <th>2007</th>
@@ -2206,8 +2279,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5308.63</td>
       <td>3308.05</td>
       <td>3573.60</td>
-      <td>2126.49</td>
-      <td>1674.94</td>
+      <td>2141.38</td>
+      <td>1674.92</td>
     </tr>
     <tr>
       <th>2008</th>
@@ -2215,7 +2288,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5409.95</td>
       <td>3364.10</td>
       <td>3620.83</td>
-      <td>2168.59</td>
+      <td>2183.77</td>
       <td>1708.82</td>
     </tr>
     <tr>
@@ -2224,7 +2297,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5393.47</td>
       <td>3280.02</td>
       <td>3570.30</td>
-      <td>2071.77</td>
+      <td>2086.27</td>
       <td>1630.09</td>
     </tr>
     <tr>
@@ -2233,8 +2306,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5771.92</td>
       <td>3334.93</td>
       <td>3606.43</td>
-      <td>2106.00</td>
-      <td>1679.04</td>
+      <td>2120.74</td>
+      <td>1679.03</td>
     </tr>
     <tr>
       <th>2011</th>
@@ -2242,8 +2315,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5881.14</td>
       <td>3447.35</td>
       <td>3688.87</td>
-      <td>2144.70</td>
-      <td>1761.21</td>
+      <td>2159.71</td>
+      <td>1761.22</td>
     </tr>
     <tr>
       <th>2012</th>
@@ -2251,8 +2324,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5969.35</td>
       <td>3528.87</td>
       <td>3731.68</td>
-      <td>2191.89</td>
-      <td>1850.70</td>
+      <td>2207.23</td>
+      <td>1850.69</td>
     </tr>
     <tr>
       <th>2013</th>
@@ -2260,7 +2333,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6187.28</td>
       <td>3591.43</td>
       <td>3802.15</td>
-      <td>2212.66</td>
+      <td>2228.15</td>
       <td>1916.28</td>
     </tr>
     <tr>
@@ -2269,7 +2342,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6547.31</td>
       <td>3636.01</td>
       <td>3903.06</td>
-      <td>2240.33</td>
+      <td>2256.02</td>
       <td>1981.75</td>
     </tr>
     <tr>
@@ -2278,7 +2351,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6921.52</td>
       <td>3705.58</td>
       <td>3994.64</td>
-      <td>2286.20</td>
+      <td>2302.20</td>
       <td>2049.85</td>
     </tr>
     <tr>
@@ -2287,8 +2360,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7300.03</td>
       <td>3781.38</td>
       <td>4034.16</td>
-      <td>2334.75</td>
-      <td>2115.93</td>
+      <td>2351.09</td>
+      <td>2115.95</td>
     </tr>
     <tr>
       <th>2017</th>
@@ -2296,8 +2369,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7556.85</td>
       <td>3846.97</td>
       <td>4091.27</td>
-      <td>2406.75</td>
-      <td>2185.91</td>
+      <td>2423.59</td>
+      <td>2185.89</td>
     </tr>
     <tr>
       <th>2018</th>
@@ -2305,17 +2378,17 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7997.76</td>
       <td>3920.53</td>
       <td>4160.07</td>
-      <td>2457.97</td>
-      <td>2086.03</td>
+      <td>2475.17</td>
+      <td>2086.01</td>
     </tr>
     <tr>
       <th>2019</th>
-      <td>12735.09</td>
+      <td>12755.17</td>
       <td>8314.34</td>
       <td>3993.53</td>
       <td>4254.04</td>
-      <td>2482.12</td>
-      <td>1984.82</td>
+      <td>2499.49</td>
+      <td>1982.63</td>
     </tr>
   </tbody>
 </table>
@@ -2371,8 +2444,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>2774.25</td>
       <td>2409.03</td>
       <td>2758.68</td>
-      <td>1622.32</td>
-      <td>1227.53</td>
+      <td>1633.67</td>
+      <td>1227.51</td>
     </tr>
     <tr>
       <th>1992</th>
@@ -2380,8 +2453,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3028.11</td>
       <td>2542.90</td>
       <td>2817.23</td>
-      <td>1672.92</td>
-      <td>1204.90</td>
+      <td>1684.63</td>
+      <td>1204.88</td>
     </tr>
     <tr>
       <th>1993</th>
@@ -2389,8 +2462,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3191.60</td>
       <td>2654.52</td>
       <td>2854.13</td>
-      <td>1732.13</td>
-      <td>1173.81</td>
+      <td>1744.26</td>
+      <td>1173.79</td>
     </tr>
     <tr>
       <th>1994</th>
@@ -2398,8 +2471,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3216.11</td>
       <td>2743.37</td>
       <td>2896.22</td>
-      <td>1687.46</td>
-      <td>1187.31</td>
+      <td>1699.27</td>
+      <td>1187.29</td>
     </tr>
     <tr>
       <th>1995</th>
@@ -2407,8 +2480,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3340.04</td>
       <td>2839.21</td>
       <td>2965.89</td>
-      <td>1741.67</td>
-      <td>1232.32</td>
+      <td>1753.86</td>
+      <td>1232.30</td>
     </tr>
     <tr>
       <th>1996</th>
@@ -2416,8 +2489,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3480.27</td>
       <td>2831.39</td>
       <td>2981.12</td>
-      <td>1724.17</td>
-      <td>1285.79</td>
+      <td>1736.24</td>
+      <td>1285.78</td>
     </tr>
     <tr>
       <th>1997</th>
@@ -2425,8 +2498,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3727.80</td>
       <td>2891.60</td>
       <td>3038.71</td>
-      <td>1752.48</td>
-      <td>1312.96</td>
+      <td>1764.74</td>
+      <td>1312.94</td>
     </tr>
     <tr>
       <th>1998</th>
@@ -2434,8 +2507,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3915.14</td>
       <td>2941.94</td>
       <td>3115.98</td>
-      <td>1764.41</td>
-      <td>1338.68</td>
+      <td>1776.76</td>
+      <td>1338.66</td>
     </tr>
     <tr>
       <th>1999</th>
@@ -2443,8 +2516,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4083.64</td>
       <td>2981.34</td>
       <td>3160.08</td>
-      <td>1703.04</td>
-      <td>1409.79</td>
+      <td>1714.96</td>
+      <td>1409.77</td>
     </tr>
     <tr>
       <th>2000</th>
@@ -2452,8 +2525,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4209.41</td>
       <td>2992.90</td>
       <td>3195.39</td>
-      <td>1777.92</td>
-      <td>1444.95</td>
+      <td>1790.36</td>
+      <td>1444.93</td>
     </tr>
     <tr>
       <th>2001</th>
@@ -2461,8 +2534,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4249.10</td>
       <td>2999.32</td>
       <td>3192.31</td>
-      <td>1778.35</td>
-      <td>1465.74</td>
+      <td>1790.80</td>
+      <td>1465.72</td>
     </tr>
     <tr>
       <th>2002</th>
@@ -2470,8 +2543,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4375.79</td>
       <td>3028.55</td>
       <td>3239.57</td>
-      <td>1797.89</td>
-      <td>1455.87</td>
+      <td>1810.47</td>
+      <td>1455.85</td>
     </tr>
     <tr>
       <th>2003</th>
@@ -2479,8 +2552,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4255.77</td>
       <td>3059.57</td>
       <td>3250.84</td>
-      <td>1832.81</td>
-      <td>1472.04</td>
+      <td>1845.64</td>
+      <td>1472.02</td>
     </tr>
     <tr>
       <th>2004</th>
@@ -2488,8 +2561,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4304.77</td>
       <td>3071.55</td>
       <td>3282.32</td>
-      <td>1899.81</td>
-      <td>1529.19</td>
+      <td>1913.11</td>
+      <td>1529.17</td>
     </tr>
     <tr>
       <th>2005</th>
@@ -2497,8 +2570,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>4647.04</td>
       <td>3140.03</td>
       <td>3320.16</td>
-      <td>1967.22</td>
-      <td>1573.05</td>
+      <td>1980.99</td>
+      <td>1573.03</td>
     </tr>
     <tr>
       <th>2006</th>
@@ -2506,8 +2579,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5006.55</td>
       <td>3261.76</td>
       <td>3427.68</td>
-      <td>2048.27</td>
-      <td>1616.08</td>
+      <td>2062.60</td>
+      <td>1616.06</td>
     </tr>
     <tr>
       <th>2007</th>
@@ -2515,8 +2588,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5308.63</td>
       <td>3308.05</td>
       <td>3573.60</td>
-      <td>2126.49</td>
-      <td>1674.94</td>
+      <td>2141.38</td>
+      <td>1674.92</td>
     </tr>
     <tr>
       <th>2008</th>
@@ -2524,7 +2597,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5409.95</td>
       <td>3364.10</td>
       <td>3620.83</td>
-      <td>2168.59</td>
+      <td>2183.77</td>
       <td>1708.82</td>
     </tr>
     <tr>
@@ -2533,7 +2606,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5393.47</td>
       <td>3280.02</td>
       <td>3570.30</td>
-      <td>2071.77</td>
+      <td>2086.27</td>
       <td>1630.09</td>
     </tr>
     <tr>
@@ -2542,8 +2615,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5771.92</td>
       <td>3334.93</td>
       <td>3606.43</td>
-      <td>2106.00</td>
-      <td>1679.04</td>
+      <td>2120.74</td>
+      <td>1679.03</td>
     </tr>
     <tr>
       <th>2011</th>
@@ -2551,8 +2624,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5881.14</td>
       <td>3447.35</td>
       <td>3688.87</td>
-      <td>2144.70</td>
-      <td>1761.21</td>
+      <td>2159.71</td>
+      <td>1761.22</td>
     </tr>
     <tr>
       <th>2012</th>
@@ -2560,8 +2633,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>5969.35</td>
       <td>3528.87</td>
       <td>3731.68</td>
-      <td>2191.89</td>
-      <td>1850.70</td>
+      <td>2207.23</td>
+      <td>1850.69</td>
     </tr>
     <tr>
       <th>2013</th>
@@ -2569,7 +2642,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6187.28</td>
       <td>3591.43</td>
       <td>3802.15</td>
-      <td>2212.66</td>
+      <td>2228.15</td>
       <td>1916.28</td>
     </tr>
     <tr>
@@ -2578,7 +2651,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6547.31</td>
       <td>3636.01</td>
       <td>3903.06</td>
-      <td>2240.33</td>
+      <td>2256.02</td>
       <td>1981.75</td>
     </tr>
     <tr>
@@ -2587,7 +2660,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6921.52</td>
       <td>3705.58</td>
       <td>3994.64</td>
-      <td>2286.20</td>
+      <td>2302.20</td>
       <td>2049.85</td>
     </tr>
     <tr>
@@ -2596,8 +2669,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7300.03</td>
       <td>3781.38</td>
       <td>4034.16</td>
-      <td>2334.75</td>
-      <td>2115.93</td>
+      <td>2351.09</td>
+      <td>2115.95</td>
     </tr>
     <tr>
       <th>2017</th>
@@ -2605,8 +2678,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7556.85</td>
       <td>3846.97</td>
       <td>4091.27</td>
-      <td>2406.75</td>
-      <td>2185.91</td>
+      <td>2423.59</td>
+      <td>2185.89</td>
     </tr>
     <tr>
       <th>2018</th>
@@ -2614,17 +2687,17 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7997.76</td>
       <td>3920.53</td>
       <td>4160.07</td>
-      <td>2457.97</td>
-      <td>2086.03</td>
+      <td>2475.17</td>
+      <td>2086.01</td>
     </tr>
     <tr>
       <th>2019</th>
-      <td>12735.09</td>
+      <td>12755.17</td>
       <td>8314.34</td>
       <td>3993.53</td>
       <td>4254.04</td>
-      <td>2482.12</td>
-      <td>1984.82</td>
+      <td>2499.49</td>
+      <td>1982.63</td>
     </tr>
   </tbody>
 </table>
@@ -2678,7 +2751,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6547.31</td>
       <td>3636.01</td>
       <td>3903.06</td>
-      <td>2240.33</td>
+      <td>2256.02</td>
       <td>1981.75</td>
     </tr>
     <tr>
@@ -2687,7 +2760,7 @@ const thebe_selector_output = ".output, .cell_output"
       <td>6921.52</td>
       <td>3705.58</td>
       <td>3994.64</td>
-      <td>2286.20</td>
+      <td>2302.20</td>
       <td>2049.85</td>
     </tr>
     <tr>
@@ -2696,8 +2769,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7300.03</td>
       <td>3781.38</td>
       <td>4034.16</td>
-      <td>2334.75</td>
-      <td>2115.93</td>
+      <td>2351.09</td>
+      <td>2115.95</td>
     </tr>
     <tr>
       <th>2017</th>
@@ -2705,8 +2778,8 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7556.85</td>
       <td>3846.97</td>
       <td>4091.27</td>
-      <td>2406.75</td>
-      <td>2185.91</td>
+      <td>2423.59</td>
+      <td>2185.89</td>
     </tr>
     <tr>
       <th>2018</th>
@@ -2714,17 +2787,17 @@ const thebe_selector_output = ".output, .cell_output"
       <td>7997.76</td>
       <td>3920.53</td>
       <td>4160.07</td>
-      <td>2457.97</td>
-      <td>2086.03</td>
+      <td>2475.17</td>
+      <td>2086.01</td>
     </tr>
     <tr>
       <th>2019</th>
-      <td>12735.09</td>
+      <td>12755.17</td>
       <td>8314.34</td>
       <td>3993.53</td>
       <td>4254.04</td>
-      <td>2482.12</td>
-      <td>1984.82</td>
+      <td>2499.49</td>
+      <td>1982.63</td>
     </tr>
   </tbody>
 </table>
@@ -2803,12 +2876,12 @@ const thebe_selector_output = ".output, .cell_output"
     </tr>
     <tr>
       <th>2019</th>
-      <td>1.28</td>
+      <td>1.44</td>
       <td>3.96</td>
       <td>1.86</td>
       <td>2.26</td>
       <td>0.98</td>
-      <td>-4.85</td>
+      <td>-4.96</td>
     </tr>
   </tbody>
 </table>
@@ -2820,6 +2893,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GROWTH</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="s1">&#39;micuadro.tex&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
 </div>
 </div>
 <p>En la última instrucción, la parte <code class="docutils literal notranslate"><span class="pre">.tail(6)</span></code> indica que solo queremos las últimas seis observaciones, mientras que la parte <code class="docutils literal notranslate"><span class="pre">.to_latex('micuadro.tex')</span></code> exporta esa tabla a un archivo llamado <em>micuadro.tex</em>, que luego puede incluirse en un documento. El resultado de este código es</p>
@@ -2839,7 +2914,7 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
 2016 &amp;  3.11 &amp;  5.47 &amp;  2.05 &amp;  0.99 &amp;  2.12 &amp;  3.22 \\
 2017 &amp;  3.09 &amp;  3.52 &amp;  1.73 &amp;  1.42 &amp;  3.08 &amp;  3.31 \\
 2018 &amp;  1.60 &amp;  5.83 &amp;  1.91 &amp;  1.68 &amp;  2.13 &amp; -4.57 \\
-2019 &amp;  1.28 &amp;  3.96 &amp;  1.86 &amp;  2.26 &amp;  0.98 &amp; -4.85 \\
+2019 &amp;  1.44 &amp;  3.96 &amp;  1.86 &amp;  2.26 &amp;  0.98 &amp; -4.96 \\
 \bottomrule
 \end{tabular}
 </pre></div>
@@ -2999,6 +3074,8 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Solarize_Light2&#39;,
  &#39;_classic_test_patch&#39;,
+ &#39;_mpl-gallery&#39;,
+ &#39;_mpl-gallery-nogrid&#39;,
  &#39;bmh&#39;,
  &#39;classic&#39;,
  &#39;dark_background&#39;,
@@ -3029,7 +3106,7 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
 </div>
 </div>
 <div class="section" id="ejemplo-2-estimaciones-econometricas">
-<h2>Ejemplo 2: Estimaciones econométricas<a class="headerlink" href="#ejemplo-2-estimaciones-econometricas" title="Permalink to this headline">¶</a></h2>
+<h2>Ejemplo 2: Estimaciones econométricas<a class="headerlink" href="#ejemplo-2-estimaciones-econometricas" title="Permalink to this headline">#</a></h2>
 <p>El paquete <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> de Python permite la estimación de muchos tipos de modelos econométricos, aunque no tantos como se pueden estimar usando R. Una ilustración simple es la estimación de una función de consumo keynesiana,</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -3153,10 +3230,10 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>6.309e+05</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sun, 24 Apr 2022</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
+  <th>Date:</th>             <td>Wed, 20 Jul 2022</td> <th>  Prob (F-statistic):</th>  <td>  0.00</td>  
 </tr>
 <tr>
-  <th>Time:</th>                 <td>16:32:35</td>     <th>  Log-Likelihood:    </th> <td>  592.46</td> 
+  <th>Time:</th>                 <td>01:46:20</td>     <th>  Log-Likelihood:    </th> <td>  592.46</td> 
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   285</td>      <th>  AIC:               </th> <td>  -1181.</td> 
@@ -3228,10 +3305,10 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   272.8</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Sun, 24 Apr 2022</td> <th>  Prob (F-statistic):</th> <td>2.49e-43</td>
+  <th>Date:</th>             <td>Wed, 20 Jul 2022</td> <th>  Prob (F-statistic):</th> <td>2.49e-43</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>16:32:35</td>     <th>  Log-Likelihood:    </th> <td>  1011.9</td>
+  <th>Time:</th>                 <td>01:46:20</td>     <th>  Log-Likelihood:    </th> <td>  1011.9</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   284</td>      <th>  AIC:               </th> <td>  -2020.</td>
@@ -3313,7 +3390,7 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4146020832731192
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.41460208327311915
 </pre></div>
 </div>
 </div>
@@ -3336,7 +3413,7 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
 </div>
 </div>
 <div class="section" id="referencias">
-<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">¶</a></h2>
+<h2>Referencias<a class="headerlink" href="#referencias" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Romero-Aguilar, Randall (2017). <strong><a class="reference external" href="http://www.secmca.org/NOTAS_ECONOMICAS/articulo93NOV2017.pdf">Python para economistas</a></strong>. Nota Económica Regionales N0.93, diciembre. SECMCA.</p></li>
 </ul>
@@ -3365,9 +3442,11 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Python-08--Clases%20y%20objetos.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -3383,24 +3462,28 @@ country &amp;    CR &amp;    DO &amp;    SV &amp;    GT &amp;    HN &amp;    NI 
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Randall Romero Aguilar<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Randall Romero Aguilar<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -141,7 +141,7 @@ def Φ_ols(data):
     return VAR(data).fit().coefs[0].flatten()
 ```
 
-{badge}`La estimación OLS de un VAR es insesgada,badge-primary`
+{bdg-primary}`La estimación OLS de un VAR es insesgada`
 
 Con un experimento de Monte Carlo obtenemos 10000 muestras de $T=100$ observaciones del VAR. Para cada muestra estimamos el VAR y colectamos los coeficientes estimados.
 
@@ -167,7 +167,7 @@ for i in range(2):
 ```        
 
 
-{badge}`La estimación OLS de un VAR es consistente,badge-primary`
+{bdg-primary}`La estimación OLS de un VAR es consistente`
 
 Para ilustrar que la estimación OLS de un VAR es consistente, simulamos una sola muestra de datos y vamos agregando una nueva observación. En cada paso estimamos el VAR con OLS. Observe que conforme aumenta el número de observaciones, los valores estimados convergen a los parámetros poblacionales.
 

@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1.5. Series de tiempo &#8212; Apuntes de Macroeconometría</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +19,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,21 +37,22 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://randall-romero.github.io/econometria/teoria/01-intro/05-series-tiempo.html" />
     <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -78,7 +76,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,9 +99,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,14 +120,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-acerca.html">
-   Inicio
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../00-acerca.html">
+                    Inicio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acerca de este libro
  </span>
@@ -776,38 +790,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../apendices/r-code/chapter-r.html">
-   Código en R
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-transform.html">
-     Transformaciones con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-lags.html">
-     Rezagos con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-correlogram.html">
-     Correlogramas con R
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../apendices/matematica/matematica.html">
    Matemática
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -828,8 +815,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../apendices/estadistica/estadistica.html">
    Estadística y econometría
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -854,94 +841,199 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="http://randall-romero.com">randall-romero.com</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/teoria/01-intro/05-series-tiempo.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/teoria/01-intro/05-series-tiempo.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/01-intro/05-series-tiempo.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="http://randall-romero.com">randall-romero.com</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/01-intro/05-series-tiempo.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./teoria/01-intro/05-series-tiempo.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/teoria/01-intro/05-series-tiempo.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/teoria/01-intro/05-series-tiempo.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#definicion-de-serie-de-tiempo">
    Definición de serie de tiempo
@@ -999,12 +1091,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Series de tiempo</h1>
@@ -1078,7 +1169,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="math notranslate nohighlight">
@@ -1121,9 +1213,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="series-de-tiempo">
-<h1><span class="section-number">1.5. </span>Series de tiempo<a class="headerlink" href="#series-de-tiempo" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.5. </span>Series de tiempo<a class="headerlink" href="#series-de-tiempo" title="Permalink to this headline">#</a></h1>
 <div class="section" id="definicion-de-serie-de-tiempo">
-<h2>Definición de serie de tiempo<a class="headerlink" href="#definicion-de-serie-de-tiempo" title="Permalink to this headline">¶</a></h2>
+<h2>Definición de serie de tiempo<a class="headerlink" href="#definicion-de-serie-de-tiempo" title="Permalink to this headline">#</a></h2>
 <p>Una serie de tiempo es una colección de observaciones indexadas por la fecha de cada observación, denotada por <span class="math notranslate nohighlight">\(y_t\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -1137,31 +1229,30 @@ y_1, y_2, \dots, y_T
 <p>Así, vemos a una serie de tiempo como <strong>una realización</strong> del proceso estocástico <span class="math notranslate nohighlight">\(\{Y_t\}^\infty_{t=-\infty}\)</span>, de la cual solo tenemos observaciones para <span class="math notranslate nohighlight">\(t\)</span> entre 1 y <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </div>
 <div class="section" id="serie-de-tiempo-estacionaria">
-<h2>Serie de tiempo estacionaria<a class="headerlink" href="#serie-de-tiempo-estacionaria" title="Permalink to this headline">¶</a></h2>
+<h2>Serie de tiempo estacionaria<a class="headerlink" href="#serie-de-tiempo-estacionaria" title="Permalink to this headline">#</a></h2>
 <p>Una serie de tiempo estacionaria es una realización de un proceso estocástico estacionario.</p>
 <div class="figure align-default" id="id1">
 <img alt="../../_images/serie-estacionaria.png" src="../../_images/serie-estacionaria.png" />
-<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Una serie estacionaria</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Una serie estacionaria</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="serie-de-tiempo-no-estacionaria">
-<h2>Serie de tiempo no estacionaria<a class="headerlink" href="#serie-de-tiempo-no-estacionaria" title="Permalink to this headline">¶</a></h2>
+<h2>Serie de tiempo no estacionaria<a class="headerlink" href="#serie-de-tiempo-no-estacionaria" title="Permalink to this headline">#</a></h2>
 <p>Una serie de tiempo no estacionaria es una realización de un proceso estocástico no estacionario.</p>
 <div class="figure align-default" id="id2">
-<img alt="../../_images/serie-no-estacionaria1.png" src="../../_images/serie-no-estacionaria1.png" />
-<p class="caption"><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Una serie no estacionaria</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<img alt="../../_images/serie-no-estacionaria.png" src="../../_images/serie-no-estacionaria.png" />
+<p class="caption"><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Una serie no estacionaria</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="casos-particulares-de-series-de-tiempo">
-<h2>Casos particulares de series de tiempo<a class="headerlink" href="#casos-particulares-de-series-de-tiempo" title="Permalink to this headline">¶</a></h2>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Tendencia</p>
-</div>
-<div class="card-body docutils">
+<h2>Casos particulares de series de tiempo<a class="headerlink" href="#casos-particulares-de-series-de-tiempo" title="Permalink to this headline">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Tendencia</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 y_t = t
@@ -1169,12 +1260,11 @@ y_t = t
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Constante</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Constante</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 y_t = c
@@ -1182,12 +1272,11 @@ y_t = c
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Ruido blanco de Gauss</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Ruido blanco de Gauss</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.d., \epsilon_t\sim N(0,\sigma^2)
@@ -1199,7 +1288,7 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 <div class="section" id="infiriendo-los-momentos-del-proceso-estocastico">
-<h2>Infiriendo los momentos del proceso estocástico<a class="headerlink" href="#infiriendo-los-momentos-del-proceso-estocastico" title="Permalink to this headline">¶</a></h2>
+<h2>Infiriendo los momentos del proceso estocástico<a class="headerlink" href="#infiriendo-los-momentos-del-proceso-estocastico" title="Permalink to this headline">#</a></h2>
 <p>Suponga que tenemos un número grande <span class="math notranslate nohighlight">\(n\)</span> de realizaciones independientes del proceso estocástico <span class="math notranslate nohighlight">\(\{Y_t\}^T_{t=1}\)</span>, y que deseamos estimar el valor del momento no central <span class="math notranslate nohighlight">\(\mu'_{k,t} \equiv \E[Y^k_t]\)</span>. Utilizando <a class="reference internal" href="../../apendices/estadistica/01-estadistica.html#appendix-grandes-numeros"><span class="std std-ref">la ley de los grandes números</span></a>, podemos estimarlo así</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -1213,17 +1302,16 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </ol>
 </div>
 <div class="section" id="ergodicidad">
-<h2>Ergodicidad<a class="headerlink" href="#ergodicidad" title="Permalink to this headline">¶</a></h2>
+<h2>Ergodicidad<a class="headerlink" href="#ergodicidad" title="Permalink to this headline">#</a></h2>
 <p>En el caso de procesos estacionarios, el supuesto de <strong>ergodicidad</strong> significa que momentos muestrales calculados a partir de una serie de tiempo con un número finito de observaciones converge (en algún sentido) a sus contrapartes poblacionales.</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Ergódico en media</p>
-</div>
-<div class="card-body docutils">
-<p class="card-text">El proceso es ergódico en media si</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Ergódico en media</div>
+<p class="sd-card-text">El proceso es ergódico en media si</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \lim\limits_{T\to\infty}\E\left[\left(\tfrac{1}{T}\sum_{t=1}^{T}y_t - \mu \right)^2\right] = 0
@@ -1231,13 +1319,12 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Ergódico en varianza</p>
-</div>
-<div class="card-body docutils">
-<p class="card-text">El proceso es ergódico en varianza si</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Ergódico en varianza</div>
+<p class="sd-card-text">El proceso es ergódico en varianza si</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \lim\limits_{T\to\infty}\E\left[\left(\tfrac{1}{T}\sum_{t=1}^{T}(y_t - \mu)^2 - \sigma^2_y \right)^2\right] = 0
@@ -1249,7 +1336,7 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 <div class="section" id="algunas-apuntes-acerca-de-la-ergodicidad">
-<h2>Algunas apuntes acerca de la ergodicidad<a class="headerlink" href="#algunas-apuntes-acerca-de-la-ergodicidad" title="Permalink to this headline">¶</a></h2>
+<h2>Algunas apuntes acerca de la ergodicidad<a class="headerlink" href="#algunas-apuntes-acerca-de-la-ergodicidad" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Las condiciones de ergodicidad son “propiedades de consistencia” para variables aleatorias dependientes, y no pueden ser evaluadas. Por ello, deben ser asumidas.</p></li>
 <li><p>No podemos usar la ley de los grandes números para probar ergodicidad, porque las distribuciones de distintos momentos <span class="math notranslate nohighlight">\(t\)</span> pueden ser idénticas, pero en general no son independientes.</p></li>
@@ -1257,16 +1344,15 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </ul>
 </div>
 <div class="section" id="estimacion-de-momentos-de-un-proceso-estacionario">
-<h2>Estimación de  momentos de un proceso estacionario<a class="headerlink" href="#estimacion-de-momentos-de-un-proceso-estacionario" title="Permalink to this headline">¶</a></h2>
+<h2>Estimación de  momentos de un proceso estacionario<a class="headerlink" href="#estimacion-de-momentos-de-un-proceso-estacionario" title="Permalink to this headline">#</a></h2>
 <p>Si el proceso es ergódico, podemos estimar consistentemente:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Media</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Media</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \hat{\mu} = \frac{1}{T}\sum\limits_{t=1}^{T}y_t
@@ -1274,12 +1360,11 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Varianza</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Varianza</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \hat{\gamma}_0 = \frac{1}{T}\sum\limits_{t=1}^{T}(y_t - \hat{\mu})^2
@@ -1287,12 +1372,11 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Autocovarianza</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Autocovarianza</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \hat{\gamma}_\tau = \frac{1}{T}\sum\limits_{t=1}^{T-\tau}(y_t - \hat{\mu})(y_{t+\tau} - \hat{\mu})
@@ -1300,12 +1384,11 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Autocorrelación</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Autocorrelación</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \hat{\rho}_\tau = \frac{\hat{\gamma}_\tau}{\hat{\gamma}_0} \quad \text{para } \tau = 1, 2,\dots T-1.
@@ -1313,12 +1396,11 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Asimetría</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Asimetría</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \hat{S} = \frac{\frac{1}{T}\sum\limits_{t=1}^{T}(y_t - \hat{\mu})^3}{\sqrt{\hat{\gamma}_0^3}}
@@ -1326,12 +1408,11 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header bg-dark text-center text-white docutils">
-<p class="card-text">Kurtosis</p>
-</div>
-<div class="card-body docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Kurtosis</div>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \hat{K} = \frac{\frac{1}{T}\sum\limits_{t=1}^{T}(y_t - \hat{\mu})^4}{\hat{\gamma}_0^2}
@@ -1344,7 +1425,7 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 </div>
 <hr class="docutils" />
 <div class="section" id="autocorrelacion">
-<h2>Autocorrelación<a class="headerlink" href="#autocorrelacion" title="Permalink to this headline">¶</a></h2>
+<h2>Autocorrelación<a class="headerlink" href="#autocorrelacion" title="Permalink to this headline">#</a></h2>
 <p>Es imposible evaluar qué tan fuerte es la dependencia de variables de un proceso estocástico a partir de las autocovarianzas, porque éstas dependen de las unidades de medida de la serie. Por ello, utilizamos las <strong>autocorrelaciones</strong>, que se obtienen de dividir las autocovarinzas por la varianza del proceso.</p>
 <p>Si el proceso es estacionario se cumple que:</p>
 <ul class="simple">
@@ -1355,7 +1436,7 @@ y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.
 <p>LLamamos <strong>autocorrelograma</strong> a la secuencia de autocorrelaciones <span class="math notranslate nohighlight">\(\rho_\tau\)</span>, vista como función del número de rezagos <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
 </div>
 <div class="section" id="autocorrelacion-muestral">
-<h2>Autocorrelación muestral<a class="headerlink" href="#autocorrelacion-muestral" title="Permalink to this headline">¶</a></h2>
+<h2>Autocorrelación muestral<a class="headerlink" href="#autocorrelacion-muestral" title="Permalink to this headline">#</a></h2>
 <p>En la práctica, a partir de una muestra estimaremos la <strong>autocorrelación muestral</strong>.</p>
 <p>Como nuestra muestra es finita, los valores estimados no necesariamente coincidirán con los poblacionales. Por ello, nos interesa especialmente saber cuándo estas autocorrelaciones son significativamente distintas de cero.  Según Bartlett (1946), la varianza de los coeficientes de autocorrelación en los cuales <span class="math notranslate nohighlight">\(\rho_{k+1}, \rho_{k+2}, \dots = 0\)</span> está dada por</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1364,7 +1445,7 @@ V\left[\hat{\rho}(\tau)\right] \approx \frac{1}{T}\left(1+2\sum_{j=1}^k\rho(j)^2
 \end{equation*}\]</div>
 </div>
 <div class="section" id="autocorrelacion-parcial">
-<h2>Autocorrelación parcial<a class="headerlink" href="#autocorrelacion-parcial" title="Permalink to this headline">¶</a></h2>
+<h2>Autocorrelación parcial<a class="headerlink" href="#autocorrelacion-parcial" title="Permalink to this headline">#</a></h2>
 <!--  \nocite{Hamilton:1994  %Hamilton 1994, p.111-112 -->
 <p>La <span class="math notranslate nohighlight">\(m\)</span>-ésima autocorrelación parcial <span class="math notranslate nohighlight">\(\hat{a}_m^{(m)}\)</span> se estima por OLS como el último coeficiente de una regresión de <span class="math notranslate nohighlight">\(y\)</span> en una constante y sus <span class="math notranslate nohighlight">\(m\)</span> valores más recientes:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -1499,9 +1580,11 @@ y_t = c + \hat{a}_1^{(m)}y_{t-1} + \hat{a}_2^{(m)}y_{t-2} + \dots + \hat{a}_m^{(
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="04-procesos-estocasticos.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1517,24 +1600,28 @@ y_t = c + \hat{a}_1^{(m)}y_{t-1} + \hat{a}_2^{(m)}y_{t-2} + \dots + \hat{a}_m^{(
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Randall Romero Aguilar<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Randall Romero Aguilar<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

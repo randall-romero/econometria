@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Módulos &#8212; Apuntes de Macroeconometría</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +19,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,21 +37,22 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://randall-romero.github.io/econometria/apendices/py-intro/Python-07--Módulos.html" />
     <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -78,7 +76,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,9 +99,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,14 +120,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-acerca.html">
-   Inicio
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../00-acerca.html">
+                    Inicio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acerca de este libro
  </span>
@@ -776,38 +790,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../r-code/chapter-r.html">
-   Código en R
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-transform.html">
-     Transformaciones con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-lags.html">
-     Rezagos con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-correlogram.html">
-     Correlogramas con R
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../matematica/matematica.html">
    Matemática
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -828,8 +815,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../estadistica/estadistica.html">
    Estadística y econometría
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -854,96 +841,182 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="http://randall-romero.com">randall-romero.com</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/apendices/py-intro/Python-07--Módulos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./apendices/py-intro/Python-07--Módulos.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./apendices/py-intro/Python-07--Módulos.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="http://randall-romero.com">randall-romero.com</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./apendices/py-intro/Python-07--Módulos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./apendices/py-intro/Python-07--Módulos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/apendices/py-intro/Python-07--Módulos.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Módulos
@@ -1014,12 +1087,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Módulos</h1>
@@ -1106,14 +1178,15 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="modulos">
-<h1>Módulos<a class="headerlink" href="#modulos" title="Permalink to this headline">¶</a></h1>
+<h1>Módulos<a class="headerlink" href="#modulos" title="Permalink to this headline">#</a></h1>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="importando-modulos">
-<h1>Importando módulos<a class="headerlink" href="#importando-modulos" title="Permalink to this headline">¶</a></h1>
+<h1>Importando módulos<a class="headerlink" href="#importando-modulos" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>Las definiciones de funciones en Python en uno o más archivos separados para facilitar su manteniniento y para permitir usarlos en varios programas sin copiar las definiciones en cada uno.</p></li>
 <li><p>Cada archivo que almacenda definciones de funciones se llama “módulo” y el nombre del módulo es igual al del archivo pero sin la extensión “.py”.</p></li>
@@ -1122,7 +1195,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Las funciones importadas pueden usarse llamando su nombre como un “punto-sufijo” luego del nombre del módulo. Por ejemplo, una función <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> de un módulo importado <code class="docutils literal notranslate"><span class="pre">numpy</span></code> puede llamarse con <code class="docutils literal notranslate"><span class="pre">numpy.sqrt()</span></code></p></li>
 </ul>
 <div class="section" id="algunos-paquetes-modulos-muy-utiles">
-<h2>Algunos paquetes (módulos) muy útiles<a class="headerlink" href="#algunos-paquetes-modulos-muy-utiles" title="Permalink to this headline">¶</a></h2>
+<h2>Algunos paquetes (módulos) muy útiles<a class="headerlink" href="#algunos-paquetes-modulos-muy-utiles" title="Permalink to this headline">#</a></h2>
 <p>En nuestro curso, los siguientes paquetes (= colecciones de módulos) serán muy útiles</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> Paquete base para arreglos N-dimensional. Operaciones matemáticas, especialmente álgebra lineal</p></li>
@@ -1134,7 +1207,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">compecon</span></code> Para resolver modelos de economía computacional</p></li>
 </ul>
 <div class="section" id="algunos-ejemplos">
-<h3>Algunos ejemplos:<a class="headerlink" href="#algunos-ejemplos" title="Permalink to this headline">¶</a></h3>
+<h3>Algunos ejemplos:<a class="headerlink" href="#algunos-ejemplos" title="Permalink to this headline">#</a></h3>
 <p>Para importar <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1180,14 +1253,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="por-que-trabajar-con-modulos">
-<h2>¿Por qué trabajar con módulos?<a class="headerlink" href="#por-que-trabajar-con-modulos" title="Permalink to this headline">¶</a></h2>
+<h2>¿Por qué trabajar con módulos?<a class="headerlink" href="#por-que-trabajar-con-modulos" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>Una ventaja de organizar el código en módulos y paquetes es evitar desordenar el espacio de nombres.</p></li>
 <li><p>Los módulos permites tener funciones del mismo nombre en espacios de nombre separados, obligándonos a ser explícitos acerca de cuál es la que usamos.</p></li>
 </ul>
 <p>Por ejemplo, tanto <code class="docutils literal notranslate"><span class="pre">math</span></code> como <code class="docutils literal notranslate"><span class="pre">numpy</span></code> tienen una función <code class="docutils literal notranslate"><span class="pre">cos</span></code> para computar el coseno, pero su implementación es muy distinta.</p>
 <div class="section" id="con-numpy">
-<h3>Con <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:<a class="headerlink" href="#con-numpy" title="Permalink to this headline">¶</a></h3>
+<h3>Con <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:<a class="headerlink" href="#con-numpy" title="Permalink to this headline">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\pi\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1225,7 +1298,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="con-math">
-<h3>Con <code class="docutils literal notranslate"><span class="pre">math</span></code>:<a class="headerlink" href="#con-math" title="Permalink to this headline">¶</a></h3>
+<h3>Con <code class="docutils literal notranslate"><span class="pre">math</span></code>:<a class="headerlink" href="#con-math" title="Permalink to this headline">#</a></h3>
 <p>Esta celda da un  error, porque la función <code class="docutils literal notranslate"><span class="pre">math.cos</span></code> fue definida para calcular el coseno de un único número, no de una lista de números a la vez (como sí lo hace la función <code class="docutils literal notranslate"><span class="pre">np.cos</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1241,7 +1314,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_1036</span><span class="o">/</span><span class="mf">1563810609.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">math</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">]))</span>
@@ -1254,7 +1327,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="iteracion-mas-rapida">
-<h2>Iteración más rápida<a class="headerlink" href="#iteracion-mas-rapida" title="Permalink to this headline">¶</a></h2>
+<h2>Iteración más rápida<a class="headerlink" href="#iteracion-mas-rapida" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nrep</span> <span class="o">=</span> <span class="mi">12_000</span>
@@ -1322,7 +1395,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="ejemplo-de-modulo-trabajando-con-decimales">
-<h2>Ejemplo de módulo: Trabajando con decimales<a class="headerlink" href="#ejemplo-de-modulo-trabajando-con-decimales" title="Permalink to this headline">¶</a></h2>
+<h2>Ejemplo de módulo: Trabajando con decimales<a class="headerlink" href="#ejemplo-de-modulo-trabajando-con-decimales" title="Permalink to this headline">#</a></h2>
 <p>Los programas de cómputo que ejecutan aritmética con números de punto flotante pueden producir resultados inesperados e imprecisos porque los números de punto flotante no pueden representar adecuadamente todos los número decimales.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1402,7 +1475,7 @@ total = 1.43500000000000000000
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="creando-un-modulo">
-<h1>Creando un módulo<a class="headerlink" href="#creando-un-modulo" title="Permalink to this headline">¶</a></h1>
+<h1>Creando un módulo<a class="headerlink" href="#creando-un-modulo" title="Permalink to this headline">#</a></h1>
 <p>Los módulo son muy convenientes para almacenar funciones relacionadas en un solo archivo, de manera que podamos mantener el orden en nuestro proyecto y además reutilizar esas funciones en distintos lugares.</p>
 <p>Por ejemplo, archivo <strong>módulo_sencillo.py</strong> que está en la misma carpeta que este cuaderno de Jupyter contiene una función llamada <code class="docutils literal notranslate"><span class="pre">hola</span></code>, con la saludamos. Además, hay una variable “string” llamada <code class="docutils literal notranslate"><span class="pre">fecha</span></code>, donde guardé la fecha en que hice este módulo.</p>
 <div class="cell docutils container">
@@ -1523,9 +1596,11 @@ No hago más que saludar
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Python-06--Funciones.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1541,24 +1616,28 @@ No hago más que saludar
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Randall Romero Aguilar<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Randall Romero Aguilar<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

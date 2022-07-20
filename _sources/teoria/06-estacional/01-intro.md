@@ -52,7 +52,7 @@ mesescorto = [x[:3] for x in meses]
 meses2 = {mes: i for i, mes in enumerate(meses, start=1)}
 
 # Leer y limpiar datos
-FILENAME = "datos/Datos-ARESEP-Pasajeros-por-aeropuerto.csv"
+FILENAME = "../../data//Datos-ARESEP-Pasajeros-por-aeropuerto.csv"
 SJO = pd.read_csv(FILENAME)
 SJO.query('Aeropuerto =="Aeropuerto Internacional Juan Santamaría"', inplace=True)
 SJO.replace(meses2, None,inplace=True)

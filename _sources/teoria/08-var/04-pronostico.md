@@ -172,7 +172,7 @@ ax.set(title='Desempleo, inflación y tasa de política monetaria',
        ylabel='puntos porcentuales');
 ```
 
-{badge}`Escogiendo número de rezagos,badge-primary`
+{bdg-primary}`Escogiendo número de rezagos`
 
 El primer paso es escoger el número de rezagos $p$ del VAR:
 ```{code-cell} ipython3
@@ -183,7 +183,7 @@ model.select_order(4).summary()
 
 En este ejemplo escogeremos un solo rezago, en parte porque tenemos una muestra muy pequeña.
 
-{badge}`Estimando el VAR,badge-primary`
+{bdg-primary}`Estimando el VAR`
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
@@ -191,7 +191,7 @@ res = model.fit(maxlags=1)
 res.summary()
 ```
 
-{badge}`Causalidad de Granger,badge-primary`
+{bdg-primary}`Causalidad de Granger`
 
 Al parecer, ninguna variable del sistema causa a otra en el sentido de Granger.
 
@@ -212,7 +212,7 @@ granger.round(3)
 Esto no necesariamente implica que no haya relación de causalidad entre las variables: podría haber causalidad contemporánea.
 
 
-{badge}`Funciones de impulso-respuesta con impulsos unitarios,badge-primary`
+{bdg-primary}`Funciones de impulso-respuesta con impulsos unitarios`
 
 Funciones de impulso respuesta, con impulsos unitarios.
 ```{code-cell} ipython3
@@ -220,7 +220,7 @@ Funciones de impulso respuesta, con impulsos unitarios.
 res.irf(10).plot(subplot_params={'figsize':[12,4]});
 ```
 
-{badge}`Funciones de impulso-respuesta con impulsos ortogonales,badge-primary`
+{bdg-primary}`Funciones de impulso-respuesta con impulsos ortogonales`
 
 El resultado depende del ordenamiento de las variables en el sistema (Choleski).
 
@@ -264,7 +264,7 @@ axs2[1].set(title='Impulso en la inflación',
           xticks=np.arange(0,21,4));
 ```
 
-{badge}`Pronosticando con el VAR,badge-primary`
+{bdg-primary}`Pronosticando con el VAR`
 
 En un VAR estacionario, los pronósticos siempre convergen a la media de largo plazo de cada variable:
 \begin{equation*}
@@ -288,7 +288,7 @@ El valor de $\mu$ no coincide necesariamente con el promedio simple de los datos
 pd.DataFrame({'𝜇':𝜇, 'Promedio datos': datos.mean()})  
 ```
 
-{badge}`Descomposición de la varianza de pronóstico,badge-primary`
+{bdg-primary}`Descomposición de la varianza de pronóstico`
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]

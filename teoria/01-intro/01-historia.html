@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1.1. Una breve historia &#8212; Apuntes de Macroeconometría</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +19,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,21 +37,22 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://randall-romero.github.io/econometria/teoria/01-intro/01-historia.html" />
     <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -78,7 +76,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,9 +99,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,14 +120,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-acerca.html">
-   Inicio
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../00-acerca.html">
+                    Inicio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acerca de este libro
  </span>
@@ -776,38 +790,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../apendices/r-code/chapter-r.html">
-   Código en R
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-transform.html">
-     Transformaciones con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-lags.html">
-     Rezagos con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-correlogram.html">
-     Correlogramas con R
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../apendices/matematica/matematica.html">
    Matemática
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -828,8 +815,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../apendices/estadistica/estadistica.html">
    Estadística y econometría
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -854,96 +841,199 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="http://randall-romero.com">randall-romero.com</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/teoria/01-intro/01-historia.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/01-intro/01-historia.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./teoria/01-intro/01-historia.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="http://randall-romero.com">randall-romero.com</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/01-intro/01-historia.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./teoria/01-intro/01-historia.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/teoria/01-intro/01-historia.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/teoria/01-intro/01-historia.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#para-que-estudiar-series-de-tiempo">
    ¿Para qué estudiar series de tiempo?
@@ -996,12 +1086,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Una breve historia</h1>
@@ -1070,12 +1159,11 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="una-breve-historia">
-<h1><span class="section-number">1.1. </span>Una breve historia<a class="headerlink" href="#una-breve-historia" title="Permalink to this headline">¶</a></h1>
-<div class="math notranslate nohighlight">
+  <div class="math notranslate nohighlight">
 \[ \begin{align}\begin{aligned}\require{color}
 \newcommand{\alert}[1]{{\color{RedOrange} #1}}
 \newcommand{\notation}[2]{\underset{\color{MidnightBlue}\text{#2}}{#1}}
@@ -1102,14 +1190,11 @@ const thebe_selector_output = ".output, .cell_output"
 \newcommand{\estimate}[2]{\underset{(#2)}{#1}}
 \DeclareMathOperator{\plim}{plim}
 \newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}\end{split}\end{aligned}\end{align} \]</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="una-breve-historia">
+<h1><span class="section-number">1.1. </span>Una breve historia<a class="headerlink" href="#una-breve-historia" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">bccr</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="o">!</span>pip install bccr
-
-<span class="kn">from</span> <span class="nn">bccr</span> <span class="kn">import</span> <span class="n">SW</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bccr</span> <span class="kn">import</span> <span class="n">SW</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1121,7 +1206,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="para-que-estudiar-series-de-tiempo">
-<h2>¿Para qué estudiar series de tiempo?<a class="headerlink" href="#para-que-estudiar-series-de-tiempo" title="Permalink to this headline">¶</a></h2>
+<h2>¿Para qué estudiar series de tiempo?<a class="headerlink" href="#para-que-estudiar-series-de-tiempo" title="Permalink to this headline">#</a></h2>
 <p>El análisis de series de tiempo ayuda a detectar <strong>regularidades</strong> en las observaciones de una variable y derivar <strong>leyes</strong> a partir de ellas, o bien para explotar toda la información incluida en la variable para <strong>predecir</strong> mejor el futuro.</p>
 <p>El análisis de series de tiempo ha tenido un papel importante en la ciencia desde la antigüedad.</p>
 <ul class="simple">
@@ -1130,12 +1215,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <div class="section" id="inicios-1900s-evgenij-e-slutzky-y-george-udny-yule">
-<h2>Inicios 1900s -&gt;  Evgenij E. Slutzky y George Udny Yule<a class="headerlink" href="#inicios-1900s-evgenij-e-slutzky-y-george-udny-yule" title="Permalink to this headline">¶</a></h2>
+<h2>Inicios 1900s -&gt;  Evgenij E. Slutzky y George Udny Yule<a class="headerlink" href="#inicios-1900s-evgenij-e-slutzky-y-george-udny-yule" title="Permalink to this headline">#</a></h2>
 <p>A inicios del siglo XX, Slutzky y Yule mostraron que series de tiempo con propiedades similares a series económicas pueden generarse como  sumas o restas (simples o ponderadas) de procesos puramente aleatorios.</p>
 <p>Desarrollaron los procesos de media móvil y autorregresivos como modelos para representar series de tiempo.</p>
 </div>
 <div class="section" id="warren-m-persons">
-<h2>1919 -&gt; Warren M. Persons<a class="headerlink" href="#warren-m-persons" title="Permalink to this headline">¶</a></h2>
+<h2>1919 -&gt; Warren M. Persons<a class="headerlink" href="#warren-m-persons" title="Permalink to this headline">#</a></h2>
 <p>En 1919 Persons propuso la descomposición de una serie de tiempo en componentes no observables que dependen de causas distintas. Los componentes son:</p>
 <ul class="simple">
 <li><p>un movimiento de largo plazo, la <strong>tendencia</strong>,</p></li>
@@ -1143,32 +1228,39 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>un componente que contiene los aumentos y disminuciones dentro del año, el ciclo <strong>estacional</strong>,</p></li>
 <li><p>un componente que contiene todos los movimientos no atribuibles a los demás componentes, el residual o <strong>componente irregular</strong>.</p></li>
 </ul>
-<table>
-    <tr>
-        <th><div class="alert alert-success">Aditiva</div></th>
-        <th>&emsp;</th>
-        <th><div class="alert alert-success">Multiplicativa</div></th>
-    </tr>
-    <tr>
-        <td>
-            \begin{equation*}
-            Y_t = T_t + C_t + S_t + I_t
-            \end{equation*}
-        </td>
-        <td></td>
-        <td>
-            \begin{equation*}
-            Y_t = T_t \times C_t \times S_t \times I_t
-            \end{equation*}
-        </td>
-    </tr>
-</table>    
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Aditiva</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Y_t = T_t + C_t + S_t + I_t
+\end{equation*}\]</div>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Multiplicativa</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Y_t = T_t \times C_t \times S_t \times I_t
+\end{equation*}\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="ejemplo">
 <div class="ejemplo-titulo">Ejemplo 1.1: Componentes del IMAE</div>
 En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imaes</span> <span class="o">=</span> <span class="n">SW</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="s1">&#39;IMAE serie original&#39;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">Unidad</span><span class="o">=</span><span class="s1">&#39;Nivel&#39;</span><span class="p">)</span>
-<span class="n">imaes</span><span class="p">[</span><span class="n">imaes</span><span class="o">.</span><span class="n">descripcion</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;IMAE&#39;</span><span class="p">)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SW</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="s1">&#39;IMAE serie original&#39;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">Unidad</span><span class="o">=</span><span class="s1">&#39;Nivel&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1284,6 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class=
     <tr style="text-align: right;">
       <th></th>
       <th>DESCRIPCION</th>
-      <th>descripcion</th>
       <th>Unidad</th>
       <th>Medida</th>
       <th>periodo</th>
@@ -1203,48 +1294,42 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class=
       <th></th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>913</th>
-      <td>Node('/BCCR/Sector Real/IMAE con IEAT, Serie Original [913]')</td>
-      <td>Indice Mensual de Actividad Económica (IMAE) con la Industria Electronica de Alta Tecnologia (IEAT). Serie Original</td>
+      <td>Sector Real/Indice Mensual Actividad Económica (IMAE) [3669]/IMAE con IEAT, Serie Original [913]'</td>
       <td>Nivel</td>
       <td>NO DEFINIDO</td>
       <td>Mensual</td>
     </tr>
     <tr>
       <th>915</th>
-      <td>Node('/BCCR/Sector Real/IMAE sin IEAT, Serie Original [915]')</td>
-      <td>Índice Mensual de Actividad Económica (IMAE) sin la Industria Electrónica de Alta Tecnología (IEAT). Serie Original</td>
+      <td>Sector Real/Indice Mensual Actividad Económica (IMAE) [3669]/IMAE sin IEAT, Serie Original [915]'</td>
       <td>Nivel</td>
       <td>NO DEFINIDO</td>
       <td>Mensual</td>
     </tr>
     <tr>
       <th>22967</th>
-      <td>Node('/BCCR/Sector Real/IMAE sin Zona Franca Serie Original [22967]')</td>
-      <td>IMAE sin Zona Franca Serie Original</td>
-      <td>Nivel</td>
-      <td>NO DEFINIDO</td>
-      <td>Mensual</td>
-    </tr>
-    <tr>
-      <th>22970</th>
-      <td>Node('/BCCR/Sector Real/IMAE sin Zona Franca Serie Tendencia Ciclo [22970]')</td>
-      <td>IMAE sin Zona Franca Serie Original</td>
+      <td>Sector Real/IMAE sin Zona Franca [22966]/IMAE sin Zona Franca Serie Original [22967]'</td>
       <td>Nivel</td>
       <td>NO DEFINIDO</td>
       <td>Mensual</td>
     </tr>
     <tr>
       <th>35449</th>
-      <td>Node('/BCCR/Sector Real/IMAE , Serie Original [35449]')</td>
-      <td>IMAE , Serie Original</td>
+      <td>Sector Real/Indice Mensual Actividad Económica (IMAE) [35445]/Indice Mensual Actividad Económica (IMAE) [35446]/IMAE...</td>
       <td>Nivel</td>
       <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>87703</th>
+      <td>Sector Real/Indice Mensual Actividad Económica (IMAE) [87701]/Indice Mensual Actividad Económica (IMAE) [87702]/IMAE...</td>
+      <td>Nivel</td>
+      <td>NaN</td>
       <td>Mensual</td>
     </tr>
   </tbody>
@@ -1263,7 +1348,7 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class=
 </div>
 </div>
 <p>Descomposición aditiva y multiplicativa del IMAE de Costa Rica</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">descomponer</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -1305,28 +1390,45 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class=
 </div>
 </div>
 <div class="section" id="enfoques-clasico-vs-moderno-de-descomposicion-de-series">
-<h2>Enfoques clásico vs moderno de descomposición de series<a class="headerlink" href="#enfoques-clasico-vs-moderno-de-descomposicion-de-series" title="Permalink to this headline">¶</a></h2>
+<h2>Enfoques clásico vs moderno de descomposición de series<a class="headerlink" href="#enfoques-clasico-vs-moderno-de-descomposicion-de-series" title="Permalink to this headline">#</a></h2>
 <p>Como los componentes <strong>no son observables</strong>, es necesario hacer supuestos acerca de su naturaleza para estudiar el proceso generador de la serie.</p>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-5 border border-3 border-success p-0">
-      <h3 class="alert alert-success">Enfoque clásico</h3>
-      \begin{equation*}Y_t = \underbrace{T_t + C_t + S_t}_{\text{determinísticos}}+\underbrace{I_t}_{\text{estocástico}}\end{equation*}
-      <p  class="p-2">Los componentes sistemáticos son funciones <strong>determinísticas</strong> del tiempo, el componente residual es estocástico pero <strong>no contiene movimientos sistemáticos</strong>.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;/div&gt;
-  &lt;div class=&quot;col-sm-1&quot;&gt; &lt;/div&gt;
-&lt;div class=&quot;col-sm-5 border border-3 border-success p-0&quot;&gt;
-  &lt;h3 class=&quot;alert alert-success&quot;&gt;Enfoque clásico&lt;/h3&gt;
-    \begin{equation*}Y_t = \underbrace{T_t + C_t + S_t + I_t}_{\text{estocásticos}}\end{equation*}
-  &lt;p class=&quot;p-2&quot;&gt;La “ley de movimiento” de la serie es vista como un &lt;strong&gt;proceso estocástico&lt;/strong&gt;, y los datos de la serie como &lt;strong&gt;una realización&lt;/strong&gt; del proceso generador de datos.&lt;/p&gt;
-&lt;/div&gt;
-</pre></div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Enfoque clásico</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Y_t = \underbrace{T_t + C_t + S_t}_{\text{determinísticos}}  + \underbrace{I_t}_{\text{estocástico}}
+\end{equation*}\]</div>
 </div>
-  </div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">Los componentes sistemáticos son funciones <strong>determinísticas</strong> del tiempo, el componente residual es estocástico pero <strong>no contiene movimientos sistemáticos</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Enfoque moderno</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+Y_t = \underbrace{T_t + C_t + S_t + I_t}_{\text{estocásticos}}
+\end{equation*}\]</div>
+</div>
+<div class="sd-card-footer docutils">
+<p class="sd-card-text">La “ley de movimiento” de la serie es vista como un <strong>proceso estocástico</strong>, y los datos de la serie como <strong>una realización</strong> del proceso generador de datos.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="s-jan-tinbergen">
-<h2>1930s -&gt; Jan Tinbergen<a class="headerlink" href="#s-jan-tinbergen" title="Permalink to this headline">¶</a></h2>
+<h2>1930s -&gt; Jan Tinbergen<a class="headerlink" href="#s-jan-tinbergen" title="Permalink to this headline">#</a></h2>
 <p>En 1936, Tinbergen construyó el primer modelo econométrico: un modelo macroeconométrico de la economía holandesa, empezando así el desarrollo de la econometría aplicada.</p>
 <p>En 1939, presentó su metodología para el análisis estadístico de teorías de ciclo económico, así como un modelo macroeconométrico de Estados Unidos.</p>
 <p>Sus métodos fueron controversiales:</p>
@@ -1336,34 +1438,34 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class=
 </div></blockquote>
 </div>
 <div class="section" id="herman-wold">
-<h2>1938 -&gt; Herman Wold<a class="headerlink" href="#herman-wold" title="Permalink to this headline">¶</a></h2>
+<h2>1938 -&gt; Herman Wold<a class="headerlink" href="#herman-wold" title="Permalink to this headline">#</a></h2>
 <p>Wold sistematizó y generalizó el trabajo de Slutzky y Yule.</p>
 <p>Demostró que para proceso covarianza-estacionario, puramente no-determinístico, existe una descomposición de la serie como combinación lineal de una serie de variables aleatorias no correlacionadas con media cero y varianza constante.</p>
 </div>
 <div class="section" id="donald-cochrane-y-guy-h-orcutt">
-<h2>1949 -&gt; Donald Cochrane y Guy H. Orcutt<a class="headerlink" href="#donald-cochrane-y-guy-h-orcutt" title="Permalink to this headline">¶</a></h2>
+<h2>1949 -&gt; Donald Cochrane y Guy H. Orcutt<a class="headerlink" href="#donald-cochrane-y-guy-h-orcutt" title="Permalink to this headline">#</a></h2>
 <p>Tinbergen utilizó los supuestos del modelo clásico de regresión lineal, sin prestar atención a la dependencia cronológica de los residuos.</p>
 <p>En 1949 Cochrane y Orcutt notaron que esta práctica era problemática.</p>
 <p>Demostraron que si los residuos de una regresión están positivamente correlacionados, entonces la varianza de los parámetros de regresión está subestimada y los estadísticos t y F sobrestimados.</p>
 <p>El problema se podía resolver transformando los datos adecuadamente.</p>
 </div>
 <div class="section" id="james-durbin-y-geoffrey-s-watson">
-<h2>1950 -&gt; James Durbin y Geoffrey S. Watson<a class="headerlink" href="#james-durbin-y-geoffrey-s-watson" title="Permalink to this headline">¶</a></h2>
+<h2>1950 -&gt; James Durbin y Geoffrey S. Watson<a class="headerlink" href="#james-durbin-y-geoffrey-s-watson" title="Permalink to this headline">#</a></h2>
 <p>En 1950/51 Durbin y Watson desarrollaron un test para identificar autocorrelación de primer orden en los residuos.</p>
 </div>
 <div class="section" id="george-e-p-box-y-gwilym-m-jenkins">
-<h2>1970 -&gt; George E.P. Box y Gwilym M. Jenkins<a class="headerlink" href="#george-e-p-box-y-gwilym-m-jenkins" title="Permalink to this headline">¶</a></h2>
+<h2>1970 -&gt; George E.P. Box y Gwilym M. Jenkins<a class="headerlink" href="#george-e-p-box-y-gwilym-m-jenkins" title="Permalink to this headline">#</a></h2>
 <p>En 1970 Box y Jenkins publican un libro de texto de análisis de series de tiempo.</p>
 <p>Introducen modelos univariados para series de tiempo, que usan sistemáticamente la información contenida en los valores de la serie.</p>
 <p>Manera sencilla de producir pronósticos.</p>
 <p>Hoy en día conocida como <strong>metodología Box-Jenkins</strong>.</p>
 <div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="../../_images/box-jenkins.png"><img alt="../../_images/box-jenkins.png" src="../../_images/box-jenkins.png" style="width: 462.15000000000003px; height: 336.15000000000003px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">La metología Box-Jenkins</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">La metología Box-Jenkins</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </div>
 </div>
 <div class="section" id="clive-w-j-granger-y-paul-newbold">
-<h2>1975 -&gt; Clive W.J. Granger y Paul Newbold<a class="headerlink" href="#clive-w-j-granger-y-paul-newbold" title="Permalink to this headline">¶</a></h2>
+<h2>1975 -&gt; Clive W.J. Granger y Paul Newbold<a class="headerlink" href="#clive-w-j-granger-y-paul-newbold" title="Permalink to this headline">#</a></h2>
 <p>En 1975 Granger y Newbold mostraron que los pronósticos sencillos de métodos univariados a menudo eran mejores que los pronósticos basados en modelos econométricos grandes (cientos de ecuaciones).</p>
 <p>Esto impulsó la enorme popularidad de la metodología Box-Jenkins.</p>
 </div>
@@ -1391,9 +1493,11 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class=
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="chapter01.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1409,24 +1513,28 @@ En el siguiente ejemplo vemos los componentes del IMAE de Costa Rica.<div class=
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Randall Romero Aguilar<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Randall Romero Aguilar<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

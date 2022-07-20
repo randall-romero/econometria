@@ -25,7 +25,6 @@ substitutions:
 import bccr
 import numpy as np
 import pandas as pd
-pd.options.plotting.backend = "plotly"
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 
@@ -222,7 +221,6 @@ partiendo de $y_{-1}=0$ y asuminedo $\epsilon \sim N(0,1)$.
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 plt.style.use('seaborn-dark')
-pd.options.plotting.backend = "matplotlib"
 
 np.random.seed(2021)
 
@@ -289,7 +287,6 @@ Sabemos que añadir un componente determinístico a una variable aleatoria cambi
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-pd.options.plotting.backend = "plotly"
 def rw_rho(t, smax=20):
     """
     Calcula las primera autocorrelaciones de una serie con raiz unitaria
@@ -298,13 +295,9 @@ def rw_rho(t, smax=20):
 
 rw_rho_data = pd.DataFrame({f't={t}':rw_rho(t) for t in [20,40,60,80]})
 
-rw_rho_data.plot().update_layout(
-    title="Autocorrelaciones",
-    xaxis_title="Rezagos",
-    yaxis_title=r"$\rho$",
-)
-
-
+fig, ax = plt.subplots()
+rw_rho_data.plot(ax=ax)
+ax.set(ylim=[0,1], xticks=np.arange(0,21,4), xlabel='rezagos', title='Autocorrelaciones');
 ```
 
 
@@ -318,7 +311,6 @@ partiendo de $y_{-1}=0$ y asuminedo $\epsilon \sim N(0,1)$.
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-pd.options.plotting.backend = "matplotlib"
 a = 0.5 # deriva
 y = (𝜖+a).cumsum(axis=0)  # caminatas aleatorias con deriva
 
@@ -384,7 +376,6 @@ En general, si una serie $z_t$ debe ser diferenciada $d$ veces para obtener una 
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-pd.options.plotting.backend = "plotly"
 pib = bccr.SW(PIB=33783)
 pib['lPIB'] = np.log(pib['PIB'])
 

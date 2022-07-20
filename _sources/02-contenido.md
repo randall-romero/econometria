@@ -35,12 +35,43 @@ substitutions:
 
 Para facilitar la explicación de pruebas estadísticas, estas se presentarán en este formato
 
+
 {{ empieza_test }} NOMBRE DE LA PRUEBA/TEST {{ fin_titulo_test }}
-{{ test_inquietud }} ¿Qué pregunta buscamos responder con este test?
-{{ test_hipotesis }} ¿Cuál es la hipótesis nula del test? Es decir, ¿qué afirma el test en términos de parámetros, que sea conducente a responder la interrogante planteada anteriormente?
-{{ test_estadistico }} ¿Cómo se calcula el estadístico del test? En general, en un test se calcula un estadístico y se determina su distribución.
-{{ test_interpretacion }} ¿Cómo interpreto el estadístico? Es decir, ¿cuándo debo rechazar la hipótesis nula?
+::::{grid} 
+:gutter: 1
+
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Qué pregunta buscamos responder con este test?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
+¿Cuál es la hipótesis nula del test? Es decir, ¿qué afirma el test en términos de parámetros, que sea conducente a responder la interrogante planteada anteriormente?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`calculator;test-simbolo`
+¿Cómo se calcula el estadístico del test? En general, en un test se calcula un estadístico y se determina su distribución.
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 4
+{fas}`lightbulb;test-simbolo` 
+¿Cómo interpreto el estadístico? Es decir, ¿cuándo debo rechazar la hipótesis nula?
+:::
+::::
 {{ termina_test }}
+
+
+
 
 ## Ejemplos
 Por su parte, los ejemplos se presentan así

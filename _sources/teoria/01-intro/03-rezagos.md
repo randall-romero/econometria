@@ -79,7 +79,7 @@ Algunas de las transformaciones de la serie $y_t$ de la sección anterior pueden
 El archivo `data/LandD.csv` tiene los siguientes datos ficticios
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-datos = pd.read_csv('data/LandD.csv', index_col=0, parse_dates=True)
+datos = pd.read_csv('../../data/LandD.csv', index_col=0, parse_dates=True)
 y = datos['y']
 datos
 ```

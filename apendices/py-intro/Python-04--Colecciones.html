@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Colecciones &#8212; Apuntes de Macroeconometría</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +19,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,19 +37,20 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="canonical" href="https://randall-romero.github.io/econometria/apendices/py-intro/Python-04--Colecciones.html" />
     <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -76,7 +74,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -85,9 +97,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -105,14 +118,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-acerca.html">
-   Inicio
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../00-acerca.html">
+                    Inicio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acerca de este libro
  </span>
@@ -774,38 +788,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../r-code/chapter-r.html">
-   Código en R
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-transform.html">
-     Transformaciones con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-lags.html">
-     Rezagos con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../r-code/R-correlogram.html">
-     Correlogramas con R
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../matematica/matematica.html">
    Matemática
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -826,8 +813,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../estadistica/estadistica.html">
    Estadística y econometría
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -852,96 +839,182 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="http://randall-romero.com">randall-romero.com</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/apendices/py-intro/Python-04--Colecciones.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./apendices/py-intro/Python-04--Colecciones.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./apendices/py-intro/Python-04--Colecciones.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="http://randall-romero.com">randall-romero.com</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./apendices/py-intro/Python-04--Colecciones.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./apendices/py-intro/Python-04--Colecciones.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/apendices/py-intro/Python-04--Colecciones.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Colecciones
@@ -1318,12 +1391,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Colecciones</h1>
@@ -1716,13 +1788,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="colecciones">
-<h1>Colecciones<a class="headerlink" href="#colecciones" title="Permalink to this headline">¶</a></h1>
+<h1>Colecciones<a class="headerlink" href="#colecciones" title="Permalink to this headline">#</a></h1>
 <div class="section" id="tipos-de-colecciones">
-<h2>Tipos de colecciones<a class="headerlink" href="#tipos-de-colecciones" title="Permalink to this headline">¶</a></h2>
+<h2>Tipos de colecciones<a class="headerlink" href="#tipos-de-colecciones" title="Permalink to this headline">#</a></h2>
 <p>Los tipos de colecciones más utilizados son</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">list</span></code> una lista ordenada y mutable de valores</p></li>
@@ -1766,9 +1839,9 @@ x al cuadrado es x**2 = 16
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="listas">
-<h1>Listas<a class="headerlink" href="#listas" title="Permalink to this headline">¶</a></h1>
+<h1>Listas<a class="headerlink" href="#listas" title="Permalink to this headline">#</a></h1>
 <div class="section" id="haciendo-listas">
-<h2>Haciendo listas<a class="headerlink" href="#haciendo-listas" title="Permalink to this headline">¶</a></h2>
+<h2>Haciendo listas<a class="headerlink" href="#haciendo-listas" title="Permalink to this headline">#</a></h2>
 <p>Para hacer una lista, enumeramos sus elemento entre un par de <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1805,7 +1878,7 @@ x al cuadrado es x**2 = 16
 </div>
 </div>
 <div class="section" id="para-obtener-los-elementos-de-la-lista">
-<h3>Para obtener los elementos de la lista:<a class="headerlink" href="#para-obtener-los-elementos-de-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3>Para obtener los elementos de la lista:<a class="headerlink" href="#para-obtener-los-elementos-de-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seasons</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -1832,7 +1905,7 @@ x al cuadrado es x**2 = 16
 </div>
 </div>
 <div class="section" id="para-modificar-los-elementos-de-la-lista">
-<h3>Para modificar los elementos de la lista:<a class="headerlink" href="#para-modificar-los-elementos-de-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3>Para modificar los elementos de la lista:<a class="headerlink" href="#para-modificar-los-elementos-de-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seasons</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Fall&#39;</span>
@@ -1849,7 +1922,7 @@ x al cuadrado es x**2 = 16
 </div>
 </div>
 <div class="section" id="slicing">
-<h2><em>Slicing</em><a class="headerlink" href="#slicing" title="Permalink to this headline">¶</a></h2>
+<h2><em>Slicing</em><a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h2>
 <p>Definamos la siguiente lista, con números de la secuencia de Fibonacci:</p>
 <p><img alt="fibonacci" src="../../_images/fibonacci.png" /></p>
 <div class="cell docutils container">
@@ -2022,9 +2095,9 @@ x al cuadrado es x**2 = 16
 </div>
 </div>
 <div class="section" id="copiando-una-lista">
-<h2>Copiando una lista<a class="headerlink" href="#copiando-una-lista" title="Permalink to this headline">¶</a></h2>
+<h2>Copiando una lista<a class="headerlink" href="#copiando-una-lista" title="Permalink to this headline">#</a></h2>
 <div class="section" id="nueva-lista-vieja-lista-hace-una-variable-nueva-que-apunta-a-la-misma-lista-que-la-lista-anterior">
-<h3><code class="docutils literal notranslate"><span class="pre">nueva_lista</span> <span class="pre">=</span> <span class="pre">vieja_lista</span></code> hace una variable nueva que apunta a la <strong>misma</strong> lista que la lista anterior:<a class="headerlink" href="#nueva-lista-vieja-lista-hace-una-variable-nueva-que-apunta-a-la-misma-lista-que-la-lista-anterior" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">nueva_lista</span> <span class="pre">=</span> <span class="pre">vieja_lista</span></code> hace una variable nueva que apunta a la <strong>misma</strong> lista que la lista anterior:<a class="headerlink" href="#nueva-lista-vieja-lista-hace-una-variable-nueva-que-apunta-a-la-misma-lista-que-la-lista-anterior" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">otralista</span> <span class="o">=</span> <span class="n">fibonacci</span>
@@ -2067,8 +2140,8 @@ fibonacci=[99999, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id(otralista)=2236539461504 
-id(fibonacci)=2236539461504
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id(otralista)=1956269564288 
+id(fibonacci)=1956269564288
 </pre></div>
 </div>
 </div>
@@ -2088,7 +2161,7 @@ id(fibonacci)=2236539461504
 </div>
 </div>
 <div class="section" id="nueva-lista-vieja-lista-copy-hace-una-copia-independiente-de-la-original">
-<h3><code class="docutils literal notranslate"><span class="pre">nueva_lista</span> <span class="pre">=</span> <span class="pre">vieja_lista.copy()</span></code> hace una copia <em>independiente</em> de la original:<a class="headerlink" href="#nueva-lista-vieja-lista-copy-hace-una-copia-independiente-de-la-original" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">nueva_lista</span> <span class="pre">=</span> <span class="pre">vieja_lista.copy()</span></code> hace una copia <em>independiente</em> de la original:<a class="headerlink" href="#nueva-lista-vieja-lista-copy-hace-una-copia-independiente-de-la-original" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
@@ -2106,9 +2179,9 @@ id(fibonacci)=2236539461504
 fibonacci=[1, 1, 2, 3, 5, 8, 13, 21, 34, 55] 
 copialista=[1, 1, 2, 3, 5, 8, 13, 21, 34, 999999]
 
-id(otralista)=2236539461504 
-id(fibonacci)=2236539461504 
-id(copialista)=2236539486464
+id(otralista)=1956269564288 
+id(fibonacci)=1956269564288 
+id(copialista)=1956269931712
 </pre></div>
 </div>
 </div>
@@ -2116,7 +2189,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="manipulando-listas">
-<h2>Manipulando listas<a class="headerlink" href="#manipulando-listas" title="Permalink to this headline">¶</a></h2>
+<h2>Manipulando listas<a class="headerlink" href="#manipulando-listas" title="Permalink to this headline">#</a></h2>
 <p>Hagamos una lista de frutas. Vemos que el código es más legible si le damos a la lista un nombre <em>sustantivo plural</em> que indique la naturaleza de sus elementos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2126,7 +2199,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-append-x-agrega-el-elemento-x-al-final-de-la-lista">
-<h3><code class="docutils literal notranslate"><span class="pre">list.append(x)</span></code> Agrega el elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> al final de la lista<a class="headerlink" href="#list-append-x-agrega-el-elemento-x-al-final-de-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.append(x)</span></code> Agrega el elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> al final de la lista<a class="headerlink" href="#list-append-x-agrega-el-elemento-x-al-final-de-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;manzana&#39;</span><span class="p">)</span>
@@ -2142,7 +2215,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-extend-l-agrega-todos-los-elementos-de-la-lista-l-al-final-de-la-lista">
-<h3><code class="docutils literal notranslate"><span class="pre">list.extend(L)</span></code> Agrega todos los elementos de la lista <code class="docutils literal notranslate"><span class="pre">L</span></code> al final de la lista<a class="headerlink" href="#list-extend-l-agrega-todos-los-elementos-de-la-lista-l-al-final-de-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.extend(L)</span></code> Agrega todos los elementos de la lista <code class="docutils literal notranslate"><span class="pre">L</span></code> al final de la lista<a class="headerlink" href="#list-extend-l-agrega-todos-los-elementos-de-la-lista-l-al-final-de-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;mango&#39;</span><span class="p">,</span><span class="s1">&#39;banano&#39;</span><span class="p">,</span><span class="s1">&#39;kiwi&#39;</span><span class="p">])</span>
@@ -2158,7 +2231,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-insert-i-x-inserta-el-elemento-x-en-la-posicion-de-indice-i">
-<h3><code class="docutils literal notranslate"><span class="pre">list.insert(i,x)</span></code> Inserta el elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> en la posición de índice <code class="docutils literal notranslate"><span class="pre">i</span></code><a class="headerlink" href="#list-insert-i-x-inserta-el-elemento-x-en-la-posicion-de-indice-i" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.insert(i,x)</span></code> Inserta el elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> en la posición de índice <code class="docutils literal notranslate"><span class="pre">i</span></code><a class="headerlink" href="#list-insert-i-x-inserta-el-elemento-x-en-la-posicion-de-indice-i" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;guayava&#39;</span><span class="p">)</span>
@@ -2182,7 +2255,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="len-list-cuenta-el-numero-de-elementos-de-la-lista">
-<h3><code class="docutils literal notranslate"><span class="pre">len(list)</span></code> cuenta el número de elementos de la lista<a class="headerlink" href="#len-list-cuenta-el-numero-de-elementos-de-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">len(list)</span></code> cuenta el número de elementos de la lista<a class="headerlink" href="#len-list-cuenta-el-numero-de-elementos-de-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">frutas</span><span class="p">)</span>
@@ -2197,7 +2270,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-remove-x-elimina-el-primer-elemento-x-de-la-lista">
-<h3><code class="docutils literal notranslate"><span class="pre">list.remove(x)</span></code> Elimina el primer elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> de la lista<a class="headerlink" href="#list-remove-x-elimina-el-primer-elemento-x-de-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.remove(x)</span></code> Elimina el primer elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> de la lista<a class="headerlink" href="#list-remove-x-elimina-el-primer-elemento-x-de-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;kiwi&#39;</span><span class="p">)</span>
@@ -2213,7 +2286,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-pop-i-eliminina-el-elemento-en-la-posicion-i-y-lo-retorna">
-<h3><code class="docutils literal notranslate"><span class="pre">list.pop(i)</span></code> Eliminina el elemento en la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> y lo retorna<a class="headerlink" href="#list-pop-i-eliminina-el-elemento-en-la-posicion-i-y-lo-retorna" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.pop(i)</span></code> Eliminina el elemento en la posición <code class="docutils literal notranslate"><span class="pre">i</span></code> y lo retorna<a class="headerlink" href="#list-pop-i-eliminina-el-elemento-en-la-posicion-i-y-lo-retorna" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
@@ -2240,7 +2313,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-index-x-retorna-el-indice-del-primer-elemento-x-de-la-lista">
-<h3><code class="docutils literal notranslate"><span class="pre">list.index(x)</span></code> Retorna el índice del primer elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> de la lista<a class="headerlink" href="#list-index-x-retorna-el-indice-del-primer-elemento-x-de-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.index(x)</span></code> Retorna el índice del primer elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> de la lista<a class="headerlink" href="#list-index-x-retorna-el-indice-del-primer-elemento-x-de-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;uva&#39;</span><span class="p">)</span>
@@ -2255,7 +2328,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-count-x-retorna-el-numero-de-veces-que-aparece-x-en-la-lista">
-<h3><code class="docutils literal notranslate"><span class="pre">list.count(x)</span></code> Retorna el número de veces que aparece <code class="docutils literal notranslate"><span class="pre">x</span></code> en la lista<a class="headerlink" href="#list-count-x-retorna-el-numero-de-veces-que-aparece-x-en-la-lista" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.count(x)</span></code> Retorna el número de veces que aparece <code class="docutils literal notranslate"><span class="pre">x</span></code> en la lista<a class="headerlink" href="#list-count-x-retorna-el-numero-de-veces-que-aparece-x-en-la-lista" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;manzana&#39;</span><span class="p">)</span>
@@ -2270,7 +2343,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-sort-ordena-todos-los-elementos-de-la-lista-in-situ">
-<h3><code class="docutils literal notranslate"><span class="pre">list.sort()</span></code> Ordena todos los elementos de la lista, in situ<a class="headerlink" href="#list-sort-ordena-todos-los-elementos-de-la-lista-in-situ" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.sort()</span></code> Ordena todos los elementos de la lista, in situ<a class="headerlink" href="#list-sort-ordena-todos-los-elementos-de-la-lista-in-situ" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -2286,7 +2359,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="section" id="list-reverse-revierte-el-orden-de-todos-los-elementos-de-la-lista-in-situ">
-<h3><code class="docutils literal notranslate"><span class="pre">list.reverse()</span></code> Revierte el orden de todos los elementos de la lista, in situ<a class="headerlink" href="#list-reverse-revierte-el-orden-de-todos-los-elementos-de-la-lista-in-situ" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">list.reverse()</span></code> Revierte el orden de todos los elementos de la lista, in situ<a class="headerlink" href="#list-reverse-revierte-el-orden-de-todos-los-elementos-de-la-lista-in-situ" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frutas</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
@@ -2317,7 +2390,7 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="tuplas">
-<h1>Tuplas<a class="headerlink" href="#tuplas" title="Permalink to this headline">¶</a></h1>
+<h1>Tuplas<a class="headerlink" href="#tuplas" title="Permalink to this headline">#</a></h1>
 <p>Una tupla es similar a una lista, pero una vez que se define <strong>sus elementos no pueden cambiarse</strong>. Se define enumerando sus elementos entre un par de  <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2360,6 +2433,14 @@ id(copialista)=2236539486464
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [44],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">seasons</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Fall&#39;</span>
+
+<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+</pre></div>
+</div>
 </div>
 </div>
 <p>Las tuplas también entienden de franjas</p>
@@ -2465,7 +2546,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="conjuntos">
-<h1>Conjuntos<a class="headerlink" href="#conjuntos" title="Permalink to this headline">¶</a></h1>
+<h1>Conjuntos<a class="headerlink" href="#conjuntos" title="Permalink to this headline">#</a></h1>
 <p>Para hacer un conjunto, enumeramos sus elementos entre <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">}</span></code>. Alternativamento, transformamos una lista en un conjunto usando la función <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2476,7 +2557,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set-add-x-agrega-un-elemento-x-al-conjunto">
-<h2><code class="docutils literal notranslate"><span class="pre">set.add(x)</span></code> Agrega un elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> al conjunto<a class="headerlink" href="#set-add-x-agrega-un-elemento-x-al-conjunto" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set.add(x)</span></code> Agrega un elemento <code class="docutils literal notranslate"><span class="pre">x</span></code> al conjunto<a class="headerlink" href="#set-add-x-agrega-un-elemento-x-al-conjunto" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
@@ -2492,7 +2573,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set-update-x-y-z-agrega-varios-elementos-al-conjunto">
-<h2><code class="docutils literal notranslate"><span class="pre">set.update([x,y,z])</span></code> Agrega varios elementos al conjunto<a class="headerlink" href="#set-update-x-y-z-agrega-varios-elementos-al-conjunto" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set.update([x,y,z])</span></code> Agrega varios elementos al conjunto<a class="headerlink" href="#set-update-x-y-z-agrega-varios-elementos-al-conjunto" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M3</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="mi">18</span><span class="p">,</span> <span class="mi">21</span><span class="p">])</span>
@@ -2508,7 +2589,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set-copy-retorna-una-copia-del-conjunto">
-<h2><code class="docutils literal notranslate"><span class="pre">set.copy()</span></code> Retorna una copia del conjunto<a class="headerlink" href="#set-copy-retorna-una-copia-del-conjunto" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set.copy()</span></code> Retorna una copia del conjunto<a class="headerlink" href="#set-copy-retorna-una-copia-del-conjunto" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2c</span> <span class="o">=</span> <span class="n">M2</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -2524,7 +2605,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set-pop-elimina-al-azar-un-elemento-del-conjunto">
-<h2><code class="docutils literal notranslate"><span class="pre">set.pop()</span></code> Elimina al azar un elemento del conjunto<a class="headerlink" href="#set-pop-elimina-al-azar-un-elemento-del-conjunto" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set.pop()</span></code> Elimina al azar un elemento del conjunto<a class="headerlink" href="#set-pop-elimina-al-azar-un-elemento-del-conjunto" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2c</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
@@ -2551,7 +2632,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set-discard-x-elimina-el-elemnto-x-del-conjunto-si-es-miembro">
-<h2><code class="docutils literal notranslate"><span class="pre">set.discard(x)</span></code> Elimina el elemnto <code class="docutils literal notranslate"><span class="pre">x</span></code> del conjunto (si es miembro)<a class="headerlink" href="#set-discard-x-elimina-el-elemnto-x-del-conjunto-si-es-miembro" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set.discard(x)</span></code> Elimina el elemnto <code class="docutils literal notranslate"><span class="pre">x</span></code> del conjunto (si es miembro)<a class="headerlink" href="#set-discard-x-elimina-el-elemnto-x-del-conjunto-si-es-miembro" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2c</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -2567,7 +2648,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set1-union-set2-retorna-elementos-que-aparecen-en-cualquiera-de-los-conjuntos">
-<h2><code class="docutils literal notranslate"><span class="pre">set1.union(set2)</span></code> Retorna elementos que aparecen en cualquiera de los conjuntos<a class="headerlink" href="#set1-union-set2-retorna-elementos-que-aparecen-en-cualquiera-de-los-conjuntos" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set1.union(set2)</span></code> Retorna elementos que aparecen en cualquiera de los conjuntos<a class="headerlink" href="#set1-union-set2-retorna-elementos-que-aparecen-en-cualquiera-de-los-conjuntos" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">M3</span><span class="p">)</span>
@@ -2582,7 +2663,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set1-intersection-set2-retorna-elementos-que-aparecen-en-los-dos-conjuntos">
-<h2><code class="docutils literal notranslate"><span class="pre">set1.intersection(set2)</span></code> Retorna elementos que aparecen en los dos conjuntos<a class="headerlink" href="#set1-intersection-set2-retorna-elementos-que-aparecen-en-los-dos-conjuntos" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set1.intersection(set2)</span></code> Retorna elementos que aparecen en los dos conjuntos<a class="headerlink" href="#set1-intersection-set2-retorna-elementos-que-aparecen-en-los-dos-conjuntos" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M3</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">M2</span><span class="p">)</span>
@@ -2597,7 +2678,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set1-difference-set2-retorna-elementos-del-conjunto-set1-que-no-esten-en-set2">
-<h2><code class="docutils literal notranslate"><span class="pre">set1.difference(set2)</span></code> Retorna elementos del conjunto <code class="docutils literal notranslate"><span class="pre">set1</span></code> que no estén en <code class="docutils literal notranslate"><span class="pre">set2</span></code><a class="headerlink" href="#set1-difference-set2-retorna-elementos-del-conjunto-set1-que-no-esten-en-set2" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set1.difference(set2)</span></code> Retorna elementos del conjunto <code class="docutils literal notranslate"><span class="pre">set1</span></code> que no estén en <code class="docutils literal notranslate"><span class="pre">set2</span></code><a class="headerlink" href="#set1-difference-set2-retorna-elementos-del-conjunto-set1-que-no-esten-en-set2" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">M3</span><span class="p">)</span>
@@ -2612,7 +2693,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="section" id="set1-isdisjoint-set2-true-si-los-conjuntos-no-tienen-elementos-en-comun">
-<h2><code class="docutils literal notranslate"><span class="pre">set1.isdisjoint(set2)</span></code> True si los conjuntos no tienen elementos en común<a class="headerlink" href="#set1-isdisjoint-set2-true-si-los-conjuntos-no-tienen-elementos-en-comun" title="Permalink to this headline">¶</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">set1.isdisjoint(set2)</span></code> True si los conjuntos no tienen elementos en común<a class="headerlink" href="#set1-isdisjoint-set2-true-si-los-conjuntos-no-tienen-elementos-en-comun" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M2</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">M3</span><span class="p">)</span>
@@ -2628,7 +2709,7 @@ colores = (&#39;rojo&#39;, &#39;verde&#39;, &#39;azul&#39;)
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="diccionarios">
-<h1>Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this headline">¶</a></h1>
+<h1>Diccionarios<a class="headerlink" href="#diccionarios" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p>En Python un “diccionario” es un contenedor de datos que puede almacenar múltiples elementos de datos como una lista de pares <code class="docutils literal notranslate"><span class="pre">llave:valor</span></code>.</p></li>
 <li><p>A diferencia de las listas y tuplas, cuyos datos se obtienen por referencia a su índice, los valores almacenados en un diccionario se obtienen por referencia a su llave.</p></li>
@@ -2818,9 +2899,11 @@ Breaker of Chains, and Mother of Dragons
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Python-03--Textos.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2836,24 +2919,28 @@ Breaker of Chains, and Mother of Dragons
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Randall Romero Aguilar<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Randall Romero Aguilar<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

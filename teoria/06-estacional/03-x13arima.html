@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6.3. Ajuste estacional &#8212; Apuntes de Macroeconometría</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +19,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mi-estilo.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -40,21 +37,22 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://randall-romero.github.io/econometria/teoria/06-estacional/03-x13arima.html" />
     <link rel="shortcut icon" href="../../_static/r2-logo-icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -78,7 +76,21 @@ const thebe_selector_output = ".output, .cell_output"
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -87,9 +99,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -107,14 +120,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../00-acerca.html">
-   Inicio
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../00-acerca.html">
+                    Inicio
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Acerca de este libro
  </span>
@@ -776,38 +790,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../apendices/r-code/chapter-r.html">
-   Código en R
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-transform.html">
-     Transformaciones con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-lags.html">
-     Rezagos con R
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../apendices/r-code/R-correlogram.html">
-     Correlogramas con R
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../apendices/matematica/matematica.html">
    Matemática
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-  <label for="toctree-checkbox-19">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -828,8 +815,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../apendices/estadistica/estadistica.html">
    Estadística y econometría
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
-  <label for="toctree-checkbox-20">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -854,94 +841,199 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <a href="http://randall-romero.com">randall-romero.com</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../_sources/teoria/06-estacional/03-x13arima.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/teoria/06-estacional/03-x13arima.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/06-estacional/03-x13arima.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <a href="http://randall-romero.com">randall-romero.com</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/randall-romero/econometria/master?urlpath=lab/tree/./teoria/06-estacional/03-x13arima.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/randall-romero/econometria/blob/master/./teoria/06-estacional/03-x13arima.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/teoria/06-estacional/03-x13arima.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="../../_sources/teoria/06-estacional/03-x13arima.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ajuste-estacional-o-extraccion-de-senales">
    Ajuste estacional o extracción de señales
@@ -1001,12 +1093,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Ajuste estacional</h1>
@@ -1082,7 +1173,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="math notranslate nohighlight">
@@ -1114,22 +1206,22 @@ const thebe_selector_output = ".output, .cell_output"
 \newcommand{\PLIM}[2]{#1\xrightarrow{p} #2}\end{split}\end{aligned}\end{align} \]</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-talk&#39;</span><span class="p">)</span>
 
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.x13</span> <span class="kn">import</span> <span class="n">x13_arima_analysis</span>
 
-<span class="n">x13path</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span>
+<span class="n">x13path</span> <span class="o">=</span> <span class="s2">&quot;teoria/06-estacional/&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="ajuste-estacional">
-<h1><span class="section-number">6.3. </span>Ajuste estacional<a class="headerlink" href="#ajuste-estacional" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.3. </span>Ajuste estacional<a class="headerlink" href="#ajuste-estacional" title="Permalink to this headline">#</a></h1>
 <div class="section" id="ajuste-estacional-o-extraccion-de-senales">
-<h2>Ajuste estacional o extracción de señales<a class="headerlink" href="#ajuste-estacional-o-extraccion-de-senales" title="Permalink to this headline">¶</a></h2>
+<h2>Ajuste estacional o extracción de señales<a class="headerlink" href="#ajuste-estacional-o-extraccion-de-senales" title="Permalink to this headline">#</a></h2>
 <p>Estos métodos surgieron a mitad del siglo XX para resolver dos problemas:</p>
 <ol class="simple">
 <li><p>Remover la tendencia de una serie, con el fin de estudiar apropiadamente su autocorrelación.</p></li>
@@ -1138,13 +1230,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Al inicio, se utilizaban métodos determiní­sticos, pero luego se fueron abandonando en favor de métodos empíricos basados en promedios móviles</p>
 </div>
 <div class="section" id="para-que-ajustar-una-serie-por-estacionalidad">
-<h2>¿Para qué ajustar una serie por estacionalidad?<a class="headerlink" href="#para-que-ajustar-una-serie-por-estacionalidad" title="Permalink to this headline">¶</a></h2>
+<h2>¿Para qué ajustar una serie por estacionalidad?<a class="headerlink" href="#para-que-ajustar-una-serie-por-estacionalidad" title="Permalink to this headline">#</a></h2>
 <p>El objetivo de lo métodos de ajuste estacional es extraer una señal clara de <span class="math notranslate nohighlight">\(y_t\)</span>, que permita identificar con facilidad la verdadera evolución de la serie</p>
 <p>Si una serie de tiempo tiene mucho ruido (variabilidad) y un componente estacional fuerte, este ruido afectará a las variaciones inter-periodos o a las variaciones interanuales.</p>
 <p>El ajuste estacional permite hacer comparaciones de un período respecto al anterior, removiendo el ruido que introduciría la presencia de la estacionalidad.</p>
 </div>
 <div class="section" id="componentes-de-las-series">
-<h2>Componentes de las series<a class="headerlink" href="#componentes-de-las-series" title="Permalink to this headline">¶</a></h2>
+<h2>Componentes de las series<a class="headerlink" href="#componentes-de-las-series" title="Permalink to this headline">#</a></h2>
 <dl class="simple myst">
 <dt>Tendencia (T)</dt><dd><p>Es un movimiento de larga duración que se mantiene durante todo el período de observación.</p>
 </dd>
@@ -1157,7 +1249,7 @@ const thebe_selector_output = ".output, .cell_output"
 </dl>
 </div>
 <div class="section" id="descomposicion-multiplicativa">
-<h2>Descomposición multiplicativa<a class="headerlink" href="#descomposicion-multiplicativa" title="Permalink to this headline">¶</a></h2>
+<h2>Descomposición multiplicativa<a class="headerlink" href="#descomposicion-multiplicativa" title="Permalink to this headline">#</a></h2>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 y_t = T_t \times C_t \times S_t \times \epsilon_t
@@ -1167,7 +1259,7 @@ y_t = T_t \times C_t \times S_t \times \epsilon_t
 <p>La tendencia siempre se mide en las mismas unidades que <span class="math notranslate nohighlight">\(Y_t\)</span></p>
 </div>
 <div class="section" id="descomposicion-aditiva">
-<h2>Descomposición aditiva<a class="headerlink" href="#descomposicion-aditiva" title="Permalink to this headline">¶</a></h2>
+<h2>Descomposición aditiva<a class="headerlink" href="#descomposicion-aditiva" title="Permalink to this headline">#</a></h2>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 y_t = T_t + C_t + S_t + \epsilon_t
@@ -1177,7 +1269,7 @@ y_t = T_t + C_t + S_t + \epsilon_t
 <p>La tendencia siempre se mide en las mismas unidades que <span class="math notranslate nohighlight">\(Y_t\)</span></p>
 </div>
 <div class="section" id="serie-desestacionalizada">
-<h2>Serie desestacionalizada<a class="headerlink" href="#serie-desestacionalizada" title="Permalink to this headline">¶</a></h2>
+<h2>Serie desestacionalizada<a class="headerlink" href="#serie-desestacionalizada" title="Permalink to this headline">#</a></h2>
 <p>Se obtiene cuando a la serie original se le elimina el componente estacional:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -1185,7 +1277,7 @@ y_t^{s.a.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t} = T_t \time
 \end{equation*}\]</div>
 </div>
 <div class="section" id="serie-tendencia-ciclo">
-<h2>Serie tendencia-ciclo<a class="headerlink" href="#serie-tendencia-ciclo" title="Permalink to this headline">¶</a></h2>
+<h2>Serie tendencia-ciclo<a class="headerlink" href="#serie-tendencia-ciclo" title="Permalink to this headline">#</a></h2>
 <p>Se obtiene cuando se elimina el componente estacional y el irregular de la serie original:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -1193,9 +1285,9 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
 \end{equation*}\]</div>
 </div>
 <div class="section" id="metodos-actuales-para-la-estimacion-de-componentes">
-<h2>Métodos actuales para la estimación de componentes<a class="headerlink" href="#metodos-actuales-para-la-estimacion-de-componentes" title="Permalink to this headline">¶</a></h2>
+<h2>Métodos actuales para la estimación de componentes<a class="headerlink" href="#metodos-actuales-para-la-estimacion-de-componentes" title="Permalink to this headline">#</a></h2>
 <div class="section" id="basados-en-medias-moviles">
-<h3>Basados en medias móviles<a class="headerlink" href="#basados-en-medias-moviles" title="Permalink to this headline">¶</a></h3>
+<h3>Basados en medias móviles<a class="headerlink" href="#basados-en-medias-moviles" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Son empíricos</p></li>
 <li><p>La estimación de los componentes es local a través de promedio móviles centrados de distintos tamaños</p></li>
@@ -1203,7 +1295,7 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
 </ul>
 </div>
 <div class="section" id="basados-en-modelos">
-<h3>Basados en modelos<a class="headerlink" href="#basados-en-modelos" title="Permalink to this headline">¶</a></h3>
+<h3>Basados en modelos<a class="headerlink" href="#basados-en-modelos" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>Proveen medidas de bondad de ajuste sobre la estimación de los componentes.</p></li>
 <li><p>Permite obtener pronósticos de los componentes.</p></li>
@@ -1213,7 +1305,7 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
 </div>
 </div>
 <div class="section" id="linea-de-tiempo-programas-de-ajuste-estacional">
-<h2>Línea de tiempo: programas de ajuste estacional<a class="headerlink" href="#linea-de-tiempo-programas-de-ajuste-estacional" title="Permalink to this headline">¶</a></h2>
+<h2>Línea de tiempo: programas de ajuste estacional<a class="headerlink" href="#linea-de-tiempo-programas-de-ajuste-estacional" title="Permalink to this headline">#</a></h2>
 <dl class="simple myst">
 <dt>1967</dt><dd><p>X11, filtros ad-hoc, Julius Shiskin, US Bureau of the Census</p>
 </dd>
@@ -1242,8 +1334,8 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
  Descomposición de la serie pasajeros extranjeros en SJO, usando X13 </b></div></p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># read data from previous example</span>
-<span class="n">sjodatos</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s2">&quot;datos/SJO-pasajeros.pickle&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read data from previous example</span>
+<span class="n">sjodatos</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s2">&quot;../../data/SJO-pasajeros.pickle&quot;</span><span class="p">)</span>
 
 <span class="n">extranjeros</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">sjodatos</span><span class="p">[</span><span class="s1">&#39;extranjeros&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
                       <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="s1">&#39;2011-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-12&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">))</span>
@@ -1280,10 +1372,62 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">X13NotFoundError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="nn">Input In [2],</span> in <span class="ni">&lt;cell line: 16&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">temp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span><span class="s1">&#39;Serie ajustada por estacionalidad&#39;</span><span class="p">,</span><span class="s1">&#39;Serie tendencia ciclo&#39;</span><span class="p">,</span><span class="s1">&#39;Componente irregular&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">return</span> <span class="n">temp</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">componentes</span> <span class="o">=</span> <span class="n">X13ARIMA</span><span class="p">(</span><span class="n">extranjeros</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">gs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">GridSpec</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">height_ratios</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nn">Input In [2],</span> in <span class="ni">X13ARIMA</span><span class="nt">(serie, show)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">def</span> <span class="nf">X13ARIMA</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">res</span> <span class="o">=</span> <span class="n">x13_arima_analysis</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">x12path</span><span class="o">=</span><span class="n">x13path</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">if</span> <span class="n">show</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\util\_decorators.py:207,</span> in <span class="ni">deprecate_kwarg.&lt;locals&gt;._deprecate_kwarg.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>         <span class="n">kwargs</span><span class="p">[</span><span class="n">new_arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_arg_value</span>
+<span class="ne">--&gt; </span><span class="mi">207</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\statsmodels\tsa\x13.py:478,</span> in <span class="ni">x13_arima_analysis</span><span class="nt">(endog, maxorder, maxdiff, diff, exog, log, outlier, trading, forecast_periods, retspec, speconly, start, freq, print_stdout, x12path, prefer_x13)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span> <span class="nd">@deprecate_kwarg</span><span class="p">(</span><span class="s2">&quot;forecast_years&quot;</span><span class="p">,</span> <span class="s2">&quot;forecast_periods&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="k">def</span> <span class="nf">x13_arima_analysis</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>     <span class="n">endog</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span>     <span class="n">prefer_x13</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span><span class="sd">     Perform x13-arima analysis for monthly or quarterly data.</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">476</span><span class="sd">     back in.</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">478</span>     <span class="n">x12path</span> <span class="o">=</span> <span class="n">_check_x12</span><span class="p">(</span><span class="n">x12path</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">endog</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span>         <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">freq</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\statsmodels\tsa\x13.py:97,</span> in <span class="ni">_check_x12</span><span class="nt">(x12path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="n">x12path</span> <span class="o">=</span> <span class="n">_find_x12</span><span class="p">(</span><span class="n">x12path</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">x12path</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>     <span class="k">raise</span> <span class="n">X13NotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="s2">&quot;x12a and x13as not found on path. Give the &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="s2">&quot;path, put them on PATH, or set the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="s2">&quot;X12PATH or X13PATH environmental variable.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span> <span class="k">return</span> <span class="n">x12path</span>
+
+<span class="ne">X13NotFoundError</span>: x12a and x13as not found on path. Give the path, put them on PATH, or set the X12PATH or X13PATH environmental variable.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesescorto</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ene&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Abr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesescorto</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ene&#39;</span><span class="p">,</span> <span class="s1">&#39;Feb&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;Abr&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jun&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Jul&#39;</span><span class="p">,</span> <span class="s1">&#39;Ago&#39;</span><span class="p">,</span> <span class="s1">&#39;Set&#39;</span><span class="p">,</span> <span class="s1">&#39;Oct&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">,</span> <span class="s1">&#39;Dic&#39;</span><span class="p">]</span>
 
 
@@ -1316,7 +1460,7 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
 </ul>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">componentes</span><span class="p">[[</span><span class="s1">&#39;Serie original&#39;</span><span class="p">,</span><span class="s1">&#39;Serie tendencia ciclo&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
@@ -1371,9 +1515,11 @@ este desfase se debe a que la interanual es una media móvil de la mensual y sus
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="02-sarima.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1389,24 +1535,28 @@ este desfase se debe a que la interanual es una media móvil de la mensual y sus
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Randall Romero Aguilar<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Randall Romero Aguilar<br/>
-    
-        &copy; Copyright 2021-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
