@@ -1155,15 +1155,7 @@ title="Print to PDF"
 <h2>Leer los datos y visualizarlos<a class="headerlink" href="#leer-los-datos-y-visualizarlos" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GITHUB_REPO</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/randall-romero/econometria/master/data/&quot;</span>
-<span class="n">DATAPATH</span> <span class="o">=</span> <span class="n">GITHUB_REPO</span> <span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span> <span class="k">else</span> <span class="s1">&#39;../data/&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="s1">&#39;NelsonPlosserData.dta&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;https://github.com/randall-romero/econometria/raw/master/data/NelsonPlosserData.dta&#39;</span><span class="p">)</span>
 <span class="n">datos</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">datos</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">datos</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span>
 </pre></div>
@@ -1205,7 +1197,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/NelsonPlosser_9_0.png" src="../_images/NelsonPlosser_9_0.png" />
+<img alt="../_images/NelsonPlosser_8_0.png" src="../_images/NelsonPlosser_8_0.png" />
 </div>
 </div>
 </div>
@@ -2925,10 +2917,10 @@ dtype: object
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   3.753</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 20 Jul 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00563</td>
+  <th>Date:</th>             <td>Thu, 21 Jul 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00563</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>01:56:15</td>     <th>  Log-Likelihood:    </th> <td>  84.601</td>
+  <th>Time:</th>                 <td>00:34:55</td>     <th>  Log-Likelihood:    </th> <td>  84.601</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    58</td>      <th>  AIC:               </th> <td>  -157.2</td>
@@ -3061,12 +3053,14 @@ LY + t + D1Y
 LY + t + D1Y + D2Y + D3Y + D4Y + D5Y
 LY + t + D1Y + D2Y
 LY + t + D1Y + D2Y + D3Y
-LY + t + D1Y
-LY + t + D1Y + D2Y + D3Y
-LY + t + D1Y + D2Y
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LY + t + D1Y
+LY + t + D1Y + D2Y + D3Y
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LY + t + D1Y + D2Y
+LY + t + D1Y
 LY + t + D1Y
 LY + t + D1Y + D2Y + D3Y
 LY + t + D1Y + D2Y

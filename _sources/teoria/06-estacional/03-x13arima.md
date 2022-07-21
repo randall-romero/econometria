@@ -168,7 +168,7 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
 :tags: ["hide-input",]
 
 # read data from previous example
-sjodatos =pd.read_pickle("../../data/SJO-pasajeros.pickle")
+sjodatos =pd.read_pickle("https://github.com/randall-romero/econometria/raw/master/data/SJO-pasajeros.pickle")
 
 extranjeros = pd.DataFrame(np.log(sjodatos['extranjeros'].values),
                       index=pd.period_range('2011-01', '2019-12', freq='M'))

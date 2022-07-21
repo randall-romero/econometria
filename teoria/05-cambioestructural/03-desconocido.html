@@ -1240,7 +1240,7 @@ y_t = \alpha_0 + \alpha_1 y_{t-1} + \alpha_2 t  + \mu_2 D_t^L  + \sum_{i=1}^{p}\
 \end{equation*}\]</div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NP</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;../../data/NelsonPlosserData.dta&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NP</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;https://github.com/randall-romero/econometria/raw/master/data/NelsonPlosserData.dta&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">)</span>
 <span class="n">NP</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">NP</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span>
 
 <span class="k">def</span> <span class="nf">ZivotAndrewsA</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>

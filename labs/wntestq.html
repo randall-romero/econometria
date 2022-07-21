@@ -1023,11 +1023,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definir-ubicacion-de-archivos-de-datos">
-   Definir ubicación de archivos de datos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ejemplo-1-crecimiento-del-imae-de-costa-rica-serie-tendencia-ciclo">
    EJEMPLO 1: Crecimiento del IMAE de Costa Rica, serie tendencia-ciclo
   </a>
@@ -1059,11 +1054,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cargar-paquetes-necesarios">
    Cargar paquetes necesarios
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definir-ubicacion-de-archivos-de-datos">
-   Definir ubicación de archivos de datos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1103,23 +1093,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="definir-ubicacion-de-archivos-de-datos">
-<h2>Definir ubicación de archivos de datos<a class="headerlink" href="#definir-ubicacion-de-archivos-de-datos" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GITHUB_REPO</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/randall-romero/econometria/master/data/&quot;</span>
-<span class="n">DATAPATH</span> <span class="o">=</span> <span class="n">GITHUB_REPO</span> <span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span> <span class="k">else</span> <span class="s1">&#39;../data/&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="section" id="ejemplo-1-crecimiento-del-imae-de-costa-rica-serie-tendencia-ciclo">
 <h2>EJEMPLO 1: Crecimiento del IMAE de Costa Rica, serie tendencia-ciclo<a class="headerlink" href="#ejemplo-1-crecimiento-del-imae-de-costa-rica-serie-tendencia-ciclo" title="Permalink to this headline">#</a></h2>
 <p>¿Es es crecimiento mensual del IMAE tendencia-ciclo un proceso ruido blanco?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_imae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="s1">&#39;log_imae.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_imae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/randall-romero/econometria/raw/master/data/log_imae.csv&quot;</span><span class="p">)</span>
 <span class="n">log_imae</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="s1">&#39;1991-01&#39;</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">log_imae</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">log_imae</span>
 </pre></div>
@@ -1395,7 +1374,7 @@ Q = T(T+2)\sum_{j=1}^{m}\frac{\hat{\rho}_j^2}{T-j} \; \overset{\text{asy}}{\sim}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/wntestq_21_0.png" src="../_images/wntestq_21_0.png" />
+<img alt="../_images/wntestq_19_0.png" src="../_images/wntestq_19_0.png" />
 </div>
 </div>
 </div>
@@ -1404,7 +1383,7 @@ Q = T(T+2)\sum_{j=1}^{m}\frac{\hat{\rho}_j^2}{T-j} \; \overset{\text{asy}}{\sim}
 <p>¿Es es crecimiento diario del tipo de cambio euro-dólar un proceso ruido blanco?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="s1">&#39;euro.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euro</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/randall-romero/econometria/raw/master/data/euro.csv&quot;</span><span class="p">)</span>
 <span class="c1">#euro.index = pd.to_datetime(euro[&#39;fecha&#39;])</span>
 <span class="n">euro</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;fecha&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -1585,7 +1564,7 @@ Q = T(T+2)\sum_{j=1}^{m}\frac{\hat{\rho}_j^2}{T-j} \; \overset{\text{asy}}{\sim}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/wntestq_38_0.png" src="../_images/wntestq_38_0.png" />
+<img alt="../_images/wntestq_36_0.png" src="../_images/wntestq_36_0.png" />
 </div>
 </div>
 </div>

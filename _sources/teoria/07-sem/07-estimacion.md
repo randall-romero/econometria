@@ -223,7 +223,7 @@ Hay tres variables predeterminadas: los rezagos del stock de capital, utilidades
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-klein = pd.read_fwf("http://people.stern.nyu.edu/wgreene/Text/Edition7/TableF10-3.txt")
+klein = pd.read_fwf("https://github.com/randall-romero/econometria/raw/master/data/TableF10-3.txt")
 klein.dropna(inplace=True)
 klein['Year'] = klein['Year'].astype(int)
 klein.index = pd.period_range(start=klein['Year'].iloc[0], periods=klein.shape[0], freq="A")

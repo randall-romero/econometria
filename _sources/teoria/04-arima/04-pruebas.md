@@ -33,6 +33,7 @@ substitutions:
 ```{include} ../math-definitions.md
 ```
 
+
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 import bccr
@@ -218,6 +219,7 @@ pib['LlPIB'] = pib['lPIB'].shift()
 res = smf.ols("ΔlPIB ~ LlPIB", data=pib).fit()
 res.summary().tables[1]
 ```
+
 Los resultados de la tabla indican que $\phi$ es significativamente distinto de cero al 5\% de significancia, **pero este resultado es incorrecto** porque en esta regresión el estadístico $t$ no tiene la distribución $t$-Student.
 
 Además, la prueba reportada es de dos colas, mientras que la apropiada es de una cola.
@@ -225,6 +227,7 @@ Además, la prueba reportada es de dos colas, mientras que la apropiada es de un
 Por ello, recurrimos a los valores críticos de Dickey-Fuller
 
 %\input{labs/df_lpib_0.tex}
+
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 tabla_dickey_fuller(pib['lPIB'], DF, diff=0, specs=['c'])
@@ -246,6 +249,7 @@ pib['LΔlPIB'] = pib['ΔlPIB'].shift()
 res = smf.ols("Δ2lPIB ~ LΔlPIB", data=pib).fit()
 res.summary().tables[1]
 ```
+
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 tabla_dickey_fuller(pib['ΔlPIB'], DF, diff=0, specs=['c'])
@@ -496,6 +500,7 @@ result
 ```
 
 **Valores críticos**
+
 ```{code-cell} ipython3
 :tags: ["hide-input"]
 critical

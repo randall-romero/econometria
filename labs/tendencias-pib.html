@@ -1380,6 +1380,8 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1397,7 +1399,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7.591019301133945, -2.8373335086898157, -0.1961570690538567)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7.591019301133945, -2.8373335086898184, -0.1961570690538992)
 </pre></div>
 </div>
 </div>
@@ -1867,43 +1869,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [25],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="nn">----&gt; 1 tab = pd.concat([tabla_KPSS(diff=r) for r</span> in <span class="ni">range</span><span class="nt">(2)], axis=1,keys=[&#39;nivel&#39;,&#39;diferencia&#39;])</span>
-
-<span class="nn">Input In [25],</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="nn">----&gt; 1 tab = pd.concat([tabla_KPSS(diff=r) for r</span> in <span class="ni">range</span><span class="nt">(2)], axis=1,keys=[&#39;nivel&#39;,&#39;diferencia&#39;])</span>
-
-<span class="nn">Input In [24],</span> in <span class="ni">tabla_KPSS</span><span class="nt">(diff)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">tabla_KPSS</span><span class="p">(</span><span class="n">diff</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">datos</span> <span class="o">=</span> <span class="n">pib</span><span class="p">[</span><span class="s1">&#39;lPIB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="k">if</span> <span class="n">diff</span> <span class="k">else</span> <span class="n">pib</span><span class="p">[</span><span class="s1">&#39;lPIB&#39;</span><span class="p">]</span>
-<span class="nn">----&gt; 3     resultados = pd.DataFrame([KPSS_una_serie(datos, ss) for ss</span> in <span class="ni">[&#39;c&#39;,&#39;ct&#39;]], index=[&#39;c&#39;,&#39;ct&#39;]).round</span><span class="nt">(3)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1">#nombre = &#39;_&#39;.join([test,serie,str(diff)])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1">#resultados.to_latex(figpath + nombre + &#39;.tex&#39;)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">resultados</span><span class="o">.</span><span class="n">T</span>
-
-<span class="nn">Input In [24],</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">tabla_KPSS</span><span class="p">(</span><span class="n">diff</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">datos</span> <span class="o">=</span> <span class="n">pib</span><span class="p">[</span><span class="s1">&#39;lPIB&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="k">if</span> <span class="n">diff</span> <span class="k">else</span> <span class="n">pib</span><span class="p">[</span><span class="s1">&#39;lPIB&#39;</span><span class="p">]</span>
-<span class="nn">----&gt; 3     resultados = pd.DataFrame([KPSS_una_serie(datos, ss) for ss</span> in <span class="ni">[&#39;c&#39;,&#39;ct&#39;]], index=[&#39;c&#39;,&#39;ct&#39;]).round</span><span class="nt">(3)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1">#nombre = &#39;_&#39;.join([test,serie,str(diff)])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1">#resultados.to_latex(figpath + nombre + &#39;.tex&#39;)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">resultados</span><span class="o">.</span><span class="n">T</span>
-
-<span class="nn">Input In [22],</span> in <span class="ni">KPSS_una_serie</span><span class="nt">(datos, tipo)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">KPSS_una_serie</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">tipo</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="p">[</span><span class="n">kpss</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">regression</span><span class="o">=</span><span class="n">tipo</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span>
-
-<span class="nn">Input In [22],</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">KPSS_una_serie</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">tipo</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="p">[</span><span class="n">kpss</span><span class="p">(</span><span class="n">datos</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">regression</span><span class="o">=</span><span class="n">tipo</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)]</span>
-
-<span class="ne">TypeError</span>: kpss() got an unexpected keyword argument &#39;lags&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1913,16 +1878,88 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [26],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tab</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">figpath</span> <span class="o">+</span> <span class="s1">&#39;kpss_lPIB.tex&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">tab</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;tab&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="2" halign="left">nivel</th>
+      <th colspan="2" halign="left">diferencia</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>c</th>
+      <th>ct</th>
+      <th>c</th>
+      <th>ct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11.868</td>
+      <td>1.261</td>
+      <td>0.710</td>
+      <td>0.100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6.005</td>
+      <td>0.692</td>
+      <td>0.678</td>
+      <td>0.103</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.040</td>
+      <td>0.502</td>
+      <td>0.630</td>
+      <td>0.100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.058</td>
+      <td>0.405</td>
+      <td>0.568</td>
+      <td>0.092</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.468</td>
+      <td>0.347</td>
+      <td>0.555</td>
+      <td>0.093</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.076</td>
+      <td>0.308</td>
+      <td>0.531</td>
+      <td>0.091</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.795</td>
+      <td>0.280</td>
+      <td>0.514</td>
+      <td>0.090</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

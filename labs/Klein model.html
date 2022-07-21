@@ -1205,10 +1205,7 @@ title="Print to PDF"
 <h3>Leyendo los datos<a class="headerlink" href="#leyendo-los-datos" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GITHUB_REPO</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/randall-romero/econometria/master/data/&quot;</span>
-<span class="n">DATAPATH</span> <span class="o">=</span> <span class="n">GITHUB_REPO</span> <span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span> <span class="k">else</span> <span class="s1">&#39;../data/&#39;</span>
-
-<span class="n">klein</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="s2">&quot;TableF10-3.txt&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">klein</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_fwf</span><span class="p">(</span><span class="s2">&quot;https://github.com/randall-romero/econometria/raw/master/data/TableF10-3.txt&quot;</span><span class="p">)</span>
 <span class="n">klein</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">klein</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">klein</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="n">klein</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
@@ -1435,8 +1432,8 @@ Dep. Variable:                      C   R-squared:                       0.977
 Model:                         IV2SLS   Adj. R-squared:                  0.973
 Method:                     Two Stage   F-statistic:                     225.9
                         Least Squares   Prob (F-statistic):           6.82e-14
-Date:                Wed, 20 Jul 2022                                         
-Time:                        01:55:55                                         
+Date:                Thu, 21 Jul 2022                                         
+Time:                        00:33:21                                         
 No. Observations:                  21                                         
 Df Residuals:                      17                                         
 Df Model:                           3                                         
@@ -1459,8 +1456,8 @@ Dep. Variable:                      I   R-squared:                       0.885
 Model:                         IV2SLS   Adj. R-squared:                  0.865
 Method:                     Two Stage   F-statistic:                     41.20
                         Least Squares   Prob (F-statistic):           5.15e-08
-Date:                Wed, 20 Jul 2022                                         
-Time:                        01:55:55                                         
+Date:                Thu, 21 Jul 2022                                         
+Time:                        00:33:21                                         
 No. Observations:                  21                                         
 Df Residuals:                      17                                         
 Df Model:                           3                                         
@@ -1483,8 +1480,8 @@ Dep. Variable:                     Wp   R-squared:                       0.987
 Model:                         IV2SLS   Adj. R-squared:                  0.985
 Method:                     Two Stage   F-statistic:                     424.2
                         Least Squares   Prob (F-statistic):           3.57e-16
-Date:                Wed, 20 Jul 2022                                         
-Time:                        01:55:55                                         
+Date:                Thu, 21 Jul 2022                                         
+Time:                        00:33:21                                         
 No. Observations:                  21                                         
 Df Residuals:                      17                                         
 Df Model:                           3                                         

@@ -374,7 +374,7 @@ Perron analiza los datos de Nelson y Plosser.
 :tags: ["hide-input",]
 pd.options.plotting.backend = "plotly"
 
-NP = pd.read_stata('../../data/NelsonPlosserData.dta', index_col='year')
+NP = pd.read_stata('https://github.com/randall-romero/econometria/raw/master/data/NelsonPlosserData.dta', index_col='year')
 NP.index = NP.index.year
 
 # modelo de salarios nominales

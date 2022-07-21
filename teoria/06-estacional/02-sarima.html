@@ -1177,7 +1177,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read data from previous example</span>
 
-<span class="n">sjodatos</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s2">&quot;../../data/SJO-pasajeros.pickle&quot;</span><span class="p">)</span>
+<span class="n">sjodatos</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s2">&quot;https://github.com/randall-romero/econometria/raw/master/data/SJO-pasajeros.pickle&quot;</span><span class="p">)</span>
 <span class="n">sjodatoscuadro</span> <span class="o">=</span> <span class="n">sjodatos</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
 <span class="n">sjodatoscuadro</span><span class="p">[</span><span class="s1">&#39;extranjeros&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -1572,10 +1572,10 @@ y_{t} - \phi y_{t-1} - y_{t-4} + \phi y_{t-5} &amp;= \epsilon_{t} + \vartheta\ep
   <th>Model:</th>           <td>SARIMAX(0, 1, 1)x(0, 1, 1, 12)</td> <th>  Log Likelihood     </th>  <td>194.101</td>
 </tr>
 <tr>
-  <th>Date:</th>                   <td>Wed, 20 Jul 2022</td>        <th>  AIC                </th> <td>-382.202</td>
+  <th>Date:</th>                   <td>Thu, 21 Jul 2022</td>        <th>  AIC                </th> <td>-382.202</td>
 </tr>
 <tr>
-  <th>Time:</th>                       <td>05:32:31</td>            <th>  BIC                </th> <td>-374.540</td>
+  <th>Time:</th>                       <td>00:05:34</td>            <th>  BIC                </th> <td>-374.540</td>
 </tr>
 <tr>
   <th>Sample:</th>                    <td>01-31-2011</td>           <th>  HQIC               </th> <td>-379.106</td>

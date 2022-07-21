@@ -1123,52 +1123,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OptionError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">DATAPATH</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">mackinnon</span> <span class="kn">import</span> <span class="n">MacKinnon</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">OneDrive</span>\<span class="n">Documents</span>\<span class="n">Teaching</span>\<span class="n">econometria</span>\<span class="n">labs</span>\<span class="o">../</span><span class="n">data</span>\<span class="n">mackinnon</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">StringIO</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;precision&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1">#================================================================================</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># MacKinnon 2010 Critical Values for Cointegration Tests</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1">#    - the number of observations, and</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1">#    - the inclusion of a constant, a linear trend, and a quadratic trend.</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">nc_table</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;N,Level,Obs,beta_inf,se,beta1,beta2,beta3</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span><span class="s2"> 1,1%,15000,-2.57,0.000110,-2.24,-3.63,0.00</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span><span class="s2"> 1,5%,15000,-1.94,0.000074,-0.27,-3.37,31.22</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="s2"> 1,10%,15000,-1.62,0.000059,0.27,-2.71,25.36</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span><span class="s2"> &quot;&quot;&quot;</span><span class="p">)</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_config\config.py:256,</span> in <span class="ni">CallableDynamicDoc.__call__</span><span class="nt">(self, *args, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">255</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">256</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__func__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_config\config.py:149,</span> in <span class="ni">_set_option</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;_set_option() got an unexpected keyword argument &quot;</span><span class="si">{</span><span class="n">kwarg</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">args</span><span class="p">[::</span><span class="mi">2</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]):</span>
-<span class="ne">--&gt; </span><span class="mi">149</span>     <span class="n">key</span> <span class="o">=</span> <span class="n">_get_single_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">silent</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="n">o</span> <span class="o">=</span> <span class="n">_get_registered_option</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span>     <span class="k">if</span> <span class="n">o</span> <span class="ow">and</span> <span class="n">o</span><span class="o">.</span><span class="n">validator</span><span class="p">:</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_config\config.py:116,</span> in <span class="ni">_get_single_key</span><span class="nt">(pat, silent)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="k">raise</span> <span class="n">OptionError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No such keys(s): </span><span class="si">{</span><span class="nb">repr</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">116</span>     <span class="k">raise</span> <span class="n">OptionError</span><span class="p">(</span><span class="s2">&quot;Pattern matched multiple keys&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="n">key</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">silent</span><span class="p">:</span>
-
-<span class="ne">OptionError</span>: &#39;Pattern matched multiple keys&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>La función AEG acá definida realizará la prueba (aún no Aumentada) de Engle y Granger a partir de los residuos de una regresión</p>
 <div class="cell docutils container">
@@ -1205,33 +1159,10 @@ title="Print to PDF"
 </div>
 <div class="section" id="regresion-con-datos-de-costa-rica-y-de-malta">
 <h2>Regresión con datos de Costa Rica y de Malta<a class="headerlink" href="#regresion-con-datos-de-costa-rica-y-de-malta" title="Permalink to this headline">#</a></h2>
-<p>Los datos los obtenemos directamente del Banco Mundial, usando el paquete <code class="docutils literal notranslate"><span class="pre">wbdata</span></code>. Las líneas importantes son:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import wbdata
-df = wbdata.get_dataframe(indicators, country=countries, convert_date=False)
-</pre></div>
-</div>
-<p>El resto del código da la opción de abrir datos previamente guardados en el directorio.</p>
+<p>Los datos fueron obtenidos directamente del Banco Mundial, usando el paquete <code class="docutils literal notranslate"><span class="pre">wbdata</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_file_name</span> <span class="o">=</span> <span class="s1">&#39;datos-CRI-MLT.pickle&#39;</span>
-<span class="n">update_data</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="k">if</span> <span class="n">update_data</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span> <span class="nn">wbdata</span>
-        <span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MLT&quot;</span><span class="p">,</span> <span class="s2">&quot;CRI&quot;</span><span class="p">]</span>
-        <span class="n">indicators</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NY.GDP.PCAP.KD&#39;</span><span class="p">:</span><span class="s1">&#39;GDP per capita (constant 2010 US$)&#39;</span><span class="p">}</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">wbdata</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">indicators</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="n">countries</span><span class="p">,</span> <span class="n">convert_date</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">&#39;GDP per capita (constant 2010 US$)&#39;</span><span class="p">]</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Costa Rica&#39;</span><span class="p">:</span><span class="s1">&#39;CRI&#39;</span><span class="p">,</span> <span class="s1">&#39;Malta&#39;</span><span class="p">:</span><span class="s1">&#39;MLT&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="n">data_file_name</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Downloaded data from World DataBank</span><span class="se">\n</span><span class="s1">Data saved to </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">data_file_name</span><span class="p">)</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="n">data_file_name</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Could not download data from World DataBank</span><span class="se">\n</span><span class="s1">Data read from </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">data_file_name</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="n">data_file_name</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reading data from </span><span class="si">%s</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="n">data_file_name</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_pickle</span><span class="p">(</span><span class="s2">&quot;https://github.com/randall-romero/econometria/raw/master/data/datos-CRI-MLT.pickle&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

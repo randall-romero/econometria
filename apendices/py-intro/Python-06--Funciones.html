@@ -1414,9 +1414,6 @@ $<span class="math notranslate nohighlight">\(F = \tfrac{9}{5}C + 32 = 1.8C + 32
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59.0
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -1598,6 +1595,20 @@ Ejecutando imprimir_suma con kargs =
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
+print(value, ..., sep=&#39; &#39;, end=&#39;\n&#39;, file=sys.stdout, flush=False)
+
+Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file:  a file-like object (stream); defaults to the current sys.stdout.
+sep:   string inserted between values, default a space.
+end:   string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      builtin_function_or_method
+</pre></div>
+</div>
+</div>
 </div>
 <p>Podemos cambiar estos valores repetidamente así:</p>
 <div class="cell docutils container">
@@ -1745,6 +1756,23 @@ c2f(c, show=False)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span> c2f<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>c<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> show<span class=" -Color -Color-Bold -Color-Bold-Yellow">=</span><span class=" -Color -Color-Bold -Color-Bold-Green">False</span><span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>
+Convierte dato de temperatura de grados Celsius a grados Fahrenheit
+
+Parámetros:
+  c: un número escalar, grados en Celsius
+  show: un boolean, imprime el resultado si `True`
+Resultado:
+  un número escalar, grados en Fahrenheit
+Ejemplo:
+  c2f(0)  # da 32.0 por resultado
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\randa\appdata\local\temp\ipykernel_8000\3486068780.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="entendiendo-el-ambito-de-una-variable">
@@ -1795,7 +1823,7 @@ c2f(c, show=False)
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [38],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_8000</span><span class="o">/</span><span class="mf">212384544.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;A&#39; is not defined

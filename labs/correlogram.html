@@ -1144,27 +1144,131 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">imaes</span> <span class="o">=</span> <span class="n">SW</span><span class="o">.</span><span class="n">buscar</span><span class="p">(</span><span class="n">todos</span><span class="o">=</span><span class="s1">&#39;IMAE&#39;</span><span class="p">,</span> <span class="n">frecuencia</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">imaes</span> <span class="o">=</span> <span class="n">imaes</span><span class="p">[</span><span class="n">imaes</span><span class="o">.</span><span class="n">Unidad</span> <span class="o">==</span> <span class="s1">&#39;Nivel&#39;</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">imaes</span><span class="p">[</span><span class="n">imaes</span><span class="o">.</span><span class="n">descripcion</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;IMAE&#39;</span><span class="p">)]</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\core\generic.py:5575,</span> in <span class="ni">NDFrame.__getattr__</span><span class="nt">(self, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5568</span> <span class="k">if</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">5569</span>     <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_internal_names_set</span>
-<span class="g g-Whitespace">   </span><span class="mi">5570</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata</span>
-<span class="g g-Whitespace">   </span><span class="mi">5571</span>     <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_accessors</span>
-<span class="g g-Whitespace">   </span><span class="mi">5572</span>     <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5573</span> <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5574</span>     <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
-<span class="ne">-&gt; </span><span class="mi">5575</span> <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ne">AttributeError</span>: &#39;DataFrame&#39; object has no attribute &#39;descripcion&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DESCRIPCION</th>
+      <th>descripcion</th>
+      <th>Unidad</th>
+      <th>Medida</th>
+      <th>periodo</th>
+    </tr>
+    <tr>
+      <th>codigo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>913</th>
+      <td>Node('/BCCR/Sector Real/IMAE con IEAT, Serie Original [913]')</td>
+      <td>Indice Mensual de Actividad Económica (IMAE) con la Industria Electronica de Alta Tecnologia (IEAT). Serie Original</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>914</th>
+      <td>Node('/BCCR/Sector Real/IMAE con IEAT, Tendencia Ciclo [914]')</td>
+      <td>Índice Mensual de Actividad Económica (IMAE) con la Industria Electrónica de Alta Tecnología (IEAT). Serie Tendencia...</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>915</th>
+      <td>Node('/BCCR/Sector Real/IMAE sin IEAT, Serie Original [915]')</td>
+      <td>Índice Mensual de Actividad Económica (IMAE) sin la Industria Electrónica de Alta Tecnología (IEAT). Serie Original</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>916</th>
+      <td>Node('/BCCR/Sector Real/IMAE sin IEAT, Tendencia Ciclo [916]')</td>
+      <td>Índice Mensual de Actividad Económica (IMAE) sin la Industria Electrónica de Alta Tecnología (IEAT). Serie Tendencia...</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>22718</th>
+      <td>Node('/BCCR/Sector Real/IMAE con IEAT, Desestacionalizada [22718]')</td>
+      <td>Índice Mensual de Actividad Económica (IMAE) con la Industria Electrónica de Alta Tecnología (IEAT). Serie Desestaci...</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>25158</th>
+      <td>Node('/BCCR/Sector Real/IMAE con IEAT, Desestacionalizada [22718]/IMAE específico [25158]')</td>
+      <td>IMAE específico1991=100</td>
+      <td>Nivel</td>
+      <td>No definida</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>22967</th>
+      <td>Node('/BCCR/Sector Real/IMAE sin Zona Franca Serie Original [22967]')</td>
+      <td>IMAE sin Zona Franca Serie Original</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>22970</th>
+      <td>Node('/BCCR/Sector Real/IMAE sin Zona Franca Serie Tendencia Ciclo [22970]')</td>
+      <td>IMAE sin Zona Franca Serie Original</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>35449</th>
+      <td>Node('/BCCR/Sector Real/IMAE , Serie Original [35449]')</td>
+      <td>IMAE , Serie Original</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>35553</th>
+      <td>Node('/BCCR/Sector Real/IMAE Tendencia Ciclo [35553]')</td>
+      <td>IMAE Tendencia Ciclo</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+    <tr>
+      <th>35660</th>
+      <td>Node('/BCCR/Sector Real/IMAE, Serie Desestacionalizadal [35660]')</td>
+      <td>IMAE, Serie Desestacionalizadal</td>
+      <td>Nivel</td>
+      <td>NO DEFINIDO</td>
+      <td>Mensual</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>De esta lista, escogemos los indicadores <strike>35449 (serie original) y 35553 (tendencia-ciclo)</strike> (éstas están discontinuadas, usarememos entonces las series 87703 y 87764, que de momentos no pueden encontrarse con bccr, pero sí descargarse). Descargamos los datos y cambiamos los nombres de las series.</p>
 <div class="cell docutils container">
@@ -1290,8 +1394,8 @@ title="Print to PDF"
 </div>
 </div>
 <p>Calculamos el estadístico de Box-Pierce, para todos los rezagos desde el 1 hasta el 7</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77d8bd11-9b34-4e39-8969-2185d93217e4">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-77d8bd11-9b34-4e39-8969-2185d93217e4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-879b1729-e4e1-4143-94df-03df8fcc55bf">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-879b1729-e4e1-4143-94df-03df8fcc55bf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q^{*} = T\sum_{j=1}^{m}\hat{\rho}_j^2 \; \overset{\text{asy}}{\sim} \; \chi^2_{m-k}
 \end{equation}\]</div>
 <div class="cell docutils container">
@@ -1302,8 +1406,8 @@ Q^{*} = T\sum_{j=1}^{m}\hat{\rho}_j^2 \; \overset{\text{asy}}{\sim} \; \chi^2_{m
 </div>
 </div>
 <p>Calculamos el estadístico de Ljung-Box</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6c5d652-71bb-4e63-8427-3bde908c5895">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-e6c5d652-71bb-4e63-8427-3bde908c5895" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-60099b2e-8bd4-4b06-b04f-ef4626a3f966">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-60099b2e-8bd4-4b06-b04f-ef4626a3f966" title="Permalink to this equation">#</a></span>\[\begin{equation}
 Q = T(T+2)\sum_{j=1}^{m}\frac{\hat{\rho}_j^2}{T-j} \; \overset{\text{asy}}{\sim} \; \chi^2_{m-k}
 \end{equation}\]</div>
 <div class="cell docutils container">

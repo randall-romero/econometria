@@ -159,7 +159,7 @@ y_t = \alpha_0 + \alpha_1 y_{t-1} + \alpha_2 t  + \mu_2 D_t^L  + \sum_{i=1}^{p}\
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-NP = pd.read_stata('../../data/NelsonPlosserData.dta', index_col='year')
+NP = pd.read_stata('https://github.com/randall-romero/econometria/raw/master/data/NelsonPlosserData.dta', index_col='year')
 NP.index = NP.index.year
 
 def ZivotAndrewsA(serie, k=8):

@@ -1123,15 +1123,7 @@ title="Print to PDF"
 <h3>Definir ubicación de archivos de datos<a class="headerlink" href="#definir-ubicacion-de-archivos-de-datos" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GITHUB_REPO</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/randall-romero/econometria/master/data/&quot;</span>
-<span class="n">DATAPATH</span> <span class="o">=</span> <span class="n">GITHUB_REPO</span> <span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span> <span class="k">else</span> <span class="s1">&#39;../data/&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="s1">&#39;NelsonPlosserData.dta&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_stata</span><span class="p">(</span><span class="s1">&#39;https://github.com/randall-romero/econometria/raw/master/data/NelsonPlosserData.dta&#39;</span><span class="p">)</span>
 <span class="n">datos</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1165,7 +1157,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/KPSS_8_0.png" src="../_images/KPSS_8_0.png" />
+<img alt="../_images/KPSS_7_0.png" src="../_images/KPSS_7_0.png" />
 </div>
 </div>
 <p><img alt="KPSS tabla 5" src="labs/KPSS-table5.png" /></p>
@@ -1198,32 +1190,15 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [7],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">KPSS_una_serie</span><span class="p">(</span><span class="s1">&#39;Real GNP&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
-
-<span class="nn">Input In [6],</span> in <span class="ni">KPSS_una_serie</span><span class="nt">(nombre_variable, tipo)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">KPSS_una_serie</span><span class="p">(</span><span class="n">nombre_variable</span><span class="p">,</span> <span class="n">tipo</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd">     Calcula los estadísticos LM de la prueba de estacionariedad KPSS, con rezagos de 0 a 8</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd">      </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="sd">         np.array, los 9 estadísticos LM estimados</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="k">return</span> <span class="p">[</span><span class="n">kpss</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="n">nombre_variable</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">regression</span><span class="o">=</span><span class="n">tipo</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">)]</span>
-
-<span class="nn">Input In [6],</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">KPSS_una_serie</span><span class="p">(</span><span class="n">nombre_variable</span><span class="p">,</span> <span class="n">tipo</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd">     Calcula los estadísticos LM de la prueba de estacionariedad KPSS, con rezagos de 0 a 8</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd">      </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span><span class="sd">         np.array, los 9 estadísticos LM estimados</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="k">return</span> <span class="p">[</span><span class="n">kpss</span><span class="p">(</span><span class="n">datos</span><span class="p">[</span><span class="n">nombre_variable</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">regression</span><span class="o">=</span><span class="n">tipo</span><span class="p">,</span> <span class="n">lags</span><span class="o">=</span><span class="n">k</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">)]</span>
-
-<span class="ne">TypeError</span>: kpss() got an unexpected keyword argument &#39;lags&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.9600803140075245,
+ 3.055244065904038,
+ 2.080582549489867,
+ 1.593138878510747,
+ 1.3008342896960823,
+ 1.1062335280066273,
+ 0.9675596555242384,
+ 0.8639385094254106,
+ 0.7837076252625362]
 </pre></div>
 </div>
 </div>
@@ -2236,7 +2211,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/KPSS_29_0.png" src="../_images/KPSS_29_0.png" />
+<img alt="../_images/KPSS_28_0.png" src="../_images/KPSS_28_0.png" />
 </div>
 </div>
 </div>

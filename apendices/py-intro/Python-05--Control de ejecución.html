@@ -1296,11 +1296,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m es impar
-</pre></div>
-</div>
-</div>
 </div>
 <p>El test no necesariamente tiene que ser un boolean. El número <code class="docutils literal notranslate"><span class="pre">0</span></code>, el valor <code class="docutils literal notranslate"><span class="pre">None</span></code>, y un texto vacío <code class="docutils literal notranslate"><span class="pre">''</span></code>, lista vacía <code class="docutils literal notranslate"><span class="pre">[]</span></code>, tupla vacía <code class="docutils literal notranslate"><span class="pre">()</span></code> o conjunto vacío <code class="docutils literal notranslate"><span class="pre">{}</span></code>, todos son interpretados como  <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <div class="cell docutils container">
@@ -1309,11 +1304,6 @@ title="Print to PDF"
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;m no es divisible entre 5&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;m es divisible entre 5&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m no es divisible entre 5
 </pre></div>
 </div>
 </div>
@@ -1328,11 +1318,6 @@ title="Print to PDF"
     <span class="n">ampm</span> <span class="o">=</span> <span class="s1">&#39;p.m.&#39;</span>
     
 <span class="n">ampm</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a.m.&#39;
 </pre></div>
 </div>
 </div>
@@ -1358,11 +1343,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;a.m.&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Otro ejemplo</p>
 <div class="cell docutils container">
@@ -1371,11 +1351,6 @@ title="Print to PDF"
 <span class="n">z</span> <span class="o">=</span> <span class="s2">&quot;n is &quot;</span> <span class="o">+</span>  <span class="p">(</span><span class="s2">&quot;impar&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">else</span> <span class="s2">&quot;par&quot;</span><span class="p">)</span>
 
 <span class="n">z</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;n is par&#39;
 </pre></div>
 </div>
 </div>
@@ -1410,11 +1385,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 
-</pre></div>
-</div>
-</div>
 </div>
 <p>Un enfoque distinto, pero que incluye el primer elemento que se pasa de 100</p>
 <div class="cell docutils container">
@@ -1431,11 +1401,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="la-funcion-range">
 <h2>La función <code class="docutils literal notranslate"><span class="pre">range</span></code><a class="headerlink" href="#la-funcion-range" title="Permalink to this headline">#</a></h2>
@@ -1443,11 +1408,6 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 6)
 </pre></div>
 </div>
 </div>
@@ -1472,27 +1432,12 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sys.getsizeof(range(N))=48
-sys.getsizeof(list(range(N)))=8056
-sys.getsizeof(range(1000*N))=48
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sys.getsizeof(list(range(1000*N)))=8000056
-</pre></div>
-</div>
-</div>
 </div>
 <p>En los ejemplos que siguen convertimos objetos <code class="docutils literal notranslate"><span class="pre">range</span></code> en listas únicamente para poder imprimir sus elementos.</p>
 <p><code class="docutils literal notranslate"><span class="pre">range(n)</span></code> retorna enteros de <code class="docutils literal notranslate"><span class="pre">0</span></code> a <code class="docutils literal notranslate"><span class="pre">n-1</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
 </pre></div>
 </div>
 </div>
@@ -1504,11 +1449,6 @@ sys.getsizeof(range(1000*N))=48
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 3, 4, 5, 6, 7]
-</pre></div>
-</div>
-</div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">range(m,</span> <span class="pre">n,</span> <span class="pre">s)</span></code> retorna enteros de <code class="docutils literal notranslate"><span class="pre">m</span></code> a <code class="docutils literal notranslate"><span class="pre">n-1</span></code>, de <code class="docutils literal notranslate"><span class="pre">s</span></code> en <code class="docutils literal notranslate"><span class="pre">s</span></code></p>
 <div class="cell docutils container">
@@ -1517,21 +1457,11 @@ sys.getsizeof(range(1000*N))=48
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 5, 8]
-</pre></div>
-</div>
-</div>
 </div>
 <p>También podemos crear un <code class="docutils literal notranslate"><span class="pre">range</span></code> con el orden invertido:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 3, 2, 1]
 </pre></div>
 </div>
 </div>
@@ -1564,14 +1494,6 @@ sys.getsizeof(range(1000*N))=48
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A
-B
-C
-D
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="iterando-sobre-enteros">
@@ -1580,15 +1502,6 @@ D
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-4
-9
-16
-25
 </pre></div>
 </div>
 </div>
@@ -1601,18 +1514,6 @@ D
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../data/HimnoNacional.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo_himno</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">archivo_himno</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [17],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../data/HimnoNacional.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo_himno</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">archivo_himno</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../data/HimnoNacional.txt&#39;
 </pre></div>
 </div>
 </div>

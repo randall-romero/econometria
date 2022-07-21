@@ -1258,10 +1258,7 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.x13</span> <span class="kn">import</span> <span class="n">x13_arima_select_order</span><span class="p">,</span> <span class="n">x13_arima_analysis</span>
 <span class="kn">from</span> <span class="nn">statsmodels.tsa.statespace.sarimax</span> <span class="kn">import</span> <span class="n">SARIMAX</span>
 
-<span class="n">GITHUB_REPO</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/randall-romero/econometria/master/data/&quot;</span>
-<span class="n">DATAPATH</span> <span class="o">=</span> <span class="n">GITHUB_REPO</span> <span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span> <span class="k">else</span> <span class="s1">&#39;../data/&#39;</span>
-
-<span class="n">x13path</span> <span class="o">=</span> <span class="n">DATAPATH</span>
+<span class="n">x13path</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1277,8 +1274,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILENAME</span> <span class="o">=</span> <span class="s2">&quot;Datos-ARESEP-Pasajeros-por-aeropuerto.csv&quot;</span>
-<span class="n">SJO</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATAPATH</span> <span class="o">+</span> <span class="n">FILENAME</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SJO</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/randall-romero/econometria/raw/master/data/Datos-ARESEP-Pasajeros-por-aeropuerto.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1486,7 +1482,7 @@ title="Print to PDF"
     <tr>
       <th>0</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Diciembre</td>
+      <td>12</td>
       <td>2019</td>
       <td>98254</td>
       <td>153319</td>
@@ -1497,7 +1493,7 @@ title="Print to PDF"
     <tr>
       <th>1</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Noviembre</td>
+      <td>11</td>
       <td>2019</td>
       <td>69338</td>
       <td>122130</td>
@@ -1508,7 +1504,7 @@ title="Print to PDF"
     <tr>
       <th>2</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Octubre</td>
+      <td>10</td>
       <td>2019</td>
       <td>69836</td>
       <td>102038</td>
@@ -1519,7 +1515,7 @@ title="Print to PDF"
     <tr>
       <th>3</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Setiembre</td>
+      <td>9</td>
       <td>2019</td>
       <td>72172</td>
       <td>101211</td>
@@ -1530,7 +1526,7 @@ title="Print to PDF"
     <tr>
       <th>4</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Agosto</td>
+      <td>8</td>
       <td>2019</td>
       <td>57089</td>
       <td>156401</td>
@@ -1552,7 +1548,7 @@ title="Print to PDF"
     <tr>
       <th>103</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Mayo</td>
+      <td>5</td>
       <td>2011</td>
       <td>30666</td>
       <td>82713</td>
@@ -1563,7 +1559,7 @@ title="Print to PDF"
     <tr>
       <th>104</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Abril</td>
+      <td>4</td>
       <td>2011</td>
       <td>35224</td>
       <td>103098</td>
@@ -1574,7 +1570,7 @@ title="Print to PDF"
     <tr>
       <th>105</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Marzo</td>
+      <td>3</td>
       <td>2011</td>
       <td>26900</td>
       <td>128936</td>
@@ -1585,7 +1581,7 @@ title="Print to PDF"
     <tr>
       <th>106</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Febrero</td>
+      <td>2</td>
       <td>2011</td>
       <td>24621</td>
       <td>105360</td>
@@ -1596,7 +1592,7 @@ title="Print to PDF"
     <tr>
       <th>107</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Enero</td>
+      <td>1</td>
       <td>2011</td>
       <td>39797</td>
       <td>116312</td>
@@ -1647,42 +1643,9 @@ title="Print to PDF"
   </thead>
   <tbody>
     <tr>
-      <th>104</th>
-      <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Abril</td>
-      <td>2011</td>
-      <td>35224</td>
-      <td>103098</td>
-      <td>2221</td>
-      <td>0</td>
-      <td>140543</td>
-    </tr>
-    <tr>
-      <th>100</th>
-      <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Agosto</td>
-      <td>2011</td>
-      <td>28605</td>
-      <td>102893</td>
-      <td>2043</td>
-      <td>0</td>
-      <td>133541</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Diciembre</td>
-      <td>2011</td>
-      <td>44776</td>
-      <td>90298</td>
-      <td>2391</td>
-      <td>0</td>
-      <td>137465</td>
-    </tr>
-    <tr>
       <th>107</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Enero</td>
+      <td>1</td>
       <td>2011</td>
       <td>39797</td>
       <td>116312</td>
@@ -1693,13 +1656,46 @@ title="Print to PDF"
     <tr>
       <th>106</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Febrero</td>
+      <td>2</td>
       <td>2011</td>
       <td>24621</td>
       <td>105360</td>
       <td>1888</td>
       <td>0</td>
       <td>131869</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>3</td>
+      <td>2011</td>
+      <td>26900</td>
+      <td>128936</td>
+      <td>2794</td>
+      <td>0</td>
+      <td>158630</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>4</td>
+      <td>2011</td>
+      <td>35224</td>
+      <td>103098</td>
+      <td>2221</td>
+      <td>0</td>
+      <td>140543</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>5</td>
+      <td>2011</td>
+      <td>30666</td>
+      <td>82713</td>
+      <td>2223</td>
+      <td>0</td>
+      <td>115602</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1713,42 +1709,31 @@ title="Print to PDF"
       <td>...</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>4</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Marzo</td>
+      <td>8</td>
       <td>2019</td>
-      <td>50288</td>
-      <td>206724</td>
-      <td>213</td>
+      <td>57089</td>
+      <td>156401</td>
+      <td>370</td>
       <td>0</td>
-      <td>257225</td>
+      <td>213860</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>3</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Mayo</td>
+      <td>9</td>
       <td>2019</td>
-      <td>62038</td>
-      <td>128220</td>
-      <td>182</td>
+      <td>72172</td>
+      <td>101211</td>
+      <td>456</td>
       <td>0</td>
-      <td>190440</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Noviembre</td>
-      <td>2019</td>
-      <td>69338</td>
-      <td>122130</td>
-      <td>600</td>
-      <td>0</td>
-      <td>192068</td>
+      <td>173839</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Octubre</td>
+      <td>10</td>
       <td>2019</td>
       <td>69836</td>
       <td>102038</td>
@@ -1757,15 +1742,26 @@ title="Print to PDF"
       <td>172405</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>1</th>
       <td>Aeropuerto Internacional Juan Santamaría</td>
-      <td>Setiembre</td>
+      <td>11</td>
       <td>2019</td>
-      <td>72172</td>
-      <td>101211</td>
-      <td>456</td>
+      <td>69338</td>
+      <td>122130</td>
+      <td>600</td>
       <td>0</td>
-      <td>173839</td>
+      <td>192068</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>12</td>
+      <td>2019</td>
+      <td>98254</td>
+      <td>153319</td>
+      <td>1420</td>
+      <td>0</td>
+      <td>252993</td>
     </tr>
   </tbody>
 </table>
@@ -1780,54 +1776,160 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_libs\tslibs\parsing.pyx:362,</span> in <span class="ni">pandas._libs.tslibs.parsing.parse_datetime_string_with_reso</span><span class="nt">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_libs\tslibs\parsing.pyx:570,</span> in <span class="ni">pandas._libs.tslibs.parsing.dateutil_parse</span><span class="nt">()</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ne">ValueError</span>: Unknown datetime string format, unable to parse: 2011-ABRIL
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">DateParseError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">SJO</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">period_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SJO</span><span class="p">[</span><span class="s1">&#39;Año&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">SJO</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="n">SJO</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">SJO</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\core\indexes\period.py:562,</span> in <span class="ni">period_range</span><span class="nt">(start, end, periods, freq, name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span> <span class="k">if</span> <span class="n">freq</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">Period</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">Period</span><span class="p">)):</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span>     <span class="n">freq</span> <span class="o">=</span> <span class="s2">&quot;D&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">562</span> <span class="n">data</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">PeriodArray</span><span class="o">.</span><span class="n">_generate_range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">periods</span><span class="p">,</span> <span class="n">freq</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">{})</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span> <span class="n">data</span> <span class="o">=</span> <span class="n">PeriodArray</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span> <span class="k">return</span> <span class="n">PeriodIndex</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\core\arrays\period.py:302,</span> in <span class="ni">PeriodArray._generate_range</span><span class="nt">(cls, start, end, periods, freq, fields)</span>
-<span class="g g-Whitespace">    </span><span class="mi">298</span>     <span class="k">if</span> <span class="n">field_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">299</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">300</span>             <span class="s2">&quot;Can either instantiate from fields or endpoints, but not both&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span>         <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">302</span>     <span class="n">subarr</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">_get_ordinal_range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">periods</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">elif</span> <span class="n">field_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="n">subarr</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">_range_from_fields</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span> <span class="o">**</span><span class="n">fields</span><span class="p">)</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\core\arrays\period.py:1135,</span> in <span class="ni">_get_ordinal_range</span><span class="nt">(start, end, periods, freq, mult)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1132</span>     <span class="n">mult</span> <span class="o">=</span> <span class="n">freq</span><span class="o">.</span><span class="n">n</span>
-<span class="g g-Whitespace">   </span><span class="mi">1134</span> <span class="k">if</span> <span class="n">start</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1135</span>     <span class="n">start</span> <span class="o">=</span> <span class="n">Period</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1136</span> <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1137</span>     <span class="n">end</span> <span class="o">=</span> <span class="n">Period</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_libs\tslibs\period.pyx:2553,</span> in <span class="ni">pandas._libs.tslibs.period.Period.__new__</span><span class="nt">()</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_libs\tslibs\parsing.pyx:321,</span> in <span class="ni">pandas._libs.tslibs.parsing.parse_time_string</span><span class="nt">()</span>
-
-<span class="nn">File C:\ProgramData\Anaconda3\envs\libro-ec4301\lib\site-packages\pandas\_libs\tslibs\parsing.pyx:367,</span> in <span class="ni">pandas._libs.tslibs.parsing.parse_datetime_string_with_reso</span><span class="nt">()</span>
-
-<span class="ne">DateParseError</span>: Unknown datetime string format, unable to parse: 2011-ABRIL
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Aeropuerto</th>
+      <th>Mes</th>
+      <th>Año</th>
+      <th>Cantidad Nacionales</th>
+      <th>Cantidad Extrajeros</th>
+      <th>Cantidad En Tránsito</th>
+      <th>Cantidad Exentos</th>
+      <th>Total Pasajeros</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2011-01</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>1</td>
+      <td>2011</td>
+      <td>39797</td>
+      <td>116312</td>
+      <td>1920</td>
+      <td>0</td>
+      <td>158029</td>
+    </tr>
+    <tr>
+      <th>2011-02</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>2</td>
+      <td>2011</td>
+      <td>24621</td>
+      <td>105360</td>
+      <td>1888</td>
+      <td>0</td>
+      <td>131869</td>
+    </tr>
+    <tr>
+      <th>2011-03</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>3</td>
+      <td>2011</td>
+      <td>26900</td>
+      <td>128936</td>
+      <td>2794</td>
+      <td>0</td>
+      <td>158630</td>
+    </tr>
+    <tr>
+      <th>2011-04</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>4</td>
+      <td>2011</td>
+      <td>35224</td>
+      <td>103098</td>
+      <td>2221</td>
+      <td>0</td>
+      <td>140543</td>
+    </tr>
+    <tr>
+      <th>2011-05</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>5</td>
+      <td>2011</td>
+      <td>30666</td>
+      <td>82713</td>
+      <td>2223</td>
+      <td>0</td>
+      <td>115602</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2019-08</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>8</td>
+      <td>2019</td>
+      <td>57089</td>
+      <td>156401</td>
+      <td>370</td>
+      <td>0</td>
+      <td>213860</td>
+    </tr>
+    <tr>
+      <th>2019-09</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>9</td>
+      <td>2019</td>
+      <td>72172</td>
+      <td>101211</td>
+      <td>456</td>
+      <td>0</td>
+      <td>173839</td>
+    </tr>
+    <tr>
+      <th>2019-10</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>10</td>
+      <td>2019</td>
+      <td>69836</td>
+      <td>102038</td>
+      <td>531</td>
+      <td>0</td>
+      <td>172405</td>
+    </tr>
+    <tr>
+      <th>2019-11</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>11</td>
+      <td>2019</td>
+      <td>69338</td>
+      <td>122130</td>
+      <td>600</td>
+      <td>0</td>
+      <td>192068</td>
+    </tr>
+    <tr>
+      <th>2019-12</th>
+      <td>Aeropuerto Internacional Juan Santamaría</td>
+      <td>12</td>
+      <td>2019</td>
+      <td>98254</td>
+      <td>153319</td>
+      <td>1420</td>
+      <td>0</td>
+      <td>252993</td>
+    </tr>
+  </tbody>
+</table>
+<p>108 rows × 8 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
