@@ -33,16 +33,16 @@ Para resolver la ecuación lineal en diferencia
 seguimos estos pasos
 
 
-{badge}`Paso 1,badge-secondary`
+{bdg-secondary}`Paso 1`
 ~   Formamos la ecuación homogénea $y_t - \phi_1 y_{t-1} - \phi_2 y_{t-2} - \dots - \phi_p y_{t-p} = 0$ y encontramos sus $p$ soluciones;
 
-{badge}`Paso 2,badge-secondary`
+{bdg-secondary}`Paso 2`
 ~   Encontramos una solución particular;
 
-{badge}`Paso 3,badge-secondary`
+{bdg-secondary}`Paso 3`
 ~   Obtenemos la solución general como la suma de la solución particular  y una combinación lineal de todas las soluciones homogéneas;
 
-{badge}`Paso 4,badge-secondary`
+{bdg-secondary}`Paso 4`
 ~   Eliminamos las constantes arbitrarias imponiendo $p$ condiciones iniciales en el problema.
 
 
@@ -137,7 +137,7 @@ A_1z_1^{t-p}\left(z^p_1- \phi_1z^{p-1}_1 - \dots - \phi_p\right) +\dots + A_pz_p
 y_t = 0.9y_{t-1} - 0.2y_{t-2}+3
 \end{equation*}
 
-{badge}`Paso 1,badge-secondary`
+{bdg-secondary}`Paso 1`
 :   Resolvemos la ecuación homogénea $y_t - 0.9y_{t-1} + 0.2y_{t-2} = 0$:
 \begin{align*}
 z^2 - 0.9z + 0.2 &= (z-0.4)(z-0.5) = 0\\
@@ -151,20 +151,20 @@ Es fácil verificar que son las soluciones:
 0.5^t - 0.9\left(0.5\right)^{t-1} + 0.2\left(0.5\right)^{t-2} &= \left(0.5\right)^{t-2}\left[(0.5)^2 - 0.9(0.5) + 0.2\right] = 0
 \end{align*}
 
-{badge}`Paso 2,badge-secondary`
+{bdg-secondary}`Paso 2`
 :   Supongamos que $y^p_t=c$, una constante, es una solución particular:
 \begin{equation*}
 c = 0.9c - 0.2c + 3 \quad\Rightarrow c= 10 \quad\Rightarrow y^p_t=10
 \end{equation*}
 
 
-{badge}`Paso 3,badge-secondary`
+{bdg-secondary}`Paso 3`
 :   Obtenemos la solución general como la suma de la solución particular  y una combinación lineal de todas las soluciones homogéneas:
 \begin{equation*}
 y_t = A_1(0.4)^t + A_2(0.5)^t + 10
 \end{equation*}
 
-{badge}`Paso 4,badge-secondary`
+{bdg-secondary}`Paso 4`
 :   Eliminamos $A_1, A_2$ imponiendo 2 condiciones iniciales: $y_0=13, y_1=11.3$.
 \begin{equation*}
 \begin{cases}
@@ -183,7 +183,7 @@ y_t = 2(0.4)^t + (0.5)^t + 10
 
 
 {{ empieza_ejemplo }} Resolviendo la ecuación con `sympy`{{ fin_titulo_ejemplo }}
-Podemos también resolver este sistema utilizando el paquete `sympy` de Python:
+Podemos también resolver este problema utilizando el paquete `sympy` de Python:
 
 ```{code-cell} ipython3
 from sympy import Function, rsolve

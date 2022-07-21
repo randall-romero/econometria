@@ -15,6 +15,7 @@ dependencies:
   - nodejs
   - seaborn
   - pandas-datareader
+  - joblib
   - pip:
     - bccr
     - macrodemos

@@ -63,21 +63,36 @@ Un supuesto importante en la prueba de \textcite{Perron1989} es que el analista 
 
 ## Las pruebas de cambio estructural de Zivot y Andrews
 
+{{ empieza_test }} Las pruebas de cambio estructural de Zivot y Andrews {{ fin_titulo_test }}
+::::{grid} 
+:gutter: 1
 
-{{ empieza_test }} Las pruebas de cambio estructural de Perron {{ fin_titulo_test }}
-{{ test_inquietud }} ¿Hay raíces unitarias en presencia de un cambio estructural en $t=\tau$?
-{{ test_hipotesis }}
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Hay raíces unitarias en presencia de un cambio estructural en $t=\tau$?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
 \begin{align*}
 y_t &= \mu +  y_{t-1}  + \epsilon_{t} \tag{nula}\\
 y_t &= \notationbrace{\alpha_0 + \mu_2 D_t^L}{intercepto} + \alpha_2 t  + \epsilon_{t} \tag{alternativa A}\\
 y_t &= \alpha_0 + \notationbrace{\alpha_2 t + \mu_3 D^T_t}{tendencia} +  \epsilon_{t} \tag{alternativa B} \\
 y_t &= \notationbrace{\alpha_0 + \mu_2 D_t^L}{intercepto} + \notationbrace{\alpha_2 t + \mu_3 D^T_t}{tendencia} +  \epsilon_{t} \tag{alternativa C}
 \end{align*}
+:::
 
-{{ test_estadistico }}
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`calculator;test-simbolo`
 Para implementar la prueba de Zivot y Andrews se siguen estos pasos:
 
-{badge}`Paso 1:, badge-dark` Se estima la regresión correspondiente al modelo
+{bdg-dark}`Paso 1:` Se estima la regresión correspondiente al modelo
 \begin{align*}
 \textcolor{Chartreuse4}{A: } y_t &= \alpha_0 + \alert{\alpha_1 y_{t-1}} + \alpha_2 t  &+& \mu_2 D_t^L \phantom{+ \mu_3 D^T_t}  &+& \sum_{i=1}^{p}\beta_i\Delta y_{t-1} + \epsilon_{t} \\
 \textcolor{Chartreuse4}{B: } y_t &= \alpha_0 + \alert{\alpha_1 y_{t-1}} + \alpha_2 t  &+& \phantom{\mu_2 D_t^L +} \mu_3 D^T_t  &+& \sum_{i=1}^{p}\beta_i\Delta y_{t-1} + \epsilon_{t}  \\
@@ -88,19 +103,25 @@ donde los términos $D_t^L$ y $D_t^T$ dependen de la proporción de datos $\lamb
 D_t^L(\lambda) &= I(t>\lambda T)  &  D_t^T &=\max(t-\lambda T, 0)
 \end{align*}
 
-{badge}`Paso 2:, badge-dark` Se calcula el estadístico $t$ de la hipótesis $a_1=1$:
+{bdg-dark}`Paso 2:` Se calcula el estadístico $t$ de la hipótesis $a_1=1$:
 \begin{equation*}
 t_{\alpha_1} = \frac{\hat{\alpha_1}-1}{s.e.(\alpha_1)}
 \end{equation*}
 Observemos que el valor estimado $\hat{\alpha}$ dependerá de $\lambda$; por ello, escribimos $t_{\alpha_1}(\lambda)$
 
-{badge}`Paso 3:,badge-dark` Se define el punte de quiebre $\hat{\lambda}$ como aquel valor $\lambda$ que hace más plausible la hipótesis alternativa
+{bdg-dark}`Paso 3:` Se define el punte de quiebre $\hat{\lambda}$ como aquel valor $\lambda$ que hace más plausible la hipótesis alternativa
 \begin{equation*}
 \hat{\lambda} \equiv \argmin{\lambda\in(0, 1)}\left\{ t_{\alpha_1}(\lambda) \right\}
 \end{equation*}
+:::
 
-{{ test_interpretacion }}
+:::{grid-item} 
+:outline: 
+:columns: 4
+{fas}`lightbulb;test-simbolo` 
 Se compara el valor mínimo $t_{\alpha_1}(\hat\lambda)$ con el valor crítico de Zivot y Andrews. Si el estadístico estimado es menor que el valor crítico, se rechaza la hipótesis nula.
+:::
+::::
 
 **Valores críticos de Zivot y Andrews**
 | Modelo   |    1% |    5% |   10% |
@@ -110,8 +131,8 @@ Se compara el valor mínimo $t_{\alpha_1}(\hat\lambda)$ con el valor crítico de
 | C        | -5.57 | -5.08 | -4.82 |
 
 Fuente: \textcite{Zivot1992}
-{{ termina_test }}
 
+{{ termina_test }}
 
 
 
@@ -138,7 +159,7 @@ y_t = \alpha_0 + \alpha_1 y_{t-1} + \alpha_2 t  + \mu_2 D_t^L  + \sum_{i=1}^{p}\
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-NP = pd.read_stata('datos/NelsonPlosserData.dta', index_col='year')
+NP = pd.read_stata('https://github.com/randall-romero/econometria/raw/master/data/NelsonPlosserData.dta', index_col='year')
 NP.index = NP.index.year
 
 def ZivotAndrewsA(serie, k=8):

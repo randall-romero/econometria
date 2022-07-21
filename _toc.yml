@@ -130,11 +130,12 @@ parts:
     - file: apendices/py-intro/Python-09--manipulando-datos.ipynb
     - file: apendices/py-intro/Python-10--Webscraping.ipynb
     - file: apendices/py-intro/Python-11--Leyendo-archivos-XML.ipynb
-  - file: apendices/r-code/chapter-r
-    sections:
-    - file: apendices/r-code/R-transform
-    - file: apendices/r-code/R-lags
-    - file: apendices/r-code/R-correlogram
+#  - file: apendices/r-code/chapter-r
+#    sections:
+#    - file: apendices/r-code/R-transform
+#    - file: apendices/r-code/R-lags
+#    - file: apendices/r-code/R-correlogram
+#    - file: apendices/stata/borrador
   - file: apendices/matematica/matematica
     sections:
     - file: apendices/matematica/01-algebra-lineal

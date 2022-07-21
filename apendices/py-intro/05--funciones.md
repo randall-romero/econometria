@@ -110,7 +110,9 @@ saludar()
 ### Una función con argumentos
 
 Supongamos que deseamos escribir una función para convertir un dato de temperatura de Celsius a Fahrenheit. Para ello, sabemos que:
-$$F = \tfrac{9}{5}C + 32 = 1.8C + 32$$
+\begin{equation*}
+F = \tfrac{9}{5}C + 32 = 1.8C + 32
+\end{equation*}
 
 ```{code-cell} ipython3
 def c2f(c):

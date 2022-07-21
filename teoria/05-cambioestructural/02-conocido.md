@@ -236,32 +236,49 @@ vemos que es equivalente a la alternativa excepto por las perturbaciones.
 
 ## Las pruebas de cambio estructural de Perron
 
-{{ empieza_test }} Las pruebas de cambio estructural de Perron {{ fin_titulo_test }}
-{{ test_inquietud }} ¿Hay raíces unitarias en presencia de un cambio estructural en $t=\tau$?
-{{ test_hipotesis }}
 
-{badge}`Modelo A: cambio de intercepto (crash), badge-success`
+{{ empieza_test }} Las pruebas de cambio estructural de Perron {{ fin_titulo_test }}
+::::{grid} 
+:gutter: 1
+
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Hay raíces unitarias en presencia de un cambio estructural en $t=\tau$?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
+{bdg-success}`Modelo A: cambio de intercepto (crash)`
 \begin{align*}
 y_t &= \notationbrace{\alpha_0 + \mu_1 D^P_t}{intercepto} +  y_{t-1}  + \epsilon_{t} \tag{nula}\\
 y_t &= \notationbrace{\alpha_0 + \mu_2 D_t^L}{intercepto} + \alpha_2 t  + \epsilon_{t} \tag{alternativa}
 \end{align*}
 
-{badge}`Modelo B: cambio de tendencia (changing growth), badge-success`
+{bdg-success}`Modelo B: cambio de tendencia (changing growth)`
 \begin{align*}
 y_t &= \notationbrace{\alpha_0 + \mu_2 D^L_t}{intercepto} +  y_{t-1}  + \epsilon_{t} \tag{nula}\\
 y_t &= \alpha_0 + \notationbrace{\alpha_2 t + \mu_3 D^T_t}{tendencia} +  \epsilon_{t} \tag{alternativa}
 \end{align*}
 donde $D^T_t(\tau) = \max(t-\tau, 0)$
 
-{badge}`Modelo C: cambio de intercepto y de tendencia, badge-success`
+{bdg-success}`Modelo C: cambio de intercepto y de tendencia`
 \begin{align*}
 y_t &= \notationbrace{\alpha_0 + \mu_1 D^P_t + \mu_2 D^L_t}{intercepto} +  y_{t-1}  + \epsilon_{t} \tag{nula}\\
 y_t &= \notationbrace{\alpha_0 + \mu_2 D_t^L}{intercepto} + \notationbrace{\alpha_2 t + \mu_3 D^T_t}{tendencia} +  \epsilon_{t} \tag{alternativa}
 \end{align*}
-{{ test_estadistico }}
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`calculator;test-simbolo`
 Para implementar la prueba de Perron se siguen 3 pasos:
 
-{badge}`Paso 1:, badge-dark` Se estima la regresión correspondiente al modelo
+{bdg-dark}`Paso 1:` Se estima la regresión correspondiente al modelo
 \begin{align*}
 y_t &= \alpha_0 + \alert{\alpha_1}y_{t-1} + \alpha_2 t + \mu_1 D_t^P + \mu_2 D_t^L  +\epsilon_{t} \tag{A} \\
 y_t &= \alpha_0 + \alpha_2 t + \mu_3 D_t^T  + \tilde{y}_{t} \qquad\Rightarrow
@@ -269,24 +286,33 @@ y_t &= \alpha_0 + \alpha_2 t + \mu_3 D_t^T  + \tilde{y}_{t} \qquad\Rightarrow
 y_t &= \alpha_0 + \alert{\alpha_1}y_{t-1} + \alpha_2 t + \mu_1 D_t^P + \mu_2 D_t^L + \mu_3 D_t^L  +\epsilon_{t} \tag{C}\\
 \end{align*}
 
-{badge}`Paso 2:, badge-dark` Si los residuos de la regresión están autocorrelacionados, se estima la regresión ampliada, agregando $p$ rezagos del cambio en la variable:
+{bdg-dark}`Paso 2:` Si los residuos de la regresión están autocorrelacionados, se estima la regresión ampliada, agregando $p$ rezagos del cambio en la variable:
 \begin{align*}
 \text{A y C} &:\sum_{i=1}^{p}\beta_i\Delta y_{t-1}  &
 \text{B} &:\sum_{i=1}^{p}\beta_i\Delta \tilde{y}_{t-1}
 \end{align*}
 
-{badge}`Paso 3:,badge-dark` Se calcula el estadístico $t$ de la hipótesis $a_1=1$:
+{bdg-dark}`Paso 3:` Se calcula el estadístico $t$ de la hipótesis $a_1=1$:
 \begin{equation*}
 t_{\alpha_1} = \frac{\hat{\alpha_1}-1}{s.e.(\alpha_1)}
 \end{equation*}
 y se compara con el valor crítico de Perron.
-{{ test_interpretacion }}
-Si el estadístico estimado es menor que el valor crítico, se rechaza la hipótesis nula.
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 4
+{fas}`lightbulb;test-simbolo` 
+Si el estadístico estimado es menor que el valor crítico (ver tabla abajo), se rechaza la hipótesis nula.
+:::
+::::
 
 El valor crítico depende de la proporción $\lambda$ de observaciones que corresponden al periodo anterior al quiebre estructural.
 
 **Valores críticos de Perron**
-```{tabbed} Modelo A
+::::{tab-set}
+
+:::{tab-item} Modelo A
 | 𝜆   |    1% |   2.5% |    5% |   10% |   90% |   95% |   97.5% |   99% |
 |----:|------:|-------:|------:|------:|------:|------:|--------:|------:|
 | 0.1 | -4.30 |  -3.93 | -3.68 | -3.40 | -1.38 | -1.09 |   -0.78 | -0.46 |
@@ -298,9 +324,9 @@ El valor crítico depende de la proporción $\lambda$ de observaciones que corre
 | 0.7 | -4.42 |  -4.07 | -3.80 | -3.51 | -1.42 | -1.10 |   -0.82 | -0.50 |
 | 0.8 | -4.33 |  -3.99 | -3.75 | -3.46 | -1.46 | -1.13 |   -0.89 | -0.57 |
 | 0.9 | -4.27 |  -3.97 | -3.69 | -3.38 | -1.37 | -1.04 |   -0.74 | -0.47 |
-```
+:::
 
-```{tabbed} Modelo B
+:::{tab-item} Modelo B
 | 𝜆   |    1% |   2.5% |    5% |   10% |   90% |   95% |   97.5% |   99% |
 |----:|------:|-------:|------:|------:|------:|------:|--------:|------:|
 | 0.1 | -4.27 |  -3.94 | -3.65 | -3.36 | -1.35 | -1.04 |   -0.78 | -0.40 |
@@ -312,9 +338,9 @@ El valor crítico depende de la proporción $\lambda$ de observaciones que corre
 | 0.7 | -4.51 |  -4.13 | -3.85 | -3.57 | -1.61 | -1.28 |   -0.97 | -0.67 |
 | 0.8 | -4.38 |  -4.07 | -3.82 | -3.50 | -1.49 | -1.16 |   -0.87 | -0.54 |
 | 0.9 | -4.26 |  -3.96 | -3.68 | -3.35 | -1.34 | -1.04 |   -0.77 | -0.43 |
-```
+:::
 
-```{tabbed} Modelo C
+:::{tab-item} Modelo C
 | 𝜆   |    1% |   2.5% |    5% |   10% |   90% |   95% |   97.5% |   99% |
 |----:|------:|-------:|------:|------:|------:|------:|--------:|------:|
 | 0.1 | -4.38 |  -4.01 | -3.75 | -3.45 | -1.44 | -1.11 |   -0.82 | -0.45 |
@@ -326,9 +352,16 @@ El valor crítico depende de la proporción $\lambda$ de observaciones que corre
 | 0.7 | -4.75 |  -4.44 | -4.18 | -3.86 | -1.81 | -1.47 |   -1.17 | -0.79 |
 | 0.8 | -4.70 |  -4.31 | -4.04 | -3.69 | -1.63 | -1.29 |   -1.04 | -0.64 |
 | 0.9 | -4.41 |  -4.10 | -3.80 | -3.46 | -1.44 | -1.12 |   -0.80 | -0.50 |
-```
+:::
+::::
 Fuente: \textcite{Perron1989}
 {{ termina_test }}
+
+
+
+
+
+
 
 
 
@@ -341,7 +374,7 @@ Perron analiza los datos de Nelson y Plosser.
 :tags: ["hide-input",]
 pd.options.plotting.backend = "plotly"
 
-NP = pd.read_stata('datos/NelsonPlosserData.dta', index_col='year')
+NP = pd.read_stata('https://github.com/randall-romero/econometria/raw/master/data/NelsonPlosserData.dta', index_col='year')
 NP.index = NP.index.year
 
 # modelo de salarios nominales

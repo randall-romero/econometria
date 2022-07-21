@@ -76,31 +76,27 @@ Una serie no estacionaria
 
 ## Casos particulares de series de tiempo
 
+::::{grid}
+:gutter: 3
 
-```{panels}
-:header: bg-dark text-center text-white
-
-Tendencia
-^^^
+:::{grid-item-card} Tendencia
 \begin{equation*}
 y_t = t
 \end{equation*}
+:::
 
----
-Constante
-^^^
+:::{grid-item-card} Constante
 \begin{equation*}
 y_t = c
 \end{equation*}
+:::
 
----
-Ruido blanco de Gauss
-^^^
+:::{grid-item-card} Ruido blanco de Gauss
 \begin{equation*}
 y_t = \epsilon_t, \text{ con } \left(\epsilon_t\right)_{t=-\infty}^{\infty} i.i.d., \epsilon_t\sim N(0,\sigma^2)
 \end{equation*}
-```
-
+:::
+::::
 
 
 
@@ -125,24 +121,26 @@ En la práctica, sólo tenemos una única realización del proceso: $y_1, y_2, \
 En el caso de procesos estacionarios, el supuesto de **ergodicidad** significa que momentos muestrales calculados a partir de una serie de tiempo con un número finito de observaciones converge (en algún sentido) a sus contrapartes poblacionales.
 
 
-```{panels}
-:header: bg-dark text-center text-white
 
-Ergódico en media
-^^^
+
+
+::::{grid}
+:gutter: 3
+
+:::{grid-item-card} Ergódico en media
 El proceso es ergódico en media si
 \begin{equation*}
 \lim\limits_{T\to\infty}\E\left[\left(\tfrac{1}{T}\sum_{t=1}^{T}y_t - \mu \right)^2\right] = 0
 \end{equation*}
+:::
 
----
-Ergódico en varianza
-^^^
+:::{grid-item-card} Ergódico en varianza
 El proceso es ergódico en varianza si
 \begin{equation*}
 \lim\limits_{T\to\infty}\E\left[\left(\tfrac{1}{T}\sum_{t=1}^{T}(y_t - \mu)^2 - \sigma^2_y \right)^2\right] = 0
 \end{equation*}
-```
+:::
+::::
 
 ## Algunas apuntes acerca de la ergodicidad
 
@@ -154,50 +152,47 @@ El proceso es ergódico en varianza si
 ## Estimación de  momentos de un proceso estacionario
 Si el proceso es ergódico, podemos estimar consistentemente:
 
-```{panels}
-:header: bg-dark text-center text-white
+::::{grid}
+:gutter: 3
 
-Media
-^^^
+:::{grid-item-card} Media
 \begin{equation*}
 \hat{\mu} = \frac{1}{T}\sum\limits_{t=1}^{T}y_t
 \end{equation*}
+:::
 
----
-Varianza
-^^^
+:::{grid-item-card} Varianza
 \begin{equation*}
 \hat{\gamma}_0 = \frac{1}{T}\sum\limits_{t=1}^{T}(y_t - \hat{\mu})^2
 \end{equation*}
+:::
 
----
-Autocovarianza
-^^^
+:::{grid-item-card} Autocovarianza
 \begin{equation*}
 \hat{\gamma}_\tau = \frac{1}{T}\sum\limits_{t=1}^{T-\tau}(y_t - \hat{\mu})(y_{t+\tau} - \hat{\mu})
 \end{equation*}
+:::
 
----
-Autocorrelación
-^^^
+:::{grid-item-card} Autocorrelación
 \begin{equation*}
 \hat{\rho}_\tau = \frac{\hat{\gamma}_\tau}{\hat{\gamma}_0} \quad \text{para } \tau = 1, 2,\dots T-1.
 \end{equation*}
+:::
 
----
-Asimetría
-^^^
+:::{grid-item-card} Asimetría
 \begin{equation*}
 \hat{S} = \frac{\frac{1}{T}\sum\limits_{t=1}^{T}(y_t - \hat{\mu})^3}{\sqrt{\hat{\gamma}_0^3}}
 \end{equation*}
+:::
 
----
-Kurtosis
-^^^
+:::{grid-item-card} Kurtosis
 \begin{equation*}
 \hat{K} = \frac{\frac{1}{T}\sum\limits_{t=1}^{T}(y_t - \hat{\mu})^4}{\hat{\gamma}_0^2}
 \end{equation*}
-```
+:::
+::::
+
+
 -----------------------------------------------
 
 ## Autocorrelación

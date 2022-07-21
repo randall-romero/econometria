@@ -68,60 +68,135 @@ para todo $\tau\geq 1$
 
 ## Test de Box-Pierce
 
-{{ empieza_test }} Test de Box-Pierce (1970) {{ fin_titulo_test }}
-{{ test_inquietud }} ¿Es esta serie  un caso de ruido blanco?
-{{ test_hipotesis }} $\rho_1 = \rho_2 = \dots =\rho_m = 0$ (sí es ruido blanco)
-{{ test_estadistico}}
+{{ empieza_test }} Test de Box-Pierce (1970)  {{ fin_titulo_test }}
+::::{grid} 
+:gutter: 1
 
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Es esta serie  un caso de ruido blanco?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
+$\rho_1 = \rho_2 = \dots =\rho_m = 0$ (sí es ruido blanco)
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`calculator;test-simbolo`
 \begin{equation*}
 Q^{*} = T\sum_{j=1}^{m}\hat{\rho}_j^2 \; \overset{\text{asy}}{\sim} \; \chi^2_{m-k}
 \end{equation*}
+:::
 
-$k$ es número de parámetros estimados
-
-{{ test_interpretacion}}
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`lightbulb;test-simbolo` 
 Si $Q^{*} > \chi_{m-k}(1-\alpha)$, rechazar $H_0$ con $100\alpha\%$ de significancia: la serie no es ruido blanco.
 
 La intuición es que si la serie no es ruido blanco, algunos $\hat{\rho}_j$ serán “muy grandes”, y entonces $Q^*$ también lo será.
+:::
+::::
 {{ termina_test }}
+
+
+
+
+
+
 
 
 ## Test de Ljung-Box
 
+{{ empieza_test }} Test de Ljung-Box (1978) {{ fin_titulo_test }}
+::::{grid} 
+:gutter: 1
 
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Es esta serie  un caso de ruido blanco?
+:::
 
-{{ empieza_test }} Test de Ljung-Box (1978) {{ fin_titulo_test}}
-{{ test_inquietud }} ¿Es esta serie  un caso de ruido blanco?
-{{ test_hipotesis }} $\rho_1 = \rho_2 = \dots =\rho_m = 0$ (sí es ruido blanco)
-{{ test_estadistico }}
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
+$\rho_1 = \rho_2 = \dots =\rho_m = 0$ (sí es ruido blanco)
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`calculator;test-simbolo`
 \begin{equation*}
 Q = T(T+2)\sum_{j=1}^{m}\frac{\hat{\rho}_j^2}{T-j} \; \overset{\text{asy}}{\sim} \; \chi^2_{m-k}
 \end{equation*}
 
 $k$ es número de parámetros estimados
+:::
 
-{{ test_interpretacion }} Si $Q^{*} > \chi_{m-k}(1-\alpha)$, rechazar $H_0$ con $100\alpha\%$ de significancia: la serie no es ruido blanco.
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`lightbulb;test-simbolo` 
+Si $Q^{*} > \chi_{m-k}(1-\alpha)$, rechazar $H_0$ con $100\alpha\%$ de significancia: la serie no es ruido blanco.
 
 Este test es similar al de Box-Pierce, pero ajustada para muestras pequeñas.
+:::
+::::
 {{ termina_test }}
+
 
 
 
 ## Test de Durbin-Watson
 <!-- %Greene 2018, p1001-1003 -->
 
-{{ empieza_test }} Test de Durbin-Watson (1950/1){{ fin_titulo_test }}
-{{ test_inquietud }} Inquietud:** ¿Hay autocorrelación de primer orden en esta serie?
-{{ test_hipotesis }}
+{{ empieza_test }} Test de Durbin-Watson (1950/1) {{ fin_titulo_test }}
+::::{grid} 
+:gutter: 1
+
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+Inquietud:** ¿Hay autocorrelación de primer orden en esta serie?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
 $\rho_1 = 0$ (no hay autocorrelación)
-{{ test_estadistico }}
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`calculator;test-simbolo`
 \begin{equation*}
 d = \frac{\sum_{t=2}^{T}(e_t-e_{t-1})^2}{\sum_{t=1}^{T}e_t^2} \approx 2\left(1-\hat{\rho}_1 \right)\qquad \text{(si T es grande)}
 \end{equation*}
-{{ test_interpretacion }}
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`lightbulb;test-simbolo` 
 Si $d$ está “lejos” de 2 según los valores críticos de DW, rechazar $H_0$: la serie sí presenta autocorrelación.
 
 Esta prueba no es válida para residuos de una ecuación donde haya rezagos de la variable dependiente.
+:::
+::::
 {{ termina_test }}
 
 
@@ -181,15 +256,41 @@ Para evaluar si este supuesto es apropiado, analizamos los momentos tercero (asi
 
 
 ## Test de normalidad
+
 {{ empieza_test }} Test de Jarque-Bera (1980) {{ fin_titulo_test }}
-{{ test_inquietud }} ¿Es esta serie  normal?
-{{ test_hipotesis }} $S\equiv\E\left(\frac{y-\mu}{\sigma}\right)^3 = 0,\; K\equiv\E\left(\frac{y-\mu}{\sigma}\right)^4 = 3$ (sí es)
-{{ test_estadistico }}
+::::{grid} 
+:gutter: 1
+
+:::{grid-item}
+:outline: 
+:columns: 4
+{fas}`question;test-simbolo`
+¿Es esta serie  normal?
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 8
+{fas}`bullseye;test-simbolo`
+$S\equiv\E\left(\frac{y-\mu}{\sigma}\right)^3 = 0,\; K\equiv\E\left(\frac{y-\mu}{\sigma}\right)^4 = 3$ (sí es)
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`calculator;test-simbolo`
 \begin{equation*}
 JB = \frac{T}{6}\left(\hat{S}^2 + \tfrac{1}{4}\left(\hat{K}-3\right)^2\right) \;\sim\chi^2_2
 \end{equation*}
-{{ test_interpretacion }}
+:::
+
+:::{grid-item} 
+:outline: 
+:columns: 6
+{fas}`lightbulb;test-simbolo` 
 Si $JB > \chi^2_{2}(1-\alpha)$, rechazar $H_0$ con $100\alpha\%$ de significancia: la serie no es normal.
+:::
+::::
 {{ termina_test }}
 
 

@@ -23,10 +23,8 @@ substitutions:
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 import numpy as np
-import matplotlib.pyplot as plt
-plt.style.use('seaborn')
-from macrodemos.demo_ARMA import ARMA
-from macrodemos.common_components import merge_plots
+import plotly.graph_objects as go
+from statsmodels.tsa.arima_process import ArmaProcess # MODELO TEORICO
 ```
 
 
@@ -363,20 +361,38 @@ que en función de $j$ es periódica, con frecuencia $\theta$ y período $\frac{
 
 {{ empieza_ejemplo }} Dinámica de ajuste cuando $p=2$ {{ fin_titulo_ejemplo }}
 
+**Ejemplo 1.** $y_t=0.9y_{t-1} - 0.9y_{t-2} + \epsilon_t$: 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-y1 = ARMA(phi=[0.9, -0.9])
-y2 = ARMA(phi=[0.2, 0.35])
-y3 = ARMA(phi=[1.6, -0.64])
-y4 = ARMA(phi=[0.5, 0.5])
+def ilustrar(phi):
+   y = ArmaProcess.from_coeffs(arcoefs=phi)
+   print('Raíces del polinomio caracteristico:\n\t', 1/y.arroots)
+   print('Módulo de las raíces:\n\t', abs(1/y.arroots)) 
+   
+   fig = go.Figure()
+   fig.add_trace(go.Bar(y=y.impulse_response(50)))
+   fig.update_layout(height=200, width=400, showlegend=False, margin=dict(l=40, r=20, t=20, b=20))
+   fig.show()
 
-merge_plots(
-   [y1.plot_irf(50), y2.plot_irf(50), y3.plot_irf(50), y4.plot_irf(50)],
-   cols=2,
-   subplot_titles=[str(y1), str(y2), str(y3), str(y4)] ,
-   title_text="Funciones de impulso respuesta",
-   shared_yaxes=False
-)
+ilustrar(phi=[0.9, -0.9])
+```
+
+**Ejemplo 2.** $y_t=0.2y_{t-1} + 0.35y_{t-2} + \epsilon_t$: 
+```{code-cell} ipython3
+:tags: ["hide-input",]
+ilustrar(phi=[0.2, 0.35])
+```
+
+**Ejemplo 3.** $y_t=1.6y_{t-1} - 0.64y_{t-2} + \epsilon_t$: 
+```{code-cell} ipython3
+:tags: ["hide-input",]
+ilustrar(phi=[1.6, -0.64])
+```
+
+**Ejemplo 4.** $y_t=0.5y_{t-1} + 0.5y_{t-2} + \epsilon_t$: 
+```{code-cell} ipython3
+:tags: ["hide-input",]
+ilustrar(phi=[0.5, 0.5])
 ```
 {{ termina_ejemplo}}
 

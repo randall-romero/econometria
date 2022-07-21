@@ -25,11 +25,40 @@ substitutions:
 import numpy as np
 import matplotlib.pyplot as plt
 plt.style.use('seaborn')
-from macrodemos.demo_ARMA import ARMA
-from macrodemos.common_components import merge_plots
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+from statsmodels.tsa.arima_process import ArmaProcess # MODELO TEORICO
 ```
 
+```{code-cell} ipython3
+:tags: ["hide-input",]
+def graficar_autocorrelacion(fig, proceso, maxlag=12, **kwargs):
+    rezagos = 1 + np.arange(maxlag)
+    fig.add_trace(go.Bar(x=rezagos, y=proceso.acf(maxlag+1)[1:]), **kwargs)
 
+def graficar_autocorrelacion_parcial(fig, proceso, maxlag=12, **kwargs):
+    rezagos = 1 + np.arange(maxlag)
+    fig.add_trace(go.Bar(x=rezagos, y=proceso.pacf(maxlag+1)[1:]), **kwargs)    
+
+def graficar_raices(fig, raices):
+    r, theta = np.abs(1/raices), np.angle(1/raices, True)
+    rmax = 1.0 if np.max(r) < 1.0 else np.maximum(r)
+
+    fig.add_trace(go.Scatterpolar(
+            r=r,
+            theta=theta,
+            mode = 'markers',
+            marker_size=14
+        ))
+
+    fig.update_layout(
+                title='Raíces inversas del polinomio de rezagos',
+                polar={'angularaxis': {'thetaunit': 'radians', 'dtick': np.pi / 4},
+                    'radialaxis': {'tickvals': [0.0, 1.0], 'range': [0, rmax]}}
+            )
+
+opciones = dict(height=300, width=800, showlegend=False, margin=dict(l=40, r=20, t=40, b=20))
+```
 
 # Proceso autorregresivo de media móvil ARMA(p,q)
 
@@ -76,26 +105,23 @@ El proceso  $\tilde{y}_t = \phi_1\tilde{y}_{t-1} + \dots + \phi_p\tilde{y}_{t-p}
 \end{align*}
 
 
-```{panels}
-:header: bg-dark text-center text-white
+::::{grid}
+:gutter: 3
 
-Estabilidad
-^^^
+:::{grid-item-card} Estabilidad
 Si las raíces del polinomio $\Phi(z)$ están todas fuera del círculo unitario, el proceso es **estable**.
 \begin{equation*}
 \tilde{y}_t = \Phi(\Lag)^{-1}\Theta(\Lag)\epsilon_t
 \end{equation*}
+:::
 
-
----
-Invertibilidad
-^^^
+:::{grid-item-card} Invertibilidad
 Si las raíces del polinomio $\Theta(z)$ están todas fuera del círculo unitario, el proceso es **invertible**.
 \begin{equation*}
 \epsilon_t = \Theta(\Lag)^{-1}\Phi(\Lag)\tilde{y}_t
 \end{equation*}
-
-```
+:::
+::::
 
 
 ## Sobreparametrización de un proceso ARMA
@@ -127,16 +153,17 @@ y_t &= 0.8y_{t-1} +\epsilon_t+0.6\epsilon_{t-1} \tag{ARMA(1,1)}
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-arma22 = ARMA(phi=[1.3, -0.4], theta=[0.1, -0.3])
-arma11 = ARMA(phi=[0.8], theta=[0.6])
+arma22 = ArmaProcess.from_coeffs(arcoefs=[1.3, -0.4], macoefs=[0.1, -0.3])
+arma11 = ArmaProcess.from_coeffs(arcoefs=[0.8], macoefs=[0.6])
 
+fig = make_subplots(rows=2, cols=2, subplot_titles=('ACF ARMA(2,2)','ACF ARMA(1,1)', 'PACF ARMA(2,2)','PACF ARMA(1,1)'))
 
-merge_plots(
-   [arma22.plot_correlogram(18), arma11.plot_correlogram(18), arma22.plot_partial_correlogram(18), arma11.plot_partial_correlogram(18)],
-   cols=2,
-   subplot_titles=[str(arma22), str(arma11)],
-   title_text='Autocorrelación (arriba) y autocorrelación parcial (abajo)',
-)
+graficar_autocorrelacion(fig, arma22, row=1, col=1)
+graficar_autocorrelacion(fig, arma11, row=1, col=2)
+graficar_autocorrelacion_parcial(fig, arma22, row=2, col=1)
+graficar_autocorrelacion_parcial(fig, arma11, row=2, col=2)
+fig.update_layout(**(opciones | dict(height=500)))
+fig.show()
 ```
 
 ¡Sus funciones ACF y PACF son idénticas!
@@ -147,12 +174,18 @@ Las raíces de los polinomios de rezagos del proceso ARMA(2,2)
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-arma22.plot_ar_roots()
+fig = go.Figure()
+graficar_raices(fig, arma22.arroots)
+fig.update_layout(**(opciones | dict(width=450)))
+fig.show()
 ```
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-arma22.plot_ma_roots()
+fig = go.Figure()
+graficar_raices(fig, arma22.maroots)
+fig.update_layout(**(opciones | dict(width=450)))
+fig.show()
 ```
 
 

@@ -100,21 +100,24 @@ Sea $S$ la suma de los cuadrados de los residuos de la regresión restringida, y
 {{ empieza_ejemplo }} Cambio en la demanda por combustible {{ fin_titulo_ejemplo }}
 El mercado del petróleo tuvo un cambio significativo en 1973:
 
+#FIXME: ARREGLAR ESTO
 
-````{panels}
+::::{grid}
+:gutter: 3
 :img-top-cls: pl-0 pr-0
 
----
+:::{grid-item-card} 
 :img-top: figures/seven-sisters.jpg
 ^^^
 Antes de 1973, el comercio de petróleo estaba dominado por las “Siete Hermanas”, que controlaba $\approx 85\%$ de la reservas de petróleo.
+:::
 
----
+:::{grid-item-card} 
 :img-top: figures/OPEC-flag.png
 ^^^
 Desde la guerra de Yom Kippur (oct-1973), la OPEP ha dominado activamente en la fijación del precio.
-````
-
+:::
+::::
 
 
 ```{code-cell} ipython3

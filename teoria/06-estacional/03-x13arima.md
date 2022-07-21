@@ -29,7 +29,7 @@ plt.style.use('seaborn-talk')
 
 from statsmodels.tsa.x13 import x13_arima_analysis
 
-x13path = "."
+x13path = "teoria/06-estacional/"
 ```
 
 # Ajuste estacional
@@ -168,7 +168,7 @@ y_t^{t.c.} = \frac{T_t \times C_t \times S_t \times \epsilon_t}{S_t\times \epsil
 :tags: ["hide-input",]
 
 # read data from previous example
-sjodatos =pd.read_pickle("datos/SJO-pasajeros.pickle")
+sjodatos =pd.read_pickle("https://github.com/randall-romero/econometria/raw/master/data/SJO-pasajeros.pickle")
 
 extranjeros = pd.DataFrame(np.log(sjodatos['extranjeros'].values),
                       index=pd.period_range('2011-01', '2019-12', freq='M'))

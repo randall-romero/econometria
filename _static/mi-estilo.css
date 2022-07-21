@@ -15,20 +15,20 @@
 
 .test {
   padding: 0.5em;
-  background: #e0e0d1;
-  border: 0.1em #802000;
+  background: #e0ece3;
+  border: 0.1em #1d5229;
   border-radius: 10px;
 }
 
 .test-titulo {
   color: #ffeeff;
-  background-color: #802000;
-  border: 0.1em #802000;
+  background-color: #1d5229;
+  border: 0.1em #1d5229;
   border-radius: 5px;
   padding: 10px 25px;
 }
 
 .test-simbolo {
-  font-size: 3em;
-  color: #802000;
+  font-size: 2em;
+  color: #1d5229;
 }

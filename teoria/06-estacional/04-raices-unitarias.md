@@ -24,22 +24,23 @@ z_k = \cos\left(\frac{2k\pi}{n}\right) + i\sin\left(\frac{2k\pi}{n}\right)
 
 Todas estas raíces están equidistanciadas en la circunferencia unitaria.
 
-```{panels}
-:header: bg-dark text-center text-white
+::::{grid}
+:gutter: 3
 
-Mensuales
-^^^
+:::{grid-item-card} Mensuales
 ![](figures/diff12roots.png)
 
 $\cos\left(\frac{k\pi}{6}\right) + i\sin\left(\frac{k\pi}{6}\right)$
----
+:::
 
-Trimestrales
-^^^
+:::{grid-item-card} Trimestrales
 ![](figures/diff4roots.png)
 
 $\cos\left(\frac{k\pi}{2}\right) + i\sin\left(\frac{k\pi}{2}\right)$
-```
+:::
+::::
+
+
 
 
 

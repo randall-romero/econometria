@@ -25,8 +25,7 @@ substitutions:
 
 import numpy as np
 import pandas as pd
-pd.options.plotting.backend = "plotly"
-
+import matplotlib.pyplot as plt
 ```
 
 
@@ -71,19 +70,17 @@ t = np.arange(T)
 y = y0 + a*t + e.cumsum()
 x = x0 + a*t + e
 
-datos = pd.DataFrame({'DS': y, 'TS': x})
-datos.plot().update_layout(
-    title="Series no estacionarias<br>Tendencia determinística (TS) versus estocástica (DS)",
-    xaxis_title="tiempo",
-    yaxis_title=" ",
-)
+fig, ax = plt.subplots()
+pd.DataFrame({'DS': y, 'TS': x}).plot(ax=ax)
+ax.set_title('Tendencia determinística (TS) versus estocástica (DS)', fontsize=16)
+fig.suptitle('Series no estacionarias',fontsize=24, y=1.05)
 ```
 {{ termina_ejemplo }}
 
 Hemos visto que para transformar en estacionaria una serie...
 
-- {badge}`TS, badge-primary` estimamos su tendencia determinística por regresión, usamos los residuos de esta regresión como el componente estacionario
-- {badge}`DS, badge-primary` tomamos su primera diferencia.
+- {bdg-primary}`TS` estimamos su tendencia determinística por regresión, usamos los residuos de esta regresión como el componente estacionario
+- {bdg-primary}`DS` tomamos su primera diferencia.
 
 Hecho esto, podemos modelar el componente estacionario, por ejemplo con ARMA.
 
@@ -94,7 +91,7 @@ Pero es importante usar la técnica adecuada para remover la tendencia, según s
 
 
 ## Diferenciando una serie TS
-{badge}`(buscando problemas -- parte 1),badge-danger`
+{bdg-danger}`(buscando problemas -- parte 1)`
 
 Para un proceso TS como $x_t = x_0 + at + \epsilon_t $, su primera diferencia es
 \begin{align*}
@@ -113,7 +110,7 @@ Este problema también se presenta si diferenciamos una serie que ya es estacion
 
 
 ## Restando una tendencia determinística a una serie DS
-{badge}`(buscando problemas -- parte 2),badge-danger`
+{bdg-danger}`(buscando problemas -- parte 2)`
 
 Para un proceso DS como $y_t = y_0 + at + \sum_{\tau=1}^t \epsilon_{\tau}$, remover la tendencia determinística resulta en
 \begin{equation*}

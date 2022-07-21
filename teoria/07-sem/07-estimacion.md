@@ -223,7 +223,7 @@ Hay tres variables predeterminadas: los rezagos del stock de capital, utilidades
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-klein = pd.read_fwf("http://people.stern.nyu.edu/wgreene/Text/Edition7/TableF10-3.txt")
+klein = pd.read_fwf("https://github.com/randall-romero/econometria/raw/master/data/TableF10-3.txt")
 klein.dropna(inplace=True)
 klein['Year'] = klein['Year'].astype(int)
 klein.index = pd.period_range(start=klein['Year'].iloc[0], periods=klein.shape[0], freq="A")
@@ -262,7 +262,7 @@ klein.dropna(inplace=True);
 ```
 
 
-{badge}`Etapa 1, badge-success` regresión de las endógenas contra todas las exógenas del sistema
+{bdg-success}`Etapa 1` regresión de las endógenas contra todas las exógenas del sistema
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 
@@ -288,7 +288,7 @@ beta.style.format("{:.2f}", na_rep=" ")
 ```
 
 
-{badge}`Etapa 2, badge-success` se sustituyen endógenas por su valor ajustado de la etapa 1
+{bdg-success}`Etapa 2` se sustituyen endógenas por su valor ajustado de la etapa 1
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
@@ -319,19 +319,19 @@ Wp_t &= \estimate{1.50}{0.19}  + \estimate{0.44}{0.00} X_t + \estimate{0.15}{0.0
 
 Este modelo también lo podemos estimar directamente con `linearmodels`:
 
-{badge}`Ecuación de consumo,badge-primary`
+{bdg-primary}`Ecuación de consumo`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 IV2SLS.from_formula('C ~ 1 + [P + W ~ G + T + Wg + A + K1 + X1] + P1', klein).fit().summary
 ```
 
-{badge}`Ecuación de inversión,badge-primary`
+{bdg-primary}`Ecuación de inversión`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 IV2SLS.from_formula('I ~ 1 + [P ~ G + T + Wg + A + X1] + P1 + K1', klein).fit().summary
 ```
 
-{badge}`Ecuación de salarios del sector privado,badge-primary`
+{bdg-primary}`Ecuación de salarios del sector privado`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 IV2SLS.from_formula('Wp ~ 1 + [X ~ G + T + Wg + K1 + P1] + X1 + A', klein).fit().summary
@@ -499,13 +499,13 @@ En las figuras que siguen vemos la distribución obtenida para cada parámetro y
 
 Las ecuaciones de oferta no son simultáneas, por lo que pueden ser estimadas por OLS.
 
-{badge}`oferta de maiz,badge-primary`
+{bdg-primary}`oferta de maiz`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 plot_result('ms_ols')
 ```
 
-{badge}`oferta de trigo, badge-primary`
+{bdg-primary}`oferta de trigo`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 plot_result('ws_ols')
@@ -514,13 +514,13 @@ plot_result('ws_ols')
 
 Las ecuaciones de demanda sí son simultáneas, por lo que la estimación OLS estaría sesgada.
 
-{badge}`demanda de maiz,badge-danger`
+{bdg-danger}`demanda de maiz`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 plot_result('md_ols')
 ```
 
-{badge}`demanda de trigo, badge-danger`
+{bdg-danger}`demanda de trigo`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 plot_result('wd_ols')
@@ -529,13 +529,13 @@ plot_result('wd_ols')
 
 Por ello, estimamos el sistema por 2SLS:
 
-{badge}`demanda de maiz,badge-primary`
+{bdg-primary}`demanda de maiz`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 plot_result('md_2sls', True)
 ```
 
-{badge}`demanda de trigo, badge-primary`
+{bdg-primary}`demanda de trigo`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 plot_result('wd_2sls', True)

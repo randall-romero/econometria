@@ -50,7 +50,7 @@ Por ejemplo, si quisiéramos pronosticar el número de pasajeros extranjeros que
 :tags: ["hide-input",]
 # read data from previous example
 
-sjodatos =pd.read_pickle("datos/SJO-pasajeros.pickle")
+sjodatos =pd.read_pickle("https://github.com/randall-romero/econometria/raw/master/data/SJO-pasajeros.pickle")
 sjodatoscuadro = sjodatos.unstack()
 sjodatoscuadro['extranjeros'].round(1)
 ```

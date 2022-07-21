@@ -110,7 +110,7 @@ pero con la restricción de que $\Gamma_0$ es uni-triangular inferior.
 
 {{ empieza_ejemplo }} Distintas versiones de un VAR{{ fin_titulo_ejemplo }}
 
-{badge}`Forma reducida,badge-primary`
+{bdg-primary}`Forma reducida`
 \begin{align*}
 y_t &= y_0 + \alpha_{11}y_{t-1} + \alpha_{12}m_{t-1} + \alpha_{13}z_{t-1} + u^y_t\\
 m_t &= m_0 + \alpha_{21}y_{t-1} + \alpha_{22}m_{t-1} + \alpha_{23}z_{t-1} + u^m_t\\
@@ -118,14 +118,14 @@ z_t &= z_0 + \alpha_{31}y_{t-1} + \alpha_{32}m_{t-1} + \alpha_{33}z_{t-1} + u^z_
 \end{align*}
 
 
-{badge}`Forma estructural,badge-primary`
+{bdg-primary}`Forma estructural`
 \begin{align*}
 y_t +\beta_1 m_t  &= y_0 + \alpha_{11}y_{t-1} + \alpha_{12}m_{t-1} + \alpha_{13}z_{t-1} + u^y_t\\
 m_t + \beta_2 z_t &= m_0 + \alpha_{21}y_{t-1} + \alpha_{22}m_{t-1} + \alpha_{23}z_{t-1} + u^m_t\\
 z_t + \beta_3 y_t + \beta_4 m_t &= z_0 + \alpha_{31}y_{t-1} + \alpha_{32}m_{t-1} + \alpha_{33}z_{t-1} + u^z_t
 \end{align*}
 
-{badge}`Forma recursiva, badge-primary`
+{bdg-primary}`Forma recursiva`
 \begin{align*}
 &y_t  &=& y_0 + \alpha_{11}y_{t-1} + \alpha_{12}m_{t-1} + \alpha_{13}z_{t-1} + u^y_t\\
 &\gamma_1 y_t + m_t  &=& m_0 + \alpha_{21}y_{t-1} + \alpha_{22}m_{t-1} + \alpha_{23}z_{t-1} + u^m_t\\
@@ -272,14 +272,14 @@ Así, si queremos expresar $\hat{Y}_t$ en términos de $\hat{Y}_{t-s-1}$
 
 
 ## Pasado versus futuro
-{badge}`Pasado,badge-success`
+{bdg-success}`Pasado`
 
 Cuando queremos analizar  $\hat{Y}_t$ en función de shocks pasados, utilizamos
 \begin{equation*}
 \hat{Y}_{t} = \xi_{t} + \Phi\xi_{t-1} +\dots+\Phi^s\xi_{t-s} + \Phi^{s+1}\hat{Y}_{t-s-1}
 \end{equation*}
 
-{badge}`Futuro,badge-success`
+{bdg-success}`Futuro`
 
 Para analizar el efecto de nuevos shocks sobre futuros valores de $\hat{Y}$, aplicamos $L^{-s}$ a la última ecuación:
 \begin{equation*}

@@ -1,0 +1,399 @@
+
+
+
+
+## Cointegración
+
+
+
+
+### Cointegración como equilibrio de largo plazo
+
+- Considere el modelo monetario
+\begin{equation*}
+\notation{m_t}{oferta} = \notation{\beta_0 + \beta_1p_t+\beta_2y_t+\beta_3r_t}{demanda} + \notation{\epsilon_t}{brecha}
+\end{equation*}
+- Para que la noción de equilibrio tenga sentido, la brecha $\epsilon_{t}$ debe ser estacionaria, es decir, I(0)
+- Esto a pesar de que $m_t$, $p_t$, $y_t$ y $r_t$ sean I(1).
+- Esto implica que la combinación lineal de variables I(1)
+\begin{equation*}
+\MAT{1& -\beta_1 & -\beta_2 & -\beta_3}\MAT{m_t \\ p_t \\ y_t \\ r_t} = \beta_0+\epsilon_{t}
+\end{equation*}
+resulta en un proceso I(0)
+- Decimos que $m_t$, $p_t$, $y_t$ y $r_t$ están cointegradas, con vector de cointegración $\MAT{1& -\beta_1 & -\beta_2 & -\beta_3}$.
+- \alert{Teorías de equilibrio con variables no estacionarias requieren la existencia de una combinación lineal de las variables que sea estacionaria}
+- Otros ejemplos:
+
+    - Teoría de la función de consumo:
+    \begin{equation*}
+    c_t = \beta y_t^p + c_t^t \quad\Rightarrow \MAT{1 &-\beta}\MAT{c_t \\ y_t^p} = c_t^t \quad\text{es estacionario}
+    \end{equation*}
+    - Teoría de la paridad del poder de compra:
+    \begin{equation*}
+    e_t + p_t^* - p_t = \MAT{1 & 1 & -1}\MAT{e_t \\ p_t^*\\ p_t} \quad\text{es estacionario}
+    \end{equation*}
+
+
+
+
+### Regresión espuria
+
+- Considere dos caminatas aleatorias independientes
+\begin{align*}
+y_t &= y_{t-1} + u_t \qquad u_t \text{ ruido blanco}\\
+x_t &= x_{t-1} + v_t \qquad v_t \text{ ruido blanco}
+\end{align*}
+- Como $y_t$ es independiente de $x_t$, uno esperaría que en la regresión
+\begin{equation*}
+y_t = \beta_0 + \beta_1 x_t + \epsilon_t
+\end{equation*}
+el $R^2$ y el $\beta_1$ tendieran a cero.
+- Pero este no es el caso. Con series no estacionarias, \alert{la correlación espuria puede persistir aún en muestras grandes}.
+
+
+
+
+\begin{EXAMPLE}[datos-CRI-MLT.pickle \\ MacKinnon 2010 Critical values for cointegration tests.xlsx\\ \midrule Relación espuria.ipynb\\ mackinnon.py]{Regresión espuria}
+
+###<beamer>
+\includegraphics[width=\linewidth]{Malta-map.png}
+
+
+
+###[fragile]
+
+Regresión con series I(1):
+\begin{equation*}
+\log(\text{GDP.COSTA.RICA}_t) = \beta_0 + \beta_1\log(\text{GDP.MALTA}_t) + \epsilon_t
+\end{equation*}
+
+\only<presentation>{\tiny}
+\begin{verbatim}
+                        OLS Regression Results
+==============================================================================
+Dep. Variable:                    CRI   R-squared:                       0.806
+Model:                            OLS   Adj. R-squared:                  0.802
+Method:                 Least Squares   F-statistic:                     195.0
+Date:                Thu, 02 Jan 2020   Prob (F-statistic):           2.40e-18
+Time:                        14:07:58   Log-Likelihood:                 34.197
+No. Observations:                  49   AIC:                            -64.39
+Df Residuals:                      47   BIC:                            -60.61
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+             coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      4.4814      0.300     14.916      0.000       3.877       5.086
+MLT            0.4432      0.032     13.966      0.000       0.379       0.507
+==============================================================================
+Omnibus:                       57.494   Durbin-Watson:                   0.064
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):                5.218
+Skew:                           0.156   Prob(JB):                       0.0736
+Kurtosis:                       1.432   Cond. No.                         164.
+==============================================================================
+\end{verbatim}
+
+
+###[fragile]
+Regresión con series I(0):
+\begin{equation*}
+\Delta\log(\text{GDP.COSTA.RICA}_t) = \beta_0 + \beta_1\Delta\log(\text{GDP.MALTA}_t) + \epsilon_t
+\end{equation*}
+
+\only<presentation>{\tiny}
+\begin{verbatim}
+                        OLS Regression Results
+==============================================================================
+Dep. Variable:                    CRI   R-squared:                       0.032
+Model:                            OLS   Adj. R-squared:                  0.011
+Method:                 Least Squares   F-statistic:                     1.537
+Date:                Thu, 02 Jan 2020   Prob (F-statistic):              0.221
+Time:                        14:09:30   Log-Likelihood:                 102.51
+No. Observations:                  48   AIC:                            -201.0
+Df Residuals:                      46   BIC:                            -197.3
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+             coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      0.0143      0.006      2.269      0.028       0.002       0.027
+MLT            0.1378      0.111      1.240      0.221      -0.086       0.362
+==============================================================================
+Omnibus:                       27.205   Durbin-Watson:                   1.244
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               58.241
+Skew:                          -1.586   Prob(JB):                     2.26e-13
+Kurtosis:                       7.365   Cond. No.                         26.4
+==============================================================================
+\end{verbatim}
+
+\end{EXAMPLE}
+
+
+
+### Definición de cointegración \parencite{EngleGranger:1987}
+Se dice que los componentes del vector $x_t = \left(x_{1t},x_{2t},\dots,x_{nt}\right)'$ están \alert{cointegrados} de orden $(d, b)$, denotado por $x_t\sim CI(d,b)$, si
+\begin{enumerate}
+- Todos los componentes de $x_t$ son integrados de orden $d$.
+- Existe al menos un vector $\beta = \left(\beta_1,\beta_2,\dots,\beta_n\right)$ tal que la combinación lineal $\beta x_t = \beta_1x_{1t} + \beta_2x_{2t} + \dots +\beta_nx_{nt}$ es integrada de orden $(d-b)$, donde $b>0$.
+
+\vspace{2em}
+A $\beta$ se le llama \alert{vector de cointegración}
+\end{enumerate}
+
+
+### Algunas observaciones acerca de la definición de cointegración
+\begin{enumerate}
+- Cointegración se refiere a combinaciones \emph{lineales} de variables no estacionarias
+- Si existe, el vector de cointegración no es único
+- Cointegración se refiere a variables del mismo orden;aunque es posible encontrar relaciones de equilibrio entre variables de distinto orden
+- Pueden existir varios vectores de cointegración independientes para un conjunto de variables $x_t$
+- En la mayor parte de la literatura se entiende cointegración como el caso $CI(1,1)$.
+
+\end{enumerate}
+
+
+
+
+
+### Pruebas de cointegración: Engle-Granger
+Una receta para determinar si las series están cointegradas:
+
+\begin{tabu} to \textwidth {X[2cm]X[cm]}
+\begin{description}
+-[Ingredientes:] series de tiempo, software econométrico
+-[Paso 1:] Determinar orden de integración de las series
+-[Paso 2:] Estimar la relación de equilibrio de largo plazo
+-[Paso 3:] Estimar el modelo de corrección de errores
+-[Paso 4:] Evaluar si el modelo es adecuado
+\end{description}
+&
+\includegraphics<beamer>[width=\linewidth]{recipe-cooking}
+\end{tabu}
+
+
+
+
+
+
+
+
+
+### Pruebas de cointegración de Engle-Granger
+En la prueba (aumentada) de Engle y Granger,
+\begin{align}
+\Delta\hat{\epsilon}_t &= \alert{\gamma}\hat{\epsilon}_{t-1}  +\sum_{i=1}^{n}a_i\Delta\hat{\epsilon}_{t-i} + \varepsilon_t \tag{nc} \\
+\Delta\hat{\epsilon}_t &= \alpha_0 + \alert{\gamma}\hat{\epsilon}_{t-1}  +\sum_{i=1}^{n}a_i\Delta\hat{\epsilon}_{t-i} + \varepsilon_t \tag{c}  \\
+\Delta\hat{\epsilon}_t &= \alpha_0 + \alpha_1 t + \alert{\gamma} \hat{\epsilon}_{t-1}  +\sum_{i=1}^{n}a_i\Delta\hat{\epsilon}_{t-i} + \varepsilon_t \tag{ct}  \\
+\Delta\hat{\epsilon}_t &= \alpha_0 + \alpha_1 t + \alpha_2 t^2 +\alert{\gamma} \hat{\epsilon}_{t-1}  +\sum_{i=1}^{n}a_i\Delta\hat{\epsilon}_{t-i} + \varepsilon_t \tag{ctt}
+\end{align}
+si $\gamma=0$ los residuos $\hat{\epsilon}_t$ presentan raíz unitaria, y por ello las series no estaría cointegradas.
+
+
+
+
+
+### Los valores críticos de MacKinnon
+
+- Para probar la hipótesis nula $H_0: \gamma=0$ contra la alternativa $H_1: \gamma<0$, se utiliza el estadístico $t_\gamma$.
+- No obstante, \alert{$t_\gamma$ no tiene la distribución $t-$student, ni siquiera asintóticamente}.
+- Dado que no es posible derivar la distribución de $t_\gamma$ analíticamente, es necesario aproximarla con simulaciones de Monte Carlo.
+- A partir de tales simulaciones, \textcite{MacKinnon:2010} presenta valores críticos, que dependen de
+    - la especificación determinística (nc, c, ct, ctt),
+    - del número de series en el vector de cointegración
+    - y del tamaño de muestra $T$.
+- Los valores se obtienen evaluando un polinomio en  $\frac{1}{T}$
+\begin{equation*}
+C(p) = \beta_\infty + \beta_1 T^{-1} + \beta_2 T^{-2} + \beta_3 T^{-3}
+\end{equation*}
+- Por ejemplo, para probar la cointegración de $N=3$ variables, con constante y tendencia (ct), la tabla es
+
+\begin{center}
+\begin{scriptsize}
+\taburulecolor{orange}
+\begin{tabu} to 0.7\textwidth {X[c]*4{X[r]}}
+\toprule \rowfont[c]{\bfseries}
+Nivel & $\beta_{\infty}$ & $\beta_1$ & $\beta_2$ & $\beta_3$ \\ \midrule
+1 \%  &     -4.663     & -18.769  &  -49.793  &  104.244  \\
+5 \%  &     -4.119     & -11.892  &  -19.031  &  77.332   \\
+10\%  &     -3.835     &  -9.072  &   -8.504  &  35.403   \\ \bottomrule
+\end{tabu}
+\end{scriptsize}
+\end{center}
+- Así, si tenemos 50 observaciones:
+\begin{equation*}
+C(5\%) = -4.119  -\tfrac{11.892}{50} -\tfrac{19.031}{50^2} + \tfrac{77.332}{50^3} = -4.3637
+\end{equation*}
+
+
+
+
+
+\begin{EXAMPLE}{Valores críticos de Mackinnon}
+###
+
+- En el cuaderno de Jupyter \texttt{Mackinnon valores críticos para test de cointegración} se presentan más ejemplos.
+- Se muestra cómo los valores críticos cambian con el tamaño de muestra, el número de series que conforman el vector, y la especificación de los componentes determinísticas de las series.
+
+
+\end{EXAMPLE}
+
+
+
+
+\begin{SIDENOTE}{Factorización de rango}
+###[label=appendix-factorizar-rango]
+Suponga que $A$ es una matriz $n\times n$ con rango $r<n$. Existen las matrices $X$ y $Y$ de dimensión $r\times n$ tal que:
+\begin{equation*}
+A = X'Y
+\end{equation*}
+
+\end{SIDENOTE}
+
+
+
+
+
+## Vector de Corrección de Errores (VECM)
+
+
+
+### De VAR a VECM
+\vspace*{-1.5em}
+\begin{align*}
+y_t &= \Phi_1y_{t-1} + \Phi_2y_{t-2} + \Phi_3y_{t-3} + \epsilon_t \\
+\uncover<2->{\Delta y_t &= \left(\Phi_1 - I\right)y_{t-1} + \Phi_2y_{t-2} + \Phi_3y_{t-3} + \epsilon_t \\}
+\uncover<3->{&= \left(\Phi_1 - I\right)y_{t-1} + \left(\Phi_2 \alert{+\Phi_3}\right)y_{t-2} + \Phi_3\left(y_{t-3}\alert{- y_{t-2}}\right) + \epsilon_t \\}
+\uncover<4->{&= \begin{multlined}
+\left(\Phi_1\alert{+\Phi_2 +\Phi_3} - I\right)y_{t-1} + \left(\Phi_2 +\Phi_3\right)\left(y_{t-2}\alert{- y_{t-1}}\right) + \\ \dots + \Phi_3\left(y_{t-3}- y_{t-2}\right) + \epsilon_t
+\end{multlined} } \\
+\uncover<5->{&= \left(\Phi_1+\Phi_2 +\Phi_3 - I\right)y_{t-1} - \left(\Phi_2 +\Phi_3\right)\Delta y_{t-1}  - \Phi_3\Delta y_{t-2} + \epsilon_t \\}
+\uncover<6->{&= \Pi y_{t-1} +\Gamma_1\Delta y_{t-1}  +\Gamma_2\Delta y_{t-2} + \epsilon_t }
+\end{align*}
+
+\uncover<7->{\small Si hay $0<r<n$ vectores de cointegración, entonces $\Pi$ puede ser descompuesta como el producto de los vectores de cointegración $\beta$ y los coeficientes de corrección de errores $\alpha$:} %\hyperlink{appendix-factorizar-rango}{\beamerbutton{rango}}
+
+\uncover<8->{
+\begin{RESALTADO}[RoyalBlue4][1.0]{VEC}
+\begin{equation*}
+\Delta y_t = \alpha\beta' y_{t-1} + \Gamma_1\Delta y_{t-1} +\dots + \Gamma_{p-1}\Delta y_{t-p+1} + \epsilon_t
+\end{equation*}
+\end{RESALTADO}
+}
+
+
+\begin{EXAMPLE}{Inflación y depreciación en un modelo VEC}
+
+- Suponga que en el largo plazo se cumple la PPP: $p_t = e_t + p_t^* + \text{error}_t$
+y que las tres variables son I(1) y relacionadas como un VAR(2)
+- La representación VECM es
+\small
+\begin{align*}
+\Delta p_t^* & = \alpha_1\left(p_t - e_t - p_t^*\right) + \gamma_{11}\Delta p_{t-1}^* + \gamma_{12}\Delta e_{t-1} + \gamma_{13}\Delta p_{t-1} + \epsilon_{1t}\\
+\Delta e_t & = \alpha_2\left(p_t - e_t - p_t^*\right) + \gamma_{21}\Delta p_{t-1}^* + \gamma_{22}\Delta e_{t-1} + \gamma_{23}\Delta p_{t-1} + \epsilon_{2t}\\
+\Delta p_t & = \alpha_3\left(p_t - e_t - p_t^*\right) + \gamma_{31}\Delta p_{t-1}^* + \gamma_{32}\Delta e_{t-1} + \gamma_{33}\Delta p_{t-1} + \epsilon_{3t}
+\end{align*}
+- o bien
+\begin{equation*}
+\MAT{\Delta p_t^* \\ \Delta e_t \\ \Delta p_t} =
+\MAT{\alpha_1 \\ \alpha_2 \\ \alpha_3}\MAT{-1 & -1 & 1}
+\MAT{p_{t-1}^* \\ e_{t-1}\\ p_{t-1}} +
+\Gamma_1 \MAT{\Delta p_{t-1}^* \\ \Delta e_{t-1}\\ \Delta p_{t-1}} +
+\epsilon_t
+\end{equation*}
+- Este modelo explica la inflación internacional, la depreciación, y la inflación doméstica en función de sus propios rezagos y la desviación de los precios y tipo de cambio respecto a su equilibrio de largo plazo.
+
+
+\end{EXAMPLE}
+
+
+
+
+### Pruebas de cointegración: Johansen
+
+- La prueba de Johansen puede verse como una generalización multivariada de la prueba aumentada de Dickey-Fuller
+- La prueba y estrategia de estimación permiten estimar \emph{todos} los vectores de cointegración
+- Similar a la prueba ADF, la existencia de raíces unitarias implican que la teoría asintótica estándar no es apropiada.
+
+
+
+### Raíces unitarias: modelo univariado versus multivariado
+
+- Comparemos la prueba ADF con el VECM
+\begin{small}
+\begin{align*}
+\Delta y_t &=  \pi y_{t-1} +\gamma_1\Delta y_{t-1} + \dots +\gamma_p\Delta y_{t-p} + \epsilon_t \tag{univariado} \\
+\Delta y_t &=  \Pi y_{t-1} +\Gamma_1\Delta y_{t-1} + \dots +\Gamma_p\Delta y_{t-p} + \epsilon_t \tag{multivariado}
+\end{align*}
+\end{small}
+- En la prueba ADF, probamos si $y_t$ tiene raíz unitaria con $\text{H}_0: \pi=0$
+- En el caso multivariado, Johansen determina si las series están cointegradas a partir del \alert{rango} de $\Pi$
+
+
+
+### Rango de una matriz vectores de cointegración
+Posibles casos del rango:
+\begin{description}
+-[0:] implica $\Pi=0$, todas las series son I(1) pero no están cointegradas. VAR en diferencias
+-[$0<r<N$:] hay $r$ vectores de cointegración, y escribimos $\Pi=\alpha\beta'$. VECM
+-[N:] \alert{cualquier} combinación lineal es estacionaria, lo que implica que las series originales eran estacionarias.
+\end{description}
+
+
+### Usando los eigenvalores para determinar el rango
+
+- El rango de una matriz es igual al número de sus eigenvalores distintos de cero.
+- Por ello, las pruebas de Johansen están basadas en los eigenvalores de una matriz $\Pi^*$ semidefinida positiva, \alert{derivada a partir de $\Pi$}.
+- Suponga que obtenemos $\Pi^*$ y ordenamos sus eigenvalores de manera tal que
+\begin{equation*}
+\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_N \geq 0
+\end{equation*}
+
+
+
+### Prueba de la traza y del máximo eigenvalor
+\begin{RESALTADO}{Prueba de la traza}
+\begin{equation*}
+\lambda_{\text{traza}}(r) = - T\sum_{i=r+1}^{N}\ln\left(1 - \hat{\lambda}_i\right)
+\end{equation*}
+\end{RESALTADO}
+
+
+
+\begin{RESALTADO}{Prueba del máximo eigenvalor}
+\begin{equation*}
+\lambda_{\max}(r, r+1) = - T\ln\left(1 - \hat{\lambda}_{r+1}\right)
+\end{equation*}
+\end{RESALTADO}
+
+
+
+Note que $\lambda_i \geq 0 \Rightarrow \ln\left(1-\lambda_i\right) \leq 0$. Ambos estadísticos son no-negativos
+Valores grandes de los estadísticos apuntan a que los eigenvalores son positivos, implicando la existencia de cointegración.
+
+
+
+
+\begin{EXAMPLE}{Pruebas de Johansen}
+- Johansen y Juselius (1990) analizan la cointegración de $\MAT{m2_t & y_t & i^d_t & i^b_t}$, con datos trimestrales de Dinamarca para el período 1974:1 a 1987:3 (T=53).
+
+\begin{center}
+\small  %fuente: Enders (2014) Applied Econometric Time Series, p379
+\taburulecolor{orange}
+\begin{tabu} to 0.7\textwidth {X[1.2cl]X[cm]X[cm]X[cm]}
+\toprule
+$H_0$ & $\hat{\lambda}_i$ & $\lambda_{\max}$ & $\lambda_{\text{traza}}$  \\
+\midrule
+$r=0$ & 0.4332 & 30.09 & 49.14 \\
+$r=1$ & 0.1776 & 10.36 & 19.05 \\
+$r=2$ & 0.1128 & 6.34 & 8.69 \\
+$r=3$ & 0.0434 & 2.35 & 2.35 \\
+\bottomrule
+\end{tabu}
+\end{center}
+
+\end{EXAMPLE}
+
+
+
+
+\makeReferencesFrame{Enders:2014}

@@ -15,7 +15,7 @@ only_build_toc_files:    true
 #######################################################################################
 # Execution settings
 execute:
-  execute_notebooks           : cache
+  execute_notebooks           : cache #'off'  #auto
   timeout                     : 900
   stderr_output               : remove-warn
 
@@ -23,14 +23,16 @@ sphinx:
   config:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     html_js_files:
-    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+  extra_extensions: 
+     - sphinx_design
 
 
 parse:
   myst_enable_extensions:
     - deflist
     - amsmath
-    #- colon_fence
+    - colon_fence
     - dollarmath
     - substitution
 

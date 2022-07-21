@@ -162,19 +162,19 @@ Veamos la serie histórica y los autocorrelogramas de la inflación mensual suby
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-isi = bccr.SW(isi=25725)
-
-fig = plt.figure(figsize=[10,5], tight_layout=True)
-gs = plt.GridSpec(2, 2)
-ax = fig.add_subplot(gs[0, :])
-axs0 = fig.add_subplot(gs[1,0])
-axs1 = fig.add_subplot(gs[1,1], sharey=axs0)
-
-isi.plot(ax=ax, title='Inflación subyacente, mensual', legend=None)
-plot_acf(isi, ax=axs0, title='Autocorrelación')
-plot_pacf(isi, ax=axs1, title='Autocorrelación parcial');
-axs0.set_xticks(range(0,30,6))
-axs1.set_xticks(range(0,30,6));
+isi = bccr.SW(isi=25725).dropna()
+fig, axs  = plt.subplot_mosaic(
+"""
+AA
+BC
+""",
+figsize=[10,5], tight_layout=True    
+)
+isi.plot(ax=axs['A'], title='Inflación subyacente, mensual', legend=None)
+plot_acf(isi, ax=axs['B'], title='Autocorrelación')
+plot_pacf(isi, ax=axs['C'], method='ywm', title='Autocorrelación parcial')
+axs['B'].set_xticks(range(0,30,6))
+axs['C'].set_xticks(range(0,30,6));
 ```
 
 
@@ -218,17 +218,20 @@ Los residuos de la regresión parecen ruido blanco, excepto por la presencia de 
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
-fig = plt.figure(figsize=[10,5], tight_layout=True)
-gs = plt.GridSpec(2, 2)
-ax = fig.add_subplot(gs[0, :])
-axs0 = fig.add_subplot(gs[1,0])
-axs1 = fig.add_subplot(gs[1,1], sharey=axs0)
+residuos = res.resid.dropna()
 
-res.resid.plot(ax=ax, title='Residuos del modelo AR(3)', legend=None)
-plot_acf(res.resid, ax=axs0, title='Autocorrelación')
-plot_pacf(res.resid, ax=axs1, title='Autocorrelación parcial');
-axs0.set_xticks(range(0,30,6))
-axs1.set_xticks(range(0,30,6));
+fig, axs  = plt.subplot_mosaic(
+"""
+AA
+BC
+""",
+figsize=[10,5], tight_layout=True)
+
+residuos.plot(ax=axs['A'], title='Residuos del modelo AR(3)', legend=None)
+plot_acf(residuos, ax=axs['B'], title='Autocorrelación')
+plot_pacf(residuos, ax=axs['C'], method='ywm', title='Autocorrelación parcial')
+axs['B'].set_xticks(range(0,30,6))
+axs['C'].set_xticks(range(0,30,6));
 ```
 
 
@@ -299,22 +302,23 @@ Los criterios más usuales son el de Akaike (Akaike) y el de Bayes (BIC).
 Sean $\mathcal{L}$ el máximo de la función log-verosimilitud, $T$ el número de observaciones, y $K=p+q+2$ el número de parámetros estimado. Entonces
 
 
-```{panels}
-:header: bg-dark text-center text-white
+::::{grid}
+:gutter: 3
 
-Criterio de información de Akaike
-^^^
+:::{grid-item-card} Criterio de información de Akaike
 \begin{equation*}
 \text{AIC} = \notation{-2\mathcal{L}}{“desajuste”} + \notation{2K}{penalización}
 \end{equation*}
+:::
 
----
-Criterio de información de Bayes
-^^^
+:::{grid-item-card} Criterio de información de Bayes
 \begin{equation*}
 \text{BIC} = \notation{-2\mathcal{L}}{“desajuste”} + \notation{\ln(T)K}{penalización}
 \end{equation*}
-```
+:::
+::::
+
+
 
 Se escoge la combinación $p,q$ que minimiza el criterio de información. En la práctica, en ocasiones AIC y BIC escogen modelos distintos.
 
@@ -343,7 +347,7 @@ Calculamos los criterios de información:
 
 Si calculamos los dos criterios para una combinación de valores $p,q$ obtenemos
 
-{badge}`AIC, badge-primary`
+{bdg-primary}`AIC`
 
 ```{code-cell} ipython3
 :tags: ["hide-input",]
@@ -361,7 +365,7 @@ AIC = pd.DataFrame(
 AIC.style.highlight_min(axis=None)
 ```
 
-{badge}`BIC, badge-primary`
+{bdg-primary}`BIC`
 ```{code-cell} ipython3
 :tags: ["hide-input",]
 BIC = pd.DataFrame(
