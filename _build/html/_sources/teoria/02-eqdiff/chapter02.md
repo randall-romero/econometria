@@ -1,4 +1,0 @@
-# Ecuaciones en diferencia
-
-```{tableofcontents}
-```

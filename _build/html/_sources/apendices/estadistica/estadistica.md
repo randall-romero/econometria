@@ -1,1 +1,0 @@
-# Estadística y econometría
